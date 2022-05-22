@@ -11,6 +11,11 @@ public class Detect : MonoBehaviour
         Debug.Log("Press E to collect");
         gObj = collision.gameObject;
     }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        gObj = null;
+    }
     void OnInteract()
     {
         gObj.SetActive(false);
