@@ -9,22 +9,55 @@ public class Movement : MonoBehaviour
 
     private Rigidbody2D rb;
     private Vector2 playerInput;
-    // Start is called before the first frame update
+    private Animator anim;
+    private Inventory inventory;
+
+    private void Awake()
+    {
+        inventory = new Inventory();
+    }
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
+    void Update()
+    {
+        anim.SetFloat("hor", playerInput.x);
+        anim.SetFloat("ver", playerInput.y);
 
+        if(playerInput.x == 1 || playerInput.x == -1 || playerInput.y == 1 || playerInput.y == -1)
+        {
+            anim.SetFloat("old hor", playerInput.x);
+            anim.SetFloat("old ver", playerInput.y);
+        }
+    }
     void FixedUpdate()
     {
+        if (CanMove() == false)
+        {
+            return;
+        }
         rb.MovePosition(rb.position + playerInput * speed * Time.fixedDeltaTime);
+    }
+
+    bool CanMove()
+    {
+        bool move = true;
+        if (FindObjectOfType<Detect>().isExamining)
+        {
+            move = false;
+        }
+        if (FindObjectOfType<Inventory>().isOpen)
+        {
+            move = false;
+        }
+        return move;
     }
     void OnMove(InputValue value)
     {
         playerInput = value.Get<Vector2>();
     }
-
-    
+ 
 }
