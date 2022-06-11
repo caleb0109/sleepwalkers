@@ -11,6 +11,7 @@ public class Detect : MonoBehaviour
     public GameObject examineWindow;
     public Image examineImage;
     public Text examineText;
+    public Text examineTitle;
     public bool isExamining;
 
     // Start is called before the first frame update
@@ -36,6 +37,7 @@ public class Detect : MonoBehaviour
         {
             examineImage.sprite = item.GetComponent<SpriteRenderer>().sprite;
             examineText.text = item.descriptionText;
+            examineTitle.text = item.name;
             examineWindow.SetActive(true);
             isExamining = true;
         }

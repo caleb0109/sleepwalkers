@@ -54,19 +54,18 @@ public class Inventory : MonoBehaviour
         ui_Window.SetActive(isOpen);
     }
 
+    //need to figure this part out later
     public void InvenDescription(int id)
     {
         descriptionImage.sprite = item_images[id].sprite;
         descriptionText.text = items[id].GetComponent<Item>().descriptionText;
 
-        descriptionImage.gameObject.SetActive(true);
-        descriptionText.gameObject.SetActive(true);
+        ui_description.gameObject.SetActive(true);
     }
 
     public void HideDescription()
     {
-        descriptionImage.gameObject.SetActive(false);
-        descriptionText.gameObject.SetActive(false);
+        ui_description.gameObject.SetActive(false);
     }
 
     void OnOpenInven()
