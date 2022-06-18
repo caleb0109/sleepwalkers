@@ -24,13 +24,20 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
-        anim.SetFloat("hor", playerInput.x);
-        anim.SetFloat("ver", playerInput.y);
-
-        if(playerInput.x == 1 || playerInput.x == -1 || playerInput.y == 1 || playerInput.y == -1)
+        if (CanMove() == false)
         {
-            anim.SetFloat("old hor", playerInput.x);
-            anim.SetFloat("old ver", playerInput.y);
+            return;
+        }
+        else
+        {
+            anim.SetFloat("hor", playerInput.x);
+            anim.SetFloat("ver", playerInput.y);
+
+            if (playerInput.x == 1 || playerInput.x == -1 || playerInput.y == 1 || playerInput.y == -1)
+            {
+                anim.SetFloat("old hor", playerInput.x);
+                anim.SetFloat("old ver", playerInput.y);
+            }
         }
     }
     void FixedUpdate()

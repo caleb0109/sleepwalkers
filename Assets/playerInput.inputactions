@@ -44,6 +44,22 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "OpenPhone",
+                    "type": "Button",
+                    "id": "d27c969c-2ae2-44fd-9c01-29b460e8aff9",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "OpenToDo",
+                    "type": "Button",
+                    "id": "59543396-43ce-4435-8af4-a78c49f00551",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -286,6 +302,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "OpenInven",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "337409ce-153f-47af-8c21-a9c5ef01b0b3",
+                    "path": "<Keyboard>/p",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OpenPhone",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "21b332c7-a2e5-480e-8b89-ca6b2fc5f7af",
+                    "path": "<Keyboard>/t",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OpenToDo",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
