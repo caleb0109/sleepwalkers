@@ -26,7 +26,7 @@ public class Detect : MonoBehaviour
         detectedObj = null;
     }
 
-    public void ExamineItem(Item item)
+    public void ExamineItem(Interactable item)
     {
         if(isExamining)
         {
@@ -45,6 +45,9 @@ public class Detect : MonoBehaviour
 
     void OnInteract()
     {
-        detectedObj.GetComponent<Item>().Interact();
+        if (detectedObj != null)
+        {
+            detectedObj.GetComponent<Interactable>().Interact();
+        }
     }
 }

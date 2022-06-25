@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class Movement : MonoBehaviour
 {
     public float speed = 5f;
+    public DialogueManager diaManager;
 
     private Rigidbody2D rb;
     private Vector2 playerInput;
@@ -60,11 +61,23 @@ public class Movement : MonoBehaviour
         {
             move = false;
         }
+        if (diaManager.isSpeaking)
+        {
+            move = false;
+        }
         return move;
     }
     void OnMove(InputValue value)
     {
         playerInput = value.Get<Vector2>();
     }
- 
+
+    // space bar pressed to get the next sentence
+    void OnContinueDialogue()
+    {
+        if (diaManager.isSpeaking)
+        {
+            diaManager.DisplayNextSentence();
+        }
+    }
 }

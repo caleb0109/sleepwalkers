@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class StartButtons : MonoBehaviour
 {
-    public string name;
+    public string buttonName;
     public Button button;
 
     // Start is called before the first frame update
@@ -18,10 +18,10 @@ public class StartButtons : MonoBehaviour
     // switches to specific scene associated with button names
     private void SceneSwitching()
     {
-        switch (name)
+        switch (buttonName)
         {
             case "New Game":
-                SceneManager.LoadSceneAsync("Test");
+                SceneManager.LoadSceneAsync("Police Room");
                 break;
             case "Load Game":
                 break;
