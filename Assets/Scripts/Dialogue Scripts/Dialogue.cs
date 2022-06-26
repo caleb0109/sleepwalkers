@@ -6,8 +6,10 @@ using UnityEngine;
 public class Dialogue
 {
     public string name;
-    public Sprite npcSprite;
+    public Sprite sprite;
 
     [TextArea(3, 10)]
-    public string[] sentences;
+    public string[] sentences; // used for interactions with items
+
+
 }

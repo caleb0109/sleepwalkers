@@ -28,7 +28,7 @@ public class DialogueManager : MonoBehaviour
 
         isSpeaking = true;
         nameText.text = dia.name;
-        npcImage.sprite = dia.npcSprite;
+        npcImage.sprite = dia.sprite;
         
         // clears the queue of sentences if there are any
         if (sentences != null)
