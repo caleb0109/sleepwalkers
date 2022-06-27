@@ -1,0 +1,9 @@
+Thugs,Yuichi
+Boss is losin' their patience.
+Stop resisting.
+It's only gonna hurt more if you keep resistin'.
+Ain't ya tired?
+D|T|All right boys, we got'em. Let the boss know.
+D|Y|No... you can't take me back there.
+D|T|Too late, sweet dreams.
+S|Y|Alright, let's climb that ladder before the rest of them corner me.

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class NpcDialogueTrigger : MonoBehaviour
+public class DialogueTrigger : MonoBehaviour
 {
     public Dialogue dialogue;
 

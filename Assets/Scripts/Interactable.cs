@@ -11,6 +11,7 @@ public class Interactable : MonoBehaviour
         NONE,
         PickUp,
         Examine,
+        Search,
         Npc
     }
 
@@ -30,11 +31,24 @@ public class Interactable : MonoBehaviour
 
     public string descriptionText;
 
+    public Sprite afterInteract;
+
+    private SpriteRenderer spriteRender; // used to change sprites for InteractableType.Search
+    private bool interacted;
+    private string alreadyInteracted;
+
     //public UnityEvent customEvent;
+
+    private void Start()
+    {
+        spriteRender = this.gameObject.GetComponent<SpriteRenderer>();
+        interacted = false;
+        alreadyInteracted = "I already searched that.";
+    }
 
     public void Interact()
     {
-        switch(type)
+        switch (type)
         {
             case InteractableType.PickUp:
                 FindObjectOfType<Inventory>().PickUp(gameObject);
@@ -51,7 +65,35 @@ public class Interactable : MonoBehaviour
                 break;
 
             case InteractableType.Npc:
-                FindObjectOfType<NpcDialogueTrigger>().TriggerDialogue();
+                FindObjectOfType<DialogueTrigger>().TriggerDialogue();
+                break;
+
+            case InteractableType.Search:
+
+                if (!interacted) // prevents player from continuiously searching the same thing
+                {
+                    // if it contains an item, then add item to inventory
+                    if (itemName != "")
+                    {
+                        FindObjectOfType<Inventory>().PickUp(gameObject);
+                        FindObjectOfType<NotificationManager>().NotifyUpdates(this);
+                    }
+
+                    // if there's a sprite for after interaction, then change the current sprite
+                    if (afterInteract != null)
+                    {
+                        spriteRender.sprite = afterInteract;
+                    }
+
+                    interacted = true;
+                }
+                else if (this.gameObject.GetComponent<DialogueTrigger>().dialogue.sentences.Length > 1) // only changes the line once
+                {
+                    this.gameObject.GetComponent<DialogueTrigger>().dialogue.sentences = new string[] { alreadyInteracted };
+                }
+
+                FindObjectOfType<DialogueTrigger>().TriggerDialogue(); // say something about the search
+
                 break;
 
             default:
