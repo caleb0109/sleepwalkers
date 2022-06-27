@@ -14,9 +14,19 @@ public class Interactable : MonoBehaviour
         Npc
     }
 
+    public enum NotificationType
+    {
+        item,
+        article,
+        task,
+        none
+    }
+
     public string itemName;
 
     public InteractableType type;
+
+    public NotificationType notifType;
 
     public string descriptionText;
 
@@ -28,6 +38,7 @@ public class Interactable : MonoBehaviour
         {
             case InteractableType.PickUp:
                 FindObjectOfType<Inventory>().PickUp(gameObject);
+                FindObjectOfType<NotificationManager>().NotifyUpdates(this);
                 gameObject.SetActive(false);
                 break;
 

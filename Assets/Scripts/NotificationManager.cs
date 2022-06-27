@@ -5,32 +5,13 @@ using UnityEngine.UI;
 
 public class NotificationManager : MonoBehaviour
 {
-    enum NotificationType
-    {
-        item,
-        article,
-        task,
-        none
-    }
 
     public Text notification;
     public Text title;
+    public Sprite sprite;
     public Animator animator;
 
-    private NotificationType type;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        type = NotificationType.none;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    // sends in the notifcation to the player of picked up item
     public void NotifyUpdates(Interactable interacted)
     {
         animator.SetBool("IsOpen", true);
@@ -39,19 +20,19 @@ public class NotificationManager : MonoBehaviour
         StopAllCoroutines();
         StartCoroutine(NotificationTimer());
 
-        switch(type)
+        switch(interacted.notifType)
         {
-            case NotificationType.article:
+            case Interactable.NotificationType.article:
                 notification.text = "New Article Added to Notes";
                 title.text = interacted.itemName;
                 break;
 
-            case NotificationType.item:
+            case Interactable.NotificationType.item:
                 notification.text = "New Item Added to Inventory";
                 title.text = interacted.itemName;
                 break;
 
-            case NotificationType.task:
+            case Interactable.NotificationType.task:
                 notification.text = "To-do list Updated";
                 break;
         }
@@ -60,7 +41,18 @@ public class NotificationManager : MonoBehaviour
     // used to close the notification UI
     IEnumerator NotificationTimer()
     {
+        float duration = 3f;
+        while(duration > 0f)
+        {
+            duration -= Time.deltaTime;
+            animator.SetFloat("Timer", duration);
 
-        yield return null;
+            if (animator.GetFloat("Timer") < 1f)
+            {
+                animator.SetBool("IsOpen", false);
+            }
+
+            yield return null;
+        }
     }
 }

@@ -340,7 +340,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -121.3, y: 1.1307}
+  m_AnchoredPosition: {x: -123.3, y: 0.0000087023}
   m_SizeDelta: {x: 44.2358, y: 44.2359}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &262280195
@@ -968,6 +968,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1576148202108643422, guid: 8e180dd114eee9e4f91230f5c5286b37, type: 3}
+      propertyPath: itemName
+      value: Croissant
+      objectReference: {fileID: 0}
     - target: {fileID: 6431574600539768482, guid: 8e180dd114eee9e4f91230f5c5286b37, type: 3}
       propertyPath: m_IsTrigger
       value: 1
@@ -1075,8 +1079,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 29.269814, y: -15}
-  m_SizeDelta: {x: 218.539, y: 30}
+  m_AnchoredPosition: {x: 26.3, y: -13.8}
+  m_SizeDelta: {x: 218.539, y: 20.987}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1297325741
 MonoBehaviour:
@@ -1091,7 +1095,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.7169812, g: 0.7169812, b: 0.7169812, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1100,11 +1104,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: a6fc3fe6ecada884194d46b6317fd7ed, type: 3}
-    m_FontSize: 15
+    m_FontSize: 17
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 1
-    m_MaxSize: 40
+    m_MinSize: 0
+    m_MaxSize: 219
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -1218,12 +1222,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
     name: Random
-    npcSprite: {fileID: 201538615760092092, guid: b4bc014b4d284994e97eb64f4c87d63d, type: 3}
+    sprite: {fileID: 201538615760092092, guid: b4bc014b4d284994e97eb64f4c87d63d, type: 3}
     sentences:
     - Hiya! How you doing?
     - Oh you! Hahaha!
     - Seeing you is like looking in a mirror except you're not red. Wait, why do
       we look the same??
+    diaFile: {fileID: 0}
 --- !u!212 &1428747786
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1303,6 +1308,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: 
   type: 3
+  notifType: 0
   descriptionText: A human?
 --- !u!1 &1533723644 stripped
 GameObject:
@@ -1544,8 +1550,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0183, y: 15.4}
-  m_SizeDelta: {x: 185.684, y: 24.8832}
+  m_AnchoredPosition: {x: 2.217, y: 11.88}
+  m_SizeDelta: {x: 199.97, y: 23.7609}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1838725579
 MonoBehaviour:
@@ -1569,7 +1575,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: a6fc3fe6ecada884194d46b6317fd7ed, type: 3}
-    m_FontSize: 20
+    m_FontSize: 18
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -1674,6 +1680,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   notification: {fileID: 1838725579}
   title: {fileID: 1297325741}
+  sprite: {fileID: 0}
   animator: {fileID: 2053280276}
 --- !u!114 &2110697131
 MonoBehaviour:
@@ -1710,6 +1717,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 808377927639853222, guid: c22372d868a7b9b46b442433084023ed, type: 3}
+      propertyPath: notifType
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1000824152680347298, guid: c22372d868a7b9b46b442433084023ed, type: 3}
       propertyPath: m_IsTrigger
       value: 1
@@ -1828,6 +1839,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1576148202108643422, guid: 8e180dd114eee9e4f91230f5c5286b37, type: 3}
+      propertyPath: itemName
+      value: Croissant
+      objectReference: {fileID: 0}
     - target: {fileID: 6431574600539768482, guid: 8e180dd114eee9e4f91230f5c5286b37, type: 3}
       propertyPath: m_IsTrigger
       value: 1
