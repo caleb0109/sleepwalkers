@@ -568,7 +568,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &472226808
 PrefabInstance:
@@ -1054,6 +1054,10 @@ PrefabInstance:
       propertyPath: itemName
       value: Croissant
       objectReference: {fileID: 0}
+    - target: {fileID: 1576148202108643422, guid: 8e180dd114eee9e4f91230f5c5286b37, type: 3}
+      propertyPath: interactType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6431574600539768482, guid: 8e180dd114eee9e4f91230f5c5286b37, type: 3}
       propertyPath: m_IsTrigger
       value: 1
@@ -1193,7 +1197,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 14d1386c831261a4bae14d2af7d5bcc4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1217,7 +1221,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1081153430
 MonoBehaviour:
@@ -1232,7 +1236,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: 
-  type: 3
+  interactType: 3
   notifType: 3
   descriptionText: 
   afterInteract: {fileID: 21300000, guid: 48e24643d3c28e44ab84ebad0dbc7667, type: 3}
@@ -1518,7 +1522,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1428747782}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.7, y: 2.21, z: 0}
+  m_LocalPosition: {x: -7.77, y: -3.55, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1537,9 +1541,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: 
-  type: 3
-  notifType: 0
-  descriptionText: A human?
+  interactType: 4
+  notifType: 3
+  descriptionText: 
   afterInteract: {fileID: 0}
 --- !u!1 &1533723644 stripped
 GameObject:
@@ -1952,6 +1956,10 @@ PrefabInstance:
       propertyPath: notifType
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 808377927639853222, guid: c22372d868a7b9b46b442433084023ed, type: 3}
+      propertyPath: interactType
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1000824152680347298, guid: c22372d868a7b9b46b442433084023ed, type: 3}
       propertyPath: m_IsTrigger
       value: 1
@@ -2073,6 +2081,10 @@ PrefabInstance:
     - target: {fileID: 1576148202108643422, guid: 8e180dd114eee9e4f91230f5c5286b37, type: 3}
       propertyPath: itemName
       value: Croissant
+      objectReference: {fileID: 0}
+    - target: {fileID: 1576148202108643422, guid: 8e180dd114eee9e4f91230f5c5286b37, type: 3}
+      propertyPath: interactType
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6431574600539768482, guid: 8e180dd114eee9e4f91230f5c5286b37, type: 3}
       propertyPath: m_IsTrigger

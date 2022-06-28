@@ -25,7 +25,7 @@ public class Interactable : MonoBehaviour
 
     public string itemName;
 
-    public InteractableType type;
+    public InteractableType interactType;
 
     public NotificationType notifType;
 
@@ -48,7 +48,7 @@ public class Interactable : MonoBehaviour
 
     public void Interact()
     {
-        switch (type)
+        switch (interactType)
         {
             case InteractableType.PickUp:
                 FindObjectOfType<Inventory>().PickUp(gameObject);
@@ -65,7 +65,7 @@ public class Interactable : MonoBehaviour
                 break;
 
             case InteractableType.Npc:
-                FindObjectOfType<DialogueTrigger>().TriggerDialogue();
+                this.gameObject.GetComponent<DialogueTrigger>().TriggerDialogue(); // used to get this specific trigger only
                 break;
 
             case InteractableType.Search:
