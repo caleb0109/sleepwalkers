@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: b4bc014b4d284994e97eb64f4c87d63d
+guid: bbb0c77e280d7394388a474dbe8e9251
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 201538615760092092
-    second: yuichi face_0
+      213: 6639126460929552292
+    second: textBox_0
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -94,13 +94,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: yuichi face_0
+      name: textBox_0
       rect:
         serializedVersion: 2
-        x: 12
-        y: 62
-        width: 128
-        height: 165
+        x: 62
+        y: 34
+        width: 1784
+        height: 330
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -108,8 +108,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cbb77e0ad420cc200800000000000000
-      internalID: 201538615760092092
+      spriteID: 4af2a92375ae22c50800000000000000
+      internalID: 6639126460929552292
       vertices: []
       indices: 
       edges: []

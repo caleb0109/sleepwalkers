@@ -58,7 +58,7 @@ public class Inventory : MonoBehaviour
     public void InvenDescription(int id)
     {
         descriptionImage.sprite = item_images[id].sprite;
-        descriptionText.text = items[id].GetComponent<Item>().descriptionText;
+        descriptionText.text = items[id].GetComponent<Interactable>().descriptionText;
 
         ui_description.gameObject.SetActive(true);
     }

@@ -12,7 +12,13 @@ EditorBuildSettings:
     path: Assets/Scenes/Settings.unity
     guid: 38d1c5d708d875d4a847cd784b28b15c
   - enabled: 1
-    path: Assets/Scenes/Test.unity
-    guid: f10b0bcc164661a4bbe47e23f63ff463
+    path: Assets/Scenes/Police Room.unity
+    guid: e92ed56fd8aa4024488409213b49124b
+  - enabled: 1
+    path: Assets/Scenes/Loading.unity
+    guid: 2b6dca0404b43ca4ea8cb2d2797d949b
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: 67da59cdf8f3c4c4b9b5c060a503f286
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 5e792ed6352fbf64badd85a153c4e023, type: 2}
