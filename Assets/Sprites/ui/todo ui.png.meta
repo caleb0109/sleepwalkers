@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 1188453a91a5e6b44ba0b0231da365eb
+guid: 6d7ef72b591300b40a93388fa9749c07
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2691462778676479131
-    second: phone notes screen2_0
+      213: -4492571722678645502
+    second: todo ui_0
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -94,22 +94,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: phone notes screen2_0
+      name: todo ui_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1400
-        height: 2640
+        x: 15
+        y: 58
+        width: 112
+        height: 63
       alignment: 0
       pivot: {x: 0, y: 0}
-      border: {x: 77, y: 2316, z: 91, w: 194}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 56b7dcedcd006aad0800000000000000
-      internalID: -2691462778676479131
+      spriteID: 20d46c522dd27a1c0800000000000000
+      internalID: -4492571722678645502
       vertices: []
       indices: 
       edges: []
