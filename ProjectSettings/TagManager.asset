@@ -41,11 +41,17 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: shadow
+    uniqueID: 3205049653
+    locked: 0
   - name: map
     uniqueID: 1829547729
     locked: 0
   - name: blocks
     uniqueID: 3332269223
+    locked: 0
+  - name: Front Block
+    uniqueID: 1297402239
     locked: 0
   - name: player
     uniqueID: 580755223
