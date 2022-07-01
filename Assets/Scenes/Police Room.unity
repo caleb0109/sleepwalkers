@@ -940,6 +940,7 @@ GameObject:
   - component: {fileID: 905858074}
   - component: {fileID: 905858076}
   - component: {fileID: 905858075}
+  - component: {fileID: 905858077}
   m_Layer: 0
   m_Name: evidence box closed (2)
   m_TagString: Untagged
@@ -1024,10 +1025,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2ef23bc9ed8eb448b3ba80c79078c9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: 
-  type: 2
+  itemName: Bloodied Knife
+  interactType: 3
   notifType: 0
-  descriptionText: This file box has some important things
+  descriptionText: 
+  afterInteract: {fileID: 21300000, guid: 48e24643d3c28e44ab84ebad0dbc7667, type: 3}
 --- !u!61 &905858076
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1054,6 +1056,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.8637428, y: 1.2702684}
   m_EdgeRadius: 0
+--- !u!114 &905858077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 905858072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02c11395f6ced3e4f9c12040e691e298, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Yuichi
+    sprite: {fileID: 201538615760092092, guid: b4bc014b4d284994e97eb64f4c87d63d, type: 3}
+    sentences:
+    - "A knife? And it still has the blood stains. Thank you\u2026 \u2018Sleepwalking
+      Killer\u2019? "
+    diaFile: {fileID: 0}
 --- !u!1 &954358081
 GameObject:
   m_ObjectHideFlags: 0
@@ -1066,6 +1087,7 @@ GameObject:
   - component: {fileID: 954358085}
   - component: {fileID: 954358084}
   - component: {fileID: 954358083}
+  - component: {fileID: 954358086}
   m_Layer: 0
   m_Name: evidence box closed
   m_TagString: Untagged
@@ -1100,9 +1122,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: 
-  type: 2
-  notifType: 0
-  descriptionText: This file box has some important things
+  interactType: 3
+  notifType: 3
+  descriptionText: 
+  afterInteract: {fileID: 21300000, guid: 48e24643d3c28e44ab84ebad0dbc7667, type: 3}
 --- !u!61 &954358084
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1180,6 +1203,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &954358086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 954358081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02c11395f6ced3e4f9c12040e691e298, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Yuichi
+    sprite: {fileID: 201538615760092092, guid: b4bc014b4d284994e97eb64f4c87d63d, type: 3}
+    sentences:
+    - Huh, long brown hair.
+    - 'The ends looked burnt and the dye looks familiar. '
+    - "Weird, wonder who\u2019s hair this is.\r"
+    diaFile: {fileID: 0}
 --- !u!1 &959678458
 GameObject:
   m_ObjectHideFlags: 0
@@ -1891,6 +1934,7 @@ GameObject:
   - component: {fileID: 1676504644}
   - component: {fileID: 1676504646}
   - component: {fileID: 1676504645}
+  - component: {fileID: 1676504647}
   m_Layer: 0
   m_Name: evidence box closed (1)
   m_TagString: Untagged
@@ -1976,9 +2020,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: 
-  type: 2
-  notifType: 0
-  descriptionText: This file box has some important things
+  interactType: 3
+  notifType: 3
+  descriptionText: 
+  afterInteract: {fileID: 21300000, guid: 48e24643d3c28e44ab84ebad0dbc7667, type: 3}
 --- !u!61 &1676504646
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2005,6 +2050,26 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.5472507, y: 1.1755304}
   m_EdgeRadius: 0
+--- !u!114 &1676504647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1676504642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02c11395f6ced3e4f9c12040e691e298, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Yuichi
+    sprite: {fileID: 201538615760092092, guid: b4bc014b4d284994e97eb64f4c87d63d, type: 3}
+    sentences:
+    - 'Ooo a gun, this could come in handy. '
+    - '*checks magazine*'
+    - ' IF it were loaded.'
+    diaFile: {fileID: 0}
 --- !u!1 &1782083794
 GameObject:
   m_ObjectHideFlags: 0
