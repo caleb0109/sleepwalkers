@@ -59,3 +59,6 @@ TagManager:
   - name: behind
     uniqueID: 1412746011
     locked: 0
+  - name: lighting
+    uniqueID: 1589671821
+    locked: 0

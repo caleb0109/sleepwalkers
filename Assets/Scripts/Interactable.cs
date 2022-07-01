@@ -87,12 +87,12 @@ public class Interactable : MonoBehaviour
 
                     interacted = true;
                 }
-                else if (this.gameObject.GetComponent<DialogueTrigger>().dialogue.sentences.Length > 1) // only changes the line once
+                else if (this.gameObject.GetComponent<DialogueTrigger>().dialogue.sentences.Length > 0) // only changes the line once
                 {
                     this.gameObject.GetComponent<DialogueTrigger>().dialogue.sentences = new string[] { alreadyInteracted };
                 }
 
-                FindObjectOfType<DialogueTrigger>().TriggerDialogue(); // say something about the search
+                this.gameObject.GetComponent<DialogueTrigger>().TriggerDialogue(); // say something about the search
 
                 break;
 
