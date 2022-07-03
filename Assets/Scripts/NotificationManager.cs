@@ -10,31 +10,52 @@ public class NotificationManager : MonoBehaviour
     public Text title;
     public Sprite sprite;
     public Animator animator;
+    public AudioSource notifFx;
+
+    private Queue<Interactable> itemQueue;
+
+    private void Start()
+    {
+        itemQueue = new Queue<Interactable>();
+    }
 
     // sends in the notifcation to the player of picked up item
     public void NotifyUpdates(Interactable interacted)
     {
-        animator.SetBool("IsOpen", true);
-
-        // used to keep track of how long notification has been on screen and send the notification away
-        StopAllCoroutines();
-        StartCoroutine(NotificationTimer());
-
-        switch(interacted.notifType)
+        if (animator.GetBool("IsOpen"))
         {
-            case Interactable.NotificationType.article:
-                notification.text = "New Article Added to Notes";
-                title.text = interacted.itemName;
-                break;
+            itemQueue.Enqueue(interacted);
+        }
+        else
+        {
+            animator.SetBool("IsOpen", true);
+            //notifFx.PlayClipAtPoint(notifFx.clip, interacted.transform.position);
 
-            case Interactable.NotificationType.item:
-                notification.text = "New Item Added to Inventory";
-                title.text = interacted.itemName;
-                break;
+            // used to keep track of how long notification has been on screen and send the notification away
+            StopAllCoroutines();
+            StartCoroutine(NotificationTimer());
 
-            case Interactable.NotificationType.task:
-                notification.text = "To-do list Updated";
-                break;
+            switch (interacted.notifType)
+            {
+                case Interactable.NotificationType.article:
+                    notification.text = "New Article Added to Notes";
+                    title.text = interacted.itemName;
+                    break;
+
+                case Interactable.NotificationType.item:
+                    notification.text = "New Item Added to Inventory";
+                    title.text = interacted.itemName;
+                    break;
+
+                case Interactable.NotificationType.removed:
+                    notification.text = "Item removed from Inventory";
+                    title.text = interacted.itemName; // temp
+                    break;
+
+                case Interactable.NotificationType.task:
+                    notification.text = "To-do list Updated";
+                    break;
+            }
         }
     }
 
@@ -53,6 +74,12 @@ public class NotificationManager : MonoBehaviour
             }
 
             yield return null;
+        }
+
+        // if there other notifications needed to show up
+        if (itemQueue.Count > 0)
+        {
+            NotifyUpdates(itemQueue.Dequeue());
         }
     }
 }

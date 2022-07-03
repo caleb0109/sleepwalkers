@@ -7,6 +7,7 @@ public class Movement : MonoBehaviour
 {
     public float speed = 5f;
     public DialogueManager diaManager;
+    public GameObject phoneWindow;
 
     private Rigidbody2D rb;
     private Vector2 playerInput;
@@ -79,5 +80,10 @@ public class Movement : MonoBehaviour
         {
             diaManager.DisplayNextSentence();
         }
+    }
+
+    void OnOpenPhone()
+    {
+        phoneWindow.SetActive(!phoneWindow.activeInHierarchy); // toggles phone open screen with TAB button
     }
 }

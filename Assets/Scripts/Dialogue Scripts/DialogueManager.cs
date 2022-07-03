@@ -9,13 +9,13 @@ public class DialogueManager : MonoBehaviour
 {
     public Text nameText;
     public Text dialogueText;
-    public Image npcImage;
+    public Image imgSprite;
     public Animator animator;
     public bool isSpeaking;
 
     private Queue<string> sentences;
+    private Dialogue dialogueHolder;
 
-    // Start is called before the first frame update
     void Start()
     {
         sentences = new Queue<string>();
@@ -24,22 +24,35 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dia)
     {
-        animator.SetBool("IsOpen", true);
+        dialogueHolder = dia;
 
+        animator.SetBool("IsOpen", true);
         isSpeaking = true;
-        nameText.text = dia.name;
-        npcImage.sprite = dia.sprite;
-        
+
         // clears the queue of sentences if there are any
         if (sentences != null)
         {
             sentences.Clear();
         }
 
-        // puts each sentence into the queue
-        foreach (string sent in dia.sentences)
+        // used to differentiate between multi character and single character dialogue
+        if (dia.diaFile)
         {
-            sentences.Enqueue(sent);
+            foreach (string sent in dia.CharaLines)
+            {
+                sentences.Enqueue(sent);
+            }
+        }
+        else
+        {
+            nameText.text = dia.name;
+            imgSprite.sprite = dia.sprite;
+
+            // puts each sentence into the queue
+            foreach (string sent in dia.sentences)
+            {
+                sentences.Enqueue(sent);
+            }
         }
 
         DisplayNextSentence(); // starts the first sentence
@@ -56,6 +69,24 @@ public class DialogueManager : MonoBehaviour
 
         // used to display the sentence and type out the letters
         string sentence = sentences.Dequeue();
+        
+        if (sentence.Contains("|"))
+        {
+            string[] split = sentence.Split('|');
+            sentence = split[1];
+
+            // look for the name and set the correct sprite and name for the line
+            for(int i = 0; i < dialogueHolder.CharaNames.Count; i++)
+            {
+                if (dialogueHolder.CharaNames[i].Contains(split[0]))
+                {
+                    nameText.text = dialogueHolder.CharaNames[i];
+                    imgSprite.sprite = dialogueHolder.charaSprites[i];
+                    break;
+                }
+            }
+        }
+
         StopAllCoroutines();
         StartCoroutine(TypeSentence(sentence));
     }

@@ -20,6 +20,7 @@ public class Interactable : MonoBehaviour
         item,
         article,
         task,
+        removed, // used for placing items, or removed items in general
         none
     }
 
@@ -37,6 +38,8 @@ public class Interactable : MonoBehaviour
     private bool interacted;
     private string alreadyInteracted;
 
+    private DialogueTrigger dia;
+
     //public UnityEvent customEvent;
 
     private void Start()
@@ -44,6 +47,7 @@ public class Interactable : MonoBehaviour
         spriteRender = this.gameObject.GetComponent<SpriteRenderer>();
         interacted = false;
         alreadyInteracted = "I already searched that.";
+        dia = this.gameObject.GetComponent<DialogueTrigger>();
     }
 
     public void Interact()
@@ -54,6 +58,12 @@ public class Interactable : MonoBehaviour
                 FindObjectOfType<Inventory>().PickUp(gameObject);
                 FindObjectOfType<NotificationManager>().NotifyUpdates(this);
                 gameObject.SetActive(false);
+
+                // say something only if there's dialogue attached to this item
+                if (dia)
+                {
+                    dia.TriggerDialogue();
+                }
                 break;
 
             case InteractableType.Examine:
@@ -65,7 +75,7 @@ public class Interactable : MonoBehaviour
                 break;
 
             case InteractableType.Npc:
-                this.gameObject.GetComponent<DialogueTrigger>().TriggerDialogue(); // used to get this specific trigger only
+                dia.TriggerDialogue(); // used to get this specific trigger only
                 break;
 
             case InteractableType.Search:
@@ -87,12 +97,12 @@ public class Interactable : MonoBehaviour
 
                     interacted = true;
                 }
-                else if (this.gameObject.GetComponent<DialogueTrigger>().dialogue.sentences.Length > 0) // only changes the line once
+                else if (dia.dialogue.sentences.Length > 0) // only changes the line once
                 {
-                    this.gameObject.GetComponent<DialogueTrigger>().dialogue.sentences = new string[] { alreadyInteracted };
+                    dia.dialogue.sentences = new string[] { alreadyInteracted };
                 }
 
-                this.gameObject.GetComponent<DialogueTrigger>().TriggerDialogue(); // say something about the search
+                dia.TriggerDialogue(); // say something about the search
 
                 break;
 
