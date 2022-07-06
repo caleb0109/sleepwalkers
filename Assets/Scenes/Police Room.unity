@@ -330,7 +330,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: Yuichi
     sprite: {fileID: 201538615760092092, guid: b4bc014b4d284994e97eb64f4c87d63d, type: 3}
     sentences:
     - The door's not going to hold for long, I need to find a way out of here.
@@ -375,6 +374,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: 
+  searchItemSprite: {fileID: 0}
   interactType: 4
   notifType: 4
   descriptionText: 
@@ -692,6 +692,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: 
+  searchItemSprite: {fileID: 0}
   interactType: 4
   notifType: 4
   descriptionText: 
@@ -709,7 +710,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: Yuichi
     sprite: {fileID: 201538615760092092, guid: b4bc014b4d284994e97eb64f4c87d63d, type: 3}
     sentences:
     - I could use something to climb to the window above this file cabinet.
@@ -1328,6 +1328,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: 
+  searchItemSprite: {fileID: 0}
   interactType: 3
   notifType: 3
   descriptionText: 
@@ -1371,7 +1372,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: Yuichi
     sprite: {fileID: 201538615760092092, guid: b4bc014b4d284994e97eb64f4c87d63d, type: 3}
     sentences:
     - 'Ooo a gun, this could come in handy. '
@@ -1426,6 +1426,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: 
+  searchItemSprite: {fileID: 0}
   interactType: 3
   notifType: 3
   descriptionText: 
@@ -1520,7 +1521,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: Yuichi
     sprite: {fileID: 201538615760092092, guid: b4bc014b4d284994e97eb64f4c87d63d, type: 3}
     sentences:
     - Huh, long brown hair.
@@ -2303,9 +2303,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: Bloodied Knife
+  searchItemSprite: {fileID: 21300000, guid: 7574051de2670b64085c39d679eb6b8a, type: 3}
   interactType: 3
   notifType: 0
-  descriptionText: 
+  descriptionText: A kitchen knife with dried blood on it. The police report mentioned
+    something about a husband killing his wife while sleepwalking.
   afterInteract: {fileID: 21300000, guid: 48e24643d3c28e44ab84ebad0dbc7667, type: 3}
 --- !u!61 &1676504646
 BoxCollider2D:
@@ -2346,7 +2348,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: Yuichi
     sprite: {fileID: 201538615760092092, guid: b4bc014b4d284994e97eb64f4c87d63d, type: 3}
     sentences:
     - "A knife? And it still has the blood stains. Thank you\u2026 \u2018Sleepwalking
@@ -2400,7 +2401,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: Yuichi
     sprite: {fileID: 201538615760092092, guid: b4bc014b4d284994e97eb64f4c87d63d, type: 3}
     sentences:
     - I can use this for something
@@ -2419,6 +2419,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: Ladder
+  searchItemSprite: {fileID: 0}
   interactType: 1
   notifType: 0
   descriptionText: 

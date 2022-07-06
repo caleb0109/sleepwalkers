@@ -27,6 +27,8 @@ public class Interactable : MonoBehaviour
 
     public string itemName;
 
+    public Sprite searchItemSprite; // item sprite that goes with the search
+
     public InteractableType interactType;
 
     public NotificationType notifType;
@@ -87,7 +89,7 @@ public class Interactable : MonoBehaviour
                     // if it contains an item, then add item to inventory
                     if (itemName != "")
                     {
-                        FindObjectOfType<Inventory>().PickUp(gameObject);
+                        FindObjectOfType<Inventory>().CollectItem(gameObject, searchItemSprite);
                         FindObjectOfType<NotificationManager>().NotifyUpdates(this);
                     }
 

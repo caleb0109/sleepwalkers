@@ -78,4 +78,12 @@ public class Inventory : MonoBehaviour
     {
 
     }
+
+    // used for getting items from SEARCHING
+    public void CollectItem(GameObject itemHost, Sprite itemSprite)
+    {
+        itemHost.GetComponent<SpriteRenderer>().sprite = itemSprite; // changes the sprite in the inventory view
+        items.Add(itemHost);
+        Update_UI();
+    }
 }
