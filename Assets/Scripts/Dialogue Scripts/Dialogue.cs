@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class Dialogue
 {
-    public string name;
+    private string name; // set the default to Yuichi, since we only use this for him
     public Sprite sprite;
 
     [TextArea(3, 10)]
@@ -21,13 +21,15 @@ public class Dialogue
     #region Properties
     public List<string> CharaNames { get { return charaNames; } }
     public List<string> CharaLines { get { return charaLines; } }
+    public string Name { get { return name; } }
     #endregion
 
     public void Start()
     {
+        name = "Yuichi";
+
         if (diaFile) // if there's a file attached, load it
         {
-
             charaNames = new List<string>();
             charaLines = new List<string>();
             LoadDialogueFile();

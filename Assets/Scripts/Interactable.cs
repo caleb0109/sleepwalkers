@@ -12,7 +12,8 @@ public class Interactable : MonoBehaviour
         PickUp,
         Examine,
         Search,
-        Npc
+        Npc,
+        Talking // used for Yuichi to talk to himself
     }
 
     public enum NotificationType
@@ -74,6 +75,7 @@ public class Interactable : MonoBehaviour
                 FindObjectOfType<Detect>().ExamineItem(this);
                 break;
 
+            case InteractableType.Talking:
             case InteractableType.Npc:
                 dia.TriggerDialogue(); // used to get this specific trigger only
                 break;

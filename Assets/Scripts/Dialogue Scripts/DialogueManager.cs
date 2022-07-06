@@ -45,7 +45,7 @@ public class DialogueManager : MonoBehaviour
         }
         else
         {
-            nameText.text = dia.name;
+            nameText.text = dia.Name;
             imgSprite.sprite = dia.sprite;
 
             // puts each sentence into the queue

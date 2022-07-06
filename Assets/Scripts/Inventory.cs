@@ -72,4 +72,10 @@ public class Inventory : MonoBehaviour
     {
         InvenOn();
     }
+
+    // look for a specific item that goes with the requirement
+    public void SearchInventory(GameObject reqItem)
+    {
+
+    }
 }

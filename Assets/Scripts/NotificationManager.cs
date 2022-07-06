@@ -29,7 +29,6 @@ public class NotificationManager : MonoBehaviour
         else
         {
             animator.SetBool("IsOpen", true);
-            //notifFx.PlayClipAtPoint(notifFx.clip, interacted.transform.position);
 
             // used to keep track of how long notification has been on screen and send the notification away
             StopAllCoroutines();
