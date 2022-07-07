@@ -25,13 +25,20 @@ public class Interactable : MonoBehaviour
         none
     }
 
+    public enum Item
+    {
+        Useable,
+        Weapon,
+        Food
+    }
+
     public string itemName;
 
     public Sprite searchItemSprite; // item sprite that goes with the search
 
     public InteractableType interactType;
-
     public NotificationType notifType;
+    public Item itemType;
 
     public string descriptionText;
 
@@ -67,6 +74,7 @@ public class Interactable : MonoBehaviour
                 {
                     dia.TriggerDialogue();
                 }
+
                 break;
 
             case InteractableType.Examine:
@@ -114,7 +122,5 @@ public class Interactable : MonoBehaviour
                 break;
         }
         //customEvent.Invoke();
-    }
-
-    
+    }    
 }

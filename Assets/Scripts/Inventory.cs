@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-
-
-    // Start is called before the first frame update
     private List<GameObject> items = new List<GameObject>();
+
+    // hold the sprites for the items without needing to getComponent each time and overwrite the SEARCH items
+    private List<Sprite> itemSprites = new List<Sprite>(); 
 
     public bool isOpen;
 
@@ -18,20 +18,24 @@ public class Inventory : MonoBehaviour
     public GameObject ui_description;
     public Image descriptionImage;
     public Text descriptionText;
+    public Text itemTitle;
 
     public void PickUp(GameObject item)
     {
         items.Add(item);
+        itemSprites.Add(item.GetComponent<SpriteRenderer>().sprite);
+
+
         Update_UI();
     }
 
     void Update_UI()
     {
-        HideAll();
+        //HideAll();
 
         for(int i = 0; i < items.Count; i++)
         {
-            item_images[i].sprite = items[i].GetComponent<SpriteRenderer>().sprite;
+            item_images[i].sprite = itemSprites[i];
             item_images[i].gameObject.SetActive(true);
         }
     }
@@ -54,13 +58,16 @@ public class Inventory : MonoBehaviour
         ui_Window.SetActive(isOpen);
     }
 
-    //need to figure this part out later
-    public void InvenDescription(int id)
+    public void DisplayItemInfo(int id)
     {
-        descriptionImage.sprite = item_images[id].sprite;
-        descriptionText.text = items[id].GetComponent<Interactable>().descriptionText;
+        if (items.Count > 0)
+        {
+            descriptionImage.sprite = item_images[id].sprite;
+            descriptionText.text = items[id].GetComponent<Interactable>().descriptionText;
+            itemTitle.text = items[id].GetComponent<Interactable>().itemName;
 
-        ui_description.gameObject.SetActive(true);
+            ui_description.gameObject.SetActive(true);
+        }
     }
 
     public void HideDescription()
@@ -74,7 +81,7 @@ public class Inventory : MonoBehaviour
     }
 
     // look for a specific item that goes with the requirement
-    public void SearchInventory(GameObject reqItem)
+    public void UseItem(GameObject reqItem)
     {
 
     }
@@ -84,6 +91,7 @@ public class Inventory : MonoBehaviour
     {
         itemHost.GetComponent<SpriteRenderer>().sprite = itemSprite; // changes the sprite in the inventory view
         items.Add(itemHost);
+        itemSprites.Add(itemSprite);
         Update_UI();
     }
 }

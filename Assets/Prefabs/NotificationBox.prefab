@@ -34,8 +34,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -123.3, y: 0.0000087023}
-  m_SizeDelta: {x: 44.2358, y: 44.2359}
+  m_AnchoredPosition: {x: -123.35, y: 1.2845}
+  m_SizeDelta: {x: 51.156, y: 51.156}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1643474676058811068
 CanvasRenderer:
@@ -188,7 +188,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.217, y: 11.88}
+  m_AnchoredPosition: {x: 7.4, y: 11.88}
   m_SizeDelta: {x: 199.97, y: 23.7609}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1643474676563789684
@@ -364,8 +364,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   notification: {fileID: 1643474676563789683}
   title: {fileID: 1643474677087363093}
-  sprite: {fileID: 0}
+  iconContainer: {fileID: 1643474676058811067}
+  icons:
+  - {fileID: 21300000, guid: acf6ee5764d38224c9e86534f4b2d01f, type: 3}
+  - {fileID: 21300000, guid: dcaba631951285d439096956b7aa006d, type: 3}
+  - {fileID: 21300000, guid: 31587cf85ca021b4580712a47d96ea84, type: 3}
   animator: {fileID: 1643474676767616172}
+  notifFx: {fileID: 0}
 --- !u!95 &1643474676767616172
 Animator:
   serializedVersion: 3

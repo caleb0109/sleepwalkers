@@ -8,7 +8,8 @@ public class NotificationManager : MonoBehaviour
 
     public Text notification;
     public Text title;
-    public Sprite sprite;
+    public Image iconContainer;
+    public Sprite[] icons;
     public Animator animator;
     public AudioSource notifFx;
 
@@ -39,16 +40,19 @@ public class NotificationManager : MonoBehaviour
                 case Interactable.NotificationType.article:
                     notification.text = "New Article Added to Notes";
                     title.text = interacted.itemName;
+                    iconContainer.sprite = icons[0]; // notes icon
                     break;
 
                 case Interactable.NotificationType.item:
                     notification.text = "New Item Added to Inventory";
                     title.text = interacted.itemName;
+                    iconContainer.sprite = icons[1]; // inventory icon
                     break;
 
                 case Interactable.NotificationType.removed:
                     notification.text = "Item removed from Inventory";
                     title.text = interacted.itemName; // temp
+                    iconContainer.sprite = icons[1];
                     break;
 
                 case Interactable.NotificationType.task:

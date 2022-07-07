@@ -58,14 +58,22 @@ public class Movement : MonoBehaviour
         {
             move = false;
         }
+
         if (FindObjectOfType<Inventory>().isOpen)
         {
             move = false;
         }
+
         if (diaManager.isSpeaking)
         {
             move = false;
         }
+
+        if (phoneWindow.activeInHierarchy)
+        {
+            move = false;
+        }
+
         return move;
     }
     void OnMove(InputValue value)
@@ -84,6 +92,17 @@ public class Movement : MonoBehaviour
 
     void OnOpenPhone()
     {
+        for (int i = 0; i < phoneWindow.transform.childCount; i++)
+        {
+            GameObject child = phoneWindow.transform.GetChild(i).gameObject;
+
+            // if any of the children are active, turn them off
+            if (child.activeInHierarchy && child.name != "phone")
+            {
+                child.SetActive(false);
+            }
+        }
+
         phoneWindow.SetActive(!phoneWindow.activeInHierarchy); // toggles phone open screen with TAB button
     }
 }
