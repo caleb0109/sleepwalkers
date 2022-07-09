@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 //using UnityEngine.Events;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class Interactable : MonoBehaviour
 {
@@ -18,15 +19,16 @@ public class Interactable : MonoBehaviour
 
     public enum NotificationType
     {
+        none,
         item,
         article,
         task,
-        removed, // used for placing items, or removed items in general
-        none
+        removed // used for placing items, or removed items in general
     }
 
     public enum Item
     {
+        None,
         Useable,
         Weapon,
         Food
@@ -62,6 +64,7 @@ public class Interactable : MonoBehaviour
 
     public void Interact()
     {
+
         switch (interactType)
         {
             case InteractableType.PickUp:

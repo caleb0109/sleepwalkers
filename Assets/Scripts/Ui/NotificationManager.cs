@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public class NotificationManager : MonoBehaviour
 {
@@ -10,14 +11,19 @@ public class NotificationManager : MonoBehaviour
     public Text title;
     public Image iconContainer;
     public Sprite[] icons;
-    public Animator animator;
-    public AudioSource notifFx;
+
+
+    private Animator animator;
+    private AudioSource notifFx;
 
     private Queue<Interactable> itemQueue;
 
     private void Start()
     {
         itemQueue = new Queue<Interactable>();
+
+        animator = this.gameObject.GetComponent<Animator>();
+        notifFx = this.gameObject.GetComponent<AudioSource>();
     }
 
     // sends in the notifcation to the player of picked up item
@@ -30,6 +36,8 @@ public class NotificationManager : MonoBehaviour
         else
         {
             animator.SetBool("IsOpen", true);
+
+            notifFx.Play();
 
             // used to keep track of how long notification has been on screen and send the notification away
             StopAllCoroutines();

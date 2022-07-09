@@ -8,9 +8,12 @@ public class Inventory : MonoBehaviour
     private List<GameObject> items = new List<GameObject>();
 
     // hold the sprites for the items without needing to getComponent each time and overwrite the SEARCH items
-    private List<Sprite> itemSprites = new List<Sprite>(); 
+    private List<Sprite> itemSprites = new List<Sprite>();
+
+    private Button[] promptBttns = new Button[2];
 
     public bool isOpen;
+    public GameObject prompt;
 
     public GameObject ui_Window;
     public Image[] item_images;
@@ -25,7 +28,6 @@ public class Inventory : MonoBehaviour
         items.Add(item);
         itemSprites.Add(item.GetComponent<SpriteRenderer>().sprite);
 
-
         Update_UI();
     }
 
@@ -33,10 +35,17 @@ public class Inventory : MonoBehaviour
     {
         //HideAll();
 
-        for(int i = 0; i < items.Count; i++)
+        for(int i = 0; i < item_images.Length; i++)
         {
-            item_images[i].sprite = itemSprites[i];
-            item_images[i].gameObject.SetActive(true);
+            if (i < items.Count && items.Count > 0)
+            {
+                item_images[i].sprite = itemSprites[i];
+                item_images[i].gameObject.SetActive(true);
+            } 
+            else
+            {
+                item_images[i].gameObject.SetActive(false);
+            }
         }
     }
 
@@ -58,16 +67,40 @@ public class Inventory : MonoBehaviour
         ui_Window.SetActive(isOpen);
     }
 
-    public void DisplayItemInfo(int id)
+    public void ShowPrompt(int id)
     {
-        if (items.Count > 0)
+        HideDescription();
+
+        if (items.Count > 0 && id < items.Count)
         {
+            prompt.transform.position = item_images[id].gameObject.transform.position;
+            prompt.SetActive(true);
+
             descriptionImage.sprite = item_images[id].sprite;
             descriptionText.text = items[id].GetComponent<Interactable>().descriptionText;
             itemTitle.text = items[id].GetComponent<Interactable>().itemName;
 
-            ui_description.gameObject.SetActive(true);
+            // sets the prompt buttons once
+            if (promptBttns[0] == null)
+            {
+                for (int i = 0; i < prompt.transform.childCount; i++)
+                {
+                    promptBttns[i] = prompt.transform.GetChild(i).GetComponent<Button>();
+                }
+
+                promptBttns[1].onClick.AddListener(DisplayItemInfo);
+            }
+
+            // remove any previous listeners and add a new one so the list isn't giant
+            promptBttns[0].onClick.RemoveAllListeners();
+            promptBttns[0].onClick.AddListener(() => UseItem(items[id], id));
         }
+    }
+
+    public void DisplayItemInfo()
+    {
+        ui_description.gameObject.SetActive(true);
+        HidePrompt();
     }
 
     public void HideDescription()
@@ -80,12 +113,61 @@ public class Inventory : MonoBehaviour
         InvenOn();
     }
 
-    // look for a specific item that goes with the requirement
-    public void UseItem(GameObject reqItem)
+    public void HidePrompt()
     {
-
+        prompt.SetActive(false);
     }
 
+    // look for a specific item that goes with the requirement
+    public void UseItem(GameObject reqItem, int listLoc)
+    {
+        Interactable item = reqItem.GetComponent<Interactable>();
+        Movement playerMove = FindObjectOfType<Movement>();
+        Detect detection = FindObjectOfType<Detect>();
+
+        Dialogue use = new Dialogue();
+        use.sprite = reqItem.GetComponent<DialogueTrigger>().dialogue.sprite;
+
+
+        HidePrompt();
+
+        // if the item is useable or food
+        if (item.itemType == Interactable.Item.Useable || item.itemType == Interactable.Item.Food)
+        {
+            // if in the correct area, remove item and use it
+            if (detection.CheckCorrectArea(item))
+            {
+                item.notifType = Interactable.NotificationType.removed;
+
+                FindObjectOfType<NotificationManager>().NotifyUpdates(item);
+
+                // remove from inventory
+                items.Remove(reqItem);
+                itemSprites.RemoveAt(listLoc);
+
+                Update_UI();
+
+                playerMove.OnOpenPhone();
+            }
+            else
+            {
+                // turn off phone and mention that player can't use it in the certain area
+                playerMove.OnOpenPhone();
+
+                use.sentences = new string[] {"Can't use the " + item.itemName + " here."};
+
+                FindObjectOfType<DialogueManager>().StartDialogue(use);
+            }
+        }
+        else
+        {
+            // turn off phone and mention that player can't use it in the certain area
+            playerMove.OnOpenPhone();
+            use.sentences = new string[] {"I rather save this for when I really need it."};
+            FindObjectOfType<DialogueManager>().StartDialogue(use);
+        }
+    }
+    
     // used for getting items from SEARCHING
     public void CollectItem(GameObject itemHost, Sprite itemSprite)
     {

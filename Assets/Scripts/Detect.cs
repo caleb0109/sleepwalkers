@@ -43,6 +43,14 @@ public class Detect : MonoBehaviour
         }
     }
 
+
+    // checks if this is where the item needs to be used
+    public bool CheckCorrectArea(Interactable i)
+    {
+
+        return false;
+    }
+
     void OnInteract()
     {
         if (detectedObj != null)

@@ -90,7 +90,7 @@ public class Movement : MonoBehaviour
         }
     }
 
-    void OnOpenPhone()
+    public void OnOpenPhone()
     {
         for (int i = 0; i < phoneWindow.transform.childCount; i++)
         {
