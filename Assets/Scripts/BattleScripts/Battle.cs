@@ -87,22 +87,31 @@ public class Battle : MonoBehaviour
         {
             player.gameObject.SetActive(false);
             walls.SetActive(false);
-
-            if (player.GetComponent<PlayerHealth>().health < 0)
-            {
-               state = BattleState.Lose;
-            }
-            else
-            {
-               state = BattleState.Start;
-            }
+            state = BattleState.Start;
         }
         else if(state == BattleState.Win)
         {
 
         }
+        else if(state == BattleState.Lose)
+        {
+
+        }
     }
 
+    private void FixedUpdate()
+    {
+        if (playerH.health <= 0)
+        {
+            for (int i = 0; i < enemyAttacks.Length; i++)
+            {
+                Destroy(enemyAttacks[i]);
+            }
+            player.gameObject.SetActive(false);
+            walls.SetActive(false);
+            state = BattleState.Lose;
+        }
+    }
     public void PlayerAct()
     {
         int enemiesDead = 0;
@@ -112,20 +121,26 @@ public class Battle : MonoBehaviour
             Debug.Log(enemiesInBattle[i].health);
             if(enemiesInBattle[i].health <= 0)
             {
+                enemiesInBattle[i].gameObject.SetActive(false);
                 enemiesDead += 1;
             }
         }
-        if(enemiesDead == enemiesInBattle.Length)
+        
+
+        PlayerFinishTurn(enemiesDead);
+    }
+    public void PlayerFinishTurn(int dead)
+    {
+        playerUi.SetActive(false);
+        if (dead == enemiesInBattle.Length)
         {
             state = BattleState.Win;
         }
+        else
+        {
+            state = BattleState.EnemyTurn;
+        }
         
-        PlayerFinishTurn();
-    }
-    public void PlayerFinishTurn()
-    {
-        playerUi.SetActive(false);
-        state = BattleState.EnemyTurn;
     }
     public void EnemyFinishedTurn()
     {
