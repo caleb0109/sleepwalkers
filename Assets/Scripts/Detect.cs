@@ -47,6 +47,15 @@ public class Detect : MonoBehaviour
     // checks if this is where the item needs to be used
     public bool CheckCorrectArea(Interactable i)
     {
+        if (detectedObj != null)
+        {
+            Interactable useArea = detectedObj.GetComponent<Interactable>();
+
+            if (useArea.reqItemName == i.itemName)
+            {
+                return true;
+            }
+        }
 
         return false;
     }

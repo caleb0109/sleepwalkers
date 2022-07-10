@@ -385,6 +385,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: 
+  reqItemName: 
   searchItemSprite: {fileID: 0}
   interactType: 4
   notifType: 4
@@ -916,8 +917,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: 
+  reqItemName: Ladder
   searchItemSprite: {fileID: 0}
-  interactType: 4
+  interactType: 5
   notifType: 0
   itemType: 0
   descriptionText: 
@@ -1871,6 +1873,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: 
+  reqItemName: 
   searchItemSprite: {fileID: 0}
   interactType: 3
   notifType: 0
@@ -1970,6 +1973,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: 
+  reqItemName: 
   searchItemSprite: {fileID: 0}
   interactType: 3
   notifType: 0
@@ -3237,7 +3241,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: Bloodied Knife
-  searchItemSprite: {fileID: 21300000, guid: 7574051de2670b64085c39d679eb6b8a, type: 3}
+  reqItemName: 
+  searchItemSprite: {fileID: 761100573506273824, guid: 1278a792b4de29648822b73826ca0797, type: 3}
   interactType: 3
   notifType: 1
   itemType: 2
@@ -3359,6 +3364,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: Ladder
+  reqItemName: 
   searchItemSprite: {fileID: 0}
   interactType: 1
   notifType: 1
