@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class DialogueTrigger : MonoBehaviour
 {
     public Dialogue dialogue;
+    public bool startsBattle;
 
     private void Start()
     {
@@ -14,11 +15,11 @@ public class DialogueTrigger : MonoBehaviour
 
     public void TriggerDialogue()
     {
-        FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+        FindObjectOfType<DialogueManager>().StartDialogue(dialogue, startsBattle);
     }
 
     public void TriggerSentence()
     {
-        FindObjectOfType<DialogueManager>().StartBattleDialogue(dialogue);
+        GameObject.Find("BattleManager").GetComponent<DialogueManager>().StartBattleDialogue(dialogue);
     }
 }

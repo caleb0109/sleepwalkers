@@ -31,8 +31,8 @@ public class Battle : MonoBehaviour
     private bool enemyStatusCheck;
 
 
-    // Start is called before the first frame update
-    void Start()
+
+    private void Awake()
     {
         state = BattleState.Start;
         enemyActed = false;
@@ -61,7 +61,7 @@ public class Battle : MonoBehaviour
         {
             if (!enemyStatusCheck)
             {
-                int index = 0;
+                int index = SearchForDiaFile("Battle");
                 bool fileFound = false;
 
                 for (int i = 0; i < dia.Count; i++)
@@ -76,7 +76,7 @@ public class Battle : MonoBehaviour
 
                 if (fileFound)
                 {
-                    DialogueTrigger d = gameObject.GetComponent<DialogueTrigger>();
+                    DialogueTrigger d = this.gameObject.GetComponent<DialogueTrigger>();
 
                     foreach (Enemy e in enemiesInBattle)
                     {
@@ -156,11 +156,11 @@ public class Battle : MonoBehaviour
         }
         else if(state == BattleState.Win)
         {
-
+            FindObjectOfType<Scenes>().ReturnToPrevScene(dia[SearchForDiaFile("Success")].diaFile);
         }
         else if(state == BattleState.Lose)
         {
-
+            FindObjectOfType<Scenes>().ReturnToPrevScene(dia[SearchForDiaFile("Defeat")].diaFile);
         }
     }
 
@@ -235,6 +235,21 @@ public class Battle : MonoBehaviour
         DialogueTrigger d = gameObject.GetComponent<DialogueTrigger>();
         d.dialogue.sentences = new string[] { "There's no where to run." };
         d.TriggerSentence();
+    }
+
+    public int SearchForDiaFile(string containedWord)
+    {
+        int index = 0;
+
+        for (int i = 0; i < dia.Count; i++)
+        {
+            if (dia[i].diaFile.name.Contains(containedWord))
+            {
+                return i;
+            }
+        }
+
+        return index;
     }
 
 }

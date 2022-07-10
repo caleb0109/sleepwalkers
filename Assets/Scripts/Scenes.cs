@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class Scenes : MonoBehaviour
 {
     private List<Scene> introScenes;
+    private string prevScene;
 
     // Start is called before the first frame update
     void Start()
@@ -29,8 +30,14 @@ public class Scenes : MonoBehaviour
         }
     }
 
-    public void ToBattle()
+    public void ToBattle(string currScene)
     {
-        SceneManager.LoadSceneAsync("Battle");
+        prevScene = currScene;
+        SceneManager.LoadScene("Battle");
+    }
+
+    public void ReturnToPrevScene(TextAsset afterBattle)
+    {
+        SceneManager.LoadSceneAsync(prevScene);
     }
 }

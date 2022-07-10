@@ -292,7 +292,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7415829763740760289
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3252,7 +3252,6 @@ GameObject:
   - component: {fileID: 3880784640041591896}
   - component: {fileID: 3880784640041591897}
   - component: {fileID: 4352911672409553748}
-  - component: {fileID: 3653026027587914612}
   m_Layer: 5
   m_Name: Item1
   m_TagString: Untagged
@@ -3337,19 +3336,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &3653026027587914612
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3880784640041591899}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a0911673ab0f024481201ca1b18e088, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  btn: {fileID: 0}
 --- !u!1 &3880784640156116883
 GameObject:
   m_ObjectHideFlags: 0
@@ -4688,7 +4674,6 @@ GameObject:
   - component: {fileID: 115504601433209946}
   - component: {fileID: 4563521757544877029}
   - component: {fileID: 8080875663581974632}
-  - component: {fileID: 1278267526252303867}
   m_Layer: 5
   m_Name: Item3
   m_TagString: Untagged
@@ -4817,19 +4802,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &1278267526252303867
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4571637750717039256}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a0911673ab0f024481201ca1b18e088, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  btn: {fileID: 8080875663581974632}
 --- !u!1 &4798801845070085871
 GameObject:
   m_ObjectHideFlags: 0
@@ -5652,7 +5624,6 @@ GameObject:
   - component: {fileID: 3408719698576648760}
   - component: {fileID: 8191824355757056626}
   - component: {fileID: 3314150860767857995}
-  - component: {fileID: 2026192041635172974}
   m_Layer: 5
   m_Name: Item4
   m_TagString: Untagged
@@ -5781,19 +5752,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &2026192041635172974
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6754102964978392560}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a0911673ab0f024481201ca1b18e088, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  btn: {fileID: 3314150860767857995}
 --- !u!1 &6898232137032775944
 GameObject:
   m_ObjectHideFlags: 0
@@ -6918,7 +6876,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2016399823390477091
 Transform:
   m_ObjectHideFlags: 0
@@ -7025,7 +6983,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1643474676767616170, guid: ab165f11a65178046bcde8cebaebccfa, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1643474676767616171, guid: ab165f11a65178046bcde8cebaebccfa, type: 3}
       propertyPath: m_Pivot.x
@@ -7143,7 +7101,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5847813632967703249, guid: 4074c553af93cc14bae6426846e3cf4f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5847813632967703250, guid: 4074c553af93cc14bae6426846e3cf4f, type: 3}
       propertyPath: m_RootOrder
@@ -7200,6 +7158,10 @@ PrefabInstance:
     - target: {fileID: 5847813632967703250, guid: 4074c553af93cc14bae6426846e3cf4f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5847813634109643333, guid: 4074c553af93cc14bae6426846e3cf4f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 102
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4074c553af93cc14bae6426846e3cf4f, type: 3}

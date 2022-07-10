@@ -15,16 +15,19 @@ public class DialogueManager : MonoBehaviour
 
     private Queue<string> sentences;
     private Dialogue dialogueHolder;
+    private bool startBattle;
 
     void Start()
     {
         sentences = new Queue<string>();
         isSpeaking = false;
+        startBattle = false;
     }
 
-    public void StartDialogue(Dialogue dia)
+    public void StartDialogue(Dialogue dia, bool battle)
     {
         dialogueHolder = dia;
+        startBattle = battle;
 
         animator.SetBool("IsOpen", true);
         isSpeaking = true;
@@ -134,5 +137,10 @@ public class DialogueManager : MonoBehaviour
     {
         isSpeaking = false;
         animator.SetBool("IsOpen", false);
+
+        if (startBattle)
+        {
+            FindObjectOfType<Scenes>().ToBattle("Alleyway");
+        }
     }
 }

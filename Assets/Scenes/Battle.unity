@@ -342,7 +342,6 @@ GameObject:
   m_Component:
   - component: {fileID: 143735671}
   - component: {fileID: 143735670}
-  - component: {fileID: 143735669}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -350,14 +349,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &143735669
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 143735668}
-  m_Enabled: 1
 --- !u!20 &143735670
 Camera:
   m_ObjectHideFlags: 0
@@ -682,7 +673,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 418876089}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.27, y: 0.11, z: 0}
+  m_LocalPosition: {x: 0.27, y: 0.11, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2051,7 +2042,7 @@ GameObject:
   - component: {fileID: 1734478616}
   - component: {fileID: 1734478617}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: BattleManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2090,7 +2081,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1734478613}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 334.12305, y: 234.0217, z: -8918.593}
+  m_LocalPosition: {x: 334.12305, y: 234.0217, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2113,6 +2104,7 @@ MonoBehaviour:
     sentences: []
     diaFile: {fileID: 0}
     charaSprites: []
+  startsBattle: 0
 --- !u!114 &1734478617
 MonoBehaviour:
   m_ObjectHideFlags: 0
