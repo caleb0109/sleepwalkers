@@ -3,6 +3,7 @@ using System.Collections.Generic;
 //using UnityEngine.Events;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.Playables;
 
 public class Interactable : MonoBehaviour
 {
@@ -14,7 +15,8 @@ public class Interactable : MonoBehaviour
         Examine,
         Search,
         Npc,
-        Talking // used for Yuichi to talk to himself
+        Talking, // used for Yuichi to talk to himself
+        Cutscene
     }
 
     public enum NotificationType
@@ -93,7 +95,14 @@ public class Interactable : MonoBehaviour
 
             case InteractableType.Talking:
             case InteractableType.Npc:
-                dia.TriggerDialogue(); // used to get this specific trigger only
+                if (dia.enabled)
+                {
+                    dia.TriggerDialogue(); // used to get this specific trigger only
+                }
+                else
+                {
+                    gameObject.GetComponent<PlayableDirector>().Play();
+                }
                 break;
 
             case InteractableType.Search:

@@ -15,6 +15,7 @@ public class Detect : MonoBehaviour
     public bool isExamining;
 
     // Start is called before the first frame update
+    public GameObject DetectedObj { get { return detectedObj; } }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

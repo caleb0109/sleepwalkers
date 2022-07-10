@@ -211,7 +211,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &132188300
 GameObject:
@@ -346,6 +346,7 @@ MonoBehaviour:
     - The door's not going to hold for long, I need to find a way out of here.
     diaFile: {fileID: 0}
     charaSprites: []
+  startsBattle: 0
 --- !u!61 &189304820
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -527,7 +528,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 262960561}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.48000008, y: 10.24, z: -10}
+  m_LocalPosition: {x: 0.029999943, y: 0.20000005, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -661,7 +662,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1782796839}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4952823644617794660, guid: ed1424a17c160c7419f7d75731e96c11, type: 3}
       propertyPath: m_Name
@@ -673,15 +674,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4952823644617794662, guid: ed1424a17c160c7419f7d75731e96c11, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4952823644617794662, guid: ed1424a17c160c7419f7d75731e96c11, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.03911562
+      value: -0.32
       objectReference: {fileID: 0}
     - target: {fileID: 4952823644617794662, guid: ed1424a17c160c7419f7d75731e96c11, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11.440352
+      value: 11.51
       objectReference: {fileID: 0}
     - target: {fileID: 4952823644617794662, guid: ed1424a17c160c7419f7d75731e96c11, type: 3}
       propertyPath: m_LocalPosition.z
@@ -693,15 +694,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4952823644617794662, guid: ed1424a17c160c7419f7d75731e96c11, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4952823644617794662, guid: ed1424a17c160c7419f7d75731e96c11, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4952823644617794662, guid: ed1424a17c160c7419f7d75731e96c11, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4952823644617794662, guid: ed1424a17c160c7419f7d75731e96c11, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -884,7 +885,6 @@ GameObject:
   - component: {fileID: 413102063}
   - component: {fileID: 413102064}
   - component: {fileID: 413102065}
-  - component: {fileID: 413102066}
   - component: {fileID: 413102067}
   m_Layer: 0
   m_Name: file cabinet
@@ -1022,25 +1022,7 @@ MonoBehaviour:
     - I could use something to climb to the window above this file cabinet.
     diaFile: {fileID: 0}
     charaSprites: []
---- !u!95 &413102066
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 413102060}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 49668f2037fa9464793cb26c2c898459, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  startsBattle: 0
 --- !u!320 &413102067
 PlayableDirector:
   m_ObjectHideFlags: 0
@@ -1060,6 +1042,8 @@ PlayableDirector:
     value: {fileID: 262960566}
   - key: {fileID: -7253174159111060396, guid: d06cf653ea6ac6e419e4a81e03003808, type: 2}
     value: {fileID: 384414370}
+  - key: {fileID: 7683709563643221502, guid: d06cf653ea6ac6e419e4a81e03003808, type: 2}
+    value: {fileID: 745394232}
   m_ExposedReferences:
     m_References:
     - d3ecbb9cbbb1d4c4293887e7c03b6dd5: {fileID: 1551940266}
@@ -1242,15 +1226,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3721434482242296085, guid: f0e62313dde2a0949821399ef125942c, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3721434482242296085, guid: f0e62313dde2a0949821399ef125942c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.54
+      value: -0.03
       objectReference: {fileID: 0}
     - target: {fileID: 3721434482242296085, guid: f0e62313dde2a0949821399ef125942c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10.57
+      value: 0.53
       objectReference: {fileID: 0}
     - target: {fileID: 3721434482242296085, guid: f0e62313dde2a0949821399ef125942c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1448,56 +1432,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &592246334
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 592246335}
-  - component: {fileID: 592246336}
-  m_Layer: 0
-  m_Name: cameraController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &592246335
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 592246334}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.5079443, y: 10.30753, z: -31.10872}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &592246336
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 592246334}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: cf93f406eb7ee8f47b87662a4d2d14b0, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &592287095 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3264863459893233879, guid: 17aa225f753c47c48aa575af228841a6, type: 3}
@@ -1596,6 +1530,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &745394232 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4952823644617794660, guid: ed1424a17c160c7419f7d75731e96c11, type: 3}
+  m_PrefabInstance: {fileID: 384414369}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &873262055
 GameObject:
   m_ObjectHideFlags: 0
@@ -1889,6 +1828,7 @@ MonoBehaviour:
     - ' IF it were loaded.'
     diaFile: {fileID: 0}
     charaSprites: []
+  startsBattle: 0
 --- !u!1 &954358081
 GameObject:
   m_ObjectHideFlags: 0
@@ -2040,6 +1980,7 @@ MonoBehaviour:
     - "Weird, wonder who\u2019s hair this is.\r"
     diaFile: {fileID: 0}
     charaSprites: []
+  startsBattle: 0
 --- !u!1 &959678458
 GameObject:
   m_ObjectHideFlags: 0
@@ -2555,7 +2496,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3880784640672961692, guid: 17aa225f753c47c48aa575af228841a6, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3880784640672961692, guid: 17aa225f753c47c48aa575af228841a6, type: 3}
       propertyPath: m_AnchorMax.x
@@ -2841,7 +2782,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1551940265}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.6666668, y: 1.9696972, z: -15.151515}
+  m_LocalPosition: {x: 0.10606051, y: -13.242424, z: -15.151515}
   m_LocalScale: {x: 1.5151515, y: 1.5151515, z: 1.5151515}
   m_Children:
   - {fileID: 673648366}
@@ -3256,6 +3197,7 @@ MonoBehaviour:
       Killer\u2019? "
     diaFile: {fileID: 0}
     charaSprites: []
+  startsBattle: 0
 --- !u!1 &1703645769 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8769796252434682159, guid: 17aa225f753c47c48aa575af228841a6, type: 3}
@@ -3306,6 +3248,7 @@ GameObject:
   - component: {fileID: 1779293037}
   - component: {fileID: 1779293036}
   - component: {fileID: 1779293035}
+  - component: {fileID: 1779293039}
   m_Layer: 0
   m_Name: ladderevidroom
   m_TagString: Untagged
@@ -3345,6 +3288,7 @@ MonoBehaviour:
     - I can use this for something
     diaFile: {fileID: 0}
     charaSprites: []
+  startsBattle: 0
 --- !u!114 &1779293036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3442,6 +3386,29 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!320 &1779293039
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1779293033}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: d06cf653ea6ac6e419e4a81e03003808, type: 2}
+  m_InitialState: 1
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: 2011425061972558178, guid: d06cf653ea6ac6e419e4a81e03003808, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -7253174159111060396, guid: d06cf653ea6ac6e419e4a81e03003808, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 7683709563643221502, guid: d06cf653ea6ac6e419e4a81e03003808, type: 2}
+    value: {fileID: 0}
+  m_ExposedReferences:
+    m_References: []
 --- !u!4 &1782796839 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3721434482242296085, guid: f0e62313dde2a0949821399ef125942c, type: 3}
@@ -3830,7 +3797,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4340232124694445723, guid: 8211978779fadb746999063ac7aebfaa, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4340232124694445723, guid: 8211978779fadb746999063ac7aebfaa, type: 3}
       propertyPath: m_LocalPosition.x

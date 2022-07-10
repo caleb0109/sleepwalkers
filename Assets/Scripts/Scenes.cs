@@ -7,6 +7,7 @@ public class Scenes : MonoBehaviour
 {
     private List<Scene> introScenes;
     private string prevScene;
+    private Vector3 prevPosition;
 
     // Start is called before the first frame update
     void Start()
@@ -30,14 +31,22 @@ public class Scenes : MonoBehaviour
         }
     }
 
-    public void ToBattle(string currScene)
+    // goes to battle scene and get the players prev position and the prev scene
+    public void ToBattle(string currScene, Vector3 position)
     {
         prevScene = currScene;
+        prevPosition = position;
         SceneManager.LoadScene("Battle");
     }
 
-    public void ReturnToPrevScene(TextAsset afterBattle)
+    // after battle, move playerobj back to prev position and go back to prev scene
+    public void ReturnToPrevScene(Dialogue afterBattle)
     {
+        GameObject.Find("Yuichi").transform.position = prevPosition;
         SceneManager.LoadSceneAsync(prevScene);
+
+        DialogueTrigger d = new DialogueTrigger();
+        d.dialogue = afterBattle;
+        //d.TriggerDialogue();
     }
 }

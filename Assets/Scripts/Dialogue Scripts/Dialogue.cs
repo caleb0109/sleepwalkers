@@ -40,7 +40,7 @@ public class Dialogue
     {
         List<string> lines = new List<string>(diaFile.text.Split('\n')); // get all the lines in the file
 
-        if (lines[0].Contains(","))
+        if (lines[0].Contains(",") || !lines[0].Contains("|"))
         {
             charaNames.AddRange(lines[0].Split(',')); // get all the names from the file
 

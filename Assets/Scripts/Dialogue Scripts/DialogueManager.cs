@@ -140,7 +140,7 @@ public class DialogueManager : MonoBehaviour
 
         if (startBattle)
         {
-            FindObjectOfType<Scenes>().ToBattle("Alleyway");
+            FindObjectOfType<Scenes>().ToBattle("Alleyway", GameObject.Find("Yuichi").transform.position);
         }
     }
 }

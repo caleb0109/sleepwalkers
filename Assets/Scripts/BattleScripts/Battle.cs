@@ -156,11 +156,11 @@ public class Battle : MonoBehaviour
         }
         else if(state == BattleState.Win)
         {
-            FindObjectOfType<Scenes>().ReturnToPrevScene(dia[SearchForDiaFile("Success")].diaFile);
+            FindObjectOfType<Scenes>().ReturnToPrevScene(dia[SearchForDiaFile("Success")]);
         }
         else if(state == BattleState.Lose)
         {
-            FindObjectOfType<Scenes>().ReturnToPrevScene(dia[SearchForDiaFile("Defeat")].diaFile);
+            FindObjectOfType<Scenes>().ReturnToPrevScene(dia[SearchForDiaFile("Defeat")]);
         }
     }
 
