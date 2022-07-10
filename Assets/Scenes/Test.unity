@@ -477,7 +477,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3721434482242296081, guid: f0e62313dde2a0949821399ef125942c, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3721434482242296082, guid: f0e62313dde2a0949821399ef125942c, type: 3}
       propertyPath: diaManager
@@ -891,8 +891,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: 
+  reqItemName: 
+  searchItemSprite: {fileID: 0}
   interactType: 3
   notifType: 3
+  itemType: 0
   descriptionText: 
   afterInteract: {fileID: 21300000, guid: 48e24643d3c28e44ab84ebad0dbc7667, type: 3}
 --- !u!114 &1081153431
@@ -908,7 +911,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: Yuichi
     sprite: {fileID: 201538615760092092, guid: b4bc014b4d284994e97eb64f4c87d63d, type: 3}
     sentences:
     - 'Ooo a gun, this could come in handy. '
@@ -1147,7 +1149,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: Random
     sprite: {fileID: 201538615760092092, guid: b4bc014b4d284994e97eb64f4c87d63d, type: 3}
     sentences:
     - Hiya! How you doing?
@@ -1234,8 +1235,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: 
+  reqItemName: 
+  searchItemSprite: {fileID: 0}
   interactType: 4
   notifType: 3
+  itemType: 0
   descriptionText: 
   afterInteract: {fileID: 0}
 --- !u!1 &1596635117
@@ -1271,8 +1275,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: 
+  reqItemName: 
+  searchItemSprite: {fileID: 0}
   interactType: 4
   notifType: 3
+  itemType: 0
   descriptionText: 
   afterInteract: {fileID: 0}
 --- !u!114 &1596635119
@@ -1288,7 +1295,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: 
     sprite: {fileID: 0}
     sentences: []
     diaFile: {fileID: 4900000, guid: dad9a7d77f4bc73459523a6af6561b49, type: 3}
@@ -1449,6 +1455,10 @@ PrefabInstance:
     - target: {fileID: 3880784640672961376, guid: 17aa225f753c47c48aa575af228841a6, type: 3}
       propertyPath: m_Name
       value: UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 3880784640672961376, guid: 17aa225f753c47c48aa575af228841a6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3880784640672961692, guid: 17aa225f753c47c48aa575af228841a6, type: 3}
       propertyPath: m_Pivot.x

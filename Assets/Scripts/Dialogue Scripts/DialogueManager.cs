@@ -58,6 +58,31 @@ public class DialogueManager : MonoBehaviour
         DisplayNextSentence(); // starts the first sentence
     }
 
+    public void StartBattleDialogue(Dialogue dia)
+    {
+        dialogueHolder = dia;
+
+        // clears the queue of sentences if there are any
+        if (sentences != null)
+        {
+            sentences.Clear();
+        }
+
+        // puts each sentence into the queue
+        foreach (string sent in dia.sentences)
+        {
+            sentences.Enqueue(sent);
+        }
+
+        string sentence = sentences.Dequeue();
+
+        string[] split = sentence.Split('|');
+        sentence = split[1];
+
+        StopAllCoroutines();
+        StartCoroutine(TypeSentence(sentence));
+    }
+
     // displays the sentence
     public void DisplayNextSentence()
     {

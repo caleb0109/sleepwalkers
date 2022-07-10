@@ -7,17 +7,23 @@ public class PlayerHealth : MonoBehaviour
     public int health;
     public int maxHealth;
     public int strength;
+
+    public Bars hBar;
+
+    private void Start()
+    {
+        hBar.SetMax(maxHealth);
+    }
+
     public void TakeDamage(int damage)
     {
         health -= damage;
-        if(health <= 0)
+
+        if (health < 0)
         {
-            Dead();
+            health = 0;
         }
-    }
 
-    public void Dead()
-    {
-
+        hBar.ShowHealth(health);
     }
 }

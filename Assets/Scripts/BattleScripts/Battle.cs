@@ -19,15 +19,34 @@ public class Battle : MonoBehaviour
     private bool enemyActed;
     private GameObject[] enemyAttacks;
 
+    public TextAsset[] diaFiles;
+
     public GameObject playerUi;
+    public GameObject engageUI;
     public GameObject walls;
     public MiniGameMove player;
     public PlayerHealth playerH;
+
+    private List<Dialogue> dia;
+    private bool enemyStatusCheck;
+
+
     // Start is called before the first frame update
     void Start()
     {
         state = BattleState.Start;
         enemyActed = false;
+        enemyStatusCheck = false;
+
+        dia = new List<Dialogue>();
+
+        for (int i = 0; i < diaFiles.Length; i++)
+        {
+            Dialogue d = new Dialogue(); // create new Dialogue
+            d.diaFile = diaFiles[i]; // add a dialogue file
+            dia.Add(d); // add it the list
+            dia[i].Start(); // load the files
+        }
     }
 
     // Update is called once per frame
@@ -40,7 +59,59 @@ public class Battle : MonoBehaviour
         }
         else if (state == BattleState.PlayerTurn)
         {
+            if (!enemyStatusCheck)
+            {
+                int index = 0;
+                bool fileFound = false;
 
+                for (int i = 0; i < dia.Count; i++)
+                {
+                    if (dia[i].diaFile.name.Contains("Battle"))
+                    {
+                        index = i;
+                        fileFound = true;
+                        break;
+                    }
+                }
+
+                if (fileFound)
+                {
+                    DialogueTrigger d = gameObject.GetComponent<DialogueTrigger>();
+
+                    foreach (Enemy e in enemiesInBattle)
+                    {
+                        float f = e.health / e.maxHealth;
+
+                        Debug.Log(f);
+
+                        if (f <= .08f)
+                        {
+                            d.dialogue.sentences = new string[] { dia[index].CharaLines[4] };
+                        }
+                        else if (f <= .25f)
+                        {
+                            d.dialogue.sentences = new string[] { dia[index].CharaLines[3] };
+                        }
+                        else if (f <= .5f)
+                        {
+                            d.dialogue.sentences = new string[] { dia[index].CharaLines[2] };
+                        }
+                        else if (f <= .75f)
+                        {
+                            d.dialogue.sentences = new string[] { dia[index].CharaLines[1] };
+                        }
+                        else if (f <= 1.0f)
+                        {
+                            
+                            d.dialogue.sentences = new string[] { dia[index].CharaLines[0] };
+                        }
+                    }
+
+                    d.TriggerSentence();
+                }
+
+                enemyStatusCheck = true;
+            }             
         }
         else if(state == BattleState.EnemyTurn)
         {
@@ -129,9 +200,11 @@ public class Battle : MonoBehaviour
 
         PlayerFinishTurn(enemiesDead);
     }
+
     public void PlayerFinishTurn(int dead)
     {
         playerUi.SetActive(false);
+        engageUI.SetActive(true);
         if (dead == enemiesInBattle.Length)
         {
             state = BattleState.Win;
@@ -150,5 +223,10 @@ public class Battle : MonoBehaviour
         }
         enemyActed = false;
         state = BattleState.FinishedTurn;
+        engageUI.SetActive(false);
+
+        enemyStatusCheck = false;
     }
+
+
 }
