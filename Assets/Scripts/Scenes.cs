@@ -22,6 +22,8 @@ public class Scenes : MonoBehaviour
 
     public void NextScene()
     {
+        Debug.Log("Next scene we go!");
+
         for (int i = 0; i < introScenes.Count; i++) { 
             if (introScenes[i] == SceneManager.GetActiveScene() && i + 1 < introScenes.Count)
             {
