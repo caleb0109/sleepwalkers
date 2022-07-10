@@ -120,15 +120,12 @@ public class Battle : MonoBehaviour
             {
                 if (!enemyActed)
                 {
-
                     player.gameObject.SetActive(true);
                     walls.SetActive(true);
                     player.SetPlayer();
-                    int repeat = 0;
                     foreach (Enemy enem in enemiesInBattle)
                     {
                         int atkNumb = Random.Range(0, enem.enemiesAttacks.Length);
-                        repeat = atkNumb;
                         Instantiate(enem.enemiesAttacks[atkNumb], Vector3.zero, Quaternion.identity);
                     }
                     enemyAttacks = GameObject.FindGameObjectsWithTag("Enemy");
