@@ -2,12 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu]
-public class Enemy : ScriptableObject
+
+public class Enemy : MonoBehaviour
 {
     // Start is called before the first frame update
     public int health;
 
     public Sprite enemySprite;
     public GameObject[] enemiesAttacks;
+
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+    }
 }

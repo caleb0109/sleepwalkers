@@ -22,6 +22,7 @@ public class Battle : MonoBehaviour
     public GameObject playerUi;
     public GameObject walls;
     public MiniGameMove player;
+    public PlayerHealth playerH;
     // Start is called before the first frame update
     void Start()
     {
@@ -104,6 +105,11 @@ public class Battle : MonoBehaviour
 
     public void PlayerAct()
     {
+        for(int i = 0; i < enemiesInBattle.Length; i++)
+        {
+            enemiesInBattle[i].TakeDamage(playerH.strength);
+            Debug.Log(enemiesInBattle[i].health);
+        }
         PlayerFinishTurn();
     }
     public void PlayerFinishTurn()
