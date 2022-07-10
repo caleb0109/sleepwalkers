@@ -82,8 +82,6 @@ public class Battle : MonoBehaviour
                     {
                         float f = e.health / e.maxHealth;
 
-                        Debug.Log(f);
-
                         if (f <= .08f)
                         {
                             d.dialogue.sentences = new string[] { dia[index].CharaLines[4] };
@@ -102,7 +100,6 @@ public class Battle : MonoBehaviour
                         }
                         else if (f <= 1.0f)
                         {
-                            
                             d.dialogue.sentences = new string[] { dia[index].CharaLines[0] };
                         }
                     }
@@ -228,5 +225,19 @@ public class Battle : MonoBehaviour
         enemyStatusCheck = false;
     }
 
+    // temporary
+    public void OpenItems()
+    {
+        DialogueTrigger d = gameObject.GetComponent<DialogueTrigger>();
+        d.dialogue.sentences = new string[] { "I don't have any items to use." };
+        d.TriggerSentence();
+    }
+
+    public void Run()
+    {
+        DialogueTrigger d = gameObject.GetComponent<DialogueTrigger>();
+        d.dialogue.sentences = new string[] { "There's no where to run." };
+        d.TriggerSentence();
+    }
 
 }

@@ -153,7 +153,7 @@ public class Inventory : MonoBehaviour
 
                 if (item.itemType == Interactable.Item.Placeable)
                 {
-                    item.transform.position = playerMove.transform.position;
+                    item.transform.position = new Vector3(playerMove.transform.position.x, playerMove.transform.position.y + 1f, 0);
                     item.gameObject.SetActive(true);
                 }
             }

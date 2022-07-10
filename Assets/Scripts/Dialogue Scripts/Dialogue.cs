@@ -40,9 +40,12 @@ public class Dialogue
     {
         List<string> lines = new List<string>(diaFile.text.Split('\n')); // get all the lines in the file
 
-        charaNames.AddRange(lines[0].Split(',')); // get all the names from the file
+        if (lines[0].Contains(","))
+        {
+            charaNames.AddRange(lines[0].Split(',')); // get all the names from the file
 
-        lines.RemoveAt(0); // removes the list of names
+            lines.RemoveAt(0); // removes the list of names
+        }
 
         charaLines.AddRange(lines);
     }

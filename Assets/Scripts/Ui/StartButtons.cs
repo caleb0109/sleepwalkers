@@ -21,18 +21,18 @@ public class StartButtons : MonoBehaviour
         switch (buttonName)
         {
             case "New Game":
-                SceneManager.LoadSceneAsync("Police Room");
+                UnityEngine.SceneManagement.SceneManager.LoadSceneAsync("Police Room");
                 break;
             case "Load Game":
                 break;
             case "Settings":
-                SceneManager.LoadSceneAsync("Settings");
+                UnityEngine.SceneManagement.SceneManager.LoadSceneAsync("Settings");
                 break;
             case "Quit":
                 Application.Quit();
                 break;
             case "Return":
-                SceneManager.LoadSceneAsync("Start");
+                UnityEngine.SceneManagement.SceneManager.LoadSceneAsync("Start");
                 break;
             default:
                 break;

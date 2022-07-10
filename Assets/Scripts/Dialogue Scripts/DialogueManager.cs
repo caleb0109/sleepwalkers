@@ -76,8 +76,11 @@ public class DialogueManager : MonoBehaviour
 
         string sentence = sentences.Dequeue();
 
-        string[] split = sentence.Split('|');
-        sentence = split[1];
+        if (sentence.Contains("|"))
+        {
+            string[] split = sentence.Split('|');
+            sentence = split[1];
+        }
 
         StopAllCoroutines();
         StartCoroutine(TypeSentence(sentence));
