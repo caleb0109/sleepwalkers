@@ -56,12 +56,12 @@ public class Battle : MonoBehaviour
                     player.gameObject.SetActive(true);
                     walls.SetActive(true);
                     player.SetPlayer();
-
-                    foreach (Enemy emy in enemiesInBattle)
+                    int repeat = 0;
+                    foreach (Enemy enem in enemiesInBattle)
                     {
-                        int AtkNumb = Random.Range(0, emy.enemiesAttacks.Length);
-
-                        Instantiate(emy.enemiesAttacks[AtkNumb], Vector3.zero, Quaternion.identity);
+                        int atkNumb = Random.Range(0, enem.enemiesAttacks.Length);
+                        repeat = atkNumb;
+                        Instantiate(enem.enemiesAttacks[atkNumb], Vector3.zero, Quaternion.identity);
                     }
                     enemyAttacks = GameObject.FindGameObjectsWithTag("Enemy");
                     enemyActed = true;
@@ -69,9 +69,9 @@ public class Battle : MonoBehaviour
                 else
                 {
                     bool enemyFin = true;
-                    foreach(GameObject emy in enemyAttacks)
+                    foreach(GameObject enem in enemyAttacks)
                     {
-                        if(!emy.GetComponent<EnemyTurnHandle>().finishedTurn)
+                        if(!enem.GetComponent<EnemyTurnHandle>().finishedTurn)
                         {
                             enemyFin = false;
                         }
@@ -105,11 +105,21 @@ public class Battle : MonoBehaviour
 
     public void PlayerAct()
     {
+        int enemiesDead = 0;
         for(int i = 0; i < enemiesInBattle.Length; i++)
         {
             enemiesInBattle[i].TakeDamage(playerH.strength);
             Debug.Log(enemiesInBattle[i].health);
+            if(enemiesInBattle[i].health <= 0)
+            {
+                enemiesDead += 1;
+            }
         }
+        if(enemiesDead == enemiesInBattle.Length)
+        {
+            state = BattleState.Win;
+        }
+        
         PlayerFinishTurn();
     }
     public void PlayerFinishTurn()
