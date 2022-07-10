@@ -12,7 +12,6 @@ public class Inventory : MonoBehaviour
 
     private Button[] promptBttns = new Button[2];
 
-    public bool isOpen;
     public GameObject prompt;
 
     public GameObject ui_Window;
@@ -22,6 +21,9 @@ public class Inventory : MonoBehaviour
     public Image descriptionImage;
     public Text descriptionText;
     public Text itemTitle;
+
+    [HideInInspector]
+    public bool isOpen;
 
     public void PickUp(GameObject item)
     {
@@ -132,7 +134,7 @@ public class Inventory : MonoBehaviour
         HidePrompt();
 
         // if the item is useable or food
-        if (item.itemType == Interactable.Item.Useable || item.itemType == Interactable.Item.Food)
+        if (item.itemType == Interactable.Item.Useable || item.itemType == Interactable.Item.Placeable)
         {
             // if in the correct area, remove item and use it
             if (detection.CheckCorrectArea(item))
@@ -148,6 +150,12 @@ public class Inventory : MonoBehaviour
                 Update_UI();
 
                 playerMove.OnOpenPhone();
+
+                if (item.itemType == Interactable.Item.Placeable)
+                {
+                    item.transform.position = playerMove.transform.position;
+                    item.gameObject.SetActive(true);
+                }
             }
             else
             {
@@ -167,7 +175,7 @@ public class Inventory : MonoBehaviour
             FindObjectOfType<DialogueManager>().StartDialogue(use);
         }
     }
-    
+
     // used for getting items from SEARCHING
     public void CollectItem(GameObject itemHost, Sprite itemSprite)
     {

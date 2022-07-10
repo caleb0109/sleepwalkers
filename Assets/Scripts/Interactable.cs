@@ -29,12 +29,15 @@ public class Interactable : MonoBehaviour
     public enum Item
     {
         None,
+        Placeable,
         Useable,
         Weapon,
         Food
     }
 
     public string itemName;
+
+    public string reqItemName;
 
     public Sprite searchItemSprite; // item sprite that goes with the search
 

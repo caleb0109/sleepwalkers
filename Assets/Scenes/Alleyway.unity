@@ -297,6 +297,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: 
+  reqItemName: 
   searchItemSprite: {fileID: 0}
   interactType: 5
   notifType: 0
@@ -1110,6 +1111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: 
+  reqItemName: 
   searchItemSprite: {fileID: 0}
   interactType: 5
   notifType: 0
@@ -1188,6 +1190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: 
+  reqItemName: 
   searchItemSprite: {fileID: 0}
   interactType: 5
   notifType: 0
@@ -1623,6 +1626,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: 
+  reqItemName: 
   searchItemSprite: {fileID: 0}
   interactType: 5
   notifType: 0
@@ -1731,6 +1735,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: 
+  reqItemName: 
   searchItemSprite: {fileID: 0}
   interactType: 5
   notifType: 0
@@ -1975,14 +1980,13 @@ GameObject:
   m_Component:
   - component: {fileID: 2111609285}
   - component: {fileID: 2111609287}
-  - component: {fileID: 2111609286}
   m_Layer: 0
-  m_Name: thugFightArea
+  m_Name: dead end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2111609285
 Transform:
   m_ObjectHideFlags: 0
@@ -1997,25 +2001,6 @@ Transform:
   m_Father: {fileID: 1882281516}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2111609286
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2111609284}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2ef23bc9ed8eb448b3ba80c79078c9f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemName: 
-  searchItemSprite: {fileID: 0}
-  interactType: 0
-  notifType: 0
-  itemType: 0
-  descriptionText: 
-  afterInteract: {fileID: 0}
 --- !u!61 &2111609287
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2026,10 +2011,10 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 23.945263, y: -9.464496}
+  m_Offset: {x: 28.682316, y: -9.464496}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -2040,7 +2025,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 9.512939, y: 16.203707}
+  m_Size: {x: 0.7908859, y: 16.203707}
   m_EdgeRadius: 0
 --- !u!1001 &3880784640723228831
 PrefabInstance:
