@@ -91,6 +91,34 @@ public class DialogueManager : MonoBehaviour
         StartCoroutine(TypeSentence(sentence));
     }
 
+    public void StartAutoDialogue(Dialogue dia)
+    {
+        dialogueHolder = dia;
+
+        // clears the queue of sentences if there are any
+        if (sentences != null)
+        {
+            sentences.Clear();
+        }
+
+        // puts each sentence into the queue
+        foreach (string sent in dia.sentences)
+        {
+            sentences.Enqueue(sent);
+        }
+
+        string sentence = sentences.Dequeue();
+
+        if (sentence.Contains("|"))
+        {
+            string[] split = sentence.Split('|');
+            sentence = split[1];
+        }
+
+        StopAllCoroutines();
+        StartCoroutine(AutoPlayDialogue());
+    }
+
     // displays the sentence
     public void DisplayNextSentence()
     {
@@ -131,6 +159,23 @@ public class DialogueManager : MonoBehaviour
         foreach(char letter in sentence.ToCharArray())
         {
             dialogueText.text += letter;
+            yield return null;
+        }
+    }
+
+
+    IEnumerator AutoPlayDialogue()
+    {
+        float duration = 10f;
+
+        while (duration > 0f)
+        {
+            duration -= Time.deltaTime;
+
+            if (duration < 1f)
+            {
+                DisplayNextSentence();
+            }
             yield return null;
         }
     }

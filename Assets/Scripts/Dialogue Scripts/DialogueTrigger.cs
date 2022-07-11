@@ -22,4 +22,9 @@ public class DialogueTrigger : MonoBehaviour
     {
         GameObject.Find("BattleManager").GetComponent<DialogueManager>().StartBattleDialogue(dialogue);
     }
+
+    public void TriggerAutoDia()
+    {
+        FindObjectOfType<DialogueManager>().StartAutoDialogue(dialogue);
+    }
 }
