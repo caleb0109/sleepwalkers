@@ -95,14 +95,7 @@ public class Interactable : MonoBehaviour
 
             case InteractableType.Talking:
             case InteractableType.Npc:
-                if (dia.enabled)
-                {
-                    dia.TriggerDialogue(); // used to get this specific trigger only
-                }
-                else
-                {
-                    gameObject.GetComponent<PlayableDirector>().Play();
-                }
+                dia.TriggerDialogue(); // used to get this specific trigger only
                 break;
 
             case InteractableType.Search:
@@ -131,6 +124,19 @@ public class Interactable : MonoBehaviour
 
                 dia.TriggerDialogue(); // say something about the search
 
+                break;
+
+            case InteractableType.Cutscene:
+                GameObject.Find("Yuichi").SetActive(false);
+
+                PlayableDirector p = this.gameObject.GetComponent<PlayableDirector>();
+
+                if (p.isActiveAndEnabled)
+                {
+                    p.Play(); // play the cutscene
+                }
+
+                FindObjectOfType<Scenes>().NextScene();
                 break;
 
             default:
