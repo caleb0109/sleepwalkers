@@ -94,7 +94,7 @@ public class DialogueManager : MonoBehaviour
     public void StartAutoDialogue(Dialogue dia)
     {
         dialogueHolder = dia;
-
+        animator.SetBool("IsOpen", true);
         // clears the queue of sentences if there are any
         if (sentences != null)
         {
@@ -102,9 +102,23 @@ public class DialogueManager : MonoBehaviour
         }
 
         // puts each sentence into the queue
-        foreach (string sent in dia.sentences)
+        if (dia.diaFile)
         {
-            sentences.Enqueue(sent);
+            foreach (string sent in dia.CharaLines)
+            {
+                sentences.Enqueue(sent);
+            }
+        }
+        else
+        {
+            nameText.text = dia.Name;
+            imgSprite.sprite = dia.sprite;
+
+            // puts each sentence into the queue
+            foreach (string sent in dia.sentences)
+            {
+                sentences.Enqueue(sent);
+            }
         }
 
         string sentence = sentences.Dequeue();
@@ -117,6 +131,7 @@ public class DialogueManager : MonoBehaviour
 
         StopAllCoroutines();
         StartCoroutine(AutoPlayDialogue());
+        DisplayNextSentence();
     }
 
     // displays the sentence

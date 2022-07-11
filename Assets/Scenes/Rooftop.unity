@@ -721,7 +721,7 @@ MonoBehaviour:
     diaFile: {fileID: 4900000, guid: 175ea320dd828ac4a8fcc91e80f1c8b8, type: 3}
     charaSprites:
     - {fileID: 201538615760092092, guid: b4bc014b4d284994e97eb64f4c87d63d, type: 3}
-    - {fileID: 0}
+    - {fileID: 21300000, guid: ff8bb6c03714dd244b71cb400cf1bacf, type: 3}
   startsBattle: 0
 --- !u!114 &1182619749
 MonoBehaviour:
@@ -791,7 +791,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: b0b8abffd6f0ad04592e46a075e9c2ed, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
