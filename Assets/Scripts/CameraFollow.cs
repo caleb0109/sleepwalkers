@@ -6,13 +6,18 @@ public class CameraFollow : MonoBehaviour
 {
     // Start is called before the first frame update
     private Transform pTransform;
-    void Start()
+
+
+    void Awake()
     {
+        Debug.Log("I'm up, I'm up!");
         pTransform = GameObject.FindGameObjectWithTag("Player").transform;
+
+        this.gameObject.transform.position = pTransform.position;
     }
 
     // Update is called once per frame
-    void LateUpdate()
+    /*void LateUpdate()
     {
         //current camera position
         Vector3 temp = transform.position;
@@ -22,5 +27,5 @@ public class CameraFollow : MonoBehaviour
         temp.y = pTransform.position.y;
 
         transform.position = temp;
-    }
+    }*/
 }

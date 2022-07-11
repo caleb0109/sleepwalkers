@@ -110,6 +110,30 @@ MonoBehaviour:
   m_OpenClipOffsetRotation: {x: 0, y: 0, z: 0, w: 1}
   m_Rotation: {x: 0, y: 0, z: 0, w: 1}
   m_ApplyOffsets: 0
+--- !u!114 &-4577197842257235079
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b46e36075dd1c124a8422c228e75e1fb, type: 3}
+  m_Name: Signal Track
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_AnimClip: {fileID: 0}
+  m_Locked: 0
+  m_Muted: 0
+  m_CustomPlayableFullTypename: 
+  m_Curves: {fileID: 0}
+  m_Parent: {fileID: 11400000}
+  m_Children: []
+  m_Clips: []
+  m_Markers:
+    m_Objects:
+    - {fileID: 613739445918058365}
 --- !u!114 &-56133823854456066
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -139,12 +163,29 @@ MonoBehaviour:
   - {fileID: 7598536239109890358}
   - {fileID: -6018589379876740524}
   - {fileID: 3056274204533660752}
+  - {fileID: -4577197842257235079}
   m_FixedDuration: 0
   m_EditorSettings:
     m_Framerate: 60
     m_ScenePreview: 1
   m_DurationMode: 0
   m_MarkerTrack: {fileID: 4656020741787491678}
+--- !u!114 &613739445918058365
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15c38f6fa1940124db1ab7f6fe7268d1, type: 3}
+  m_Name: Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 11.333333333333334
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: 714e09724a69208418718f7ec0cf5c90, type: 2}
 --- !u!114 &2659883203463765068
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -387,7 +428,7 @@ MonoBehaviour:
     m_Start: 2.0833333333333335
     m_ClipIn: 0
     m_Asset: {fileID: 2659883203463765068}
-    m_Duration: 8.71666666666667
+    m_Duration: 9.25
     m_TimeScale: 1
     m_ParentTrack: {fileID: 7598536239109890358}
     m_EaseInDuration: 0

@@ -168,7 +168,7 @@ public class Inventory : MonoBehaviour
 
                 use.sentences = new string[] {"Can't use the " + item.itemName + " here."};
 
-                FindObjectOfType<DialogueManager>().StartDialogue(use, false);
+                FindObjectOfType<DialogueManager>().StartDialogue(use, false, null);
             }
         }
         else
@@ -176,7 +176,7 @@ public class Inventory : MonoBehaviour
             // turn off phone and mention that player can't use it in the certain area
             playerMove.OnOpenPhone();
             use.sentences = new string[] {"I rather save this for when I really need it."};
-            FindObjectOfType<DialogueManager>().StartDialogue(use, false);
+            FindObjectOfType<DialogueManager>().StartDialogue(use, false, null);
         }
     }
 
