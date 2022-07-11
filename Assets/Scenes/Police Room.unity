@@ -404,6 +404,7 @@ GameObject:
   - component: {fileID: 201292693}
   - component: {fileID: 201292692}
   - component: {fileID: 201292694}
+  - component: {fileID: 201292695}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -449,6 +450,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 693460a2b688d5c41b135dd60763822a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &201292695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 201292691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: 714e09724a69208418718f7ec0cf5c90, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 201292694}
+          m_TargetAssemblyTypeName: Scenes, Assembly-CSharp
+          m_MethodName: NextScene
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &262960561
 GameObject:
   m_ObjectHideFlags: 0
@@ -885,7 +916,6 @@ GameObject:
   - component: {fileID: 413102063}
   - component: {fileID: 413102064}
   - component: {fileID: 413102065}
-  - component: {fileID: 413102067}
   m_Layer: 0
   m_Name: file cabinet
   m_TagString: Untagged
@@ -1023,32 +1053,6 @@ MonoBehaviour:
     diaFile: {fileID: 0}
     charaSprites: []
   startsBattle: 0
---- !u!320 &413102067
-PlayableDirector:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 413102060}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: d06cf653ea6ac6e419e4a81e03003808, type: 2}
-  m_InitialState: 0
-  m_WrapMode: 2
-  m_DirectorUpdateMode: 1
-  m_InitialTime: 0
-  m_SceneBindings:
-  - key: {fileID: 2011425061972558178, guid: d06cf653ea6ac6e419e4a81e03003808, type: 2}
-    value: {fileID: 262960566}
-  - key: {fileID: -7253174159111060396, guid: d06cf653ea6ac6e419e4a81e03003808, type: 2}
-    value: {fileID: 384414370}
-  - key: {fileID: 7683709563643221502, guid: d06cf653ea6ac6e419e4a81e03003808, type: 2}
-    value: {fileID: 745394232}
-  m_ExposedReferences:
-    m_References:
-    - d3ecbb9cbbb1d4c4293887e7c03b6dd5: {fileID: 1551940266}
-    - f8fc53972c68bbc4f91018c89a9dcc12: {fileID: 1551940266}
-    - c07097a0f3e75c94ebcb5df986fac958: {fileID: 389092479}
 --- !u!1 &430204726 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 626807454588556935, guid: 17aa225f753c47c48aa575af228841a6, type: 3}
@@ -3407,6 +3411,8 @@ PlayableDirector:
     value: {fileID: 384414370}
   - key: {fileID: 7683709563643221502, guid: d06cf653ea6ac6e419e4a81e03003808, type: 2}
     value: {fileID: 745394232}
+  - key: {fileID: 7664842289457015455, guid: d06cf653ea6ac6e419e4a81e03003808, type: 2}
+    value: {fileID: 201292695}
   m_ExposedReferences:
     m_References:
     - d3ecbb9cbbb1d4c4293887e7c03b6dd5: {fileID: 1551940266}

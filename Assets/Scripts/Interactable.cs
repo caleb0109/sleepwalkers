@@ -127,16 +127,14 @@ public class Interactable : MonoBehaviour
                 break;
 
             case InteractableType.Cutscene:
-                GameObject.Find("Yuichi").SetActive(false);
 
                 PlayableDirector p = this.gameObject.GetComponent<PlayableDirector>();
 
                 if (p.isActiveAndEnabled)
                 {
                     p.Play(); // play the cutscene
+                    GameObject.Find("Yuichi").SetActive(false);
                 }
-
-                FindObjectOfType<Scenes>().NextScene();
                 break;
 
             default:

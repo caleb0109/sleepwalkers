@@ -15,7 +15,7 @@ public class DialogueTrigger : MonoBehaviour
 
     public void TriggerDialogue()
     {
-        FindObjectOfType<DialogueManager>().StartDialogue(dialogue, startsBattle);
+        FindObjectOfType<DialogueManager>().StartDialogue(dialogue, startsBattle, this.gameObject);
     }
 
     public void TriggerSentence()

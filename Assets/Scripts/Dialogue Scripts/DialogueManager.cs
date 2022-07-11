@@ -16,6 +16,7 @@ public class DialogueManager : MonoBehaviour
     private Queue<string> sentences;
     private Dialogue dialogueHolder;
     private bool startBattle;
+    private GameObject gObj;
 
     void Start()
     {
@@ -24,10 +25,11 @@ public class DialogueManager : MonoBehaviour
         startBattle = false;
     }
 
-    public void StartDialogue(Dialogue dia, bool battle)
+    public void StartDialogue(Dialogue dia, bool battle, GameObject obj)
     {
         dialogueHolder = dia;
         startBattle = battle;
+        gObj = obj;
 
         animator.SetBool("IsOpen", true);
         isSpeaking = true;
@@ -140,7 +142,7 @@ public class DialogueManager : MonoBehaviour
 
         if (startBattle)
         {
-            FindObjectOfType<Scenes>().ToBattle("Alleyway", GameObject.Find("Yuichi").transform.position);
+            FindObjectOfType<Scenes>().ToBattle("Alleyway", GameObject.Find("Yuichi").transform.position, gObj);
         }
     }
 }
