@@ -27,7 +27,7 @@ public class NotificationManager : MonoBehaviour
     }
 
     // sends in the notifcation to the player of picked up item
-    public void NotifyUpdates(Interactable interacted)
+    public void NotifyInteractUpdate(Interactable interacted)
     {
         if (animator.GetBool("IsOpen"))
         {
@@ -62,12 +62,16 @@ public class NotificationManager : MonoBehaviour
                     title.text = interacted.itemName; // temp
                     iconContainer.sprite = icons[1];
                     break;
-
-                case Interactable.NotificationType.task:
-                    notification.text = "To-do list Updated";
-                    break;
             }
         }
+    }
+
+    // update player about tasks
+    public void NotifyTaskUpdate(string taskName)
+    {
+        notification.text = "To-Do list Updated";
+        title.text = taskName;
+        //iconContainer.sprite = icons[2];
     }
 
     // used to close the notification UI
@@ -90,7 +94,7 @@ public class NotificationManager : MonoBehaviour
         // if there other notifications needed to show up
         if (itemQueue.Count > 0)
         {
-            NotifyUpdates(itemQueue.Dequeue());
+            NotifyInteractUpdate(itemQueue.Dequeue());
         }
     }
 }

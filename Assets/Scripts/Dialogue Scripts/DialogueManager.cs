@@ -17,6 +17,7 @@ public class DialogueManager : MonoBehaviour
     private Dialogue dialogueHolder;
     private bool startBattle;
     private GameObject gObj;
+    private bool autoDia;
 
     void Start()
     {
@@ -33,6 +34,7 @@ public class DialogueManager : MonoBehaviour
 
         animator.SetBool("IsOpen", true);
         isSpeaking = true;
+        autoDia = false;
 
         // clears the queue of sentences if there are any
         if (sentences != null)
@@ -66,6 +68,7 @@ public class DialogueManager : MonoBehaviour
     public void StartBattleDialogue(Dialogue dia)
     {
         dialogueHolder = dia;
+        autoDia = false;
 
         // clears the queue of sentences if there are any
         if (sentences != null)
@@ -95,6 +98,8 @@ public class DialogueManager : MonoBehaviour
     {
         dialogueHolder = dia;
         animator.SetBool("IsOpen", true);
+        autoDia = true;
+
         // clears the queue of sentences if there are any
         if (sentences != null)
         {
@@ -119,7 +124,7 @@ public class DialogueManager : MonoBehaviour
             {
                 sentences.Enqueue(sent);
             }
-        }
+        }/*
 
         string sentence = sentences.Dequeue();
 
@@ -127,16 +132,18 @@ public class DialogueManager : MonoBehaviour
         {
             string[] split = sentence.Split('|');
             sentence = split[1];
-        }
+        }*/
 
         StopAllCoroutines();
         StartCoroutine(AutoPlayDialogue());
-        DisplayNextSentence();
+        //DisplayNextSentence(); // displays the first sentence of the auto dialogue
     }
 
     // displays the sentence
     public void DisplayNextSentence()
     {
+        Debug.Log("Num Sentences: " + sentences.Count);
+
         if (sentences.Count == 0)
         {
             EndDialogue();
@@ -163,8 +170,13 @@ public class DialogueManager : MonoBehaviour
             }
         }
 
-        StopAllCoroutines();
+        //StopAllCoroutines();
+
         StartCoroutine(TypeSentence(sentence));
+        if (autoDia)
+        {
+            StartCoroutine(AutoPlayDialogue());
+        }
     }
 
     // animates sentences onto the UI
@@ -181,7 +193,9 @@ public class DialogueManager : MonoBehaviour
 
     IEnumerator AutoPlayDialogue()
     {
-        float duration = 10f;
+        DisplayNextSentence();
+        Debug.Log("I'm running");
+        /*float duration = 5f;
 
         while (duration > 0f)
         {
@@ -192,7 +206,8 @@ public class DialogueManager : MonoBehaviour
                 DisplayNextSentence();
             }
             yield return null;
-        }
+        }*/
+        yield return null;
     }
 
     private void EndDialogue()
