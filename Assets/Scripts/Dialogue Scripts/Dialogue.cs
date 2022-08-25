@@ -15,6 +15,19 @@ public class Dialogue
     // find efficient way later
     public List<Sprite> charaSprites;
 
+    // used to store the different facial expressions
+    /* Order Stored:
+     * Neutral
+     * Happy
+     * Angry
+     * Sad
+     * Shocked
+     * Fear
+     */
+    // each npc holds their own sprites stored like above
+    // then add to dictionary in start
+    private Dictionary<string name, List<Sprite> emotions> expressions; 
+
     private List<string> charaNames;
     private List<string> charaLines;
 

@@ -135,8 +135,6 @@ public class DialogueManager : MonoBehaviour
     // displays the sentence
     public void DisplayNextSentence()
     {
-        Debug.Log("Num Sentences: " + sentences.Count);
-
         if (sentences.Count == 0)
         {
             EndDialogue();
@@ -187,7 +185,7 @@ public class DialogueManager : MonoBehaviour
     IEnumerator AutoPlayDialogue()
     {
         // display on the screen for 4 sec before starting next dialogue
-        float duration = 4f;
+        float duration = 4f; //TODO: find a way to change duration according to length of the line
 
         while (duration > 0f)
         {
