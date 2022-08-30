@@ -101,6 +101,7 @@ public class DialogueManager : MonoBehaviour
         animator.SetBool("IsOpen", true);
         autoDia = true;
         diaPrompt.SetActive(false);
+        isSpeaking = true;
 
         // clears the queue of sentences if there are any
         if (sentences != null)
@@ -194,7 +195,6 @@ public class DialogueManager : MonoBehaviour
             if (duration < 1f)
             {
                 DisplayNextSentence();
-                Debug.Log("I'm running");
             }
             yield return null;
         }

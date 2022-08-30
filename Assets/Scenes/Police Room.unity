@@ -301,6 +301,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &148801543 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3721434482242296081, guid: f0e62313dde2a0949821399ef125942c, type: 3}
+  m_PrefabInstance: {fileID: 472226808}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &156365143
 GameObject:
   m_ObjectHideFlags: 0
@@ -506,6 +511,8 @@ PlayableDirector:
     value: {fileID: 841500476}
   - key: {fileID: 4626609964953319886, guid: 5a5d94ef14a187140a0ff68aa060c339, type: 2}
     value: {fileID: 841500479}
+  - key: {fileID: -8906022837178497118, guid: 5a5d94ef14a187140a0ff68aa060c339, type: 2}
+    value: {fileID: 148801543}
   m_ExposedReferences:
     m_References: []
 --- !u!1 &201292691
@@ -645,7 +652,6 @@ GameObject:
   - component: {fileID: 262960564}
   - component: {fileID: 262960563}
   - component: {fileID: 262960562}
-  - component: {fileID: 262960565}
   - component: {fileID: 262960566}
   m_Layer: 0
   m_Name: Main Camera
@@ -720,18 +726,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &262960565
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 262960561}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0d5ebe2af1eaed4985285ae5dad525a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &262960566
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1373,7 +1367,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3721434482242296081, guid: f0e62313dde2a0949821399ef125942c, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3721434482242296082, guid: f0e62313dde2a0949821399ef125942c, type: 3}
       propertyPath: diaManager
@@ -1722,7 +1716,7 @@ GameObject:
   - component: {fileID: 841500478}
   - component: {fileID: 841500479}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4103,7 +4097,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 821570597394135200, guid: f0e62313dde2a0949821399ef125942c, type: 3}
   m_PrefabInstance: {fileID: 472226808}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 148801543}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7c1efc4b00e009147888b7c976d3b279, type: 3}

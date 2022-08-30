@@ -26,7 +26,7 @@ public class Dialogue
      */
     // each npc holds their own sprites stored like above
     // then add to dictionary in start
-    private Dictionary<string name, List<Sprite> emotions> expressions; 
+    private Dictionary<string, List<Sprite>> expressions; 
 
     private List<string> charaNames;
     private List<string> charaLines;
