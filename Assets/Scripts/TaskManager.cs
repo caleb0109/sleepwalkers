@@ -65,12 +65,14 @@ public class TaskManager : MonoBehaviour
             }
         }
 
+        UpdateTaskView();
     }
 
     // updates the text on the to-do list widget and the app itself
     private void UpdateTaskView()
     {
-
+        toDoApp.text = currTask;
+        toDoWidget.text = currTask;
     }
 
     // adds clues to the task (only in app view)

@@ -18,8 +18,12 @@ public class NotificationManager : MonoBehaviour
 
     private Queue<Interactable> itemQueue;
 
+    private string nextTask; // used if the animator's open and needs to queue task update
+
     private void Start()
     {
+        nextTask = "";
+
         itemQueue = new Queue<Interactable>();
 
         animator = this.gameObject.GetComponent<Animator>();
@@ -35,14 +39,7 @@ public class NotificationManager : MonoBehaviour
         }
         else
         {
-            animator.SetBool("IsOpen", true);
-
-            notifFx.Play();
-
-            // used to keep track of how long notification has been on screen and send the notification away
-            StopAllCoroutines();
-            StartCoroutine(NotificationTimer());
-
+            StartNotifAnim();
             switch (interacted.notifType)
             {
                 case Interactable.NotificationType.article:
@@ -69,9 +66,28 @@ public class NotificationManager : MonoBehaviour
     // update player about tasks
     public void NotifyTaskUpdate(string taskName)
     {
-        notification.text = "To-Do list Updated";
-        title.text = taskName;
-        //iconContainer.sprite = icons[2];
+        if (animator.GetBool("IsOpen"))
+        {
+            nextTask = taskName;
+        }
+        else
+        {
+            StartNotifAnim();
+            notification.text = "To-Do list Updated";
+            title.text = taskName;
+            //iconContainer.sprite = icons[2];
+        }
+    }
+
+    private void StartNotifAnim()
+    {
+        animator.SetBool("IsOpen", true);
+
+        notifFx.Play();
+
+        // used to keep track of how long notification has been on screen and send the notification away
+        StopAllCoroutines();
+        StartCoroutine(NotificationTimer());
     }
 
     // used to close the notification UI
@@ -89,6 +105,12 @@ public class NotificationManager : MonoBehaviour
             }
 
             yield return null;
+        }
+
+        if (nextTask != "")
+        {
+            NotifyTaskUpdate(nextTask);
+            nextTask = "";
         }
 
         // if there other notifications needed to show up
