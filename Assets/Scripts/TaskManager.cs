@@ -16,6 +16,7 @@ public class TaskManager : MonoBehaviour
     private List<string> taskList;
     private List<string> requirements;
     private List<string> clues;
+    private bool appOnly;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +24,7 @@ public class TaskManager : MonoBehaviour
         taskList = new List<string>();
         requirements = new List<string>();
         currAct = 0; // when loading a game, get the task from that specific task;
+        appOnly = false;
 
         LoadTaskFile();
         SetTask();
@@ -65,20 +67,28 @@ public class TaskManager : MonoBehaviour
             }
         }
 
-        UpdateTaskView();
+        UpdateTaskView("main");
     }
 
     // updates the text on the to-do list widget and the app itself
-    private void UpdateTaskView()
-    {
-        toDoApp.text = currTask;
-        toDoWidget.text = currTask;
+    private void UpdateTaskView(string type)
+    {         
+        if (!appOnly) // if need to add side tasks and clues
+        {
+            toDoApp.text = currTask; // adds the main task to the app view
+            toDoWidget.text = currTask; // adds the main task to the widget view
+        }
+        else // addes the clues and side tasks to the app view
+        {
+
+        }
     }
 
     // adds clues to the task (only in app view)
     private void AddClue()
     {
-
+        appOnly = true;
+        UpdateTaskView("clue");
     }
 
     // moves to the next task in the list
@@ -88,9 +98,10 @@ public class TaskManager : MonoBehaviour
 
         if (taskIndex < taskList.Count)
         {
+            appOnly = false;
             currTask = taskList[taskIndex];
             FindObjectOfType<NotificationManager>().NotifyTaskUpdate(currTask); // update next task
-            UpdateTaskView();
+            UpdateTaskView("main");
             return; // exit out of method early
         }
 
@@ -102,6 +113,7 @@ public class TaskManager : MonoBehaviour
     // used for changing how the specific requirement is displayed
     public void CompleteSideTask()
     {
-
+        appOnly = true;
+        UpdateTaskView("side");
     }
 }
