@@ -15,7 +15,9 @@ public class TaskManager : MonoBehaviour
     private int taskIndex;
     private List<string> taskList;
     private List<string> requirements;
-    private List<string> clues;
+    private List<string> reqCompleted;
+    private List<string> clues; // used to store the clues
+    private int cluesGiven; // used to keep track of number of clues given to player
     private bool appOnly;
 
     // Start is called before the first frame update
@@ -23,6 +25,9 @@ public class TaskManager : MonoBehaviour
     {
         taskList = new List<string>();
         requirements = new List<string>();
+        reqCompleted = new List<string>();
+        clues = new List<string>();
+        cluesGiven = 0;
         currAct = 0; // when loading a game, get the task from that specific task;
         appOnly = false;
 
@@ -80,7 +85,25 @@ public class TaskManager : MonoBehaviour
         }
         else // addes the clues and side tasks to the app view
         {
+            switch(type)
+            {
+                case "clue":
+                    break;
 
+                case "side":
+                    DisplaySideTask(requirements);
+                    DisplaySideTask(reqCompleted);
+                    break;
+            }
+        }
+    }
+
+    // fix later to prevent having multiples of the same text shown
+    private void DisplaySideTask(List<string> reqs)
+    {
+        foreach (string r in reqs)
+        {
+            toDoApp.text += r; // display the requirements
         }
     }
 
@@ -88,6 +111,7 @@ public class TaskManager : MonoBehaviour
     private void AddClue()
     {
         appOnly = true;
+        cluesGiven++;
         UpdateTaskView("clue");
     }
 
@@ -111,9 +135,19 @@ public class TaskManager : MonoBehaviour
     }
 
     // used for changing how the specific requirement is displayed
-    public void CompleteSideTask()
+    public void CompleteSideTask(string sideName)
     {
         appOnly = true;
+
+        for (int i = 0; i < requirements.Count; i++)
+        {
+            if (requirements[i] == sideName)
+            {
+                reqCompleted.Add(requirements[i]);
+                requirements.RemoveAt(i);
+            }
+        }
+
         UpdateTaskView("side");
     }
 }
