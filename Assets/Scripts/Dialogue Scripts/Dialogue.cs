@@ -26,6 +26,7 @@ public class Dialogue
      */
     // each npc holds their own sprites stored like above
     // then add to dictionary in start
+    // if facial expression doesn't exsist, place a placeholder in that loc
     private Dictionary<string, List<Sprite>> expressions; 
 
     private List<string> charaNames;
