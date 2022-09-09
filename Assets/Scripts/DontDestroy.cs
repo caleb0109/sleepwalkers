@@ -6,19 +6,20 @@ public class DontDestroy : MonoBehaviour
 {
     private static GameObject obj;
     private GameObject player;
-    private Inventory prevInvent;
+
+    // used to store data from player in past scene
+    private GameObject playerData;
+    private GameObject gManager;
 
     public void Awake()
     {
-        if (obj == null)
-        {
             obj = this.gameObject;
-        }
-        else
-        {
+            StorePlayerData();
+
+            SetPlayerData();
+
             Destroy(this.gameObject);
             return;
-        }
 
         DontDestroyOnLoad(obj);
 
@@ -27,17 +28,37 @@ public class DontDestroy : MonoBehaviour
 
     public void StorePlayerData()
     {
-        prevInvent = player.GetComponent<Inventory>();
+        for (int i = 0; i < this.transform.childCount; i++)
+        {
+            Transform child = this.transform.GetChild(i);
+            if (child.name == "Yuichi")
+            {
+                // store the data of the player
+                playerData = child.gameObject;
+            }
+
+            if (this.transform.GetChild(i).name == "GameManager")
+            {
+                // store the data of the GameManager
+                gManager = child.gameObject;
+            }
+        }
+
+
     }
 
     public void SetPlayerData()
     {
         player = GameObject.Find("Yuichi");
 
-        /*Inventory currInventory = player.GetComponent<Inventory>();
+        Inventory prevInvent = playerData.GetComponent<Inventory>();
+
+        Inventory currInventory = player.GetComponent<Inventory>();
         currInventory.items = prevInvent.items;
         currInventory.itemSprites = prevInvent.itemSprites;
 
-        currInventory.Update_UI();*/
+        currInventory.Update_UI();
+
+       
     }
 }

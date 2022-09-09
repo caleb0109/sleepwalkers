@@ -133,7 +133,7 @@ public class Interactable : MonoBehaviour
                 if (p.isActiveAndEnabled)
                 {
                     p.Play(); // play the cutscene
-                    GameObject.Find("Yuichi").SetActive(false);
+                    GameObject.Find("Yuichi").GetComponent<SpriteRenderer>().sortingOrder = 0;
                 }
                 break;
 

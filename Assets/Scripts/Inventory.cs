@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    private List<GameObject> items = new List<GameObject>();
+    public List<GameObject> items = new List<GameObject>();
 
     // hold the sprites for the items without needing to getComponent each time and overwrite the SEARCH items
-    private List<Sprite> itemSprites = new List<Sprite>();
+    public List<Sprite> itemSprites = new List<Sprite>();
 
     private Button[] promptBttns = new Button[2];
 
@@ -33,7 +33,7 @@ public class Inventory : MonoBehaviour
         Update_UI();
     }
 
-    void Update_UI()
+    public void Update_UI()
     {
         //HideAll();
 
