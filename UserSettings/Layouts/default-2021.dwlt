@@ -33,6 +33,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 1
+
   m_Script: {fileID: 12008, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -52,6 +53,7 @@ MonoBehaviour:
   m_TopViewHeight: 30
   m_UseBottomView: 1
   m_BottomViewHeight: 20
+
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -62,11 +64,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12011, guid: 0000000000000000e000000000000000, type: 0}
+
   m_Name: 
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
     serializedVersion: 2
+
     x: 0
     y: 0
     width: 2560
@@ -74,6 +78,7 @@ MonoBehaviour:
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
   m_LastLoadedLayoutName: 
+
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -84,6 +89,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12042, guid: 0000000000000000e000000000000000, type: 0}
+
   m_Name: 
   m_EditorClassIdentifier: 
   m_Children: []
@@ -95,6 +101,7 @@ MonoBehaviour:
     height: 20
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
+
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -119,6 +126,7 @@ MonoBehaviour:
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
   controlID: 19
+
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -129,6 +137,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12010, guid: 0000000000000000e000000000000000, type: 0}
+
   m_Name: 
   m_EditorClassIdentifier: 
   m_Children:
@@ -144,6 +153,7 @@ MonoBehaviour:
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
   controlID: 20
+
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -159,10 +169,12 @@ MonoBehaviour:
   m_Children:
   - {fileID: 8}
   - {fileID: 11}
+
   m_Position:
     serializedVersion: 2
     x: 0
     y: 0
+
     width: 1955.3334
     height: 1307.3334
   m_MinSize: {x: 200, y: 200}
@@ -248,6 +260,7 @@ MonoBehaviour:
   - {fileID: 16}
   m_Selected: 0
   m_LastSelected: 1
+
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -258,6 +271,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
+
   m_Name: ProjectBrowser
   m_EditorClassIdentifier: 
   m_Children: []
@@ -287,6 +301,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
+
   m_Name: 
   m_EditorClassIdentifier: 
   m_Children: []
@@ -304,6 +319,7 @@ MonoBehaviour:
   m_Selected: 0
   m_LastSelected: 0
 --- !u!114 &13
+
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -327,6 +343,7 @@ MonoBehaviour:
     y: 72.66667
     width: 1469.3334
     height: 907.6667
+
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -401,6 +418,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 1
@@ -419,6 +437,7 @@ MonoBehaviour:
     y: 72.66667
     width: 483
     height: 907.6667
+
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -429,6 +448,7 @@ MonoBehaviour:
       m_SelectedIDs: 
       m_LastClickedID: 0
       m_ExpandedIDs: f493ffff6294ffffa695ffff8499ffff769affff129effffa2a3ffff0aa8ffff1ca8ffff1ea8ffff8eabffffa0abffff38acffffd6afffff4eb4ffff66b9ffffd8b9ffffb6bcffffb8bcffffe4e4ffff58e5ffff5ae5ffffd8e8ffff60f4ffff70f8ffff0cfbfffff4ffffffd47e0000648200003c950000a6950000d09b0000d4a00000a8a40000
+
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -445,6 +465,7 @@ MonoBehaviour:
         m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 9}
+
       m_SearchString: 
     m_ExpandedScenes: []
     m_CurrenRootInstanceID: 0
@@ -476,6 +497,7 @@ MonoBehaviour:
     y: 72.66667
     width: 1469.3334
     height: 907.6667
+
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -487,6 +509,7 @@ MonoBehaviour:
       displayed: 1
       snapOffset: {x: -101, y: -26}
       snapOffsetDelta: {x: 0, y: 0}
+
       snapCorner: 3
       id: Tool Settings
       index: 0
@@ -552,6 +575,7 @@ MonoBehaviour:
       collapsed: 0
       displayed: 1
       snapOffset: {x: 0, y: 0}
+
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: unity-transform-toolbar
@@ -702,6 +726,7 @@ MonoBehaviour:
     m_Target: {x: 2.5098414, y: 5.6304903, z: -1.7830942}
     speed: 2
     m_Value: {x: 2.5098414, y: 5.6304903, z: -1.7830942}
+
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -733,6 +758,7 @@ MonoBehaviour:
         m_Target: 0
         speed: 2
         m_Value: 0
+
       m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 0.4}
       m_Pivot: {x: 0, y: 0, z: 0}
       m_Size: {x: 1, y: 1}
@@ -755,6 +781,7 @@ MonoBehaviour:
     m_Target: 10.004964
     speed: 2
     m_Value: 10.004964
+
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -803,6 +830,7 @@ MonoBehaviour:
     y: 72.66667
     width: 1470
     height: 753.6667
+
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -894,6 +922,7 @@ MonoBehaviour:
   m_CurrentEditor: 1
   m_LayerEditor:
     m_SelectedLayerIndex: 0
+
 --- !u!114 &17
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1043,6 +1072,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 1
+
   m_Script: {fileID: 12003, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -1117,6 +1147,7 @@ MonoBehaviour:
     y: 1001.3334
     width: 1954.3334
     height: 357.6667
+
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -1171,3 +1202,4 @@ MonoBehaviour:
   m_LockTracker:
     m_IsLocked: 0
   m_PreviewWindow: {fileID: 0}
+
