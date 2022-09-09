@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DontDestroy : MonoBehaviour
 {
     private static GameObject obj;
+    private GameObject startingPos;
     private GameObject player;
+    private Scene scene;
 
     // used to store data from player in past scene
     private GameObject playerData;
@@ -13,18 +16,22 @@ public class DontDestroy : MonoBehaviour
 
     public void Awake()
     {
-            obj = this.gameObject;
-            StorePlayerData();
+        obj = this.gameObject;
+        StorePlayerData();
 
-            SetPlayerData();
-
-            Destroy(this.gameObject);
-            return;
+        SetPlayerData();
 
         DontDestroyOnLoad(obj);
 
         player = GameObject.Find("Yuichi");
+        startingPos = GameObject.Find("startingPoint");
+        if(scene.isLoaded)
+        {
+            player.transform.position = startingPos.transform.position;
+        }
     }
+
+
 
     public void StorePlayerData()
     {
@@ -60,5 +67,9 @@ public class DontDestroy : MonoBehaviour
         currInventory.Update_UI();
 
        
+    }
+    public void UpdatePos()
+    {
+        player.transform.position = startingPos.transform.position;
     }
 }
