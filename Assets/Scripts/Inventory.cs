@@ -141,7 +141,7 @@ public class Inventory : MonoBehaviour
             {
                 item.notifType = Interactable.NotificationType.removed;
 
-                FindObjectOfType<NotificationManager>().NotifyUpdates(item);
+                FindObjectOfType<NotificationManager>().NotifyInteractUpdate(item);
 
                 // remove from inventory
                 items.Remove(reqItem);
@@ -149,8 +149,9 @@ public class Inventory : MonoBehaviour
 
                 Update_UI();
 
-                playerMove.OnOpenPhone();
+                playerMove.OnOpenPhone(); // closes phone window once item is used
 
+                // put the item at the player's current position
                 if (item.itemType == Interactable.Item.Placeable)
                 {
                     item.transform.position = new Vector3(playerMove.transform.position.x, playerMove.transform.position.y + 1f, 0);

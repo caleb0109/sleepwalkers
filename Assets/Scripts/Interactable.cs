@@ -74,7 +74,7 @@ public class Interactable : MonoBehaviour
         {
             case InteractableType.PickUp:
                 FindObjectOfType<Inventory>().PickUp(gameObject);
-                FindObjectOfType<NotificationManager>().NotifyUpdates(this);
+                FindObjectOfType<NotificationManager>().NotifyInteractUpdate(this);
                 gameObject.SetActive(false);
 
                 // say something only if there's dialogue attached to this item
@@ -106,7 +106,7 @@ public class Interactable : MonoBehaviour
                     if (itemName != "")
                     {
                         FindObjectOfType<Inventory>().CollectItem(gameObject, searchItemSprite);
-                        FindObjectOfType<NotificationManager>().NotifyUpdates(this);
+                        FindObjectOfType<NotificationManager>().NotifyInteractUpdate(this);
                     }
 
                     // if there's a sprite for after interaction, then change the current sprite

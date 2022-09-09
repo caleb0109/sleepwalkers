@@ -11,12 +11,14 @@ public class DialogueManager : MonoBehaviour
     public Text dialogueText;
     public Image imgSprite;
     public Animator animator;
+    public GameObject diaPrompt;
     public bool isSpeaking;
 
     private Queue<string> sentences;
     private Dialogue dialogueHolder;
     private bool startBattle;
     private GameObject gObj;
+    private bool autoDia;
 
     void Start()
     {
@@ -33,6 +35,7 @@ public class DialogueManager : MonoBehaviour
 
         animator.SetBool("IsOpen", true);
         isSpeaking = true;
+        autoDia = false;
 
         // clears the queue of sentences if there are any
         if (sentences != null)
@@ -66,6 +69,7 @@ public class DialogueManager : MonoBehaviour
     public void StartBattleDialogue(Dialogue dia)
     {
         dialogueHolder = dia;
+        autoDia = false;
 
         // clears the queue of sentences if there are any
         if (sentences != null)
@@ -95,6 +99,10 @@ public class DialogueManager : MonoBehaviour
     {
         dialogueHolder = dia;
         animator.SetBool("IsOpen", true);
+        autoDia = true;
+        diaPrompt.SetActive(false);
+        isSpeaking = true;
+
         // clears the queue of sentences if there are any
         if (sentences != null)
         {
@@ -106,6 +114,7 @@ public class DialogueManager : MonoBehaviour
         {
             foreach (string sent in dia.CharaLines)
             {
+                Debug.Log(sent);
                 sentences.Enqueue(sent);
             }
         }
@@ -121,17 +130,7 @@ public class DialogueManager : MonoBehaviour
             }
         }
 
-        string sentence = sentences.Dequeue();
-
-        if (sentence.Contains("|"))
-        {
-            string[] split = sentence.Split('|');
-            sentence = split[1];
-        }
-
-        StopAllCoroutines();
-        StartCoroutine(AutoPlayDialogue());
-        DisplayNextSentence();
+        DisplayNextSentence(); // displays the first sentence of the auto dialogue
     }
 
     // displays the sentence
@@ -164,7 +163,12 @@ public class DialogueManager : MonoBehaviour
         }
 
         StopAllCoroutines();
+        if (autoDia)
+        {
+            StartCoroutine(AutoPlayDialogue());
+        }
         StartCoroutine(TypeSentence(sentence));
+        
     }
 
     // animates sentences onto the UI
@@ -181,7 +185,8 @@ public class DialogueManager : MonoBehaviour
 
     IEnumerator AutoPlayDialogue()
     {
-        float duration = 10f;
+        // display on the screen for 4 sec before starting next dialogue
+        float duration = 4f; //TODO: find a way to change duration according to length of the line
 
         while (duration > 0f)
         {
@@ -198,6 +203,7 @@ public class DialogueManager : MonoBehaviour
     private void EndDialogue()
     {
         isSpeaking = false;
+        diaPrompt.SetActive(true);
         animator.SetBool("IsOpen", false);
 
         if (startBattle)
