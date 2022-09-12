@@ -34,6 +34,8 @@ public class StartButtons : MonoBehaviour
             case "Return":
                 UnityEngine.SceneManagement.SceneManager.LoadSceneAsync("Start");
                 break;
+            case "Back":
+                break;
             default:
                 break;
         }

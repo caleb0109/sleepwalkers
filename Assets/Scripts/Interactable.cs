@@ -117,9 +117,9 @@ public class Interactable : MonoBehaviour
 
                     interacted = true;
                 }
-                else if (dia.dialogue.sentences.Length > 0) // only changes the line once
+                else if (dia.dialogue.sentences.Count > 0) // only changes the line once
                 {
-                    dia.dialogue.sentences = new string[] { alreadyInteracted };
+                    dia.dialogue.sentences = new List<string>() { alreadyInteracted };
                 }
 
                 dia.TriggerDialogue(); // say something about the search

@@ -46,10 +46,7 @@ public class DialogueManager : MonoBehaviour
         // used to differentiate between multi character and single character dialogue
         if (dia.diaFile)
         {
-            foreach (string sent in dia.CharaLines)
-            {
-                sentences.Enqueue(sent);
-            }
+            EnqueueSentences(dia.CharaLines);
         }
         else
         {
@@ -57,10 +54,7 @@ public class DialogueManager : MonoBehaviour
             imgSprite.sprite = dia.sprite;
 
             // puts each sentence into the queue
-            foreach (string sent in dia.sentences)
-            {
-                sentences.Enqueue(sent);
-            }
+            EnqueueSentences(dia.sentences);
         }
 
         DisplayNextSentence(); // starts the first sentence
@@ -112,11 +106,7 @@ public class DialogueManager : MonoBehaviour
         // puts each sentence into the queue
         if (dia.diaFile)
         {
-            foreach (string sent in dia.CharaLines)
-            {
-                Debug.Log(sent);
-                sentences.Enqueue(sent);
-            }
+            EnqueueSentences(dia.CharaLines);
         }
         else
         {
@@ -124,10 +114,7 @@ public class DialogueManager : MonoBehaviour
             imgSprite.sprite = dia.sprite;
 
             // puts each sentence into the queue
-            foreach (string sent in dia.sentences)
-            {
-                sentences.Enqueue(sent);
-            }
+            EnqueueSentences(dia.sentences);
         }
 
         DisplayNextSentence(); // displays the first sentence of the auto dialogue
@@ -171,6 +158,16 @@ public class DialogueManager : MonoBehaviour
         
     }
 
+    // helper method to help enqueue the sentences
+    private void EnqueueSentences(List<string> sent)
+    {
+        // puts each sentence into the queue
+        foreach (string s in sent)
+        {
+            sentences.Enqueue(s);
+        }
+    }
+
     // animates sentences onto the UI
     IEnumerator TypeSentence (string sentence)
     {
@@ -187,6 +184,8 @@ public class DialogueManager : MonoBehaviour
     {
         // display on the screen for 4 sec before starting next dialogue
         float duration = 4f; //TODO: find a way to change duration according to length of the line
+
+
 
         while (duration > 0f)
         {

@@ -84,23 +84,23 @@ public class Battle : MonoBehaviour
 
                         if (f <= .08f)
                         {
-                            d.dialogue.sentences = new string[] { dia[index].CharaLines[4] };
+                            d.dialogue.sentences = new List<string>() { dia[index].CharaLines[4] };
                         }
                         else if (f <= .25f)
                         {
-                            d.dialogue.sentences = new string[] { dia[index].CharaLines[3] };
+                            d.dialogue.sentences = new List<string>() { dia[index].CharaLines[3] };
                         }
                         else if (f <= .5f)
                         {
-                            d.dialogue.sentences = new string[] { dia[index].CharaLines[2] };
+                            d.dialogue.sentences = new List<string>() { dia[index].CharaLines[2] };
                         }
                         else if (f <= .75f)
                         {
-                            d.dialogue.sentences = new string[] { dia[index].CharaLines[1] };
+                            d.dialogue.sentences = new List<string>() { dia[index].CharaLines[1] };
                         }
                         else if (f <= 1.0f)
                         {
-                            d.dialogue.sentences = new string[] { dia[index].CharaLines[0] };
+                            d.dialogue.sentences = new List<string>() { dia[index].CharaLines[0] };
                         }
                     }
 
@@ -226,14 +226,14 @@ public class Battle : MonoBehaviour
     public void OpenItems()
     {
         DialogueTrigger d = gameObject.GetComponent<DialogueTrigger>();
-        d.dialogue.sentences = new string[] { "I don't have any items to use." };
+        d.dialogue.sentences = new List<string>() { "I don't have any items to use." };
         d.TriggerSentence();
     }
 
     public void Run()
     {
         DialogueTrigger d = gameObject.GetComponent<DialogueTrigger>();
-        d.dialogue.sentences = new string[] { "There's no where to run." };
+        d.dialogue.sentences = new List<string>() { "There's no where to run." };
         d.TriggerSentence();
     }
 

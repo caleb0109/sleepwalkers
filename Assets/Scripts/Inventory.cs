@@ -128,8 +128,7 @@ public class Inventory : MonoBehaviour
         Detect detection = FindObjectOfType<Detect>();
 
         Dialogue use = new Dialogue();
-        use.sprite = reqItem.GetComponent<DialogueTrigger>().dialogue.sprite;
-
+        use.sprite = item.GetComponent<DialogueTrigger>().dialogue.sprite;
 
         HidePrompt();
 
@@ -167,8 +166,7 @@ public class Inventory : MonoBehaviour
                 // turn off phone and mention that player can't use it in the certain area
                 playerMove.OnOpenPhone();
 
-                use.sentences = new string[] {"Can't use the " + item.itemName + " here."};
-
+                use.sentences = new List<string>() { "Can't use the " + item.itemName + " here." };
                 FindObjectOfType<DialogueManager>().StartDialogue(use, false, null);
             }
         }
@@ -176,7 +174,7 @@ public class Inventory : MonoBehaviour
         {
             // turn off phone and mention that player can't use it in the certain area
             playerMove.OnOpenPhone();
-            use.sentences = new string[] {"I rather save this for when I really need it."};
+            use.sentences = new List<string>() { "I rather save this for when I really need it." };
             FindObjectOfType<DialogueManager>().StartDialogue(use, false, null);
         }
     }

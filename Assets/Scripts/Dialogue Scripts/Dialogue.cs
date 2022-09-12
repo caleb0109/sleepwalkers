@@ -9,7 +9,7 @@ public class Dialogue
     public Sprite sprite;
 
     [TextArea(3, 10)]
-    public string[] sentences; // used for interactions with items or one off lines
+    public List<string> sentences; // used for interactions with items or one off lines
     public TextAsset diaFile;
 
     // find efficient way later
