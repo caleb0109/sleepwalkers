@@ -904,6 +904,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Yuichi
       objectReference: {fileID: 0}
+    - target: {fileID: 3721434482242296081, guid: f0e62313dde2a0949821399ef125942c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3721434482242296082, guid: f0e62313dde2a0949821399ef125942c, type: 3}
       propertyPath: diaManager
       value: 
@@ -1545,6 +1549,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dfe89048b96f62499a5d17585dd3782, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &637329717 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3721434482242296081, guid: f0e62313dde2a0949821399ef125942c, type: 3}
+  m_PrefabInstance: {fileID: 327409718}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &673648365
 GameObject:
   m_ObjectHideFlags: 3
@@ -2703,7 +2712,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -166.633, y: -92.876}
+  m_AnchoredPosition: {x: -168.97, y: -94.89}
   m_SizeDelta: {x: 1.9968, y: 0.3984}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1403830847
@@ -3648,6 +3657,8 @@ PlayableDirector:
     value: {fileID: 1732253853}
   - key: {fileID: -6372876109158579945, guid: af97cc91374306e478fa43d384c83121, type: 2}
     value: {fileID: 249056238}
+  - key: {fileID: 4563151622080857119, guid: af97cc91374306e478fa43d384c83121, type: 2}
+    value: {fileID: 637329717}
   m_ExposedReferences:
     m_References: []
 --- !u!114 &1753971414
