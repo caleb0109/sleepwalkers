@@ -964,6 +964,18 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3721434482242296087, guid: f0e62313dde2a0949821399ef125942c, type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3721434482242296087, guid: f0e62313dde2a0949821399ef125942c, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3721434482242296087, guid: f0e62313dde2a0949821399ef125942c, type: 3}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7082599192746728295, guid: f0e62313dde2a0949821399ef125942c, type: 3}
       propertyPath: m_IsActive
       value: 1
