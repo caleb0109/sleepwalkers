@@ -6,6 +6,7 @@ using UnityEngine;
 public class Detect : MonoBehaviour
 {
     private GameObject detectedObj;
+    private Color startColor;
 
     //Examine Window
     public GameObject examineWindow;
@@ -19,11 +20,15 @@ public class Detect : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+
         detectedObj = collision.gameObject;
+        startColor = detectedObj.color;
+        detectedObj.color = Color.yellow;
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+        detectedObj.color = startColor;
         detectedObj = null;
     }
 
