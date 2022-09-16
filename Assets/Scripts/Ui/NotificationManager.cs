@@ -79,6 +79,13 @@ public class NotificationManager : MonoBehaviour
         }
     }
 
+    public void ShowTutorial(string tutorialName, string howTo)
+    {
+        StartNotifAnim();
+        notification.text = tutorialName;
+        title.text = howTo;
+    }
+
     private void StartNotifAnim()
     {
         animator.SetBool("IsOpen", true);
