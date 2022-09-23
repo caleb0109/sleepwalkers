@@ -15,6 +15,7 @@ public class NotificationManager : MonoBehaviour
 
     private Animator animator;
     private AudioSource notifFx;
+    public AudioClip[] soundByte; // used to switch between audio clips
 
     private Queue<Interactable> itemQueue;
 
@@ -33,6 +34,7 @@ public class NotificationManager : MonoBehaviour
     // sends in the notifcation to the player of picked up item
     public void NotifyInteractUpdate(Interactable interacted)
     {
+        notifFx.clip = soundByte[0]; // regular notification
         if (animator.GetBool("IsOpen"))
         {
             itemQueue.Enqueue(interacted);
@@ -81,9 +83,11 @@ public class NotificationManager : MonoBehaviour
 
     public void ShowTutorial(string tutorialName, string howTo)
     {
+        notifFx.clip = soundByte[1]; // tutorial notification
         StartNotifAnim();
         notification.text = tutorialName;
         title.text = howTo;
+        iconContainer.sprite = icons[0]; // notes icon
     }
 
     private void StartNotifAnim()

@@ -5,28 +5,27 @@ using UnityEngine.InputSystem;
 
 public class Tutorial : MonoBehaviour
 {
-    private List<GameObject> tutorials;
-    private int currTutor;
+    private Dictionary<string, string> tutorials;
     private bool iEnumActive;
 
     // Start is called before the first frame update
     void Start()
     {
-        tutorials = new List<GameObject>();
-        currTutor = 0;
+        tutorials = new Dictionary<string, string>();
         iEnumActive = false;
 
-        // get the child of this gameObject and add them to the list of tutorials
-        for (int i = 0; i < this.transform.childCount; i++)
-        {
-            tutorials.Add(this.transform.GetChild(i).gameObject);
-        }
+        // movement
+        tutorials.Add("Movement", "Use 'WASD' to move");
+        // interaction
+        tutorials.Add("Interaction", "Use 'E' to interact with objects");
+        // opening/closing phone
+        tutorials.Add("Open/Close Phone", "Use 'TAB' to open or close your phone");
     }
 
     // Update is called once per frame
     void Update()
     {
-        switch (currTutor)
+        /*switch (currTutor)
         {
             case 0: // movement tutorial
                 if (!iEnumActive && Keyboard.current[Key.W].isPressed)
@@ -49,11 +48,11 @@ public class Tutorial : MonoBehaviour
                     StartCoroutine(TutorialDuration());
                 }
                 break;
-        }
+        }*/
     }
 
     // used to set the gameobject inactive after its condition's been met and activates the next tutorial text
-    IEnumerator TutorialDuration()
+    public IEnumerator TutorialDuration()
     {
         float duration = 2f;
         iEnumActive = true;
@@ -64,16 +63,7 @@ public class Tutorial : MonoBehaviour
             
             if (duration < 0f)
             {
-                // make tutorial at curr index disappear and make the next one appear
-                tutorials[currTutor].SetActive(false);
-                currTutor++;
 
-                // if there's anymore tutorials, set active
-                if (currTutor < tutorials.Count)
-                {
-                    tutorials[currTutor].SetActive(true);
-                    iEnumActive = false;
-                }
             }
 
             yield return null;
