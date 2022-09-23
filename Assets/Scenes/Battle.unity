@@ -1153,6 +1153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 50
   maxHealth: 50
+  leftEnemy: 0
   enemiesAttacks:
   - {fileID: 2394080591579780255, guid: 61aaad31b2adeeb43a206d4a6ec9e31b, type: 3}
 --- !u!114 &569070854
@@ -2315,6 +2316,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 50
   maxHealth: 50
+  leftEnemy: 1
   enemiesAttacks:
   - {fileID: 5909075481337665911, guid: 354d4f4ef076fc648bb546c607f5df8c, type: 3}
 --- !u!114 &1357047143

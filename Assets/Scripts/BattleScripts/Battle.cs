@@ -50,15 +50,14 @@ public class Battle : MonoBehaviour
         // get the enemy count from the children of the enemies gameObject
         enemiesInBattle = new List<Enemy>();
         GameObject enemies = GameObject.Find("enemies");
-        for (int i = 0; i > enemies.transform.childCount; i++)
+        for (int i = 0; i < enemies.transform.childCount; i++)
         {
             GameObject e = enemies.transform.GetChild(0).gameObject;
             enemiesInBattle.Add(e.GetComponent<Enemy>());
         }
 
         // set the animator of the "optionBox" to active
-        //options = GameObject.Find("optionBox").GetComponent<Animator>();
-        //options.SetBool("IsOpen", true);
+        options = GameObject.Find("optionBox").GetComponent<Animator>();
 
         defendingAnim = GameObject.Find("defending").GetComponent<Animator>();
     }
@@ -169,11 +168,11 @@ public class Battle : MonoBehaviour
         }
         else if(state == BattleState.Win)
         {
-            FindObjectOfType<Scenes>().ReturnToPrevScene(dia[SearchForDiaFile("Success")], true);
+            //FindObjectOfType<Scenes>().ReturnToPrevScene(dia[SearchForDiaFile("Success")], true);
         }
         else if(state == BattleState.Lose)
         {
-            FindObjectOfType<Scenes>().ReturnToPrevScene(dia[SearchForDiaFile("Defeat")], false);
+            //FindObjectOfType<Scenes>().ReturnToPrevScene(dia[SearchForDiaFile("Defeat")], false);
         }
     }
 
@@ -192,7 +191,12 @@ public class Battle : MonoBehaviour
     }
     public void PlayerAct()
     {
+        defendingAnim.SetBool("isDefending", true);
+        options.SetBool("isPlayerTurn", false);
         int enemiesDead = 0;
+
+        Debug.Log(enemiesInBattle.Count);
+
         for(int i = 0; i < enemiesInBattle.Count; i++)
         {
             enemiesInBattle[i].TakeDamage(playerH.strength);
@@ -216,7 +220,6 @@ public class Battle : MonoBehaviour
         }
         else
         {
-            defendingAnim.SetBool("isDefending", true);
             state = BattleState.EnemyTurn;
 
         }
@@ -231,6 +234,7 @@ public class Battle : MonoBehaviour
         enemyActed = false;
         state = BattleState.FinishedTurn;
         defendingAnim.SetBool("isDefending", false);
+        options.SetBool("isPlayerTurn", true);
 
         enemyStatusCheck = false;
     }
