@@ -1712,7 +1712,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0465108cd21c4274f9d0550dfc65a3b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: 0
+  state: 1
   diaFiles:
   - {fileID: 4900000, guid: 2233746f81d37a14a94ffdab7d52bad6, type: 3}
   - {fileID: 4900000, guid: f2a83cb7847743347b59ddc431b8690f, type: 3}
@@ -2343,6 +2343,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -0.000030518
       objectReference: {fileID: 0}
+    - target: {fileID: 1730329632749476931, guid: 707f29f4f0762f64e943784b99723433, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2669801425964951014, guid: 707f29f4f0762f64e943784b99723433, type: 3}
       propertyPath: m_Color.b
       value: 1
@@ -2474,11 +2478,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4392704734699024942, guid: 965afd3d85116f34a9d70696e7e8231b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.48812
+      value: 0.4882202
       objectReference: {fileID: 0}
     - target: {fileID: 4392704734699024942, guid: 965afd3d85116f34a9d70696e7e8231b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.00073242
+      value: -0.0014547
       objectReference: {fileID: 0}
     - target: {fileID: 8582907643286237454, guid: 965afd3d85116f34a9d70696e7e8231b, type: 3}
       propertyPath: m_Name
