@@ -30,6 +30,7 @@ public class Battle : MonoBehaviour
 
     private Animator options;
     private Animator defendingAnim;
+    private Animator enemyTDmg;
 
     private void Start()
     {
@@ -194,7 +195,7 @@ public class Battle : MonoBehaviour
         defendingAnim.SetBool("isDefending", true);
         options.SetBool("isPlayerTurn", false);
         int enemiesDead = 0;
-
+            
         Debug.Log(enemiesInBattle.Count);
 
         for(int i = 0; i < enemiesInBattle.Count; i++)
@@ -207,6 +208,7 @@ public class Battle : MonoBehaviour
                 enemiesDead += 1;
             }
         }
+
         
 
         PlayerFinishTurn(enemiesDead);
