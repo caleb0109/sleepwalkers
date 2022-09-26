@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class MiniGameMove : MonoBehaviour
 {
 
-    private Vector3 startPos = Vector3.zero;
+    private Vector3 startPos;
 
     public float speed;
     private Vector2 movePos;
@@ -15,7 +15,10 @@ public class MiniGameMove : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        SetPlayer();  
+
+        startPos = this.transform.parent.transform.position;
+
+        SetPlayer();
     }
 
     public void SetPlayer()

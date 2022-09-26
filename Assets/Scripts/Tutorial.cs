@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class Tutorial : MonoBehaviour
 {
-    private Dictionary<string, string> tutorials;
+    public Dictionary<string, string> tutorials;
     private bool iEnumActive;
 
     // Start is called before the first frame update
@@ -23,8 +23,8 @@ public class Tutorial : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
+   // void Update()
+    //{
         /*switch (currTutor)
         {
             case 0: // movement tutorial
@@ -49,12 +49,18 @@ public class Tutorial : MonoBehaviour
                 }
                 break;
         }*/
+    //}
+
+    // used to iterate through the tutorial lsit
+    public void StartTutorial(string name)
+    {
+
     }
 
     // used to set the gameobject inactive after its condition's been met and activates the next tutorial text
     public IEnumerator TutorialDuration()
     {
-        float duration = 2f;
+        float duration = 1f;
         iEnumActive = true;
 
         while (duration > 0)
@@ -63,7 +69,8 @@ public class Tutorial : MonoBehaviour
             
             if (duration < 0f)
             {
-
+                StopAllCoroutines();
+                StartCoroutine(FindObjectOfType<NotificationManager>().NotificationTimer());
             }
 
             yield return null;

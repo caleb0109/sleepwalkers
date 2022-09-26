@@ -84,7 +84,10 @@ public class NotificationManager : MonoBehaviour
     public void ShowTutorial(string tutorialName, string howTo)
     {
         notifFx.clip = soundByte[1]; // tutorial notification
-        StartNotifAnim();
+        animator.SetBool("IsOpen", true);
+
+        StopAllCoroutines();
+        StartCoroutine(FindObjectOfType<Tutorial>().TutorialDuration());
         notification.text = tutorialName;
         title.text = howTo;
         iconContainer.sprite = icons[0]; // notes icon
@@ -102,7 +105,7 @@ public class NotificationManager : MonoBehaviour
     }
 
     // used to close the notification UI
-    IEnumerator NotificationTimer()
+    public IEnumerator NotificationTimer()
     {
         float duration = 3f;
         while(duration > 0f)
