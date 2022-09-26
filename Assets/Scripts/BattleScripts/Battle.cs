@@ -30,7 +30,7 @@ public class Battle : MonoBehaviour
 
     private Animator options;
     private Animator defendingAnim;
-    private Animator enemyTDmg;
+    private Animator enemyAnim;
 
     private void Start()
     {
@@ -61,6 +61,7 @@ public class Battle : MonoBehaviour
         options = GameObject.Find("optionBox").GetComponent<Animator>();
 
         defendingAnim = GameObject.Find("defending").GetComponent<Animator>();
+        enemyAnim = GameObject.Find("Enemy(s)").GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -185,14 +186,15 @@ public class Battle : MonoBehaviour
             {
                 Destroy(enemyAttacks[i]);
             }
-
+            enemyAnim.SetBool("thugs_leave", false);
             defendingAnim.SetBool("isDefending", false);
             state = BattleState.Lose;
         }
     }
     public void PlayerAct()
     {
-        defendingAnim.SetBool("isDefending", true);
+        enemyAnim.SetBool("ThugTakeDamage", true);
+        enemyAnim.SetBool("ThugTakeDamage", false);
         options.SetBool("isPlayerTurn", false);
         int enemiesDead = 0;
             
@@ -208,8 +210,8 @@ public class Battle : MonoBehaviour
                 enemiesDead += 1;
             }
         }
-
-        
+        defendingAnim.SetBool("isDefending", true);
+        enemyAnim.SetBool("thugs_leave",true);
 
         PlayerFinishTurn(enemiesDead);
     }
@@ -236,6 +238,7 @@ public class Battle : MonoBehaviour
         enemyActed = false;
         state = BattleState.FinishedTurn;
         defendingAnim.SetBool("isDefending", false);
+        enemyAnim.SetBool("thugs_leave", false);
         options.SetBool("isPlayerTurn", true);
 
         enemyStatusCheck = false;
