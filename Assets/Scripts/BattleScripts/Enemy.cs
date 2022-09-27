@@ -16,10 +16,13 @@ public class Enemy : MonoBehaviour
 
     public GameObject[] enemiesAttacks;
 
-    void Start()
+    private void Start()
     {
+        // set the animator
+        damageAnim = this.transform.parent.gameObject.GetComponent<Animator>();
+
         // get a reference of the enemy hp bar
-        Transform gObj = this.gameObject.transform;
+        Transform gObj = this.transform;
         for (int i = 0; i < gObj.childCount; i++)
         {
             if (gObj.GetChild(i).name == "health")
@@ -30,21 +33,15 @@ public class Enemy : MonoBehaviour
         }
 
         hpBar.SetMax(maxHealth); // set the hpbar max
-
-        // set the animator
-        damageAnim = this.gameObject.GetComponent<Animator>();
     }
 
     public void TakeDamage(float damage)
     {
-        Debug.Log(damageAnim);
-
-        //damageAnim.SetBool("takingDamage", true);
+        damageAnim.SetBool("takingDamage", true);
+        damageAnim.SetBool("isLeftEnemy", leftEnemy);
 
         health -= damage;
         hpBar.ShowHealth(health);
         Debug.Log(hpBar);
-
-        damageAnim.SetBool("isLefEnemy", leftEnemy);
     }
 }

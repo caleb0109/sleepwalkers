@@ -61,7 +61,7 @@ public class Battle : MonoBehaviour
         options = GameObject.Find("optionBox").GetComponent<Animator>();
 
         defendingAnim = GameObject.Find("defending").GetComponent<Animator>();
-        enemyAnim = GameObject.Find("Enemy(s)").GetComponent<Animator>();
+        enemyAnim = enemies.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -211,7 +211,7 @@ public class Battle : MonoBehaviour
             }
         }
         defendingAnim.SetBool("isDefending", true);
-        enemyAnim.SetBool("thugs_leave",true);
+        enemyAnim.SetBool("isAttacking",true);
 
         PlayerFinishTurn(enemiesDead);
     }
@@ -238,8 +238,9 @@ public class Battle : MonoBehaviour
         enemyActed = false;
         state = BattleState.FinishedTurn;
         defendingAnim.SetBool("isDefending", false);
-        enemyAnim.SetBool("thugs_leave", false);
+        enemyAnim.SetBool("isAttacking", false);
         options.SetBool("isPlayerTurn", true);
+        enemyAnim.SetBool("takingDamage", false);
 
         enemyStatusCheck = false;
     }
