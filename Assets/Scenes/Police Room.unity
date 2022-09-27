@@ -693,6 +693,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 281684483}
+  - component: {fileID: 281684484}
   m_Layer: 0
   m_Name: EnterPoliceRoom
   m_TagString: Untagged
@@ -718,6 +719,43 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!320 &281684484
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 281684482}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: af97cc91374306e478fa43d384c83121, type: 2}
+  m_InitialState: 1
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: -3874347827414023455, guid: af97cc91374306e478fa43d384c83121, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -5705740258437636447, guid: af97cc91374306e478fa43d384c83121, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -7142512933732324311, guid: af97cc91374306e478fa43d384c83121, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -8278538056109597039, guid: af97cc91374306e478fa43d384c83121, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 4652049589405231643, guid: af97cc91374306e478fa43d384c83121, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 7792013781648819450, guid: af97cc91374306e478fa43d384c83121, type: 2}
+    value: {fileID: 394803626}
+  - key: {fileID: 1807408400162848675, guid: af97cc91374306e478fa43d384c83121, type: 2}
+    value: {fileID: 249056238}
+  - key: {fileID: -6372876109158579945, guid: af97cc91374306e478fa43d384c83121, type: 2}
+    value: {fileID: 1732253853}
+  - key: {fileID: 4563151622080857119, guid: af97cc91374306e478fa43d384c83121, type: 2}
+    value: {fileID: 682434174}
+  - key: {fileID: 3454515339791175147, guid: af97cc91374306e478fa43d384c83121, type: 2}
+    value: {fileID: 0}
+  m_ExposedReferences:
+    m_References: []
 --- !u!1 &305308476
 GameObject:
   m_ObjectHideFlags: 0
@@ -891,7 +929,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6791667801650843102, guid: f0e62313dde2a0949821399ef125942c, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7082599192746728295, guid: f0e62313dde2a0949821399ef125942c, type: 3}
       propertyPath: m_IsActive
@@ -1427,7 +1465,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &546204899
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1675,6 +1713,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &682434174 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3721434482242296081, guid: f0e62313dde2a0949821399ef125942c, type: 3}
+  m_PrefabInstance: {fileID: 327409718}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &745394232 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4952823644617794660, guid: ed1424a17c160c7419f7d75731e96c11, type: 3}
@@ -3171,7 +3214,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Bloodied Knife
   reqItemName: 
-  searchItemSprite: {fileID: 761100573506273824, guid: 1278a792b4de29648822b73826ca0797, type: 3}
+  searchItemSprite: {fileID: 21300000, guid: 74480f5f96172a444addbea54f015e88, type: 3}
   interactType: 3
   notifType: 1
   itemType: 3
