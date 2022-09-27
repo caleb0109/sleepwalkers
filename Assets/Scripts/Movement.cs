@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class Movement : MonoBehaviour
 {
     public float speed = 5f;
-    public DialogueManager diaManager;
+    private DialogueManager diaManager;
     public GameObject phoneWindow;
 
     private Rigidbody2D rb;
@@ -22,6 +22,7 @@ public class Movement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        diaManager = GameObject.Find("DialogueBox").GetComponent<DialogueManager>();
     }
 
     void Update()

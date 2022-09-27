@@ -6,18 +6,16 @@ using UnityEngine.InputSystem;
 public class Tutorial : MonoBehaviour
 {
     public Dictionary<string, string> tutorials;
-    private bool iEnumActive;
 
     // Start is called before the first frame update
     void Start()
     {
         tutorials = new Dictionary<string, string>();
-        iEnumActive = false;
 
         // movement
         tutorials.Add("Movement", "Use 'WASD' to move");
         // interaction
-        tutorials.Add("Interaction", "Use 'E' to interact with objects");
+        tutorials.Add("Interaction", "Use 'E' to interact with glowing objects");
         // opening/closing phone
         tutorials.Add("Open/Close Phone", "Use 'TAB' to open or close your phone");
     }
@@ -51,17 +49,20 @@ public class Tutorial : MonoBehaviour
         }*/
     //}
 
-    // used to iterate through the tutorial lsit
+    // used find the tutorial in the the dictionary
     public void StartTutorial(string name)
     {
-
+        // if the dictionary contains the key, show the tutorial
+        if (tutorials.ContainsKey(name))
+        {
+            FindObjectOfType<NotificationManager>().ShowTutorial(name, tutorials[name]);
+        }
     }
 
     // used to set the gameobject inactive after its condition's been met and activates the next tutorial text
     public IEnumerator TutorialDuration()
     {
-        float duration = 1f;
-        iEnumActive = true;
+        float duration = 2f;
 
         while (duration > 0)
         {

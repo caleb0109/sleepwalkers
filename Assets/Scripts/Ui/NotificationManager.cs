@@ -35,7 +35,7 @@ public class NotificationManager : MonoBehaviour
     public void NotifyInteractUpdate(Interactable interacted)
     {
         notifFx.clip = soundByte[0]; // regular notification
-        if (animator.GetBool("IsOpen"))
+        if (CheckAnimatorOpen())
         {
             itemQueue.Enqueue(interacted);
         }
@@ -68,7 +68,7 @@ public class NotificationManager : MonoBehaviour
     // update player about tasks
     public void NotifyTaskUpdate(string taskName)
     {
-        if (animator.GetBool("IsOpen"))
+        if (CheckAnimatorOpen())
         {
             nextTask = taskName;
         }
@@ -84,8 +84,8 @@ public class NotificationManager : MonoBehaviour
     public void ShowTutorial(string tutorialName, string howTo)
     {
         notifFx.clip = soundByte[1]; // tutorial notification
-        animator.SetBool("IsOpen", true);
 
+        StartNotifAnim();
         StopAllCoroutines();
         StartCoroutine(FindObjectOfType<Tutorial>().TutorialDuration());
         notification.text = tutorialName;
@@ -102,6 +102,11 @@ public class NotificationManager : MonoBehaviour
         // used to keep track of how long notification has been on screen and send the notification away
         StopAllCoroutines();
         StartCoroutine(NotificationTimer());
+    }
+
+    private bool CheckAnimatorOpen()
+    {
+        return animator.GetBool("IsOpen");
     }
 
     // used to close the notification UI
