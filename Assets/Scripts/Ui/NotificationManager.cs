@@ -12,7 +12,6 @@ public class NotificationManager : MonoBehaviour
     public Image iconContainer;
     public Sprite[] icons;
 
-
     private Animator animator;
     private AudioSource notifFx;
     public AudioClip[] soundByte; // used to switch between audio clips
@@ -20,6 +19,8 @@ public class NotificationManager : MonoBehaviour
     private Queue<Interactable> itemQueue;
 
     private string nextTask; // used if the animator's open and needs to queue task update
+
+    private Tutorial tutorManager;
 
     private void Start()
     {
@@ -29,6 +30,8 @@ public class NotificationManager : MonoBehaviour
 
         animator = this.gameObject.GetComponent<Animator>();
         notifFx = this.gameObject.GetComponent<AudioSource>();
+
+        tutorManager = FindObjectOfType<Tutorial>();
     }
 
     // sends in the notifcation to the player of picked up item
@@ -87,7 +90,7 @@ public class NotificationManager : MonoBehaviour
 
         StartNotifAnim();
         StopAllCoroutines();
-        StartCoroutine(FindObjectOfType<Tutorial>().TutorialDuration());
+        StartCoroutine(tutorManager.TutorialDuration(tutorialName));
         notification.text = tutorialName;
         title.text = howTo;
         iconContainer.sprite = icons[0]; // notes icon
@@ -131,11 +134,14 @@ public class NotificationManager : MonoBehaviour
             NotifyTaskUpdate(nextTask);
             nextTask = "";
         }
-
         // if there other notifications needed to show up
-        if (itemQueue.Count > 0)
+        else if (itemQueue.Count > 0)
         {
             NotifyInteractUpdate(itemQueue.Dequeue());
+        }
+        else if (tutorManager.tutorialNames.Count > 0)
+        {
+            tutorManager.CheckTutorialCondition(name);
         }
     }
 }
