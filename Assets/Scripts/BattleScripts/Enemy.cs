@@ -38,7 +38,6 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(float damage)
     {
         damageAnim.SetBool("takingDamage", true);
-        damageAnim.SetBool("isLeftEnemy", leftEnemy);
 
         health -= damage;
         hpBar.ShowHealth(health);

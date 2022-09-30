@@ -12,7 +12,7 @@ public class NotificationManager : MonoBehaviour
     public Image iconContainer;
     public Sprite[] icons;
 
-    private Animator animator;
+    [HideInInspector] public Animator animator;
     private AudioSource notifFx;
     public AudioClip[] soundByte; // used to switch between audio clips
 
@@ -89,8 +89,8 @@ public class NotificationManager : MonoBehaviour
         notifFx.clip = soundByte[1]; // tutorial notification
 
         StartNotifAnim();
-        StopAllCoroutines();
-        StartCoroutine(tutorManager.TutorialDuration(tutorialName));
+        //StopAllCoroutines();
+        //StartCoroutine(tutorManager.TutorialDuration(tutorialName));
         notification.text = tutorialName;
         title.text = howTo;
         iconContainer.sprite = icons[0]; // notes icon
