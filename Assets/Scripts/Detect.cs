@@ -22,13 +22,13 @@ public class Detect : MonoBehaviour
     {
 
         detectedObj = collision.gameObject;
-        startColor = detectedObj.color;
-        detectedObj.color = Color.yellow;
+        //startColor = detectedObj.color;
+        //detectedObj.color = Color.yellow;
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        detectedObj.color = startColor;
+        //detectedObj.color = startColor;
         detectedObj = null;
     }
 
