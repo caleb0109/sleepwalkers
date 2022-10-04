@@ -16,20 +16,20 @@ public class MiniGameMove : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
 
-        startPos = this.transform.parent.transform.position;
-
         SetPlayer();
     }
 
     public void SetPlayer()
     {
-        transform.position = startPos;
-        movePos = startPos;
+        this.gameObject.SetActive(true);
+        movePos = new Vector2(0,0);
     }
 
     void OnMove(InputValue value)
     {
+        
         movePos = value.Get<Vector2>();
+        Debug.Log(movePos);
     }
     // Update is called once per frame
     void FixedUpdate()

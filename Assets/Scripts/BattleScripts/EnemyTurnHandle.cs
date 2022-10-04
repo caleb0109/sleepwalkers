@@ -12,6 +12,7 @@ public class EnemyTurnHandle : MonoBehaviour
 
         int attackNumb = Random.Range(0, attackAmounts);
         GetComponent<Animator>().SetInteger("AttackDex", attackNumb);
+        this.gameObject.transform.position = new Vector3(960,540,-2);
     }
 
     public void AttackDone()

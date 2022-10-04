@@ -28,19 +28,19 @@ public class Enemy : MonoBehaviour
             if (gObj.GetChild(i).name == "health")
             {
                 hpBar = gObj.GetChild(i).GetComponent<Bars>();
+                hpBar.SetMax(health);
                 return;
             }
         }
 
         hpBar.SetMax(maxHealth); // set the hpbar max
     }
-
     public void TakeDamage(float damage)
     {
-        damageAnim.SetBool("enemyDamage", true);
-
         health -= damage;
         hpBar.ShowHealth(health);
-        Debug.Log(hpBar);
+        damageAnim.SetBool("enemyDamage", true);
+
+        
     }
 }

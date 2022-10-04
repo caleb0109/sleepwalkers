@@ -19,6 +19,7 @@ public class Battle : MonoBehaviour
     public Enemy[] enemiesInBattle;
     private bool enemyActed;
     private GameObject[] enemyAttacks;
+    public Canvas canvas;
 
     public TextAsset[] diaFiles;
 
@@ -113,7 +114,7 @@ public class Battle : MonoBehaviour
                         }
                     }
 
-                    //d.TriggerSentence();
+                    d.TriggerSentence();
                 }
 
                 enemyStatusCheck = true;
@@ -138,13 +139,15 @@ public class Battle : MonoBehaviour
                     foreach (Enemy enem in enemiesInBattle)
                     {
                         int atkNumb = Random.Range(0, enem.enemiesAttacks.Length);
-                        Instantiate(enem.enemiesAttacks[atkNumb], Vector3.zero, Quaternion.identity);
+                        GameObject attackk = Instantiate(enem.enemiesAttacks[atkNumb], Vector3.zero, Quaternion.identity);
+                        attackk.transform.SetParent(canvas.transform);
                     }
                     enemyAttacks = GameObject.FindGameObjectsWithTag("Enemy");
                     enemyActed = true;
                 }
                 else
                 {
+
                     bool enemyFin = true;
                     foreach (GameObject enem in enemyAttacks)
                     {
@@ -155,6 +158,7 @@ public class Battle : MonoBehaviour
                     }
                     if (enemyFin)
                     {
+                        player.gameObject.SetActive(false);
                         EnemyFinishedTurn();
                     }
                 }
@@ -172,11 +176,11 @@ public class Battle : MonoBehaviour
         }
         else if (state == BattleState.Win)
         {
-           // FindObjectOfType<Scenes>().ReturnToPrevScene(dia[SearchForDiaFile("Success")], true);
+           FindObjectOfType<Scenes>().ReturnToPrevScene(dia[SearchForDiaFile("Success")], true);
         }
         else if (state == BattleState.Lose)
         {
-            //FindObjectOfType<Scenes>().ReturnToPrevScene(dia[SearchForDiaFile("Defeat")], false);
+            FindObjectOfType<Scenes>().ReturnToPrevScene(dia[SearchForDiaFile("Defeat")], false);
         }
     }
 
@@ -192,17 +196,17 @@ public class Battle : MonoBehaviour
             walls.SetActive(false);
             state = BattleState.Lose;
         }
+
     }
     public void PlayerAct()
     {
         enemyAnim.SetBool("enemyReturn", false);
-
+        
         options.SetBool("isPlayerTurn", false);
         int enemiesDead = 0;
         for (int i = 0; i < enemiesInBattle.Length; i++)
         {
             enemiesInBattle[i].TakeDamage(playerH.strength);
-            Debug.Log(enemiesInBattle[i].health);
             if (enemiesInBattle[i].health <= 0)
             {
                 enemiesInBattle[i].gameObject.SetActive(false);
