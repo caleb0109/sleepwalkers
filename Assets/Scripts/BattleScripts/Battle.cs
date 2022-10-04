@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,11 +19,10 @@ public class Battle : MonoBehaviour
     public Enemy[] enemiesInBattle;
     private bool enemyActed;
     private GameObject[] enemyAttacks;
+    public Canvas canvas;
 
     public TextAsset[] diaFiles;
 
-    public GameObject playerUi;
-    public GameObject engageUI;
     public GameObject walls;
     public MiniGameMove player;
     public PlayerHealth playerH;
@@ -30,6 +30,9 @@ public class Battle : MonoBehaviour
     private List<Dialogue> dia;
     private bool enemyStatusCheck;
 
+    private Animator options;
+    private Animator defendingAnim;
+    private Animator enemyAnim;
 
 
     private void Awake()
@@ -47,6 +50,10 @@ public class Battle : MonoBehaviour
             dia.Add(d); // add it the list
             dia[i].Start(); // load the files
         }
+
+        options = GameObject.Find("optionBox").GetComponent<Animator>();
+        defendingAnim = GameObject.Find("defending").GetComponent<Animator>();
+        enemyAnim = GameObject.Find("enemies").GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -54,13 +61,16 @@ public class Battle : MonoBehaviour
     {
         if (state == BattleState.Start)
         {
-            playerUi.SetActive(true);
             state = BattleState.PlayerTurn;
+            enemyAnim.SetBool("enemyLeave", false);
+            enemyAnim.SetBool("enemyReturn", true);
+            enemyAnim.SetBool("enemyDamage", false);
         }
         else if (state == BattleState.PlayerTurn)
         {
             if (!enemyStatusCheck)
             {
+                
                 int index = SearchForDiaFile("Battle");
                 bool fileFound = false;
 
@@ -108,11 +118,11 @@ public class Battle : MonoBehaviour
                 }
 
                 enemyStatusCheck = true;
-            }             
+            }
         }
-        else if(state == BattleState.EnemyTurn)
+        else if (state == BattleState.EnemyTurn)
         {
-            if(enemiesInBattle.Length <= 0)
+            if (enemiesInBattle.Length <= 0)
             {
                 EnemyFinishedTurn();
             }
@@ -120,45 +130,55 @@ public class Battle : MonoBehaviour
             {
                 if (!enemyActed)
                 {
+                    defendingAnim.SetBool("isDefending", true);
+                    enemyAnim.SetBool("enemyLeave", true);
+
                     player.gameObject.SetActive(true);
                     walls.SetActive(true);
                     player.SetPlayer();
                     foreach (Enemy enem in enemiesInBattle)
                     {
                         int atkNumb = Random.Range(0, enem.enemiesAttacks.Length);
-                        Instantiate(enem.enemiesAttacks[atkNumb], Vector3.zero, Quaternion.identity);
+                        GameObject attackk = Instantiate(enem.enemiesAttacks[atkNumb], Vector3.zero, Quaternion.identity);
+                        attackk.transform.SetParent(canvas.transform);
                     }
                     enemyAttacks = GameObject.FindGameObjectsWithTag("Enemy");
                     enemyActed = true;
                 }
                 else
                 {
+
                     bool enemyFin = true;
-                    foreach(GameObject enem in enemyAttacks)
+                    foreach (GameObject enem in enemyAttacks)
                     {
-                        if(!enem.GetComponent<EnemyTurnHandle>().finishedTurn)
+                        if (!enem.GetComponent<EnemyTurnHandle>().finishedTurn)
                         {
                             enemyFin = false;
                         }
                     }
-                    if(enemyFin)
+                    if (enemyFin)
                     {
+                        player.gameObject.SetActive(false);
                         EnemyFinishedTurn();
                     }
                 }
             }
         }
-        else if(state == BattleState.FinishedTurn)
+        else if (state == BattleState.FinishedTurn)
         {
+            
+            defendingAnim.SetBool("isDefending", false);
+            options.SetBool("isPlayerTurn", true);
+
             player.gameObject.SetActive(false);
             walls.SetActive(false);
             state = BattleState.Start;
         }
-        else if(state == BattleState.Win)
+        else if (state == BattleState.Win)
         {
-            FindObjectOfType<Scenes>().ReturnToPrevScene(dia[SearchForDiaFile("Success")], true);
+           FindObjectOfType<Scenes>().ReturnToPrevScene(dia[SearchForDiaFile("Success")], true);
         }
-        else if(state == BattleState.Lose)
+        else if (state == BattleState.Lose)
         {
             FindObjectOfType<Scenes>().ReturnToPrevScene(dia[SearchForDiaFile("Defeat")], false);
         }
@@ -176,20 +196,24 @@ public class Battle : MonoBehaviour
             walls.SetActive(false);
             state = BattleState.Lose;
         }
+
     }
     public void PlayerAct()
     {
+        enemyAnim.SetBool("enemyReturn", false);
+        
+        options.SetBool("isPlayerTurn", false);
         int enemiesDead = 0;
-        for(int i = 0; i < enemiesInBattle.Length; i++)
+        for (int i = 0; i < enemiesInBattle.Length; i++)
         {
             enemiesInBattle[i].TakeDamage(playerH.strength);
-            Debug.Log(enemiesInBattle[i].health);
-            if(enemiesInBattle[i].health <= 0)
+            if (enemiesInBattle[i].health <= 0)
             {
                 enemiesInBattle[i].gameObject.SetActive(false);
                 enemiesDead += 1;
             }
         }
+
         
 
         PlayerFinishTurn(enemiesDead);
@@ -197,27 +221,26 @@ public class Battle : MonoBehaviour
 
     public void PlayerFinishTurn(int dead)
     {
-        playerUi.SetActive(false);
-        engageUI.SetActive(true);
         if (dead == enemiesInBattle.Length)
         {
             state = BattleState.Win;
         }
         else
         {
+            
             state = BattleState.EnemyTurn;
         }
-        
+
     }
     public void EnemyFinishedTurn()
     {
-        for(int i = 0; i < enemyAttacks.Length; i++)
+        
+        for (int i = 0; i < enemyAttacks.Length; i++)
         {
             Destroy(enemyAttacks[i]);
         }
         enemyActed = false;
         state = BattleState.FinishedTurn;
-        engageUI.SetActive(false);
 
         enemyStatusCheck = false;
     }

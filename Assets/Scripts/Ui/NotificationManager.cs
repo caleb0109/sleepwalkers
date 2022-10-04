@@ -12,13 +12,15 @@ public class NotificationManager : MonoBehaviour
     public Image iconContainer;
     public Sprite[] icons;
 
-
-    private Animator animator;
+    [HideInInspector] public Animator animator;
     private AudioSource notifFx;
+    public AudioClip[] soundByte; // used to switch between audio clips
 
     private Queue<Interactable> itemQueue;
 
     private string nextTask; // used if the animator's open and needs to queue task update
+
+    private Tutorial tutorManager;
 
     private void Start()
     {
@@ -28,12 +30,15 @@ public class NotificationManager : MonoBehaviour
 
         animator = this.gameObject.GetComponent<Animator>();
         notifFx = this.gameObject.GetComponent<AudioSource>();
+
+        tutorManager = FindObjectOfType<Tutorial>();
     }
 
     // sends in the notifcation to the player of picked up item
     public void NotifyInteractUpdate(Interactable interacted)
     {
-        if (animator.GetBool("IsOpen"))
+        notifFx.clip = soundByte[0]; // regular notification
+        if (CheckAnimatorOpen())
         {
             itemQueue.Enqueue(interacted);
         }
@@ -66,7 +71,7 @@ public class NotificationManager : MonoBehaviour
     // update player about tasks
     public void NotifyTaskUpdate(string taskName)
     {
-        if (animator.GetBool("IsOpen"))
+        if (CheckAnimatorOpen())
         {
             nextTask = taskName;
         }
@@ -77,6 +82,18 @@ public class NotificationManager : MonoBehaviour
             title.text = taskName;
             //iconContainer.sprite = icons[2];
         }
+    }
+
+    public void ShowTutorial(string tutorialName, string howTo)
+    {
+        notifFx.clip = soundByte[1]; // tutorial notification
+
+        StartNotifAnim();
+        //StopAllCoroutines();
+        //StartCoroutine(tutorManager.TutorialDuration(tutorialName));
+        notification.text = tutorialName;
+        title.text = howTo;
+        iconContainer.sprite = icons[0]; // notes icon
     }
 
     private void StartNotifAnim()
@@ -90,8 +107,13 @@ public class NotificationManager : MonoBehaviour
         StartCoroutine(NotificationTimer());
     }
 
+    private bool CheckAnimatorOpen()
+    {
+        return animator.GetBool("IsOpen");
+    }
+
     // used to close the notification UI
-    IEnumerator NotificationTimer()
+    public IEnumerator NotificationTimer()
     {
         float duration = 3f;
         while(duration > 0f)
@@ -112,11 +134,14 @@ public class NotificationManager : MonoBehaviour
             NotifyTaskUpdate(nextTask);
             nextTask = "";
         }
-
         // if there other notifications needed to show up
-        if (itemQueue.Count > 0)
+        else if (itemQueue.Count > 0)
         {
             NotifyInteractUpdate(itemQueue.Dequeue());
+        }
+        else if (tutorManager.tutorialNames.Count > 0)
+        {
+            tutorManager.CheckTutorialCondition(name);
         }
     }
 }

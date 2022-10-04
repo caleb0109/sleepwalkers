@@ -9,33 +9,38 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     public float health;
     public float maxHealth;
-    public Text hitUI;
+    public bool leftEnemy;
+
+    private Bars hpBar;
+    private Animator damageAnim;
 
     public GameObject[] enemiesAttacks;
 
+    private void Start()
+    {
+        // set the animator
+        damageAnim = this.transform.parent.gameObject.GetComponent<Animator>();
+
+        // get a reference of the enemy hp bar
+        Transform gObj = this.transform;
+        for (int i = 0; i < gObj.childCount; i++)
+        {
+            if (gObj.GetChild(i).name == "health")
+            {
+                hpBar = gObj.GetChild(i).GetComponent<Bars>();
+                hpBar.SetMax(health);
+                return;
+            }
+        }
+
+        hpBar.SetMax(maxHealth); // set the hpbar max
+    }
     public void TakeDamage(float damage)
     {
         health -= damage;
-        hitUI.text = damage.ToString();
-        hitUI.gameObject.GetComponent<Animator>().SetBool("gotHit", true);
+        hpBar.ShowHealth(health);
+        damageAnim.SetBool("enemyDamage", true);
 
-        StopAllCoroutines();
-        StartCoroutine(CountDown());
-    }
-
-    IEnumerator CountDown()
-    {
-        float duration = 2f;
-        while (duration > 0f)
-        {
-            duration -= Time.deltaTime;
-
-            if (duration < 1f)
-            {
-                hitUI.gameObject.GetComponent<Animator>().SetBool("gotHit", false);
-            }
-
-            yield return null;
-        }
+        
     }
 }
