@@ -37,7 +37,7 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        damageAnim.SetBool("takingDamage", true);
+        damageAnim.SetBool("enemyDamage", true);
 
         health -= damage;
         hpBar.ShowHealth(health);

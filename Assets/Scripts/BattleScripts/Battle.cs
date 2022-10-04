@@ -29,6 +29,9 @@ public class Battle : MonoBehaviour
     private List<Dialogue> dia;
     private bool enemyStatusCheck;
 
+    private Animator options;
+    private Animator defendingAnim;
+    private Animator enemyAnim;
 
 
     private void Awake()
@@ -46,6 +49,10 @@ public class Battle : MonoBehaviour
             dia.Add(d); // add it the list
             dia[i].Start(); // load the files
         }
+
+        options = GameObject.Find("optionBox").GetComponent<Animator>();
+        defendingAnim = GameObject.Find("defending").GetComponent<Animator>();
+        enemyAnim = GameObject.Find("enemies").GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -54,11 +61,15 @@ public class Battle : MonoBehaviour
         if (state == BattleState.Start)
         {
             state = BattleState.PlayerTurn;
+            enemyAnim.SetBool("enemyLeave", false);
+            enemyAnim.SetBool("enemyReturn", true);
+            enemyAnim.SetBool("enemyDamage", false);
         }
         else if (state == BattleState.PlayerTurn)
         {
             if (!enemyStatusCheck)
             {
+                
                 int index = SearchForDiaFile("Battle");
                 bool fileFound = false;
 
@@ -118,6 +129,9 @@ public class Battle : MonoBehaviour
             {
                 if (!enemyActed)
                 {
+                    defendingAnim.SetBool("isDefending", true);
+                    enemyAnim.SetBool("enemyLeave", true);
+
                     player.gameObject.SetActive(true);
                     walls.SetActive(true);
                     player.SetPlayer();
@@ -148,6 +162,10 @@ public class Battle : MonoBehaviour
         }
         else if (state == BattleState.FinishedTurn)
         {
+            
+            defendingAnim.SetBool("isDefending", false);
+            options.SetBool("isPlayerTurn", true);
+
             player.gameObject.SetActive(false);
             walls.SetActive(false);
             state = BattleState.Start;
@@ -177,6 +195,9 @@ public class Battle : MonoBehaviour
     }
     public void PlayerAct()
     {
+        enemyAnim.SetBool("enemyReturn", false);
+
+        options.SetBool("isPlayerTurn", false);
         int enemiesDead = 0;
         for (int i = 0; i < enemiesInBattle.Length; i++)
         {
@@ -189,6 +210,7 @@ public class Battle : MonoBehaviour
             }
         }
 
+        
 
         PlayerFinishTurn(enemiesDead);
     }
@@ -201,12 +223,14 @@ public class Battle : MonoBehaviour
         }
         else
         {
+            
             state = BattleState.EnemyTurn;
         }
 
     }
     public void EnemyFinishedTurn()
     {
+        
         for (int i = 0; i < enemyAttacks.Length; i++)
         {
             Destroy(enemyAttacks[i]);

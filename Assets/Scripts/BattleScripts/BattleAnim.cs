@@ -8,12 +8,13 @@ public class BattleAnim : MonoBehaviour
     private Animator defendingAnim;
     private Animator enemyAnim;
 
+    public Battle battle;
+
     private void Start()
     {
 
         // set the animator of the "optionBox" to active
         options = GameObject.Find("optionBox").GetComponent<Animator>();
-
         defendingAnim = GameObject.Find("defending").GetComponent<Animator>();
         enemyAnim = GameObject.Find("enemies").GetComponent<Animator>();
     }
@@ -21,14 +22,23 @@ public class BattleAnim : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        enemyAnim.SetBool("ThugTakeDamage", true);
+        if(battle.state == BattleState.PlayerTurn)
+        {
+            Debug.Log("yes");
+            options.SetBool("isPlayerTurn", false);
+            enemyAnim.SetBool("takingDamage", true);
+            defendingAnim.SetBool("isDefending", true);
+        }
+
+        //Debug.Log(battle.state);
+        /*enemyAnim.SetBool("ThugTakeDamage", true);
         enemyAnim.SetBool("ThugTakeDamage", false);
-        options.SetBool("isPlayerTurn", false);
+        options.SetBool("isPlayerTurn", false);*/
         int enemiesDead = 0;
 
 
-        defendingAnim.SetBool("isDefending", true);
-        enemyAnim.SetBool("isAttacking", true);
+        /*defendingAnim.SetBool("isDefending", true);
+        enemyAnim.SetBool("isAttacking", true);*/
     }
 
     private void FixedUpdate()
