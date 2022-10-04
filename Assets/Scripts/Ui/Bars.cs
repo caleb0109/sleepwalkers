@@ -16,6 +16,7 @@ public class Bars : MonoBehaviour
 
     public void ShowHealth(float health)
     {
+        Debug.Log(health);
         bar.value = health;
     }
 }

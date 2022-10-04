@@ -19,14 +19,18 @@ public class DialogueManager : MonoBehaviour
     private bool startBattle;
     private GameObject gObj;
     private bool autoDia;
+    private float multiplier; // used in the future for if the user wants to change the speed of the autoplay
+    private char[] sentLength; // determines the num of characters in the string array
 
     void Start()
     {
         sentences = new Queue<string>();
         isSpeaking = false;
         startBattle = false;
+        multiplier = 1f;
     }
 
+    // used for normal dialogue between characters or with Yuichi
     public void StartDialogue(Dialogue dia, bool battle, GameObject obj)
     {
         dialogueHolder = dia;
@@ -60,6 +64,7 @@ public class DialogueManager : MonoBehaviour
         DisplayNextSentence(); // starts the first sentence
     }
 
+    // iterates throught the dialogue for the battle sequence
     public void StartBattleDialogue(Dialogue dia)
     {
         dialogueHolder = dia;
@@ -89,6 +94,7 @@ public class DialogueManager : MonoBehaviour
         StartCoroutine(TypeSentence(sentence));
     }
 
+    // AutoPlays Dialogue
     public void StartAutoDialogue(Dialogue dia)
     {
         dialogueHolder = dia;
@@ -149,6 +155,8 @@ public class DialogueManager : MonoBehaviour
             }
         }
 
+        sentLength = sentence.ToCharArray();
+
         StopAllCoroutines();
         if (autoDia)
         {
@@ -179,13 +187,34 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-
+    // displays the dialogue for a certain amount of time
     IEnumerator AutoPlayDialogue()
     {
-        // display on the screen for 4 sec before starting next dialogue
-        float duration = 4f; //TODO: find a way to change duration according to length of the line
+        // display on the screen for a few seconds before going to next dialogue
+        float duration;
+        int arrayLength = sentLength.Length;
 
-
+        // determines how long the dialogue should be displayed based on the string length
+        if (arrayLength > 300)
+        {
+            duration = 8f;
+        }
+        else if (arrayLength > 100)
+        {
+            duration = 5f;
+        }
+        else if (arrayLength > 50)
+        {
+            duration = 4f;
+        }
+        else if (arrayLength > 25)
+        {
+            duration = 3.5f;
+        }
+        else
+        {
+            duration = 3f;
+        }
 
         while (duration > 0f)
         {
