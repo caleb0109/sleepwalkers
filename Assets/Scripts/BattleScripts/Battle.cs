@@ -141,6 +141,7 @@ public class Battle : MonoBehaviour
                         int atkNumb = Random.Range(0, enem.enemiesAttacks.Length);
                         GameObject attackk = Instantiate(enem.enemiesAttacks[atkNumb], Vector3.zero, Quaternion.identity);
                         attackk.transform.SetParent(canvas.transform);
+                        //attackk.GetComponentInChildren<RectTransform>().localScale = canvas.GetComponentInChildren<RectTransform>().localScale;
                     }
                     enemyAttacks = GameObject.FindGameObjectsWithTag("Enemy");
                     enemyActed = true;
