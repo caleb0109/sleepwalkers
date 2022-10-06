@@ -111,7 +111,13 @@ public class Tutorial : MonoBehaviour
 
     public void PhoneTutorial()
     {
+
         Transform tManager = this.transform;
+
+        if (phoneTutorialCompleted[tManager.childCount - 1])
+        {
+            tManager.GetChild(tManager.childCount - 1).gameObject.SetActive(false);
+        }
 
         // go through the children and take turns activating them/completing them
         for (int i = 0; i < tManager.childCount; i++)
@@ -120,9 +126,15 @@ public class Tutorial : MonoBehaviour
 
             if (!child.activeInHierarchy && !phoneTutorialCompleted[i])
             {
+                if (i > 0)
+                {
+                    tManager.GetChild(i - 1).gameObject.SetActive(false);
+                }
+
                 child.SetActive(true);
                 phoneTutorialCompleted[i] = true;
-                TutorialDuration(); 
+                StopAllCoroutines();
+                StartCoroutine(TutorialDuration());
                 break;
             }
         }

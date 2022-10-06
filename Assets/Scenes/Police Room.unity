@@ -1465,6 +1465,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutorialNames: []
+  inBattle: 0
 --- !u!114 &546204901
 MonoBehaviour:
   m_ObjectHideFlags: 0

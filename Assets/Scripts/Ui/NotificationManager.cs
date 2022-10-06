@@ -115,7 +115,7 @@ public class NotificationManager : MonoBehaviour
     // used to close the notification UI
     public IEnumerator NotificationTimer()
     {
-        float duration = 3f;
+        float duration = 5f;
         while(duration > 0f)
         {
             duration -= Time.deltaTime;
@@ -142,6 +142,10 @@ public class NotificationManager : MonoBehaviour
         else if (tutorManager.tutorialNames.Count > 0)
         {
             tutorManager.CheckTutorialCondition(name);
+        }
+        else if (tutorManager.tutorialNames.Count == 0)
+        {
+            tutorManager.PhoneTutorial();
         }
     }
 }
