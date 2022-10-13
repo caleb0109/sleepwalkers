@@ -18,7 +18,7 @@ public class DialogueManager : MonoBehaviour
     private Dialogue dialogueHolder;
     private bool startBattle;
     private GameObject gObj;
-    private bool autoDia;
+    [HideInInspector]public bool autoDia;
     private float multiplier; // used in the future for if the user wants to change the speed of the autoplay
     private char[] sentLength; // determines the num of characters in the string array
 

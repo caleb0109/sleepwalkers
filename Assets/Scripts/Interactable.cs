@@ -97,7 +97,10 @@ public class Interactable : MonoBehaviour
 
             case InteractableType.Talking:
             case InteractableType.Npc:
-                dia.TriggerDialogue(); // used to get this specific trigger only
+                if (!FindObjectOfType<DialogueManager>().isSpeaking)
+                {
+                    dia.TriggerDialogue(); // used to get this specific trigger only
+                }
                 break;
 
             case InteractableType.Search:
@@ -124,7 +127,10 @@ public class Interactable : MonoBehaviour
                     dia.dialogue.sentences = new List<string>() { alreadyInteracted };
                 }
 
-                dia.TriggerDialogue(); // say something about the search
+                if (!FindObjectOfType<DialogueManager>().isSpeaking)
+                {
+                    dia.TriggerDialogue(); // say something about the search
+                }
 
                 break;
 

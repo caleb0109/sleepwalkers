@@ -85,7 +85,7 @@ public class Movement : MonoBehaviour
     // space bar pressed to get the next sentence
     void OnContinueDialogue()
     {
-        if (diaManager.isSpeaking)
+        if (diaManager.isSpeaking && !diaManager.autoDia)
         {
             diaManager.DisplayNextSentence();
         }
