@@ -93,17 +93,24 @@ public class Movement : MonoBehaviour
 
     public void OnOpenPhone()
     {
-        for (int i = 0; i < phoneWindow.transform.childCount; i++)
+        if (phoneWindow.activeInHierarchy)
         {
-            GameObject child = phoneWindow.transform.GetChild(i).gameObject;
-
-            // if any of the children are active, turn them off
-            if (child.activeInHierarchy && child.name != "phone")
+            for (int i = 0; i < phoneWindow.transform.childCount; i++)
             {
-                child.SetActive(false);
+                GameObject child = phoneWindow.transform.GetChild(i).gameObject;
+
+                // if any of the children are active, turn them off
+                if (child.activeInHierarchy && child.name != "phone")
+                {
+                    child.SetActive(false);
+                }
             }
         }
 
-        phoneWindow.SetActive(!phoneWindow.activeInHierarchy); // toggles phone open screen with TAB button
+        if (!diaManager.isSpeaking)
+        {
+            phoneWindow.SetActive(!phoneWindow.activeInHierarchy); // toggles phone open screen with TAB button
+        }
+        
     }
 }
