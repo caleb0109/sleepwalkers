@@ -2472,6 +2472,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1533875115}
     m_Modifications:
+    - target: {fileID: 2473383780351655199, guid: f0e62313dde2a0949821399ef125942c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3721434482242296081, guid: f0e62313dde2a0949821399ef125942c, type: 3}
       propertyPath: m_Name
       value: Yuichi

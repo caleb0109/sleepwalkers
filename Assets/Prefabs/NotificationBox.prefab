@@ -191,7 +191,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 17.4333, y: 11.88}
+  m_AnchoredPosition: {x: 17.4333, y: 14.982}
   m_SizeDelta: {x: 220.0365, y: 23.7609}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1643474676563789684
@@ -375,6 +375,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: acf6ee5764d38224c9e86534f4b2d01f, type: 3}
   - {fileID: 21300000, guid: dcaba631951285d439096956b7aa006d, type: 3}
   - {fileID: 21300000, guid: 31587cf85ca021b4580712a47d96ea84, type: 3}
+  animator: {fileID: 0}
   soundByte:
   - {fileID: 8300000, guid: 3f8a890bf1f886b40be3150463e545d9, type: 3}
   - {fileID: 8300000, guid: 0503dbee74fa59143a3ec71791c2f857, type: 3}
@@ -529,8 +530,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 26.3, y: -13.8}
-  m_SizeDelta: {x: 218.539, y: 20.987}
+  m_AnchoredPosition: {x: 26.5, y: -12.015}
+  m_SizeDelta: {x: 218.539, y: 30.234}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1643474677087363094
 CanvasRenderer:

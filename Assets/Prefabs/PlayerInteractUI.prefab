@@ -1532,7 +1532,7 @@ GameObject:
   - component: {fileID: 94350657855694409}
   - component: {fileID: 839129744051407635}
   m_Layer: 5
-  m_Name: use
+  m_Name: use/equip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7086,7 +7086,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -49.502556, y: 269.70673}
+  m_AnchoredPosition: {x: -52.2, y: 269.71}
   m_SizeDelta: {x: 90.4734, y: 55.142395}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &523899541388983505

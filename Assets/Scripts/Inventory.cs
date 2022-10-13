@@ -24,6 +24,7 @@ public class Inventory : MonoBehaviour
 
     [HideInInspector]
     public bool isOpen;
+    public GameObject equippedWeapon = null;
 
     public void PickUp(GameObject item)
     {
@@ -95,7 +96,26 @@ public class Inventory : MonoBehaviour
 
             // remove any previous listeners and add a new one so the list isn't giant
             promptBttns[0].onClick.RemoveAllListeners();
-            promptBttns[0].onClick.AddListener(() => UseItem(items[id], id));
+
+            // if the item is a weapon, display different option. Else display Use otion
+            if (items[id].GetComponent<Interactable>().itemType == Interactable.Item.Weapon)
+            {
+                if (equippedWeapon != null)
+                {
+                    promptBttns[0].transform.GetChild(0).GetComponent<Text>().text = "Unequip Item";
+                    promptBttns[0].onClick.AddListener(UnequipWeapon);
+                }
+                else
+                {
+                    promptBttns[0].transform.GetChild(0).GetComponent<Text>().text = "Equip Item";
+                    promptBttns[0].onClick.AddListener(() => EquipWeapon(items[id], id));
+                }
+            }
+            else
+            {
+                promptBttns[0].transform.GetChild(0).GetComponent<Text>().text = "Use Item";
+                promptBttns[0].onClick.AddListener(() => UseItem(items[id], id));
+            }
         }
     }
 
@@ -118,6 +138,49 @@ public class Inventory : MonoBehaviour
     public void HidePrompt()
     {
         prompt.SetActive(false);
+    }
+
+    // equip weapon
+    public void EquipWeapon(GameObject weapon, int listLoc)
+    {
+        HidePrompt();
+
+        // if the player equips a weapon while another one is equipped, unequip the prev weapon
+        if (equippedWeapon != null)
+        {
+            UnequipWeapon();
+        }
+
+        // notify the player the item's been equipped
+        Interactable eWeapon = weapon.GetComponent<Interactable>();
+        eWeapon.notifType = Interactable.NotificationType.equipped; // change the notif type
+        FindObjectOfType<NotificationManager>().NotifyInteractUpdate(eWeapon);
+
+        equippedWeapon = weapon; // equip the new weapon
+
+        // close phone
+        FindObjectOfType<Movement>().OnOpenPhone();
+
+        // say something about getting the weapon equipped
+        Dialogue equip = new Dialogue();
+        equip.sprite = weapon.GetComponent<DialogueTrigger>().dialogue.sprite;
+
+        equip.sentences = new List<string>() { $"This {weapon.GetComponent<Interactable>().itemName}'ll be helpful for whatever dangers comes my way." };
+        FindObjectOfType<DialogueManager>().StartDialogue(equip, false, null);
+    }
+
+    public void UnequipWeapon()
+    {
+        // notify the player the item's been unequipped
+        Interactable eWeapon = equippedWeapon.GetComponent<Interactable>();
+        eWeapon.notifType = Interactable.NotificationType.unequipped;
+
+        FindObjectOfType<NotificationManager>().NotifyInteractUpdate(eWeapon);
+
+        // close phone
+        FindObjectOfType<Movement>().OnOpenPhone();
+
+        equippedWeapon = null;
     }
 
     // look for a specific item that goes with the requirement
@@ -150,6 +213,7 @@ public class Inventory : MonoBehaviour
 
                 playerMove.OnOpenPhone(); // closes phone window once item is used
 
+                // TODO: add node system to place at specific location on map
                 // put the item at the player's current position
                 if (item.itemType == Interactable.Item.Placeable)
                 {
@@ -167,16 +231,9 @@ public class Inventory : MonoBehaviour
                 // turn off phone and mention that player can't use it in the certain area
                 playerMove.OnOpenPhone();
 
-                use.sentences = new List<string>() { "Can't use the " + item.itemName + " here." };
+                use.sentences = new List<string>() { $"Can't use the {item.itemName} here." };
                 FindObjectOfType<DialogueManager>().StartDialogue(use, false, null);
             }
-        }
-        else
-        {
-            // turn off phone and mention that player can't use it in the certain area
-            playerMove.OnOpenPhone();
-            use.sentences = new List<string>() { "I rather save this for when I really need it." };
-            FindObjectOfType<DialogueManager>().StartDialogue(use, false, null);
         }
     }
 
@@ -187,5 +244,19 @@ public class Inventory : MonoBehaviour
         items.Add(itemHost);
         itemSprites.Add(itemSprite);
         Update_UI();
+    }
+
+    // checks if the player has the required item to procceed
+    public bool CheckInventory(GameObject requirement)
+    {
+        foreach (GameObject g in items)
+        {
+            if (g == requirement)
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 }

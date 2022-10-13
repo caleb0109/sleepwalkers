@@ -216,6 +216,8 @@ public class DialogueManager : MonoBehaviour
             duration = 3f;
         }
 
+        duration /= multiplier; // when the user changes the speed of text
+
         while (duration > 0f)
         {
             duration -= Time.deltaTime;
