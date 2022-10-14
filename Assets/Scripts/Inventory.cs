@@ -153,8 +153,10 @@ public class Inventory : MonoBehaviour
                 // put the item at the player's current position
                 if (item.itemType == Interactable.Item.Placeable)
                 {
+                    FindObjectOfType<Nodes>().MoveItemToNode(reqItem); // move the item
                     detection.DetectedObj.GetComponent<BoxCollider2D>().enabled = false; // turn off the collider for the specifc item loc
-                    item.transform.position = new Vector3(playerMove.transform.position.x, playerMove.transform.position.y + 1f, 0);
+                    
+                    // set the item to active and change the properties
                     item.gameObject.SetActive(true);
                     item.itemType = Interactable.Item.None;
                     item.interactType = Interactable.InteractableType.Cutscene;
