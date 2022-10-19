@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
+using System.IO;
 
 public class SaveManager : MonoBehaviour
 {
     private int slotNum;
     private Button[] slots;
+
+    private string path;
 
     public GameObject overwritePrompt;
 
@@ -14,7 +18,8 @@ public class SaveManager : MonoBehaviour
     void Start()
     {
         slots = new Button[3];
-
+        path = "Files/Save";
+        Debug.Log(Resources.LoadAsync<TextAsset>(path));
     }
 
     // checks if the slot selected is empty

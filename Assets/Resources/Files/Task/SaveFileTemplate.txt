@@ -1,0 +1,11 @@
+timeplayed|00:00:00
+position|X,Y,0
+itemsCollected|Knife,Ladder
+photosCollected|1,4,2,6
+articlesCollected|1,2,3,10,15
+currentTask|Save Hua
+tasksCompleted|Find a way out of the room,Leave the alleyway,Get to Class
+locationName|School
+
+
+
