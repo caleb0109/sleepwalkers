@@ -43,7 +43,7 @@ public class Nodes : MonoBehaviour
         // if there's other locations, find the closest location and set the position to it
         if(CheckForOtherLocs(itemLoc))
         {
-            item.transform.position = FindClosestLocation(item.transform, pIndex).position;
+            item.transform.position = FindClosestLocation(pIndex).position;
         }
         else // otherwise, set it to the current itemLoc position
         {
@@ -63,25 +63,48 @@ public class Nodes : MonoBehaviour
         return false;
     }
 
-    private Transform FindClosestLocation(Transform item, int placementIndex)
+    // finds the closest placement location to the current player position
+    private Transform FindClosestLocation(int placementIndex)
     {
         Transform multiLoc= placements[placementIndex];
         Transform playerLoc = GameObject.Find("Yuichi").transform;
         Transform closestLoc = null;
 
         // compare the x and y positions with the player location
-        /*for (int i = 0; i < multiLoc.childCount; i++)
+        for (int i = 0; i < multiLoc.childCount; i++)
         {
-            if (multiLoc[i].position.x + 5 == )
-            {
+            Debug.Log(multiLoc.GetChild(i).gameObject.name);
+            bool xIsClose = false;
+            bool yIsClose = false;
 
+            // check if the player is in a certain x radius of the place to place item
+            if (multiLoc.GetChild(i).position.x + 3 >= playerLoc.position.x || 
+                multiLoc.GetChild(i).position.x - 3 >= playerLoc.position.x)
+            {
+                xIsClose = true;
             }
 
-            if (multiLoc[i].position.y + 5 == )
-            {
+            Debug.Log("X + 3 >= playerX: " + (multiLoc.GetChild(i).position.x + 3 >= playerLoc.position.x));
+            Debug.Log("X - 3 >= playerX: " + (multiLoc.GetChild(i).position.x - 3 >= playerLoc.position.x));
 
+            // check if the player is in a certain y radius of the place to place item
+            if (multiLoc.GetChild(i).position.y + 3 <= playerLoc.position.y ||
+                multiLoc.GetChild(i).position.y - 3 <= playerLoc.position.y)
+            {
+                yIsClose = true;
             }
-        }*/
+
+            Debug.Log("Y + 3 <= playerY: " + (multiLoc.GetChild(i).position.y + 3 <= playerLoc.position.y));
+            Debug.Log("Y - 3 <= playerY: " + (multiLoc.GetChild(i).position.y - 3 <= playerLoc.position.y));
+
+            Debug.Log("X: " + xIsClose + " Y: " + yIsClose);
+
+            if (xIsClose && yIsClose)
+            {
+                closestLoc = multiLoc.GetChild(i);
+                break;
+            }
+        }
 
         return closestLoc;
     }

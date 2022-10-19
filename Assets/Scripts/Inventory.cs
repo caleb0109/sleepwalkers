@@ -128,7 +128,7 @@ public class Inventory : MonoBehaviour
         Detect detection = FindObjectOfType<Detect>();
 
         Dialogue use = new Dialogue();
-        use.sprite = item.GetComponent<DialogueTrigger>().dialogue.sprite;
+        //use.sprite = item.GetComponent<DialogueTrigger>().dialogue.sprite;
 
         HidePrompt();
 
@@ -161,7 +161,7 @@ public class Inventory : MonoBehaviour
                     item.itemType = Interactable.Item.None;
                     item.interactType = Interactable.InteractableType.Cutscene;
 
-                    item.gameObject.GetComponent<DialogueTrigger>().enabled = false;
+                    //item.gameObject.GetComponent<DialogueTrigger>().enabled = false;
                 }
             }
             else

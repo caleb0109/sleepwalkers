@@ -204,7 +204,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  diaManager: {fileID: 0}
   phoneWindow: {fileID: 6791667801650843102}
 --- !u!114 &821570597394135200
 MonoBehaviour:
@@ -304,6 +303,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3721434482242296085}
     m_Modifications:
+    - target: {fileID: 707622047137842649, guid: 17aa225f753c47c48aa575af228841a6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3880784640672961376, guid: 17aa225f753c47c48aa575af228841a6, type: 3}
       propertyPath: m_Name
       value: PlayerInteractUI
