@@ -70,40 +70,52 @@ public class Nodes : MonoBehaviour
         Transform playerLoc = GameObject.Find("Yuichi").transform;
         Transform closestLoc = null;
 
+        Vector3 lowestDifference = new Vector3(0, 0, 0); // used to see which location is closest
+
+        Debug.Log("player position: " + playerLoc.position);
+
         // compare the x and y positions with the player location
         for (int i = 0; i < multiLoc.childCount; i++)
         {
-            Debug.Log(multiLoc.GetChild(i).gameObject.name);
-            bool xIsClose = false;
-            bool yIsClose = false;
+            Transform child = multiLoc.GetChild(i).transform;
+            Vector3 childLoc = child.position;
+            Vector3 player = playerLoc.position;
+            Debug.Log(multiLoc.GetChild(i).gameObject.name + " " + multiLoc.GetChild(i).position);
 
-            // check if the player is in a certain x radius of the place to place item
-            if (multiLoc.GetChild(i).position.x + 3 >= playerLoc.position.x || 
-                multiLoc.GetChild(i).position.x - 3 >= playerLoc.position.x)
+            // set all the positions to the positive side for determining the difference
+            if (child.position.x < 0)
             {
-                xIsClose = true;
+                childLoc.x *= -1;
             }
 
-            Debug.Log("X + 3 >= playerX: " + (multiLoc.GetChild(i).position.x + 3 >= playerLoc.position.x));
-            Debug.Log("X - 3 >= playerX: " + (multiLoc.GetChild(i).position.x - 3 >= playerLoc.position.x));
-
-            // check if the player is in a certain y radius of the place to place item
-            if (multiLoc.GetChild(i).position.y + 3 <= playerLoc.position.y ||
-                multiLoc.GetChild(i).position.y - 3 <= playerLoc.position.y)
+            if (child.position.y < 0)
             {
-                yIsClose = true;
+                childLoc.y *= -1;
             }
 
-            Debug.Log("Y + 3 <= playerY: " + (multiLoc.GetChild(i).position.y + 3 <= playerLoc.position.y));
-            Debug.Log("Y - 3 <= playerY: " + (multiLoc.GetChild(i).position.y - 3 <= playerLoc.position.y));
-
-            Debug.Log("X: " + xIsClose + " Y: " + yIsClose);
-
-            if (xIsClose && yIsClose)
+            if (playerLoc.position.x < 0)
             {
+                player.x *= -1;
+            }
+
+            if (playerLoc.position.y < 0)
+            {
+                player.y *= -1;
+            }
+
+            // calculate the difference
+            Vector3 difference = player - childLoc;
+            Debug.Log("difference: " + difference);
+
+            // checks if the difference is within a certain radius
+            if ( difference.x > -5 && difference.y > -5 
+                && difference.x < 5 && difference.y < 5)
+            {
+                lowestDifference = difference;
+                Debug.Log("lowest difference: " + lowestDifference);
                 closestLoc = multiLoc.GetChild(i);
-                break;
             }
+
         }
 
         return closestLoc;

@@ -150,17 +150,18 @@ public class Inventory : MonoBehaviour
 
                 playerMove.OnOpenPhone(); // closes phone window once item is used
 
-                // put the item at the player's current position
+                // put the item at the node closet to player
                 if (item.itemType == Interactable.Item.Placeable)
                 {
-                    FindObjectOfType<Nodes>().MoveItemToNode(reqItem); // move the item
-                    detection.DetectedObj.GetComponent<BoxCollider2D>().enabled = false; // turn off the collider for the specifc item loc
-                    
                     // set the item to active and change the properties
-                    item.gameObject.SetActive(true);
+                    PlaceItem(reqItem, detection);
                     item.itemType = Interactable.Item.None;
                     item.interactType = Interactable.InteractableType.Cutscene;
 
+                    if (item.gameObject.GetComponent<DialogueTrigger>() != null)
+                    {
+                        item.gameObject.GetComponent<DialogueTrigger>().enabled = false;
+                    }
                     //item.gameObject.GetComponent<DialogueTrigger>().enabled = false;
                 }
             }
@@ -189,5 +190,13 @@ public class Inventory : MonoBehaviour
         items.Add(itemHost);
         itemSprites.Add(itemSprite);
         Update_UI();
+    }
+
+    // used to move the item, set it active, and turn off the collider for the detectedObj
+    public void PlaceItem(GameObject item, Detect collidedObj)
+    {
+        FindObjectOfType<Nodes>().MoveItemToNode(item); // move the item
+        collidedObj.DetectedObj.GetComponent<BoxCollider2D>().enabled = false; // turn off the collider for the specifc item loc
+        item.SetActive(true);
     }
 }
