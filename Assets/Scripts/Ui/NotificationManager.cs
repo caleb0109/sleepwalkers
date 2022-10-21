@@ -139,7 +139,7 @@ public class NotificationManager : MonoBehaviour
         {
             NotifyInteractUpdate(itemQueue.Dequeue());
         }
-        else if (tutorManager.tutorialNames.Count > 0)
+        else if (tutorManager && tutorManager.tutorialNames.Count > 0)
         {
             tutorManager.CheckTutorialCondition(name);
         }

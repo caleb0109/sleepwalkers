@@ -128,7 +128,7 @@ public class Inventory : MonoBehaviour
         Detect detection = FindObjectOfType<Detect>();
 
         Dialogue use = new Dialogue();
-        use.sprite = item.GetComponent<DialogueTrigger>().dialogue.sprite;
+        //use.sprite = item.GetComponent<DialogueTrigger>().dialogue.sprite;
 
         HidePrompt();
 
@@ -150,16 +150,19 @@ public class Inventory : MonoBehaviour
 
                 playerMove.OnOpenPhone(); // closes phone window once item is used
 
-                // put the item at the player's current position
+                // put the item at the node closet to player
                 if (item.itemType == Interactable.Item.Placeable)
                 {
-                    detection.DetectedObj.GetComponent<BoxCollider2D>().enabled = false; // turn off the collider for the specifc item loc
-                    item.transform.position = new Vector3(playerMove.transform.position.x, playerMove.transform.position.y + 1f, 0);
-                    item.gameObject.SetActive(true);
+                    // set the item to active and change the properties
+                    PlaceItem(reqItem, detection);
                     item.itemType = Interactable.Item.None;
                     item.interactType = Interactable.InteractableType.Cutscene;
 
-                    item.gameObject.GetComponent<DialogueTrigger>().enabled = false;
+                    if (item.gameObject.GetComponent<DialogueTrigger>() != null)
+                    {
+                        item.gameObject.GetComponent<DialogueTrigger>().enabled = false;
+                    }
+                    //item.gameObject.GetComponent<DialogueTrigger>().enabled = false;
                 }
             }
             else
@@ -187,5 +190,13 @@ public class Inventory : MonoBehaviour
         items.Add(itemHost);
         itemSprites.Add(itemSprite);
         Update_UI();
+    }
+
+    // used to move the item, set it active, and turn off the collider for the detectedObj
+    public void PlaceItem(GameObject item, Detect collidedObj)
+    {
+        FindObjectOfType<Nodes>().MoveItemToNode(item); // move the item
+        collidedObj.DetectedObj.GetComponent<BoxCollider2D>().enabled = false; // turn off the collider for the specifc item loc
+        item.SetActive(true);
     }
 }
