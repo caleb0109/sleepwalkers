@@ -43,7 +43,7 @@ public class Nodes : MonoBehaviour
         // if there's other locations, find the closest location and set the position to it
         if(CheckForOtherLocs(itemLoc))
         {
-            item.transform.position = FindClosestLocation(pIndex).position;
+            item.transform.position = FindClosestLocation(pIndex);
         }
         else // otherwise, set it to the current itemLoc position
         {
@@ -64,60 +64,80 @@ public class Nodes : MonoBehaviour
     }
 
     // finds the closest placement location to the current player position
-    private Transform FindClosestLocation(int placementIndex)
+    private Vector3 FindClosestLocation(int placementIndex)
     {
         Transform multiLoc= placements[placementIndex];
-        Transform playerLoc = GameObject.Find("Yuichi").transform;
-        Transform closestLoc = null;
+        Vector3 playerLoc = GameObject.Find("Yuichi").transform.position;
+        Vector3 closestLoc = new Vector3(0, 0, 0);
 
-        Vector3 lowestDifference = new Vector3(0, 0, 0); // used to see which location is closest
-
-        Debug.Log("player position: " + playerLoc.position);
+        Vector3 smallestDist = new Vector3(10, 10, 0); // used to see which location is closest
 
         // compare the x and y positions with the player location
         for (int i = 0; i < multiLoc.childCount; i++)
         {
-            Transform child = multiLoc.GetChild(i).transform;
-            Vector3 childLoc = child.position;
-            Vector3 player = playerLoc.position;
-            Debug.Log(multiLoc.GetChild(i).gameObject.name + " " + multiLoc.GetChild(i).position);
+            Vector3 child = multiLoc.GetChild(i).transform.position;
+            Debug.Log(multiLoc.GetChild(i).gameObject.name + " " + multiLoc.GetChild(i).position);            
 
-            // set all the positions to the positive side for determining the difference
-            if (child.position.x < 0)
-            {
-                childLoc.x *= -1;
-            }
+            // stores the distance
+            Vector3 distance = new Vector3(0,0,0);
 
-            if (child.position.y < 0)
-            {
-                childLoc.y *= -1;
-            }
-
-            if (playerLoc.position.x < 0)
-            {
-                player.x *= -1;
-            }
-
-            if (playerLoc.position.y < 0)
-            {
-                player.y *= -1;
-            }
-
-            // calculate the difference
-            Vector3 difference = player - childLoc;
-            Debug.Log("difference: " + difference);
+            distance.x = CalculateDistance(child.x, playerLoc.x);
+            distance.y = CalculateDistance(child.y, playerLoc.y);
 
             // checks if the difference is within a certain radius
-            if ( difference.x > -5 && difference.y > -5 
-                && difference.x < 5 && difference.y < 5)
+            if ( distance.x > -5 && distance.y > -5 
+                && distance.x < 5 && distance.y < 5)
             {
-                lowestDifference = difference;
-                Debug.Log("lowest difference: " + lowestDifference);
-                closestLoc = multiLoc.GetChild(i);
+                if (smallestDist.x > distance.x &&  smallestDist.y > distance.y)
+                {
+                    smallestDist = distance;
+                    closestLoc = child;
+                }
             }
 
         }
 
         return closestLoc;
     }
+
+    // calculate the distance for the x and y pos for the itemPos and playerPos
+    private float CalculateDistance(float itemPos, float playerPos)
+    {
+        float dist = 0.0f;
+
+        // if itemPos is negative and playerPos is positive
+        if (itemPos < 0 && playerPos > 0) 
+        {
+            dist = -itemPos + playerPos; // (-i + p) change itemPos to positive and add to playerPos
+        }
+        // if playerPos is negative and itemPos is positive
+        else if (playerPos < 0 && itemPos > 0) 
+        {
+            dist = -playerPos + itemPos; // (-p + i) change playerPos to positive and add to itemPos
+        }
+        // if both positions are negative
+        else if (itemPos < 0 && playerPos < 0)
+        {
+            if (itemPos < playerPos) // if itemPos is the lower number
+            {
+                dist = -itemPos - (-playerPos); // change both to positive and subtract playerPos from itemPos
+            }
+            else // if playerPos is the lower number
+            {
+                dist = -playerPos - (-itemPos); // change both to positive and subtract itemPos from playerPos
+            }
+        }
+        // if the itemPosition is greater than the player's
+        else if (itemPos > playerPos)
+        {
+            dist = itemPos - playerPos; // subtract the bigger num to get distance
+        }
+        // vice versa
+        else
+        {
+            dist = playerPos - itemPos; // ^ same as above
+        }
+
+        return dist;
+    } 
 }
