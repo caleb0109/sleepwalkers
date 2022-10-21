@@ -128,7 +128,7 @@ public class Inventory : MonoBehaviour
         Detect detection = FindObjectOfType<Detect>();
 
         Dialogue use = new Dialogue();
-        //use.sprite = item.GetComponent<DialogueTrigger>().dialogue.sprite;
+        use.sprite = item.GetComponent<DialogueTrigger>().dialogue.sprite;
 
         HidePrompt();
 
