@@ -1274,17 +1274,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d474a06a59ba76844a7e4bc3dfebaf71, type: 3}
---- !u!114 &1241023337 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9058973064801942052, guid: d474a06a59ba76844a7e4bc3dfebaf71, type: 3}
-  m_PrefabInstance: {fileID: 1241023336}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8510cba2c1e8b0c40b23a2269bef794b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &1241023338 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7385547551958435641, guid: d474a06a59ba76844a7e4bc3dfebaf71, type: 3}
@@ -2016,7 +2005,7 @@ MonoBehaviour:
     diaFile: {fileID: 4900000, guid: dad9a7d77f4bc73459523a6af6561b49, type: 3}
     charaSprites:
     - {fileID: 21300000, guid: b8636072caaebb14bb5a1eee638807f2, type: 3}
-    - {fileID: 127171830901372406, guid: e9dd02cd5f07e3544904ca2723a1438b, type: 3}
+    - {fileID: 21300000, guid: d88028cdff70a4c43b45d0104cf2af1f, type: 3}
   startsBattle: 1
 --- !u!320 &1643518518
 PlayableDirector:
@@ -2490,7 +2479,7 @@ PrefabInstance:
     - target: {fileID: 3721434482242296082, guid: f0e62313dde2a0949821399ef125942c, type: 3}
       propertyPath: diaManager
       value: 
-      objectReference: {fileID: 1241023337}
+      objectReference: {fileID: 0}
     - target: {fileID: 3721434482242296084, guid: f0e62313dde2a0949821399ef125942c, type: 3}
       propertyPath: m_SortingLayer
       value: 5

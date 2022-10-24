@@ -54,6 +54,8 @@ public class Battle : MonoBehaviour
         options = GameObject.Find("optionBox").GetComponent<Animator>();
         defendingAnim = GameObject.Find("defending").GetComponent<Animator>();
         enemyAnim = GameObject.Find("enemies").GetComponent<Animator>();
+
+        enemyAnim.SetInteger("numEnemies", enemiesInBattle.Length);
     }
 
     // Update is called once per frame
