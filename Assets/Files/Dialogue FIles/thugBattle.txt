@@ -1,5 +1,5 @@
-1.0|I gotta do something before they beat me up or worse...
-.75|Did I even hurt them? They look too... happy.
-.50|They're starting to get more serious.
-.25|They're finally looking tired.
-.08|Just a bit more and they'll leave me alone. For now. 
+1.0|What is this thing?
+.75|Can I even kill this thing?
+.50|Did its smile get bigger?
+.25|I don't like the way it's staring at me...
+.08|Almost there, one more hit is all it takes.
