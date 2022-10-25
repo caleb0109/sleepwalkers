@@ -1,10 +1,7 @@
 fileFormatVersion: 2
-guid: 1188453a91a5e6b44ba0b0231da365eb
+guid: 13e18378ddaaf5544949abfcdf23acf9
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: -2691462778676479131
-    second: phone notes screen2_0
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -79,42 +76,9 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Standalone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: phone notes screen2_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1400
-        height: 2640
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 77, y: 2316, z: 91, w: 194}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 56b7dcedcd006aad0800000000000000
-      internalID: -2691462778676479131
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
@@ -125,8 +89,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      phone notes screen2_0: -2691462778676479131
+    nameFileIdTable: {}
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
