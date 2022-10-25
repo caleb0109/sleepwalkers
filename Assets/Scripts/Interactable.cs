@@ -50,10 +50,12 @@ public class Interactable : MonoBehaviour
     public string descriptionText;
 
     public Sprite afterInteract;
+    public GameObject highlight;
 
     private SpriteRenderer spriteRender; // used to change sprites for InteractableType.Search
     private bool interacted;
     private string alreadyInteracted;
+    
 
     private DialogueTrigger dia;
 
@@ -76,6 +78,7 @@ public class Interactable : MonoBehaviour
                 FindObjectOfType<Inventory>().PickUp(gameObject);
                 FindObjectOfType<NotificationManager>().NotifyInteractUpdate(this);
                 gameObject.SetActive(false);
+                highlight.SetActive(false);
 
                 // say something only if there's dialogue attached to this item
                 if (dia)
@@ -113,6 +116,7 @@ public class Interactable : MonoBehaviour
                     if (afterInteract != null)
                     {
                         spriteRender.sprite = afterInteract;
+                        highlight.SetActive(false);
                     }
 
                     interacted = true;
