@@ -25,7 +25,10 @@ public class Interactable : MonoBehaviour
         item,
         article,
         task,
-        removed // used for placing items, or removed items in general
+        photo,
+        removed, // used for placing items, or removed items in general
+        equipped,
+        unequipped
     }
 
     public enum Item
