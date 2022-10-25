@@ -491,7 +491,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 262960561}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.389664, y: -8.265348, z: 10186.107}
+  m_LocalPosition: {x: -4.392933, y: -8.265347, z: 10186.107}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1173,11 +1173,11 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.31777096, y: 17.52666}
-      - {x: -28.90448, y: 17.480055}
-      - {x: -28.915915, y: -17.494118}
-      - {x: 28.914722, y: -17.49455}
-      - {x: 28.885696, y: 17.516098}
+    - - {x: 0.19396114, y: 19.198101}
+      - {x: -31.133064, y: 19.151495}
+      - {x: -30.958784, y: -19.041746}
+      - {x: 30.833782, y: -19.104086}
+      - {x: 30.804756, y: 19.249443}
 --- !u!1001 &1241023336
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1185,6 +1185,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1533875115}
     m_Modifications:
+    - target: {fileID: 997575849688474257, guid: d474a06a59ba76844a7e4bc3dfebaf71, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 262960563}
     - target: {fileID: 1588420682018794155, guid: d474a06a59ba76844a7e4bc3dfebaf71, type: 3}
       propertyPath: m_Name
       value: Interface
@@ -2622,6 +2626,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7082599192746728602, guid: f0e62313dde2a0949821399ef125942c, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 262960563}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f0e62313dde2a0949821399ef125942c, type: 3}
 --- !u!4 &2073985498 stripped
