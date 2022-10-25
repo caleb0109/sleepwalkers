@@ -2180,9 +2180,9 @@ MonoBehaviour:
   dialogue:
     sprite: {fileID: 21300000, guid: b8636072caaebb14bb5a1eee638807f2, type: 3}
     sentences:
-    - 'Ooo a gun, this could come in handy. '
-    - '*checks magazine*'
-    - ' IF it were loaded.'
+    - An autopsy report?
+    - '"...victim had traces of alcohol in her system before falling to her-"'
+    - I better stop there.
     diaFile: {fileID: 0}
     charaSprites: []
   startsBattle: 0

@@ -44,29 +44,69 @@ public class NotificationManager : MonoBehaviour
         }
         else
         {
+            string iName = interacted.itemName;
             StartNotifAnim();
             switch (interacted.notifType)
             {
                 case Interactable.NotificationType.article:
                     notification.text = "New Article Added to Notes";
-                    title.text = interacted.itemName;
-                    iconContainer.sprite = icons[0]; // notes icon
+                    SetNotifTitle("notes", iName);
                     break;
 
                 case Interactable.NotificationType.item:
                     notification.text = "New Item Added to Inventory";
-                    title.text = interacted.itemName;
-                    iconContainer.sprite = icons[1]; // inventory icon
+                    SetNotifTitle("inventory", iName);
                     break;
 
                 case Interactable.NotificationType.removed:
                     notification.text = "Item removed from Inventory";
-                    title.text = interacted.itemName; // temp
-                    iconContainer.sprite = icons[1];
+                    SetNotifTitle("inventory", iName);
+                    break;
+
+                case Interactable.NotificationType.photo:
+                    notification.text = "New Photo Added to Gallery";
+                    SetNotifTitle("photo", iName);
+                    break;
+
+                case Interactable.NotificationType.equipped:
+                    notification.text = "Item Equipped";
+                    SetNotifTitle("inventory", iName);
+                    break;
+
+                case Interactable.NotificationType.unequipped:
+                    notification.text = "Item Unequipped";
+                    SetNotifTitle("inventory", iName);
                     break;
             }
+
         }
     }
+
+    private void SetNotifTitle(string type, string name)
+    {
+        title.text = name;
+
+        // set the icon container
+        switch (type)
+        {
+            case "notes":
+                iconContainer.sprite = icons[0]; // notes icon
+                break;
+
+            case "inventory":
+                iconContainer.sprite = icons[1]; // inventory icon
+                break;
+
+            case "photo":
+                iconContainer.sprite = icons[2]; // photo gallery icon
+                break;
+
+            case "to-do":
+                // to-do list icon
+                break;
+        }
+    }
+
 
     // update player about tasks
     public void NotifyTaskUpdate(string taskName)
