@@ -53,6 +53,9 @@ TagManager:
   - name: blocks
     uniqueID: 3332269223
     locked: 0
+  - name: highlight
+    uniqueID: 1466088817
+    locked: 0
   - name: Front Block
     uniqueID: 1297402239
     locked: 0

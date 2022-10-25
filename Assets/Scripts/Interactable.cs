@@ -101,6 +101,7 @@ public class Interactable : MonoBehaviour
 
             case InteractableType.Talking:
             case InteractableType.Npc:
+                highlight.SetActive(false);
                 dia.TriggerDialogue(); // used to get this specific trigger only
                 break;
 
