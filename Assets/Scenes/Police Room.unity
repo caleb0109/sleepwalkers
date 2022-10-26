@@ -128,6 +128,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4340232124694445723, guid: 8211978779fadb746999063ac7aebfaa, type: 3}
   m_PrefabInstance: {fileID: 4340232125227832526}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &100012189 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3247052979497062645, guid: f0e62313dde2a0949821399ef125942c, type: 3}
+  m_PrefabInstance: {fileID: 641958092}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &119520255
 GameObject:
   m_ObjectHideFlags: 0
@@ -497,8 +508,8 @@ MonoBehaviour:
   - {fileID: 4900000, guid: 4cd7de200e9f37e4691c6046c94aec4d, type: 3}
   - {fileID: 4900000, guid: 206360eb7d1adb7438e1d7b1321ea7aa, type: 3}
   - {fileID: 4900000, guid: 46a75d402cb1f1740bfe91fba1b0efbd, type: 3}
-  toDoWidget: {fileID: 0}
-  toDoApp: {fileID: 0}
+  toDoWidget: {fileID: 522911232}
+  toDoApp: {fileID: 100012189}
 --- !u!1 &249056238
 GameObject:
   m_ObjectHideFlags: 0
@@ -1366,6 +1377,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &522911232 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2389466418967580915, guid: f0e62313dde2a0949821399ef125942c, type: 3}
+  m_PrefabInstance: {fileID: 641958092}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &546204898

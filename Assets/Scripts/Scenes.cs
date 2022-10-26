@@ -58,8 +58,10 @@ public class Scenes : MonoBehaviour
             iObj.interactType = Interactable.InteractableType.Cutscene;
         }
 
-        /*DialogueTrigger d = new DialogueTrigger();
+        Debug.Log(afterBattle.diaFile);
+        DialogueTrigger d = new DialogueTrigger();
         d.dialogue = afterBattle;
-        d.TriggerDialogue();*/
+        d.objTrigger = battleTrigger;
+        d.TriggerDialogue();
     }
 }

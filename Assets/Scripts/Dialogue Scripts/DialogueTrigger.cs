@@ -8,14 +8,17 @@ public class DialogueTrigger : MonoBehaviour
     public Dialogue dialogue;
     public bool startsBattle;
 
+    [HideInInspector] public GameObject objTrigger;
     private void Start()
     {
         dialogue.Start();
+        objTrigger = this.gameObject;
     }
 
     public void TriggerDialogue()
     {
-        FindObjectOfType<DialogueManager>().StartDialogue(dialogue, startsBattle, this.gameObject);
+        Debug.Log(objTrigger);
+        FindObjectOfType<DialogueManager>().StartDialogue(dialogue, startsBattle, objTrigger);
     }
 
     public void TriggerSentence()

@@ -271,6 +271,7 @@ public class Battle : MonoBehaviour
         {
             if (dia[i].diaFile.name.Contains(containedWord))
             {
+                Debug.Log("I found the file. It's: " + dia[i].diaFile.name);
                 return i;
             }
         }

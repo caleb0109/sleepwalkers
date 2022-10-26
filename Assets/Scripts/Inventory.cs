@@ -164,7 +164,7 @@ public class Inventory : MonoBehaviour
 
         // say something about getting the weapon equipped
         Dialogue equip = new Dialogue();
-        equip.sprite = weapon.GetComponent<DialogueTrigger>().dialogue.sprite;
+        equip.Sprite = weapon.GetComponent<DialogueTrigger>().dialogue.Sprite;
 
         equip.sentences = new List<string>() { $"This {weapon.GetComponent<Interactable>().itemName}'ll be helpful for whatever dangers comes my way." };
         FindObjectOfType<DialogueManager>().StartDialogue(equip, false, null);
@@ -193,7 +193,7 @@ public class Inventory : MonoBehaviour
         Detect detection = FindObjectOfType<Detect>();
 
         Dialogue use = new Dialogue();
-        use.sprite = item.GetComponent<DialogueTrigger>().dialogue.sprite;
+        use.Sprite = item.GetComponent<DialogueTrigger>().dialogue.Sprite;
 
         HidePrompt();
 

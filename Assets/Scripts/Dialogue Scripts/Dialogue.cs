@@ -6,14 +6,16 @@ using UnityEngine;
 public class Dialogue
 {
     private string name; // set the default to Yuichi, since we only use this for him
-    public Sprite sprite;
+    private Sprite sprite;
 
     [TextArea(3, 10)]
     public List<string> sentences; // used for interactions with items or one off lines
     public TextAsset diaFile;
 
+    public string currAct = "Intro";
+
     // find efficient way later
-    public List<Sprite> charaSprites;
+    private List<Sprite> charaSprites;
 
     // used to store the different facial expressions
     /* Order Stored:
@@ -35,12 +37,34 @@ public class Dialogue
     #region Properties
     public List<string> CharaNames { get { return charaNames; } }
     public List<string> CharaLines { get { return charaLines; } }
+    public List<Sprite> CharaSprites { get { return charaSprites; } }
     public string Name { get { return name; } }
+    public Sprite Sprite {
+        get { return sprite; } 
+        set { sprite = value; }
+    }
     #endregion
 
     public void Start()
     {
         name = "Yuichi";
+        sprite = Resources.Load<Sprite>("Sprites/pfps/Yuichi"); // loads Yuichi's
+
+        string path = "Sprites/pfps/" + currAct;
+
+        // loads all the sprites from the resources folder
+        object[] temp = Resources.LoadAll(path, typeof(Sprite));
+
+        charaSprites = new List<Sprite>();
+
+
+        charaSprites.Add(sprite);
+
+        // convert all objects to Sprites
+         for (int i = 0; i < temp.Length; i++)
+        {
+            charaSprites.Add((Sprite)temp[i]);
+        }
 
         if (diaFile) // if there's a file attached, load it
         {

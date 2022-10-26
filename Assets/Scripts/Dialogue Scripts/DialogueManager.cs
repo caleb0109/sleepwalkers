@@ -55,7 +55,7 @@ public class DialogueManager : MonoBehaviour
         else
         {
             nameText.text = dia.Name;
-            imgSprite.sprite = dia.sprite;
+            imgSprite.sprite = dia.Sprite;
 
             // puts each sentence into the queue
             EnqueueSentences(dia.sentences);
@@ -117,7 +117,7 @@ public class DialogueManager : MonoBehaviour
         else
         {
             nameText.text = dia.Name;
-            imgSprite.sprite = dia.sprite;
+            imgSprite.sprite = dia.Sprite;
 
             // puts each sentence into the queue
             EnqueueSentences(dia.sentences);
@@ -149,7 +149,7 @@ public class DialogueManager : MonoBehaviour
                 if (dialogueHolder.CharaNames[i].Contains(split[0]))
                 {
                     nameText.text = dialogueHolder.CharaNames[i];
-                    imgSprite.sprite = dialogueHolder.charaSprites[i];
+                    imgSprite.sprite = dialogueHolder.CharaSprites[i];
                     break;
                 }
             }
