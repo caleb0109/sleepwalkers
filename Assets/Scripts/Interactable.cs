@@ -4,7 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.Playables;
-
+/*
+ * CODE WRITTEN AND DEVELOPED BY POM POM PUDDING G AND YESSICA !!!! thank you takumi
+ * 
+ * */
 public class Interactable : MonoBehaviour
 {
     // Start is called before the first frame update
