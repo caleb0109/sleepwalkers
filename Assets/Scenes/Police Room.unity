@@ -348,12 +348,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    sprite: {fileID: 21300000, guid: b8636072caaebb14bb5a1eee638807f2, type: 3}
     sentences:
     - The door's not going to hold for long, I need to find a way out of here.
     diaFile: {fileID: 0}
-    charaSprites: []
+    currAct: Intro
   startsBattle: 0
+  objTrigger: {fileID: 0}
 --- !u!61 &189304820
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -396,7 +396,7 @@ MonoBehaviour:
   reqItemName: 
   searchItemSprite: {fileID: 0}
   interactType: 4
-  notifType: 4
+  notifType: 0
   itemType: 0
   descriptionText: 
   afterInteract: {fileID: 0}
@@ -655,7 +655,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 262960561}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.07811928, y: 3.2881756, z: -10}
+  m_LocalPosition: {x: 0, y: 14.41, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1329,12 +1329,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    sprite: {fileID: 21300000, guid: b8636072caaebb14bb5a1eee638807f2, type: 3}
     sentences:
     - I could use something to climb to the window above this file cabinet.
     diaFile: {fileID: 0}
-    charaSprites: []
+    currAct: Intro
   startsBattle: 0
+  objTrigger: {fileID: 0}
 --- !u!1 &488486010
 GameObject:
   m_ObjectHideFlags: 3
@@ -2328,14 +2328,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    sprite: {fileID: 21300000, guid: b8636072caaebb14bb5a1eee638807f2, type: 3}
     sentences:
     - An autopsy report?
     - '"...victim had traces of alcohol in her system before falling to her-"'
     - I better stop there.
     diaFile: {fileID: 0}
-    charaSprites: []
+    currAct: Intro
   startsBattle: 0
+  objTrigger: {fileID: 0}
 --- !u!1 &939074116
 GameObject:
   m_ObjectHideFlags: 0
@@ -2560,14 +2560,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    sprite: {fileID: 21300000, guid: b8636072caaebb14bb5a1eee638807f2, type: 3}
     sentences:
     - Huh, long brown hair.
     - 'The ends looked burnt and the dye looks familiar. '
     - "Weird, wonder who\u2019s hair this is.\r"
     diaFile: {fileID: 0}
-    charaSprites: []
+    currAct: Intro
   startsBattle: 0
+  objTrigger: {fileID: 0}
 --- !u!1 &959678458
 GameObject:
   m_ObjectHideFlags: 0
@@ -2916,15 +2916,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    sprite: {fileID: 21300000, guid: b8636072caaebb14bb5a1eee638807f2, type: 3}
     sentences:
     - What was that thing?
     - ' *breathes in* '
     - "Doesn\u2019t matter, I need another way out of here; that door isn\u2019t
       going to hold very long."
     diaFile: {fileID: 0}
-    charaSprites: []
+    currAct: Intro
   startsBattle: 0
+  objTrigger: {fileID: 0}
 --- !u!320 &1082329467
 PlayableDirector:
   m_ObjectHideFlags: 0
@@ -3970,13 +3970,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    sprite: {fileID: 21300000, guid: b8636072caaebb14bb5a1eee638807f2, type: 3}
     sentences:
     - "A knife? And it still has the blood stains. Thank you\u2026 \u2018Sleepwalking
       Killer\u2019? "
     diaFile: {fileID: 0}
-    charaSprites: []
+    currAct: Intro
   startsBattle: 0
+  objTrigger: {fileID: 0}
 --- !u!1 &1685765064
 GameObject:
   m_ObjectHideFlags: 0
@@ -4295,12 +4295,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    sprite: {fileID: 21300000, guid: b8636072caaebb14bb5a1eee638807f2, type: 3}
     sentences:
     - I can use this for something
     diaFile: {fileID: 0}
-    charaSprites: []
+    currAct: Intro
   startsBattle: 0
+  objTrigger: {fileID: 0}
 --- !u!114 &1779293036
 MonoBehaviour:
   m_ObjectHideFlags: 0

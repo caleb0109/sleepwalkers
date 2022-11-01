@@ -9,6 +9,8 @@ public class Detect : MonoBehaviour
     private SpriteRenderer sprite;
     private Color startColor;
 
+    private DialogueManager dManager;
+
     //Examine Window
     public GameObject examineWindow;
     public Image examineImage;
@@ -18,6 +20,11 @@ public class Detect : MonoBehaviour
 
     // Start is called before the first frame update
     public GameObject DetectedObj { get { return detectedObj; } }
+
+    void Start()
+    {
+        dManager = FindObjectOfType<DialogueManager>();
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -69,9 +76,22 @@ public class Detect : MonoBehaviour
 
     void OnInteract()
     {
-        if (detectedObj != null)
+        // used for interaction
+        if (detectedObj != null && !dManager.isSpeaking)
         {
+            Debug.Log(detectedObj);
             detectedObj.GetComponent<Interactable>().Interact();
+        }
+        else if (dManager.isSpeaking && !dManager.autoDia) // if there is nothing to interact with
+        {
+            if (dManager.isTyping)
+            {
+                dManager.CompleteSentenceDisplay();
+            }
+            else
+            {
+                dManager.DisplayNextSentence();
+            }
         }
     }
 }

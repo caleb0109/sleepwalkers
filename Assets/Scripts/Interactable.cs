@@ -64,6 +64,7 @@ public class Interactable : MonoBehaviour
     
 
     private DialogueTrigger dia;
+    private DialogueManager dManager;
 
     //public UnityEvent customEvent;
 
@@ -73,24 +74,23 @@ public class Interactable : MonoBehaviour
         interacted = false;
         alreadyInteracted = "I already searched that.";
         dia = this.gameObject.GetComponent<DialogueTrigger>();
+        dManager = FindObjectOfType<DialogueManager>();
     }
 
     public void Interact()
     {
-
         switch (interactType)
         {
             case InteractableType.PickUp:
                 FindObjectOfType<Inventory>().PickUp(gameObject);
                 FindObjectOfType<NotificationManager>().NotifyInteractUpdate(this);
                 gameObject.SetActive(false);
-                highlight.SetActive(false);
-
-                // say something only if there's dialogue attached to this item
-                if (dia)
+                if (highlight)
                 {
-                    dia.TriggerDialogue();
+                    highlight.SetActive(false);
                 }
+
+                dia.TriggerDialogue(); // start dialogue
 
                 break;
 
@@ -104,8 +104,11 @@ public class Interactable : MonoBehaviour
 
             case InteractableType.Talking:
             case InteractableType.Npc:
-                highlight.SetActive(false);
-                dia.TriggerDialogue(); // used to get this specific trigger only
+                if (highlight)
+                {
+                    highlight.SetActive(false);
+                }
+                dia.TriggerDialogue(); // start dialogue          
                 break;
 
             case InteractableType.Search:
@@ -123,12 +126,15 @@ public class Interactable : MonoBehaviour
                     if (afterInteract != null)
                     {
                         spriteRender.sprite = afterInteract;
-                        highlight.SetActive(false);
+                        if (highlight)
+                        {
+                            highlight.SetActive(false);
+                        }
                     }
 
                     interacted = true;
                 }
-                else if (dia.dialogue.sentences.Count > 0) // only changes the line once
+                else if (dia.dialogue.sentences[0] != alreadyInteracted) // only changes the line once
                 {
                     dia.dialogue.sentences = new List<string>() { alreadyInteracted };
                 }
@@ -152,5 +158,5 @@ public class Interactable : MonoBehaviour
                 break;
         }
         //customEvent.Invoke();
-    }    
+    }  
 }

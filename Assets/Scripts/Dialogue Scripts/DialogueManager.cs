@@ -7,27 +7,31 @@ using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
+    // variables other scripts will use to change specific data to display
     public Text nameText;
     public Text dialogueText;
     public Image imgSprite;
     public Animator animator;
     public GameObject diaPrompt;
-    public bool isSpeaking;
+    [HideInInspector]public bool isSpeaking;
+    [HideInInspector]public bool isTyping;
+    [HideInInspector]public bool autoDia;
 
+    // variables used to display the sentecns
     private Queue<string> sentences;
     private Dialogue dialogueHolder;
     private bool startBattle;
     private GameObject gObj;
-    private bool autoDia;
-    private float multiplier; // used in the future for if the user wants to change the speed of the autoplay
-    private char[] sentLength; // determines the num of characters in the string array
+    //private float multiplier; // used in the future for if the user wants to change the speed of the autoplay
+    private string currSentence;
 
     void Start()
     {
         sentences = new Queue<string>();
         isSpeaking = false;
+        isTyping = false;
         startBattle = false;
-        multiplier = 1f;
+        //multiplier = 1f;
     }
 
     // used for normal dialogue between characters or with Yuichi
@@ -37,29 +41,9 @@ public class DialogueManager : MonoBehaviour
         startBattle = battle;
         gObj = obj;
 
-        animator.SetBool("IsOpen", true);
-        isSpeaking = true;
-        autoDia = false;
+        StartDialogueAnimation(false);
 
-        // clears the queue of sentences if there are any
-        if (sentences != null)
-        {
-            sentences.Clear();
-        }
-
-        // used to differentiate between multi character and single character dialogue
-        if (dia.diaFile)
-        {
-            EnqueueSentences(dia.CharaLines);
-        }
-        else
-        {
-            nameText.text = dia.Name;
-            imgSprite.sprite = dia.Sprite;
-
-            // puts each sentence into the queue
-            EnqueueSentences(dia.sentences);
-        }
+        GetDialogue();
 
         DisplayNextSentence(); // starts the first sentence
     }
@@ -84,7 +68,7 @@ public class DialogueManager : MonoBehaviour
 
         string sentence = sentences.Dequeue();
 
-        if (sentence.Contains("|"))
+        if (currSentence.Contains("|"))
         {
             string[] split = sentence.Split('|');
             sentence = split[1];
@@ -98,30 +82,11 @@ public class DialogueManager : MonoBehaviour
     public void StartAutoDialogue(Dialogue dia)
     {
         dialogueHolder = dia;
-        animator.SetBool("IsOpen", true);
-        autoDia = true;
+
+        StartDialogueAnimation(true);
         diaPrompt.SetActive(false);
-        isSpeaking = true;
 
-        // clears the queue of sentences if there are any
-        if (sentences != null)
-        {
-            sentences.Clear();
-        }
-
-        // puts each sentence into the queue
-        if (dia.diaFile)
-        {
-            EnqueueSentences(dia.CharaLines);
-        }
-        else
-        {
-            nameText.text = dia.Name;
-            imgSprite.sprite = dia.Sprite;
-
-            // puts each sentence into the queue
-            EnqueueSentences(dia.sentences);
-        }
+        GetDialogue();
 
         DisplayNextSentence(); // displays the first sentence of the auto dialogue
     }
@@ -129,6 +94,7 @@ public class DialogueManager : MonoBehaviour
     // displays the sentence
     public void DisplayNextSentence()
     {
+        Debug.Log("I'm displaying the next sentence");
         if (sentences.Count == 0)
         {
             EndDialogue();
@@ -136,12 +102,12 @@ public class DialogueManager : MonoBehaviour
         }
 
         // used to display the sentence and type out the letters
-        string sentence = sentences.Dequeue();
+        currSentence = sentences.Dequeue();
         
-        if (sentence.Contains("|"))
+        if (currSentence.Contains("|"))
         {
-            string[] split = sentence.Split('|');
-            sentence = split[1];
+            string[] split = currSentence.Split('|');
+            currSentence = split[1];
 
             // look for the name and set the correct sprite and name for the line
             for(int i = 0; i < dialogueHolder.CharaNames.Count; i++)
@@ -155,18 +121,17 @@ public class DialogueManager : MonoBehaviour
             }
         }
 
-        sentLength = sentence.ToCharArray();
-
         StopAllCoroutines();
         if (autoDia)
         {
             StartCoroutine(AutoPlayDialogue());
         }
-        StartCoroutine(TypeSentence(sentence));
+        StartCoroutine(TypeSentence(currSentence));
         
     }
 
-    // helper method to help enqueue the sentences
+    #region Helper Methods
+    // Enqueues the sentences
     private void EnqueueSentences(List<string> sent)
     {
         // puts each sentence into the queue
@@ -176,14 +141,64 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
+    // Starts the animation for the dialogue
+    private void StartDialogueAnimation(bool isAutoDialogue)
+    {
+        animator.SetBool("IsOpen", true);
+        isSpeaking = true;
+        autoDia = isAutoDialogue;
+    }
+
+    // Get the sentences
+    private void GetDialogue()
+    {
+        // clears the queue of sentences if there are any
+        if (sentences != null)
+        {
+            sentences.Clear();
+        }
+
+        // used to differentiate between multi character and single character dialogue
+        if (dialogueHolder.diaFile)
+        {
+            EnqueueSentences(dialogueHolder.CharaLines);
+        }
+        else
+        {
+            nameText.text = dialogueHolder.Name;
+            imgSprite.sprite = dialogueHolder.Sprite;
+
+            // puts each sentence into the queue
+            EnqueueSentences(dialogueHolder.sentences);
+        }
+    }
+
+    //Completes the sentence ahead of the typing for impatient players
+    public void CompleteSentenceDisplay()
+    {
+        Debug.Log("I forced the sentence to finish");
+        dialogueText.text = currSentence;
+        isTyping = false;
+    }
+    #endregion
+
     // animates sentences onto the UI
     IEnumerator TypeSentence (string sentence)
     {
         dialogueText.text = "";
-        foreach(char letter in sentence.ToCharArray())
+        isTyping = true;
+        char[] letters = currSentence.ToCharArray();
+        for (int i = 0; i < letters.Length; i++)
         {
-            dialogueText.text += letter;
-            yield return null;
+            char l = letters[i];
+            dialogueText.text += l;
+
+            if (i + 1 == letters.Length)
+            {
+                isTyping = false;
+            }
+
+            yield return null;            
         }
     }
 
@@ -192,7 +207,7 @@ public class DialogueManager : MonoBehaviour
     {
         // display on the screen for a few seconds before going to next dialogue
         float duration;
-        int arrayLength = sentLength.Length;
+        int arrayLength = currSentence.ToCharArray().Length;
 
         // determines how long the dialogue should be displayed based on the string length
         if (arrayLength > 300)
@@ -234,6 +249,7 @@ public class DialogueManager : MonoBehaviour
         diaPrompt.SetActive(true);
         animator.SetBool("IsOpen", false);
 
+        // TODO: change to have the scene be a dynamic variable
         if (startBattle)
         {
             FindObjectOfType<Scenes>().ToBattle("Alleyway", GameObject.Find("Yuichi").transform.position, gObj);

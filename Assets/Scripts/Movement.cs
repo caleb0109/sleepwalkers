@@ -82,14 +82,14 @@ public class Movement : MonoBehaviour
         playerInput = value.Get<Vector2>();
     }
 
-    // space bar pressed to get the next sentence
+    /*// space bar pressed to get the next sentence
     void OnContinueDialogue()
     {
         if (diaManager.isSpeaking)
         {
             diaManager.DisplayNextSentence();
         }
-    }
+    }*/
 
     public void OnOpenPhone()
     {
