@@ -19,7 +19,8 @@ public class Interactable : MonoBehaviour
         Search,
         Npc,
         Talking, // used for Yuichi to talk to himself
-        Cutscene
+        Cutscene,
+        SideQuest
     }
 
     public enum NotificationType
@@ -152,6 +153,9 @@ public class Interactable : MonoBehaviour
                     p.Play(); // play the cutscene
                     GameObject.Find("Yuichi").SetActive(false);
                 }
+                break;
+
+            case InteractableType.SideQuest:
                 break;
 
             default:
