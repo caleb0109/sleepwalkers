@@ -156,6 +156,8 @@ public class Interactable : MonoBehaviour
                 break;
 
             case InteractableType.SideQuest:
+                dia.TriggerDialogue(); // start dialogue
+
                 break;
 
             default:
