@@ -14,29 +14,21 @@ public class Dialogue
 
     public string currAct = "Intro";
 
-    // find efficient way later
     private List<Sprite> charaSprites;
 
     // used to store the different facial expressions
-    /* Order Stored:
-     * Neutral
-     * Happy
-     * Angry
-     * Sad
-     * Shocked
-     * Fear
-     */
-    // each npc holds their own sprites stored like above
-    // then add to dictionary in start
-    // if facial expression doesn't exsist, place a placeholder in that loc
-    private Dictionary<string, List<Sprite>> expressions; 
+    private Dictionary<string, Dictionary<string, Sprite>> expressions; 
 
     private List<string> charaNames;
     private List<string> charaLines;
 
+    // used to store sentences tied to conditionals
+    private List<List<string>> conditionalSentences;
+
     #region Properties
     public List<string> CharaNames { get { return charaNames; } }
     public List<string> CharaLines { get { return charaLines; } }
+    public Dictionary<string, Dictionary<string, Sprite>> Expressions {  get { return expressions; } }
     public List<Sprite> CharaSprites { get { return charaSprites; } }
     public string Name { get { return name; } }
     public Sprite Sprite {
@@ -48,23 +40,15 @@ public class Dialogue
     public void Start()
     {
         name = "Yuichi";
-        sprite = Resources.Load<Sprite>("Sprites/pfps/Yuichi"); // loads Yuichi's
+        //sprite = Resources.Load<Sprite>("Sprites/pfps/Yuichi/"); // loads Yuichi's
 
-        string path = "Sprites/pfps/" + currAct;
+        expressions = new Dictionary<string, Dictionary<string, Sprite>>();
 
-        // loads all the sprites from the resources folder
-        object[] temp = Resources.LoadAll(path, typeof(Sprite));
+        
 
-        charaSprites = new List<Sprite>();
+        LoadSprites("Sprites/pfps/Yuichi", "Yuichi");
 
-
-        charaSprites.Add(sprite);
-
-        // convert all objects to Sprites
-         for (int i = 0; i < temp.Length; i++)
-        {
-            charaSprites.Add((Sprite)temp[i]);
-        }
+        conditionalSentences = new List<List<string>>();
 
         if (diaFile) // if there's a file attached, load it
         {
@@ -85,7 +69,41 @@ public class Dialogue
             lines.RemoveAt(0); // removes the list of names
         }
 
-        charaLines.AddRange(lines);
+        int section = -1;
+        int prevSection;
+        for (int i = 0; i < lines.Count; i++)
+        {
+            prevSection = section;
+
+            if (lines[i].Contains("<<"))
+            {
+                section++;
+            }
+            else if (section == -1)
+            {
+                charaLines.Add(lines[i]);
+            }
+            else
+            {
+                if (prevSection != section)
+                {
+                    conditionalSentences.Add(new List<string>());
+                }
+
+                conditionalSentences[section].Add(lines[i]);
+            }
+        }
     }
 
+    private void LoadSprites(string path, string name)
+    {
+        object[] temp = Resources.LoadAll(path, typeof(Sprite));
+        expressions.Add(name, new Dictionary<string, Sprite>());
+
+        for (int i = 0; i < temp.Length; i++)
+        {
+            Sprite emotion = (Sprite)temp[i];
+            expressions[name].Add(emotion.name, emotion);
+        }
+    }
 }

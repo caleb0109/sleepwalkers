@@ -1,0 +1,5 @@
+Yuichi,cROIssant
+Y|Are you croissant?
+c|No, I'm cROIssant. Croissant is my twin.
+Y|Oh, sorry to bother you. Do you know where he is?
+c|Just walk up and you should see him.

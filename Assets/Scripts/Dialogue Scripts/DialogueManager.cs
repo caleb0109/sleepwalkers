@@ -17,7 +17,7 @@ public class DialogueManager : MonoBehaviour
     [HideInInspector]public bool isTyping;
     [HideInInspector]public bool autoDia;
 
-    // variables used to display the sentecns
+    // variables used to display the sentences
     private Queue<string> sentences;
     private Dialogue dialogueHolder;
     private bool startBattle;
@@ -94,7 +94,6 @@ public class DialogueManager : MonoBehaviour
     // displays the sentence
     public void DisplayNextSentence()
     {
-        Debug.Log("I'm displaying the next sentence");
         if (sentences.Count == 0)
         {
             EndDialogue();
@@ -109,14 +108,37 @@ public class DialogueManager : MonoBehaviour
             string[] split = currSentence.Split('|');
             currSentence = split[1];
 
+            string[] currEmotion = split[0].Split('-'); // written to file like = "CharaInitial-Emotion"
+
+            string n = dialogueHolder.CharaNames[0];
+            Debug.Log(n == "Yuichi");
+            //Debug.Log(dialogueHolder.Expressions[n.ToString()][currEmotion[1]]);
+            // [Dictionary][sprite]
+
             // look for the name and set the correct sprite and name for the line
             for(int i = 0; i < dialogueHolder.CharaNames.Count; i++)
             {
-                if (dialogueHolder.CharaNames[i].Contains(split[0]))
+                if (dialogueHolder.CharaNames[i].Contains(currEmotion[0]))
                 {
                     nameText.text = dialogueHolder.CharaNames[i];
-                    imgSprite.sprite = dialogueHolder.CharaSprites[i];
-                    break;
+
+                    Debug.Log(dialogueHolder.CharaNames[i]);
+                    Debug.Log(dialogueHolder.Expressions[dialogueHolder.CharaNames[i]][currEmotion[1]].name);
+                    //imgSprite.sprite = dialogueHolder.Expressions[nameText.text][currEmotion[1]];
+
+                    // go through each 
+                    /*foreach (Sprite s in dialogueHolder.CharaSprites)
+                    {
+                        if (nameText.text.ToLower().Contains(s.name.ToLower()))
+                        {
+                            imgSprite.sprite = s;
+                        }
+                        else if (nameText.text == "???")
+                        {
+                            // hard-coded for now, until we have something else to place
+                            imgSprite.sprite = Resources.Load<Sprite>("Sprites/pfps/Intro/enemy_pfp"); 
+                        }
+                    }*/
                 }
             }
         }

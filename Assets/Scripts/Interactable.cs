@@ -62,10 +62,10 @@ public class Interactable : MonoBehaviour
     private SpriteRenderer spriteRender; // used to change sprites for InteractableType.Search
     private bool interacted;
     private string alreadyInteracted;
-    
 
     private DialogueTrigger dia;
     private DialogueManager dManager;
+    private int interactCount;
 
     //public UnityEvent customEvent;
 
@@ -76,6 +76,7 @@ public class Interactable : MonoBehaviour
         alreadyInteracted = "I already searched that.";
         dia = this.gameObject.GetComponent<DialogueTrigger>();
         dManager = FindObjectOfType<DialogueManager>();
+        interactCount = 0;
     }
 
     public void Interact()
@@ -156,8 +157,11 @@ public class Interactable : MonoBehaviour
                 break;
 
             case InteractableType.SideQuest:
-                dia.TriggerDialogue(); // start dialogue
+                
 
+
+                dia.TriggerDialogue(); // start dialogue
+                interactCount++;
                 break;
 
             default:

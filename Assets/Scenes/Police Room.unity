@@ -4557,8 +4557,16 @@ PrefabInstance:
       value: CutScene canvas
       objectReference: {fileID: 0}
     - target: {fileID: 3657289314272619912, guid: d1f16f0c08d74b44795dc04ae1907421, type: 3}
+      propertyPath: dialogue.currAct
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3657289314272619912, guid: d1f16f0c08d74b44795dc04ae1907421, type: 3}
+      propertyPath: dialogue.diaFile
+      value: 
+      objectReference: {fileID: 4900000, guid: fde8a0941f8e39a459b7f058b29e0e0b, type: 3}
+    - target: {fileID: 3657289314272619912, guid: d1f16f0c08d74b44795dc04ae1907421, type: 3}
       propertyPath: dialogue.sentences.Array.size
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3657289314272619912, guid: d1f16f0c08d74b44795dc04ae1907421, type: 3}
       propertyPath: dialogue.sentences.Array.data[0]
