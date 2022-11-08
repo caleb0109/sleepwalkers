@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 
 [System.Serializable]
 public class Dialogue
@@ -11,8 +12,6 @@ public class Dialogue
     [TextArea(3, 10)]
     public List<string> sentences; // used for interactions with items or one off lines
     public TextAsset diaFile;
-
-    public string currAct = "Intro";
 
     private List<Sprite> charaSprites;
 
@@ -28,25 +27,23 @@ public class Dialogue
     #region Properties
     public List<string> CharaNames { get { return charaNames; } }
     public List<string> CharaLines { get { return charaLines; } }
-    public Dictionary<string, Dictionary<string, Sprite>> Expressions {  get { return expressions; } }
     public List<Sprite> CharaSprites { get { return charaSprites; } }
     public string Name { get { return name; } }
     public Sprite Sprite {
         get { return sprite; } 
         set { sprite = value; }
     }
+
+    public Dictionary<string, Dictionary<string, Sprite>> Expressions { get { return expressions; } }
     #endregion
 
     public void Start()
     {
         name = "Yuichi";
-        //sprite = Resources.Load<Sprite>("Sprites/pfps/Yuichi/"); // loads Yuichi's
 
         expressions = new Dictionary<string, Dictionary<string, Sprite>>();
 
-        
-
-        LoadSprites("Sprites/pfps/Yuichi", "Yuichi");
+        //LoadSprites("Sprites/pfps/Yuichi", "Yuichi");
 
         conditionalSentences = new List<List<string>>();
 
@@ -67,6 +64,11 @@ public class Dialogue
             charaNames.AddRange(lines[0].Split(',')); // get all the names from the file
 
             lines.RemoveAt(0); // removes the list of names
+        }
+
+        foreach (string n in charaNames)
+        {
+            LoadSprites(string.Format("Sprites/pfps/", n), n);
         }
 
         int section = -1;
@@ -105,5 +107,10 @@ public class Dialogue
             Sprite emotion = (Sprite)temp[i];
             expressions[name].Add(emotion.name, emotion);
         }
+    }
+
+    public Sprite FindExpression(string name, string expression)
+    {
+        return expressions[name][expression];
     }
 }

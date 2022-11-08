@@ -110,21 +110,13 @@ public class DialogueManager : MonoBehaviour
 
             string[] currEmotion = split[0].Split('-'); // written to file like = "CharaInitial-Emotion"
 
-            string n = dialogueHolder.CharaNames[0];
-            Debug.Log(n == "Yuichi");
-            //Debug.Log(dialogueHolder.Expressions[n.ToString()][currEmotion[1]]);
-            // [Dictionary][sprite]
-
             // look for the name and set the correct sprite and name for the line
             for(int i = 0; i < dialogueHolder.CharaNames.Count; i++)
             {
                 if (dialogueHolder.CharaNames[i].Contains(currEmotion[0]))
                 {
                     nameText.text = dialogueHolder.CharaNames[i];
-
-                    Debug.Log(dialogueHolder.CharaNames[i]);
-                    Debug.Log(dialogueHolder.Expressions[dialogueHolder.CharaNames[i]][currEmotion[1]].name);
-                    //imgSprite.sprite = dialogueHolder.Expressions[nameText.text][currEmotion[1]];
+                    imgSprite.sprite = dialogueHolder.FindExpression(nameText.text, currEmotion[1]);
 
                     // go through each 
                     /*foreach (Sprite s in dialogueHolder.CharaSprites)
