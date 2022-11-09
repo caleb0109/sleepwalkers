@@ -66,16 +66,16 @@ public class DialogueManager : MonoBehaviour
             sentences.Enqueue(sent);
         }
 
-        string sentence = sentences.Dequeue();
+        currSentence = sentences.Dequeue();
 
         if (currSentence.Contains("|"))
         {
-            string[] split = sentence.Split('|');
-            sentence = split[1];
+            string[] split = currSentence.Split('|');
+            currSentence = split[1];
         }
 
         StopAllCoroutines();
-        StartCoroutine(TypeSentence(sentence));
+        StartCoroutine(TypeSentence());
     }
 
     // AutoPlays Dialogue
@@ -117,20 +117,6 @@ public class DialogueManager : MonoBehaviour
                 {
                     nameText.text = dialogueHolder.CharaNames[i];
                     imgSprite.sprite = dialogueHolder.FindExpression(nameText.text, currEmotion[1]);
-
-                    // go through each 
-                    /*foreach (Sprite s in dialogueHolder.CharaSprites)
-                    {
-                        if (nameText.text.ToLower().Contains(s.name.ToLower()))
-                        {
-                            imgSprite.sprite = s;
-                        }
-                        else if (nameText.text == "???")
-                        {
-                            // hard-coded for now, until we have something else to place
-                            imgSprite.sprite = Resources.Load<Sprite>("Sprites/pfps/Intro/enemy_pfp"); 
-                        }
-                    }*/
                 }
             }
         }
@@ -140,7 +126,7 @@ public class DialogueManager : MonoBehaviour
         {
             StartCoroutine(AutoPlayDialogue());
         }
-        StartCoroutine(TypeSentence(currSentence));
+        StartCoroutine(TypeSentence());
         
     }
 
@@ -194,7 +180,7 @@ public class DialogueManager : MonoBehaviour
     #endregion
 
     // animates sentences onto the UI
-    IEnumerator TypeSentence (string sentence)
+    IEnumerator TypeSentence ()
     {
         dialogueText.text = "";
         isTyping = true;

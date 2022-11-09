@@ -61,10 +61,18 @@ public class Dialogue
 
             lines.RemoveAt(0); // removes the list of names
         }
-
+        
+        // goes through each name and finds the folder based on the character's name
         foreach (string n in charaNames)
         {
-            LoadSprites(string.Format("Sprites/pfps/", n), n);
+            if (n == "???")
+            {
+                LoadSprites("Sprites/pfps/Enemy", n); //TODO: fix this for other characters with '???' names
+            }
+            else
+            {
+                LoadSprites(string.Format("Sprites/pfps/", n), n);
+            }
         }
 
         int section = -1;
@@ -93,11 +101,15 @@ public class Dialogue
         }
     }
 
+
+    // loads all the emotion sprites for each character
     private void LoadSprites(string path, string name)
     {
+        // searches the resources folder for the sprites and adds it to the array
         object[] temp = Resources.LoadAll(path, typeof(Sprite));
-        expressions.Add(name, new Dictionary<string, Sprite>());
+        expressions.Add(name, new Dictionary<string, Sprite>()); // initializes the dictionary inside the dictionary
 
+        // add each sprite to the character's inner dictionary
         for (int i = 0; i < temp.Length; i++)
         {
             Sprite emotion = (Sprite)temp[i];
@@ -105,6 +117,7 @@ public class Dialogue
         }
     }
 
+    // returns the sprite of the expression
     public Sprite FindExpression(string name, string expression)
     {
         return expressions[name][expression];
