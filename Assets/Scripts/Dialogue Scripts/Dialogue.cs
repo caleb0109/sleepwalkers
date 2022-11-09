@@ -7,7 +7,7 @@ using System.IO;
 public class Dialogue
 {
     private string name; // set the default to Yuichi, since we only use this for him
-    private Sprite sprite;
+    private Sprite defaultSprite;
 
     [TextArea(3, 10)]
     public List<string> sentences; // used for interactions with items or one off lines
@@ -29,10 +29,7 @@ public class Dialogue
     public List<string> CharaLines { get { return charaLines; } }
     public List<Sprite> CharaSprites { get { return charaSprites; } }
     public string Name { get { return name; } }
-    public Sprite Sprite {
-        get { return sprite; } 
-        set { sprite = value; }
-    }
+    public Sprite DefaultSprite { get { return defaultSprite; } }
 
     public Dictionary<string, Dictionary<string, Sprite>> Expressions { get { return expressions; } }
     #endregion
@@ -40,10 +37,9 @@ public class Dialogue
     public void Start()
     {
         name = "Yuichi";
+        defaultSprite = Resources.Load<Sprite>("Sprites/pfps/Yuichi/Neutral");
 
         expressions = new Dictionary<string, Dictionary<string, Sprite>>();
-
-        //LoadSprites("Sprites/pfps/Yuichi", "Yuichi");
 
         conditionalSentences = new List<List<string>>();
 

@@ -172,18 +172,15 @@ public class DialogueManager : MonoBehaviour
             sentences.Clear();
         }
 
-        // used to differentiate between multi character and single character dialogue
-        if (dialogueHolder.diaFile)
+        imgSprite.sprite = dialogueHolder.DefaultSprite; // used to set the default sprite to Yuichi's neutral face
+
+        if (dialogueHolder.sentences.Count > 0)
         {
-            EnqueueSentences(dialogueHolder.CharaLines);
+            EnqueueSentences(dialogueHolder.sentences);
         }
         else
         {
-            nameText.text = dialogueHolder.Name;
-            imgSprite.sprite = dialogueHolder.Sprite;
-
-            // puts each sentence into the queue
-            EnqueueSentences(dialogueHolder.sentences);
+            EnqueueSentences(dialogueHolder.CharaLines);
         }
     }
 

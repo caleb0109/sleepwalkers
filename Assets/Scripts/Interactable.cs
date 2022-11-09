@@ -64,7 +64,7 @@ public class Interactable : MonoBehaviour
     private string alreadyInteracted;
 
     private DialogueTrigger dia;
-    private DialogueManager dManager;
+    //private DialogueManager dManager;
     private int interactCount;
 
     //public UnityEvent customEvent;
@@ -75,7 +75,7 @@ public class Interactable : MonoBehaviour
         interacted = false;
         alreadyInteracted = "I already searched that.";
         dia = this.gameObject.GetComponent<DialogueTrigger>();
-        dManager = FindObjectOfType<DialogueManager>();
+        //dManager = FindObjectOfType<DialogueManager>();
         interactCount = 0;
     }
 
