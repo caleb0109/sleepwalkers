@@ -18,6 +18,7 @@ public class Interactable : MonoBehaviour
         Examine,
         Search,
         Npc,
+        Trigger,
         Talking, // used for Yuichi to talk to himself
         Cutscene,
         SideQuest

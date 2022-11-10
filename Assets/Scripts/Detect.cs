@@ -28,10 +28,11 @@ public class Detect : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
         detectedObj = collision.gameObject;
-        //startColor = detectedObj.color;
-        //detectedObj.color = Color.yellow;
+        if (detectedObj.GetComponent<Interactable>().interactType == Interactable.InteractableType.Trigger)
+        {
+            detectedObj.GetComponent<DialogueTrigger>().TriggerDialogue();
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
