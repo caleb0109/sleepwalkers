@@ -34,7 +34,6 @@ public class Battle : MonoBehaviour
     private Animator defendingAnim;
     private Animator enemyAnim;
 
-
     private void Awake()
     {
         state = BattleState.Start;

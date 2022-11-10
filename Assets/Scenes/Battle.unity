@@ -1243,6 +1243,7 @@ MonoBehaviour:
   maxHealth: 30
   strength: 8
   hBar: {fileID: 2138990921}
+  pBox: {fileID: 1950932928}
 --- !u!114 &732337890
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2007,11 +2008,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    sprite: {fileID: 0}
     sentences: []
     diaFile: {fileID: 0}
-    charaSprites: []
   startsBattle: 0
+  objTrigger: {fileID: 0}
 --- !u!114 &1734478617
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2030,6 +2030,8 @@ MonoBehaviour:
   animator: {fileID: 0}
   diaPrompt: {fileID: 0}
   isSpeaking: 0
+  isTyping: 0
+  autoDia: 0
 --- !u!1 &1799704188
 GameObject:
   m_ObjectHideFlags: 0
@@ -2561,8 +2563,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.7097, y: 36.2}
-  m_SizeDelta: {x: 114.8347, y: 111.1121}
+  m_AnchoredPosition: {x: 0.0000019073, y: 39.3}
+  m_SizeDelta: {x: 125.2738, y: 121.2128}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1950932928
 MonoBehaviour:
@@ -2584,7 +2586,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b8636072caaebb14bb5a1eee638807f2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 96f824cd239b6574aabeedd524139a7d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

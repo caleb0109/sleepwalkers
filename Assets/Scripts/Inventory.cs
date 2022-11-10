@@ -164,7 +164,7 @@ public class Inventory : MonoBehaviour
 
         // say something about getting the weapon equipped
         Dialogue equip = new Dialogue();
-        equip.Sprite = weapon.GetComponent<DialogueTrigger>().dialogue.Sprite;
+        equip.Start();
 
         equip.sentences = new List<string>() { $"This {weapon.GetComponent<Interactable>().itemName}'ll be helpful for whatever dangers comes my way." };
         FindObjectOfType<DialogueManager>().StartDialogue(equip, false, null);
@@ -193,13 +193,14 @@ public class Inventory : MonoBehaviour
         Detect detection = FindObjectOfType<Detect>();
 
         Dialogue use = new Dialogue();
-        use.Sprite = item.GetComponent<DialogueTrigger>().dialogue.Sprite;
+        use.Start();
 
         HidePrompt();
 
         // if the item is useable or food
         if (item.itemType == Interactable.Item.Useable || item.itemType == Interactable.Item.Placeable)
         {
+            Debug.Log("I'm using the item");
             // if in the correct area, remove item and use it
             if (detection.CheckCorrectArea(item))
             {
@@ -218,6 +219,7 @@ public class Inventory : MonoBehaviour
                 // put the item at the node closet to player
                 if (item.itemType == Interactable.Item.Placeable)
                 {
+                    Debug.Log("I'm placing the item");
                     // set the item to active and change the properties
                     PlaceItem(reqItem, detection);
                     item.itemType = Interactable.Item.None;
@@ -238,13 +240,6 @@ public class Inventory : MonoBehaviour
                 use.sentences = new List<string>() { "Can't use the " + item.itemName + " here." };
                 FindObjectOfType<DialogueManager>().StartDialogue(use, false, null);
             }
-        }
-        else
-        {
-            // turn off phone and mention that player can't use it in the certain area
-            playerMove.OnOpenPhone();
-            use.sentences = new List<string>() { "I rather save this for when I really need it." };
-            FindObjectOfType<DialogueManager>().StartDialogue(use, false, null);
         }
     }
 

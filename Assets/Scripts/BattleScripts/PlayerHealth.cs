@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -9,10 +10,16 @@ public class PlayerHealth : MonoBehaviour
     public int strength;
 
     public Bars hBar;
+    public Image pBox;
 
+    private Sprite neutral;
+    private Sprite damageTake;
     private void Start()
     {
         hBar.SetMax(maxHealth);
+        neutral = Resources.Load<Sprite>("Sprites/pfps/Yuichi/Neutral");
+        damageTake = Resources.Load<Sprite>("Sprites/pfps/Yuichi/TakeDamage");
+        pBox.sprite = neutral;
     }
 
     public void TakeDamage(int damage)
@@ -25,5 +32,27 @@ public class PlayerHealth : MonoBehaviour
         }
 
         hBar.ShowHealth(health);
+        pBox.sprite = damageTake;
+
+        StopAllCoroutines();
+        StartCoroutine(BackToNeutral());
+    }
+
+    // changes the sprite back to neutral after taking damage
+    private IEnumerator BackToNeutral()
+    {
+        float duration = 1.0f;
+
+        while (duration > 0f)
+        {
+            duration -= Time.deltaTime;
+
+            if (duration < 0.1f)
+            {
+                pBox.sprite = neutral;
+            }
+
+            yield return null;
+        }
     }
 }

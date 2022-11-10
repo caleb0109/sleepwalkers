@@ -17,7 +17,7 @@ public class DialogueManager : MonoBehaviour
     [HideInInspector]public bool isTyping;
     [HideInInspector]public bool autoDia;
 
-    // variables used to display the sentecns
+    // variables used to display the sentences
     private Queue<string> sentences;
     private Dialogue dialogueHolder;
     private bool startBattle;
@@ -66,16 +66,16 @@ public class DialogueManager : MonoBehaviour
             sentences.Enqueue(sent);
         }
 
-        string sentence = sentences.Dequeue();
+        currSentence = sentences.Dequeue();
 
         if (currSentence.Contains("|"))
         {
-            string[] split = sentence.Split('|');
-            sentence = split[1];
+            string[] split = currSentence.Split('|');
+            currSentence = split[1];
         }
 
         StopAllCoroutines();
-        StartCoroutine(TypeSentence(sentence));
+        StartCoroutine(TypeSentence());
     }
 
     // AutoPlays Dialogue
@@ -94,7 +94,6 @@ public class DialogueManager : MonoBehaviour
     // displays the sentence
     public void DisplayNextSentence()
     {
-        Debug.Log("I'm displaying the next sentence");
         if (sentences.Count == 0)
         {
             EndDialogue();
@@ -109,14 +108,15 @@ public class DialogueManager : MonoBehaviour
             string[] split = currSentence.Split('|');
             currSentence = split[1];
 
+            string[] currEmotion = split[0].Split('-'); // written to file like = "CharaInitial-Emotion"
+
             // look for the name and set the correct sprite and name for the line
             for(int i = 0; i < dialogueHolder.CharaNames.Count; i++)
             {
-                if (dialogueHolder.CharaNames[i].Contains(split[0]))
+                if (dialogueHolder.CharaNames[i].Contains(currEmotion[0]))
                 {
                     nameText.text = dialogueHolder.CharaNames[i];
-                    imgSprite.sprite = dialogueHolder.CharaSprites[i];
-                    break;
+                    imgSprite.sprite = dialogueHolder.FindExpression(nameText.text, currEmotion[1]);
                 }
             }
         }
@@ -126,7 +126,7 @@ public class DialogueManager : MonoBehaviour
         {
             StartCoroutine(AutoPlayDialogue());
         }
-        StartCoroutine(TypeSentence(currSentence));
+        StartCoroutine(TypeSentence());
         
     }
 
@@ -158,18 +158,15 @@ public class DialogueManager : MonoBehaviour
             sentences.Clear();
         }
 
-        // used to differentiate between multi character and single character dialogue
-        if (dialogueHolder.diaFile)
+        imgSprite.sprite = dialogueHolder.DefaultSprite; // used to set the default sprite to Yuichi's neutral face
+
+        if (dialogueHolder.sentences.Count > 0)
         {
-            EnqueueSentences(dialogueHolder.CharaLines);
+            EnqueueSentences(dialogueHolder.sentences);
         }
         else
         {
-            nameText.text = dialogueHolder.Name;
-            imgSprite.sprite = dialogueHolder.Sprite;
-
-            // puts each sentence into the queue
-            EnqueueSentences(dialogueHolder.sentences);
+            EnqueueSentences(dialogueHolder.CharaLines);
         }
     }
 
@@ -183,7 +180,7 @@ public class DialogueManager : MonoBehaviour
     #endregion
 
     // animates sentences onto the UI
-    IEnumerator TypeSentence (string sentence)
+    IEnumerator TypeSentence ()
     {
         dialogueText.text = "";
         isTyping = true;

@@ -80,7 +80,6 @@ public class Detect : MonoBehaviour
         // used for interaction
         if (detectedObj != null && !dManager.isSpeaking)
         {
-            Debug.Log(detectedObj);
             detectedObj.GetComponent<Interactable>().Interact();
         }
         else if (dManager.isSpeaking && !dManager.autoDia) // if there is nothing to interact with
