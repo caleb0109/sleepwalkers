@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using System.IO;
 
 public class Detect : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class Detect : MonoBehaviour
     private Color startColor;
 
     private DialogueManager dManager;
+    private Scenes sManager;
+
+    private int interactionCounter;
 
     //Examine Window
     public GameObject examineWindow;
@@ -24,6 +28,8 @@ public class Detect : MonoBehaviour
     void Start()
     {
         dManager = FindObjectOfType<DialogueManager>();
+        interactionCounter = 0;
+        sManager = FindObjectOfType<Scenes>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -31,7 +37,15 @@ public class Detect : MonoBehaviour
         detectedObj = collision.gameObject;
         if (detectedObj.GetComponent<Interactable>().interactType == Interactable.InteractableType.Trigger)
         {
-            detectedObj.GetComponent<DialogueTrigger>().TriggerDialogue();
+            interactionCounter++;
+            // get the detectedObj's dialogue trigger
+            DialogueTrigger d = detectedObj.GetComponent<DialogueTrigger>();
+            // find the dialogue file pertaining to the strike
+            d.dialogue.diaFile = Resources.Load<TextAsset>($"Files/Dialogue_Files/{sManager.FindCurrentScene()}/strike{interactionCounter}");
+            // call the start to load all the sprites, file, etc
+            d.dialogue.Start();
+            // trigger the dialogue
+            d.TriggerDialogue();
         }
     }
 

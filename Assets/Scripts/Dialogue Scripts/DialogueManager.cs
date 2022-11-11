@@ -105,6 +105,11 @@ public class DialogueManager : MonoBehaviour
         
         if (currSentence.Contains("|"))
         {
+            if (!nameText.gameObject.activeInHierarchy)
+            {
+                nameText.gameObject.SetActive(true);
+                imgSprite.gameObject.SetActive(true);
+            }
             string[] split = currSentence.Split('|');
             currSentence = split[1];
 
@@ -119,6 +124,11 @@ public class DialogueManager : MonoBehaviour
                     imgSprite.sprite = dialogueHolder.FindExpression(nameText.text, currEmotion[1]);
                 }
             }
+        }
+        else
+        {
+            nameText.gameObject.SetActive(false);
+            imgSprite.gameObject.SetActive(false);
         }
 
         StopAllCoroutines();

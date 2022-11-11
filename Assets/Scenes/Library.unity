@@ -1117,6 +1117,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1754331372}
     m_Modifications:
+    - target: {fileID: 1954856982, guid: c22372d868a7b9b46b442433084023ed, type: 3}
+      propertyPath: dialogue.sentences.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1000824152680347299, guid: c22372d868a7b9b46b442433084023ed, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -1361,6 +1365,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1754331372}
     m_Modifications:
+    - target: {fileID: 1954856982, guid: c22372d868a7b9b46b442433084023ed, type: 3}
+      propertyPath: dialogue.sentences.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 808377927639853222, guid: c22372d868a7b9b46b442433084023ed, type: 3}
       propertyPath: interactType
       value: 5
@@ -1431,6 +1439,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1754331372}
     m_Modifications:
+    - target: {fileID: 1954856982, guid: c22372d868a7b9b46b442433084023ed, type: 3}
+      propertyPath: dialogue.sentences.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 808377927639853222, guid: c22372d868a7b9b46b442433084023ed, type: 3}
       propertyPath: interactType
       value: 5
@@ -1552,6 +1564,50 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.4554904, y: 0.27121496}
   m_EdgeRadius: 0
+--- !u!1 &1188619683
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1188619685}
+  - component: {fileID: 1188619684}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1188619684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1188619683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 693460a2b688d5c41b135dd60763822a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1188619685
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1188619683}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.8828061, y: 0.5357328, z: -1.9342774}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1235556689
 GameObject:
   m_ObjectHideFlags: 0
@@ -2015,6 +2071,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1754331372}
     m_Modifications:
+    - target: {fileID: 1954856982, guid: c22372d868a7b9b46b442433084023ed, type: 3}
+      propertyPath: dialogue.sentences.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 808377927639853222, guid: c22372d868a7b9b46b442433084023ed, type: 3}
       propertyPath: interactType
       value: 5
@@ -2126,6 +2186,7 @@ MonoBehaviour:
     LensShift: {x: 0, y: 0}
     GateFit: 2
     m_SensorSize: {x: 1.7777778, y: 1}
+    m_SensorSize: {x: 2.0072794, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -2388,6 +2449,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1754331372}
     m_Modifications:
+    - target: {fileID: 1954856982, guid: c22372d868a7b9b46b442433084023ed, type: 3}
+      propertyPath: dialogue.sentences.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 808377927639853222, guid: c22372d868a7b9b46b442433084023ed, type: 3}
       propertyPath: interactType
       value: 5
@@ -3113,6 +3178,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1754331372}
     m_Modifications:
+    - target: {fileID: 1954856982, guid: c22372d868a7b9b46b442433084023ed, type: 3}
+      propertyPath: dialogue.sentences.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 808377927639853222, guid: c22372d868a7b9b46b442433084023ed, type: 3}
       propertyPath: interactType
       value: 5

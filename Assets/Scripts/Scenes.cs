@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Scenes : MonoBehaviour
 {
-    private List<string> introScenes;
+    private List<string> scenesInBuild;
     private string prevScene;
     private Vector3 prevPosition;
 
@@ -14,24 +14,23 @@ public class Scenes : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        introScenes = new List<string>();
+        scenesInBuild = new List<string>();
 
         // loading scenes curtasy of canis https://forum.unity.com/threads/getscenebybuildindex-problem.452560/
         for (int i = 0; i < SceneManager.sceneCountInBuildSettings; i++)
         {
             string path = SceneUtility.GetScenePathByBuildIndex(i);
-            introScenes.Add(path.Substring(0, path.Length - 6).Substring(path.LastIndexOf('/') + 1));
+            scenesInBuild.Add(path.Substring(0, path.Length - 6).Substring(path.LastIndexOf('/') + 1));
         }
     }
 
     public void NextScene()
     {
-
-        for (int i = 0; i < introScenes.Count; i++) 
+        for (int i = 0; i < scenesInBuild.Count; i++) 
         {
-            if (introScenes[i] == SceneManager.GetActiveScene().name && i + 1 < introScenes.Count)
+            if (scenesInBuild[i] == SceneManager.GetActiveScene().name && i + 1 < scenesInBuild.Count)
             {
-                SceneManager.LoadSceneAsync(introScenes[i + 1]);
+                SceneManager.LoadSceneAsync(scenesInBuild[i + 1]);
                 break;
             }
         }
@@ -63,5 +62,18 @@ public class Scenes : MonoBehaviour
         d.dialogue = afterBattle;
         d.objTrigger = battleTrigger;
         d.TriggerDialogue();
+    }
+
+    public string FindCurrentScene()
+    {
+        foreach(string s in scenesInBuild)
+        {
+            if (s == SceneManager.GetActiveScene().name)
+            {
+                return s;
+            }
+        }
+
+        return "";
     }
 }

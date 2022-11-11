@@ -75,30 +75,7 @@ public class Dialogue
             }
         }
 
-        int section = -1;
-        int prevSection;
-        for (int i = 0; i < lines.Count; i++)
-        {
-            prevSection = section;
-
-            if (lines[i].Contains("<<"))
-            {
-                section++;
-            }
-            else if (section == -1)
-            {
-                charaLines.Add(lines[i]);
-            }
-            else
-            {
-                if (prevSection != section)
-                {
-                    conditionalSentences.Add(new List<string>());
-                }
-
-                conditionalSentences[section].Add(lines[i]);
-            }
-        }
+        charaLines.AddRange(lines);
     }
 
 
