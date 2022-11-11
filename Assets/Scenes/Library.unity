@@ -150,13 +150,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8006499}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.849, y: -0.281, z: 0}
-  m_LocalScale: {x: 0.2671842, y: 0.2671842, z: 0.2671842}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -8.27519, y: -5.176204, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 22493562}
-  m_RootOrder: 8
+  m_Father: {fileID: 1559201477}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8006501
 SpriteRenderer:
@@ -226,7 +226,6 @@ MonoBehaviour:
     sentences:
     - Sleepwalking Studies
     diaFile: {fileID: 0}
-    currAct: Act 1
   startsBattle: 0
   objTrigger: {fileID: 0}
 --- !u!114 &8006503
@@ -362,12 +361,6 @@ Transform:
   - {fileID: 395516368}
   - {fileID: 1883718165}
   - {fileID: 1559201477}
-  - {fileID: 1235556690}
-  - {fileID: 416618524}
-  - {fileID: 1378663880}
-  - {fileID: 1696623327}
-  - {fileID: 8006500}
-  - {fileID: 1469297670}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -444,7 +437,6 @@ MonoBehaviour:
     sentences:
     - '*CREEEEEEAAAAAAAAAAAK*'
     diaFile: {fileID: 0}
-    currAct: Intro
   startsBattle: 0
   objTrigger: {fileID: 0}
 --- !u!1 &46035312
@@ -580,6 +572,7 @@ GameObject:
   - component: {fileID: 90485846}
   - component: {fileID: 90485845}
   - component: {fileID: 90485848}
+  - component: {fileID: 90485849}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -687,6 +680,18 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &90485849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 90485844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59e78f21cda19cd47898766658affe4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &146964654
 GameObject:
   m_ObjectHideFlags: 0
@@ -771,9 +776,70 @@ MonoBehaviour:
     sentences:
     - '*CREEEEEEAAAAAAAAAAAK*'
     diaFile: {fileID: 0}
-    currAct: Act 1
   startsBattle: 0
   objTrigger: {fileID: 0}
+--- !u!1001 &353972449
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1754331372}
+    m_Modifications:
+    - target: {fileID: 1000824152680347299, guid: c22372d868a7b9b46b442433084023ed, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000824152680347299, guid: c22372d868a7b9b46b442433084023ed, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.83
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000824152680347299, guid: c22372d868a7b9b46b442433084023ed, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -5.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000824152680347299, guid: c22372d868a7b9b46b442433084023ed, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000824152680347299, guid: c22372d868a7b9b46b442433084023ed, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000824152680347299, guid: c22372d868a7b9b46b442433084023ed, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000824152680347299, guid: c22372d868a7b9b46b442433084023ed, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000824152680347299, guid: c22372d868a7b9b46b442433084023ed, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000824152680347299, guid: c22372d868a7b9b46b442433084023ed, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000824152680347299, guid: c22372d868a7b9b46b442433084023ed, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000824152680347299, guid: c22372d868a7b9b46b442433084023ed, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000824152680347357, guid: c22372d868a7b9b46b442433084023ed, type: 3}
+      propertyPath: m_Name
+      value: bread (6)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c22372d868a7b9b46b442433084023ed, type: 3}
+--- !u!4 &353972450 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1000824152680347299, guid: c22372d868a7b9b46b442433084023ed, type: 3}
+  m_PrefabInstance: {fileID: 353972449}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &395516367
 GameObject:
   m_ObjectHideFlags: 0
@@ -861,13 +927,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 416618523}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.828, y: -1.786, z: 0}
-  m_LocalScale: {x: 0.2671842, y: 0.2671842, z: 0.2671842}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 20.457798, y: -10.809023, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 22493562}
-  m_RootOrder: 5
+  m_Father: {fileID: 1559201477}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &416618525
 SpriteRenderer:
@@ -937,7 +1003,6 @@ MonoBehaviour:
     sentences:
     - Sleepwalking Studies
     diaFile: {fileID: 0}
-    currAct: Act 1
   startsBattle: 0
   objTrigger: {fileID: 0}
 --- !u!114 &416618527
@@ -1186,7 +1251,6 @@ MonoBehaviour:
     sentences:
     - '*CREEEEEEAAAAAAAAAAAK*'
     diaFile: {fileID: 0}
-    currAct: Intro
   startsBattle: 0
   objTrigger: {fileID: 0}
 --- !u!1001 &805501374
@@ -1315,11 +1379,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1000824152680347299, guid: c22372d868a7b9b46b442433084023ed, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -16.86
+      value: -12.01
       objectReference: {fileID: 0}
     - target: {fileID: 1000824152680347299, guid: c22372d868a7b9b46b442433084023ed, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.16
+      value: -6.06
       objectReference: {fileID: 0}
     - target: {fileID: 1000824152680347299, guid: c22372d868a7b9b46b442433084023ed, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1385,11 +1449,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1000824152680347299, guid: c22372d868a7b9b46b442433084023ed, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.48
+      value: -0.94
       objectReference: {fileID: 0}
     - target: {fileID: 1000824152680347299, guid: c22372d868a7b9b46b442433084023ed, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.68
+      value: 1.49
       objectReference: {fileID: 0}
     - target: {fileID: 1000824152680347299, guid: c22372d868a7b9b46b442433084023ed, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1515,13 +1579,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1235556689}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.638, y: 1.102, z: 0}
-  m_LocalScale: {x: 0.2671842, y: 0.2671842, z: 0.2671842}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 22493562}
-  m_RootOrder: 4
+  m_Father: {fileID: 1559201477}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1235556691
 SpriteRenderer:
@@ -1591,7 +1655,6 @@ MonoBehaviour:
     sentences:
     - Sleepwalking Studies
     diaFile: {fileID: 0}
-    currAct: Act 1
   startsBattle: 0
   objTrigger: {fileID: 0}
 --- !u!114 &1235556693
@@ -1668,13 +1731,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1378663879}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.746, y: 1.121, z: 0}
-  m_LocalScale: {x: 0.2671842, y: 0.2671842, z: 0.2671842}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 16.408155, y: 0.07111219, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 22493562}
-  m_RootOrder: 6
+  m_Father: {fileID: 1559201477}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1378663881
 SpriteRenderer:
@@ -1744,7 +1807,6 @@ MonoBehaviour:
     sentences:
     - Sleepwalking Studies
     diaFile: {fileID: 0}
-    currAct: Act 1
   startsBattle: 0
   objTrigger: {fileID: 0}
 --- !u!114 &1378663883
@@ -1821,13 +1883,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1469297669}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.81, y: -0.3, z: 0}
-  m_LocalScale: {x: 0.2671842, y: 0.2671842, z: 0.2671842}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 20.390427, y: -5.2473164, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 22493562}
-  m_RootOrder: 9
+  m_Father: {fileID: 1559201477}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1469297671
 SpriteRenderer:
@@ -1897,7 +1959,6 @@ MonoBehaviour:
     sentences:
     - Sleepwalking Studies
     diaFile: {fileID: 0}
-    currAct: Act 1
   startsBattle: 0
   objTrigger: {fileID: 0}
 --- !u!114 &1469297673
@@ -1972,11 +2033,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1000824152680347299, guid: c22372d868a7b9b46b442433084023ed, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.83
+      value: 4.51
       objectReference: {fileID: 0}
     - target: {fileID: 1000824152680347299, guid: c22372d868a7b9b46b442433084023ed, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.5
+      value: -7.2
       objectReference: {fileID: 0}
     - target: {fileID: 1000824152680347299, guid: c22372d868a7b9b46b442433084023ed, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2064,7 +2125,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.0081968, y: 1}
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -2193,7 +2254,13 @@ Transform:
   m_LocalPosition: {x: -1.638, y: 1.102, z: 0}
   m_LocalScale: {x: 0.2671842, y: 0.2671842, z: 0.2671842}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1235556690}
+  - {fileID: 416618524}
+  - {fileID: 1378663880}
+  - {fileID: 1696623327}
+  - {fileID: 8006500}
+  - {fileID: 1469297670}
   m_Father: {fileID: 22493562}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2213,7 +2280,6 @@ MonoBehaviour:
     sentences:
     - Sleepwalking Studies
     diaFile: {fileID: 0}
-    currAct: Act 1
   startsBattle: 0
   objTrigger: {fileID: 0}
 --- !u!114 &1559201479
@@ -2567,13 +2633,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1696623326}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.551, y: -1.739, z: 0}
-  m_LocalScale: {x: 0.2671842, y: 0.2671842, z: 0.2671842}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -3.4171188, y: -10.633114, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 22493562}
-  m_RootOrder: 7
+  m_Father: {fileID: 1559201477}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1696623328
 SpriteRenderer:
@@ -2643,7 +2709,6 @@ MonoBehaviour:
     sentences:
     - Sleepwalking Studies
     diaFile: {fileID: 0}
-    currAct: Act 1
   startsBattle: 0
   objTrigger: {fileID: 0}
 --- !u!114 &1696623330
@@ -2727,6 +2792,7 @@ Transform:
   - {fileID: 44344412}
   - {fileID: 1802137284}
   - {fileID: 793444596}
+  - {fileID: 353972450}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2756,7 +2822,6 @@ MonoBehaviour:
     sentences:
     - '*CREEEEEEAAAAAAAAAAAK*'
     diaFile: {fileID: 0}
-    currAct: Intro
   startsBattle: 0
   objTrigger: {fileID: 0}
 --- !u!1001 &1864876855
@@ -3039,7 +3104,6 @@ MonoBehaviour:
     sentences:
     - '*CREEEEEEAAAAAAAAAAAK*'
     diaFile: {fileID: 0}
-    currAct: Intro
   startsBattle: 0
   objTrigger: {fileID: 0}
 --- !u!1001 &2102867543
@@ -3067,11 +3131,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1000824152680347299, guid: c22372d868a7b9b46b442433084023ed, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.32
+      value: 10.39
       objectReference: {fileID: 0}
     - target: {fileID: 1000824152680347299, guid: c22372d868a7b9b46b442433084023ed, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7.21
+      value: -1.57
       objectReference: {fileID: 0}
     - target: {fileID: 1000824152680347299, guid: c22372d868a7b9b46b442433084023ed, type: 3}
       propertyPath: m_LocalPosition.z
