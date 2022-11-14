@@ -1,0 +1,10 @@
+Yuichi,Student 3
+Y-Confused|Where is it?
+S-Confused|Why are you digging through the trash?
+Y-Anxious|Someone threw away a picture I need for... a class.
+S-Confused|Can't you just print out another one?
+Y-Neutral|...
+Y-Neutral|I don't have the file.
+S-Neutral|...
+S-Neutral|I saw the janitor take out the trash from that can a few minutes ago. She probably still has the contents with her.
+Y-Neutral|Thank you.

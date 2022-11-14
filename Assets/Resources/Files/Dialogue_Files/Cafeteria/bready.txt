@@ -1,9 +1,0 @@
-Yuichi,Bready
-Y|Bready?
-B|Hi, what's up?
-Y|Student told me you called everyone out about the picture that's been going around?
-B|Yeah, most booed and others were too scared to speak up even though they know it's true.
-Y|Do you still have the picture?
-B|Still have it? No, I never got it in the first place. 
-Y|So who has it?
-B|The green student.

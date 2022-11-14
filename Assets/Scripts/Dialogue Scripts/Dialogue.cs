@@ -90,7 +90,10 @@ public class Dialogue
         for (int i = 0; i < temp.Length; i++)
         {
             Sprite emotion = (Sprite)temp[i];
-            expressions[name].Add(emotion.name, emotion);
+            if (!expressions[name].ContainsKey(emotion.name))
+            {
+                expressions[name].Add(emotion.name, emotion);
+            }
         }
     }
 

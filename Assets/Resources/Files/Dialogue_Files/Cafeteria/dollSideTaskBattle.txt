@@ -1,6 +1,0 @@
-Yuichi,Croissant
-Y|Are you Croissant?
-C|Yeah, what do you want?
-Y|I'm need that doll you stole from Bread.
-C|I ain't handing this creepy thing to anybody. It needs to be destroyed.
-Y|Bruh.

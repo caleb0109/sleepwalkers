@@ -60,6 +60,7 @@ public class Scenes : MonoBehaviour
         Debug.Log(afterBattle.diaFile);
         DialogueTrigger d = new DialogueTrigger();
         d.dialogue = afterBattle;
+        d.dialogue.Start();
         d.objTrigger = battleTrigger;
         d.TriggerDialogue();
     }
