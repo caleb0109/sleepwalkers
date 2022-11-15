@@ -41,6 +41,9 @@ public class Dialogue
 
         expressions = new Dictionary<string, Dictionary<string, Sprite>>();
 
+        expressions.Add(name, new Dictionary<string, Sprite>());
+        expressions[name].Add("Neutral", defaultSprite);
+
         conditionalSentences = new List<List<string>>();
 
         if (diaFile) // if there's a file attached, load it
@@ -69,6 +72,10 @@ public class Dialogue
             {
                 LoadSprites("Sprites/pfps/Enemy", n); //TODO: fix this for other characters with '???' names
             }
+            else if (n.Contains("Student"))
+            {
+                LoadSprites("Sprites/pfps/Student", n); // TODO: unhardcode the loading
+            }
             else
             {
                 LoadSprites(string.Format("Sprites/pfps/", n), n);
@@ -84,7 +91,11 @@ public class Dialogue
     {
         // searches the resources folder for the sprites and adds it to the array
         object[] temp = Resources.LoadAll(path, typeof(Sprite));
-        expressions.Add(name, new Dictionary<string, Sprite>()); // initializes the dictionary inside the dictionary
+
+        if (name != "Yuichi")
+        {
+            expressions.Add(name, new Dictionary<string, Sprite>()); // initializes the dictionary inside the dictionary
+        }
 
         // add each sprite to the character's inner dictionary
         for (int i = 0; i < temp.Length; i++)

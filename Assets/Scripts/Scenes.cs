@@ -9,7 +9,7 @@ public class Scenes : MonoBehaviour
     private string prevScene;
     private Vector3 prevPosition;
 
-    private GameObject battleTrigger;
+    private string battleTrigger;
 
     // Start is called before the first frame update
     void Start()
@@ -37,7 +37,7 @@ public class Scenes : MonoBehaviour
     }
 
     // goes to battle scene and get the players prev position and the prev scene
-    public void ToBattle(string currScene, Vector3 position, GameObject interacted)
+    public void ToBattle(string currScene, Vector3 position, string interacted)
     {
         prevScene = currScene;
         prevPosition = position;
@@ -48,21 +48,46 @@ public class Scenes : MonoBehaviour
     // after battle, move playerobj back to prev position and go back to prev scene
     public void ReturnToPrevScene(Dialogue afterBattle, bool won)
     {
-        GameObject.Find("Yuichi").transform.position = prevPosition;
-        SceneManager.LoadSceneAsync(prevScene);
+        StartCoroutine(LoadPrevScene(afterBattle, won));
+    }
 
-        if (won)
+    public IEnumerator LoadPrevScene(Dialogue afterBattle, bool won)
+    {
+        AsyncOperation load = SceneManager.LoadSceneAsync(prevScene);
+        load.allowSceneActivation = false;
+
+        while (!load.isDone)
         {
-            Interactable iObj = battleTrigger.GetComponent<Interactable>();
-            iObj.interactType = Interactable.InteractableType.Cutscene;
-        }
+            if (load.progress >= 0.9f)
+            {
+                load.allowSceneActivation = true;
 
-        Debug.Log(afterBattle.diaFile);
-        DialogueTrigger d = new DialogueTrigger();
-        d.dialogue = afterBattle;
-        d.dialogue.Start();
-        d.objTrigger = battleTrigger;
-        d.TriggerDialogue();
+                    /*GameObject gObj = GameObject.Find(battleTrigger);
+                    Debug.Log("Interacted Obj: " + gObj);
+                    Debug.Log("Player Obj: " + GameObject.Find("Yuichi"));
+                    GameObject.Find("Yuichi").transform.position = prevPosition;
+
+                    if (won)
+                    {
+                        Interactable iObj = gObj.GetComponent<Interactable>();
+                        if (iObj.interactType != Interactable.InteractableType.Trigger)
+                        {
+                            iObj.interactType = Interactable.InteractableType.Cutscene;
+                        }
+                    }
+
+                    if (afterBattle != null)
+                    {
+                        DialogueTrigger d = new DialogueTrigger();
+                        d.dialogue = afterBattle;
+                        d.dialogue.Start();
+                        d.objTrigger = gObj;
+                        d.TriggerDialogue();
+                    }*/
+            }
+
+            yield return null;
+        }
     }
 
     public string FindCurrentScene()

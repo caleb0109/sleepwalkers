@@ -1,5 +1,5 @@
 Student 1, Student 2, Yuichi
-1-Laughing|Did you see that picture going around?
-2-Grimace|Yeah, I can't believe they took that, it's so embarrassing.
-Y-Confused|What picture are you talking about? Where is it now?
-1-Disgust|Ew, don't talk to us.
+1-Neutral|Did you see that picture going around?
+2-Neutral|Yeah, I can't believe they took that, it's so embarrassing.
+Y-Embarassed|What picture are you talking about? Where is it now?
+1-Neutral|Ew, don't talk to us.
