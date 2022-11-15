@@ -990,7 +990,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.0072794, y: 1}
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1694,7 +1694,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 553506834}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.979251, y: -1.6372035, z: -10}
+  m_LocalPosition: {x: -5.1267586, y: -1.6372035, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4534,6 +4534,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1464639425}
   - component: {fileID: 1464639424}
+  - component: {fileID: 1464639426}
   m_Layer: 0
   m_Name: cafeteria
   m_TagString: Untagged
@@ -4608,6 +4609,52 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &1464639426
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1464639423}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 8.17, y: 5}
+    newSize: {x: 8.1, y: 5.17}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 4.048247, y: 2.4826496}
+      - {x: -4.003442, y: 2.4779477}
+      - {x: -4.075, y: 2.5}
+      - {x: -4.085, y: 2.49}
+      - {x: -4.061956, y: -2.2394826}
+      - {x: -4.0244226, y: -2.2462084}
+      - {x: -3.1788392, y: -2.239067}
+      - {x: -3.1530254, y: -2.489261}
+      - {x: -2.0795946, y: -2.4904048}
+      - {x: -2.0653682, y: -2.2391148}
+      - {x: 4.0549965, y: -2.2690434}
+      - {x: 4.0346146, y: -2.1655}
+      - {x: -2.1464694, y: -2.168534}
+      - {x: -2.152633, y: -2.4092221}
+      - {x: -3.0893483, y: -2.4043467}
+      - {x: -3.1018026, y: -2.1790648}
+      - {x: -3.9989877, y: -2.174632}
+      - {x: -3.96465, y: 2.4315252}
+      - {x: 3.9926617, y: 2.4231179}
+      - {x: 4.0675144, y: -2.2679143}
+      - {x: 4.085, y: -2.24}
 --- !u!1 &1472826242
 GameObject:
   m_ObjectHideFlags: 0
