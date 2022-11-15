@@ -35,7 +35,8 @@ public class Detect : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         detectedObj = collision.gameObject;
-        if (detectedObj.GetComponent<Interactable>().interactType == Interactable.InteractableType.Trigger)
+        if (detectedObj.GetComponent<Interactable>() && 
+            detectedObj.GetComponent<Interactable>().interactType == Interactable.InteractableType.Trigger)
         {
             interactionCounter++;
             // get the detectedObj's dialogue trigger
@@ -98,7 +99,7 @@ public class Detect : MonoBehaviour
     void OnInteract()
     {
         // used for interaction
-        if (detectedObj != null && !dManager.isSpeaking)
+        if (detectedObj != null && !dManager.isSpeaking && detectedObj.GetComponent<Interactable>())
         {
             detectedObj.GetComponent<Interactable>().Interact();
         }
