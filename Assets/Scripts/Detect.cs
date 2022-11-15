@@ -15,6 +15,7 @@ public class Detect : MonoBehaviour
     private Scenes sManager;
 
     private int interactionCounter;
+    static bool battled;
 
     //Examine Window
     public GameObject examineWindow;
@@ -39,24 +40,37 @@ public class Detect : MonoBehaviour
         if (detectedObj.GetComponent<Interactable>() && 
             detectedObj.GetComponent<Interactable>().interactType == Interactable.InteractableType.Trigger)
         {
-            // get the detectedObj's dialogue trigger
-            DialogueTrigger d = detectedObj.GetComponent<DialogueTrigger>();
-
-            if (SceneManager.GetActiveScene().name == "Library")
+            
+            if(FindObjectOfType<Scenes>().bResult)
             {
-                interactionCounter++;
-                // find the dialogue file pertaining to the strike
-                d.dialogue.diaFile = Resources.Load<TextAsset>($"Files/Dialogue_Files/{sManager.FindCurrentScene()}/strike{interactionCounter}");
+                
             }
-
-            // call the start to load all the sprites, file, etc
-            d.dialogue.Start();
-            // trigger the dialogue
-            if (interactionCounter == 3)
+            else
             {
-                d.startsBattle = true;
+                // get the detectedObj's dialogue trigger
+                DialogueTrigger d = detectedObj.GetComponent<DialogueTrigger>();
+
+                if (SceneManager.GetActiveScene().name == "Library")
+                {
+                    interactionCounter++;
+                    // find the dialogue file pertaining to the strike
+                    d.dialogue.diaFile = Resources.Load<TextAsset>($"Files/Dialogue_Files/{sManager.FindCurrentScene()}/strike{interactionCounter}");
+                }
+
+                // call the start to load all the sprites, file, etc
+                d.dialogue.Start();
+                // trigger the dialogue
+                if (interactionCounter == 3)
+                {
+                    d.startsBattle = true;
+                    battled = true;
+                }
+                Debug.Log(battled);
+                d.TriggerDialogue();
+
+                detectedObj.SetActive(false);
             }
-            d.TriggerDialogue();
+            
             
         }
 
