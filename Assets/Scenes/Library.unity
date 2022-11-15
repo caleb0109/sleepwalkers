@@ -382,6 +382,7 @@ GameObject:
   - component: {fileID: 39844454}
   - component: {fileID: 39844453}
   - component: {fileID: 39844455}
+  - component: {fileID: 39844456}
   m_Layer: 0
   m_Name: floorboard (3)
   m_TagString: Untagged
@@ -620,6 +621,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &39844456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 39844449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9761fcf3a468a9c48a3fbd3be5d6b55b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundByte:
+  - {fileID: 8300000, guid: a0d63c643d39e444da94047d68fdd0d1, type: 3}
 --- !u!4 &44344412 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1000824152680347299, guid: c22372d868a7b9b46b442433084023ed, type: 3}
@@ -1066,6 +1081,7 @@ GameObject:
   - component: {fileID: 198516351}
   - component: {fileID: 198516350}
   - component: {fileID: 198516352}
+  - component: {fileID: 198516353}
   m_Layer: 0
   m_Name: floorboard (1)
   m_TagString: Untagged
@@ -1304,6 +1320,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &198516353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 198516346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9761fcf3a468a9c48a3fbd3be5d6b55b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundByte:
+  - {fileID: 8300000, guid: a0d63c643d39e444da94047d68fdd0d1, type: 3}
 --- !u!1 &225275529
 GameObject:
   m_ObjectHideFlags: 0
@@ -2185,6 +2215,7 @@ GameObject:
   - component: {fileID: 438256107}
   - component: {fileID: 438256106}
   - component: {fileID: 438256108}
+  - component: {fileID: 438256109}
   m_Layer: 0
   m_Name: floorboard (4)
   m_TagString: Untagged
@@ -2423,6 +2454,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &438256109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 438256102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9761fcf3a468a9c48a3fbd3be5d6b55b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundByte:
+  - {fileID: 8300000, guid: a0d63c643d39e444da94047d68fdd0d1, type: 3}
 --- !u!1001 &520599550
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4450,6 +4495,7 @@ GameObject:
   - component: {fileID: 1448722473}
   - component: {fileID: 1448722472}
   - component: {fileID: 1448722474}
+  - component: {fileID: 1448722475}
   m_Layer: 0
   m_Name: floorboard (7)
   m_TagString: Untagged
@@ -4688,6 +4734,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1448722475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1448722468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9761fcf3a468a9c48a3fbd3be5d6b55b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundByte:
+  - {fileID: 8300000, guid: a0d63c643d39e444da94047d68fdd0d1, type: 3}
 --- !u!1 &1469297669
 GameObject:
   m_ObjectHideFlags: 0
@@ -5613,6 +5673,7 @@ GameObject:
   - component: {fileID: 1602187364}
   - component: {fileID: 1602187363}
   - component: {fileID: 1602187365}
+  - component: {fileID: 1602187366}
   m_Layer: 0
   m_Name: floorboard (2)
   m_TagString: Untagged
@@ -5851,6 +5912,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1602187366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1602187359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9761fcf3a468a9c48a3fbd3be5d6b55b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundByte:
+  - {fileID: 8300000, guid: a0d63c643d39e444da94047d68fdd0d1, type: 3}
 --- !u!1 &1606375605
 GameObject:
   m_ObjectHideFlags: 0
@@ -6609,6 +6684,7 @@ GameObject:
   - component: {fileID: 1797615260}
   - component: {fileID: 1797615259}
   - component: {fileID: 1797615261}
+  - component: {fileID: 1797615262}
   m_Layer: 0
   m_Name: floorboard
   m_TagString: Untagged
@@ -6847,6 +6923,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1797615262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1797615255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9761fcf3a468a9c48a3fbd3be5d6b55b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundByte:
+  - {fileID: 8300000, guid: a0d63c643d39e444da94047d68fdd0d1, type: 3}
 --- !u!4 &1802137284 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1000824152680347299, guid: c22372d868a7b9b46b442433084023ed, type: 3}
@@ -7061,6 +7151,7 @@ GameObject:
   - component: {fileID: 1894024006}
   - component: {fileID: 1894024005}
   - component: {fileID: 1894024007}
+  - component: {fileID: 1894024008}
   m_Layer: 0
   m_Name: floorboard (5)
   m_TagString: Untagged
@@ -7299,6 +7390,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1894024008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1894024001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9761fcf3a468a9c48a3fbd3be5d6b55b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundByte:
+  - {fileID: 8300000, guid: a0d63c643d39e444da94047d68fdd0d1, type: 3}
 --- !u!4 &1954856981 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1000824152680347299, guid: c22372d868a7b9b46b442433084023ed, type: 3}
@@ -7581,6 +7686,7 @@ GameObject:
   - component: {fileID: 1992648455}
   - component: {fileID: 1992648454}
   - component: {fileID: 1992648456}
+  - component: {fileID: 1992648457}
   m_Layer: 0
   m_Name: floorboard (6)
   m_TagString: Untagged
@@ -7819,6 +7925,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1992648457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1992648450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9761fcf3a468a9c48a3fbd3be5d6b55b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundByte:
+  - {fileID: 8300000, guid: a0d63c643d39e444da94047d68fdd0d1, type: 3}
 --- !u!4 &2044796003 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1000824152680347299, guid: c22372d868a7b9b46b442433084023ed, type: 3}
@@ -7922,6 +8042,7 @@ GameObject:
   - component: {fileID: 2072918712}
   - component: {fileID: 2072918711}
   - component: {fileID: 2072918715}
+  - component: {fileID: 2072918716}
   m_Layer: 0
   m_Name: floorboard (8)
   m_TagString: Untagged
@@ -8160,6 +8281,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2072918716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2072918709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9761fcf3a468a9c48a3fbd3be5d6b55b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundByte:
+  - {fileID: 8300000, guid: a0d63c643d39e444da94047d68fdd0d1, type: 3}
 --- !u!1001 &2102867543
 PrefabInstance:
   m_ObjectHideFlags: 0
