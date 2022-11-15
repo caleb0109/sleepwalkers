@@ -260,13 +260,6 @@ public class DialogueManager : MonoBehaviour
 
         if (gObj != null)
         {
-            PlayableDirector pDirect = gObj.GetComponent<PlayableDirector>();
-
-            if (pDirect)
-            {
-                pDirect.enabled = false;
-            }
-
             if (startBattle)
             {
                 FindObjectOfType<Scenes>().ToBattle(SceneManager.GetActiveScene().name, GameObject.Find("Yuichi").transform.position, gObj.name);

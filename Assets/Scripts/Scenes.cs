@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Playables;
 
 public class Scenes : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class Scenes : MonoBehaviour
     private string prevScene;
     public bool bResult;
     static Vector3 prevPosition;
-
+    static List<int> playCount;
 
     private string battleTrigger;
 
@@ -17,12 +18,14 @@ public class Scenes : MonoBehaviour
     void Start()
     {
         scenesInBuild = new List<string>();
+        playCount = new List<int>();
 
         // loading scenes curtasy of canis https://forum.unity.com/threads/getscenebybuildindex-problem.452560/
         for (int i = 0; i < SceneManager.sceneCountInBuildSettings; i++)
         {
             string path = SceneUtility.GetScenePathByBuildIndex(i);
             scenesInBuild.Add(path.Substring(0, path.Length - 6).Substring(path.LastIndexOf('/') + 1));
+            playCount.Add(0);
         }
     }
 
@@ -33,6 +36,7 @@ public class Scenes : MonoBehaviour
             if (scenesInBuild[i] == SceneManager.GetActiveScene().name && i + 1 < scenesInBuild.Count)
             {
                 SceneManager.LoadSceneAsync(scenesInBuild[i + 1]);
+                playCount[i]++;
                 break;
             }
         }

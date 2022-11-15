@@ -633,6 +633,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9761fcf3a468a9c48a3fbd3be5d6b55b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  notifFx: {fileID: 0}
   soundByte:
   - {fileID: 8300000, guid: a0d63c643d39e444da94047d68fdd0d1, type: 3}
 --- !u!4 &44344412 stripped
@@ -1332,6 +1333,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9761fcf3a468a9c48a3fbd3be5d6b55b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  notifFx: {fileID: 0}
   soundByte:
   - {fileID: 8300000, guid: a0d63c643d39e444da94047d68fdd0d1, type: 3}
 --- !u!1 &225275529
@@ -1666,10 +1668,10 @@ PlayableDirector:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 259817771}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: 3cadd39ed6fdcdc4fbf5d475446963a8, type: 2}
-  m_InitialState: 1
+  m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
@@ -2466,6 +2468,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9761fcf3a468a9c48a3fbd3be5d6b55b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  notifFx: {fileID: 0}
   soundByte:
   - {fileID: 8300000, guid: a0d63c643d39e444da94047d68fdd0d1, type: 3}
 --- !u!1001 &520599550
@@ -4746,6 +4749,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9761fcf3a468a9c48a3fbd3be5d6b55b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  notifFx: {fileID: 0}
   soundByte:
   - {fileID: 8300000, guid: a0d63c643d39e444da94047d68fdd0d1, type: 3}
 --- !u!1 &1469297669
@@ -5924,6 +5928,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9761fcf3a468a9c48a3fbd3be5d6b55b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  notifFx: {fileID: 0}
   soundByte:
   - {fileID: 8300000, guid: a0d63c643d39e444da94047d68fdd0d1, type: 3}
 --- !u!1 &1606375605
@@ -6935,6 +6940,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9761fcf3a468a9c48a3fbd3be5d6b55b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  notifFx: {fileID: 0}
   soundByte:
   - {fileID: 8300000, guid: a0d63c643d39e444da94047d68fdd0d1, type: 3}
 --- !u!4 &1802137284 stripped
@@ -7402,6 +7408,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9761fcf3a468a9c48a3fbd3be5d6b55b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  notifFx: {fileID: 0}
   soundByte:
   - {fileID: 8300000, guid: a0d63c643d39e444da94047d68fdd0d1, type: 3}
 --- !u!4 &1954856981 stripped
@@ -7937,6 +7944,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9761fcf3a468a9c48a3fbd3be5d6b55b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  notifFx: {fileID: 0}
   soundByte:
   - {fileID: 8300000, guid: a0d63c643d39e444da94047d68fdd0d1, type: 3}
 --- !u!4 &2044796003 stripped
@@ -8293,6 +8301,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9761fcf3a468a9c48a3fbd3be5d6b55b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  notifFx: {fileID: 0}
   soundByte:
   - {fileID: 8300000, guid: a0d63c643d39e444da94047d68fdd0d1, type: 3}
 --- !u!1001 &2102867543
