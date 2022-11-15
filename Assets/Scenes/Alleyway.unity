@@ -286,6 +286,7 @@ MonoBehaviour:
     - There's nothing I want anyways.
     diaFile: {fileID: 0}
   startsBattle: 0
+  afterSpeak: {fileID: 0}
   objTrigger: {fileID: 0}
 --- !u!114 &46903033
 MonoBehaviour:
@@ -302,7 +303,7 @@ MonoBehaviour:
   itemName: 
   reqItemName: 
   searchItemSprite: {fileID: 0}
-  interactType: 5
+  interactType: 4
   notifType: 0
   itemType: 0
   descriptionText: 
@@ -858,6 +859,84 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &865957391
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 865957394}
+  - component: {fileID: 865957393}
+  - component: {fileID: 865957392}
+  m_Layer: 0
+  m_Name: DeadEnd
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &865957392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 865957391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02c11395f6ced3e4f9c12040e691e298, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    sentences:
+    - 
+    diaFile: {fileID: 0}
+  startsBattle: 0
+  afterSpeak: {fileID: 0}
+  objTrigger: {fileID: 0}
+--- !u!61 &865957393
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 865957391}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!4 &865957394
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 865957391}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 17.387005, y: 4.1855807, z: -5398.9863}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1035633120
 GameObject:
   m_ObjectHideFlags: 0
@@ -1378,6 +1457,7 @@ MonoBehaviour:
     - Nothing to note in here.
     diaFile: {fileID: 0}
   startsBattle: 0
+  afterSpeak: {fileID: 0}
   objTrigger: {fileID: 0}
 --- !u!114 &1327351597
 MonoBehaviour:
@@ -1394,7 +1474,7 @@ MonoBehaviour:
   itemName: 
   reqItemName: 
   searchItemSprite: {fileID: 0}
-  interactType: 5
+  interactType: 4
   notifType: 0
   itemType: 0
   descriptionText: 
@@ -1475,7 +1555,7 @@ MonoBehaviour:
   itemName: 
   reqItemName: 
   searchItemSprite: {fileID: 0}
-  interactType: 5
+  interactType: 4
   notifType: 0
   itemType: 0
   descriptionText: 
@@ -1524,6 +1604,7 @@ MonoBehaviour:
     - "Nope, don\u2019t wanna touch whatever that is."
     diaFile: {fileID: 0}
   startsBattle: 0
+  afterSpeak: {fileID: 0}
   objTrigger: {fileID: 0}
 --- !u!1 &1406825465
 GameObject:
@@ -2093,6 +2174,7 @@ MonoBehaviour:
     sentences: []
     diaFile: {fileID: 4900000, guid: dad9a7d77f4bc73459523a6af6561b49, type: 3}
   startsBattle: 1
+  afterSpeak: {fileID: 0}
   objTrigger: {fileID: 0}
 --- !u!320 &1643518518
 PlayableDirector:
@@ -2237,7 +2319,7 @@ MonoBehaviour:
   itemName: 
   reqItemName: 
   searchItemSprite: {fileID: 0}
-  interactType: 5
+  interactType: 6
   notifType: 0
   itemType: 0
   descriptionText: 
@@ -2260,6 +2342,7 @@ MonoBehaviour:
     - Just junk, nothing useful here.
     diaFile: {fileID: 0}
   startsBattle: 0
+  afterSpeak: {fileID: 0}
   objTrigger: {fileID: 0}
 --- !u!61 &1675782430
 BoxCollider2D:

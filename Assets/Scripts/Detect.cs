@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.IO;
 
 public class Detect : MonoBehaviour
@@ -38,11 +39,16 @@ public class Detect : MonoBehaviour
         if (detectedObj.GetComponent<Interactable>() && 
             detectedObj.GetComponent<Interactable>().interactType == Interactable.InteractableType.Trigger)
         {
-            interactionCounter++;
             // get the detectedObj's dialogue trigger
             DialogueTrigger d = detectedObj.GetComponent<DialogueTrigger>();
-            // find the dialogue file pertaining to the strike
-            d.dialogue.diaFile = Resources.Load<TextAsset>($"Files/Dialogue_Files/{sManager.FindCurrentScene()}/strike{interactionCounter}");
+
+            if (SceneManager.GetActiveScene().name == "Library")
+            {
+                interactionCounter++;
+                // find the dialogue file pertaining to the strike
+                d.dialogue.diaFile = Resources.Load<TextAsset>($"Files/Dialogue_Files/{sManager.FindCurrentScene()}/strike{interactionCounter}");
+            }
+
             // call the start to load all the sprites, file, etc
             d.dialogue.Start();
             // trigger the dialogue

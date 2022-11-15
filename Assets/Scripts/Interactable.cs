@@ -21,7 +21,7 @@ public class Interactable : MonoBehaviour
         Trigger,
         Talking, // used for Yuichi to talk to himself
         Cutscene,
-        SideQuest
+        SwitchScene
     }
 
     public enum NotificationType
@@ -66,7 +66,9 @@ public class Interactable : MonoBehaviour
 
     private DialogueTrigger dia;
     //private DialogueManager dManager;
-    private int interactCount;
+    //private int interactCount;
+
+    private Scenes sManager;
 
     //public UnityEvent customEvent;
 
@@ -77,7 +79,8 @@ public class Interactable : MonoBehaviour
         alreadyInteracted = "I already searched that.";
         dia = this.gameObject.GetComponent<DialogueTrigger>();
         //dManager = FindObjectOfType<DialogueManager>();
-        interactCount = 0;
+        //interactCount = 0;
+        sManager = FindObjectOfType<Scenes>();
     }
 
     public void Interact()
@@ -157,12 +160,26 @@ public class Interactable : MonoBehaviour
                 }
                 break;
 
-            case InteractableType.SideQuest:
-                
+            case InteractableType.SwitchScene:
+                dia.TriggerDialogue(); // start dialogue 
 
-
-                dia.TriggerDialogue(); // start dialogue
-                interactCount++;
+                // TODO: figure out a non hard cody way for this case
+                if (this.gameObject.transform.parent != null && this.gameObject.transform.parent.name.Contains("library"))
+                {
+                    sManager.GoToSpecificScene("Library");
+                }
+                else if (this.gameObject.transform.parent != null && this.gameObject.transform.parent.name.Contains("cafeteria"))
+                {
+                    sManager.GoToSpecificScene("Cafeteria");
+                }
+                else if (this.gameObject.transform.parent != null && this.gameObject.transform.parent.name.Contains("classroom"))
+                {
+                    sManager.GoToSpecificScene("Classroom");
+                }
+                else
+                {
+                    sManager.GoToSpecificScene("Dream School");
+                }
                 break;
 
             default:

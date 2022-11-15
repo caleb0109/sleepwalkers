@@ -37,7 +37,7 @@ public class Dialogue
     public void Start()
     {
         name = "Yuichi";
-        defaultSprite = Resources.Load<Sprite>("Sprites/pfps/Yuichi/Neutral");
+        defaultSprite = Resources.Load<Sprite>("pfps/Yuichi/Neutral");
 
         expressions = new Dictionary<string, Dictionary<string, Sprite>>();
 
@@ -77,15 +77,15 @@ public class Dialogue
         {
             if (n == "???")
             {
-                LoadSprites("Sprites/pfps/Enemy", n); //TODO: fix this for other characters with '???' names
+                LoadSprites("pfps/Enemy", n); //TODO: fix this for other characters with '???' names
             }
             else if (n.Contains("Student"))
             {
-                LoadSprites("Sprites/pfps/Student", n); // TODO: unhardcode the loading
+                LoadSprites("pfps/Student", n); // TODO: unhardcode the loading
             }
             else
             {
-                LoadSprites(new string("Sprites/pfps/" + n), n);
+                LoadSprites(new string("pfps/" + n), n);
             }
         }
 
