@@ -57,6 +57,8 @@ public class Detect : MonoBehaviour
                     d.dialogue.diaFile = Resources.Load<TextAsset>($"Files/Dialogue_Files/{sManager.FindCurrentScene()}/strike{interactionCounter}");
                 }
 
+                SoundEffect s = detectedObj.GetComponent<SoundEffect>();
+                s.PlaySound();
                 // call the start to load all the sprites, file, etc
                 d.dialogue.Start();
                 // trigger the dialogue
