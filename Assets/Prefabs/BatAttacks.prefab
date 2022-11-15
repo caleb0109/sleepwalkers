@@ -75,6 +75,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   finishedTurn: 0
   attackAmounts: 0
+  canvas: {fileID: 3094698156775484954, guid: e48472c92b923ad4ea5fda5042a80b61, type: 3}
 --- !u!1001 &20215061528812964
 PrefabInstance:
   m_ObjectHideFlags: 0

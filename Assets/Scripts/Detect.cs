@@ -45,8 +45,14 @@ public class Detect : MonoBehaviour
             // call the start to load all the sprites, file, etc
             d.dialogue.Start();
             // trigger the dialogue
+            if (interactionCounter == 3)
+            {
+                d.startsBattle = true;
+            }
             d.TriggerDialogue();
+            
         }
+
     }
 
     private void OnTriggerExit2D(Collider2D collision)
