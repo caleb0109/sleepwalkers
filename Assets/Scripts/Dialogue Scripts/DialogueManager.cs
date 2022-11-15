@@ -126,7 +126,7 @@ public class DialogueManager : MonoBehaviour
                 }
             }
         }
-        else
+        else if (currSentence.Contains("*"))
         {
             nameText.gameObject.SetActive(false);
             imgSprite.gameObject.SetActive(false);
@@ -170,6 +170,7 @@ public class DialogueManager : MonoBehaviour
         }
 
         imgSprite.sprite = dialogueHolder.DefaultSprite; // used to set the default sprite to Yuichi's neutral face
+        nameText.text = dialogueHolder.Name;
 
         if (!startBattle && dialogueHolder.sentences.Count > 0)
         {
@@ -184,7 +185,6 @@ public class DialogueManager : MonoBehaviour
     //Completes the sentence ahead of the typing for impatient players
     public void CompleteSentenceDisplay()
     {
-        Debug.Log("I forced the sentence to finish");
         dialogueText.text = currSentence;
         isTyping = false;
     }

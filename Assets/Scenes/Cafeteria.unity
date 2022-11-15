@@ -296,6 +296,7 @@ MonoBehaviour:
     sentences: []
     diaFile: {fileID: 4900000, guid: 133df6102fc461949ac416f98a0879f3, type: 3}
   startsBattle: 0
+  afterSpeak: {fileID: 0}
   objTrigger: {fileID: 0}
 --- !u!114 &104720518
 MonoBehaviour:
@@ -312,7 +313,7 @@ MonoBehaviour:
   itemName: 
   reqItemName: 
   searchItemSprite: {fileID: 0}
-  interactType: 4
+  interactType: 6
   notifType: 0
   itemType: 0
   descriptionText: 
@@ -384,7 +385,6 @@ GameObject:
   - component: {fileID: 115972543}
   - component: {fileID: 115972547}
   - component: {fileID: 115972546}
-  - component: {fileID: 115972545}
   m_Layer: 0
   m_Name: student 1
   m_TagString: Untagged
@@ -479,27 +479,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &115972545
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 115972538}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2ef23bc9ed8eb448b3ba80c79078c9f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemName: 
-  reqItemName: 
-  searchItemSprite: {fileID: 0}
-  interactType: 4
-  notifType: 0
-  itemType: 0
-  descriptionText: 
-  afterInteract: {fileID: 0}
-  highlight: {fileID: 0}
 --- !u!114 &115972546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -516,6 +495,7 @@ MonoBehaviour:
     sentences: []
     diaFile: {fileID: 0}
   startsBattle: 0
+  afterSpeak: {fileID: 0}
   objTrigger: {fileID: 0}
 --- !u!61 &115972547
 BoxCollider2D:
@@ -674,7 +654,6 @@ GameObject:
   - component: {fileID: 292941644}
   - component: {fileID: 292941648}
   - component: {fileID: 292941647}
-  - component: {fileID: 292941646}
   m_Layer: 0
   m_Name: student 1
   m_TagString: Untagged
@@ -769,27 +748,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &292941646
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 292941639}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2ef23bc9ed8eb448b3ba80c79078c9f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemName: 
-  reqItemName: 
-  searchItemSprite: {fileID: 0}
-  interactType: 4
-  notifType: 0
-  itemType: 0
-  descriptionText: 
-  afterInteract: {fileID: 0}
-  highlight: {fileID: 0}
 --- !u!114 &292941647
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -806,6 +764,7 @@ MonoBehaviour:
     sentences: []
     diaFile: {fileID: 0}
   startsBattle: 0
+  afterSpeak: {fileID: 0}
   objTrigger: {fileID: 0}
 --- !u!61 &292941648
 BoxCollider2D:
@@ -903,7 +862,7 @@ GameObject:
   - component: {fileID: 371963181}
   - component: {fileID: 371963184}
   m_Layer: 0
-  m_Name: s1 (14)
+  m_Name: Megumi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1182,9 +1141,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    sentences: []
+    sentences:
+    - HI, do you have the picture everyone passed around?
+    - ...
+    - ...Ok, enjoy your dinner.
     diaFile: {fileID: 0}
   startsBattle: 0
+  afterSpeak: {fileID: 0}
   objTrigger: {fileID: 0}
 --- !u!61 &486856131
 BoxCollider2D:
@@ -1357,6 +1320,7 @@ MonoBehaviour:
     sentences: []
     diaFile: {fileID: 4900000, guid: c20e6d2fac801a541a9badea2d52e60a, type: 3}
   startsBattle: 0
+  afterSpeak: {fileID: 0}
   objTrigger: {fileID: 0}
 --- !u!61 &501024448
 BoxCollider2D:
@@ -1464,7 +1428,6 @@ GameObject:
   - component: {fileID: 546918064}
   - component: {fileID: 546918068}
   - component: {fileID: 546918067}
-  - component: {fileID: 546918066}
   m_Layer: 0
   m_Name: student 1
   m_TagString: Untagged
@@ -1559,27 +1522,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &546918066
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 546918059}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2ef23bc9ed8eb448b3ba80c79078c9f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemName: 
-  reqItemName: 
-  searchItemSprite: {fileID: 0}
-  interactType: 4
-  notifType: 0
-  itemType: 0
-  descriptionText: 
-  afterInteract: {fileID: 0}
-  highlight: {fileID: 0}
 --- !u!114 &546918067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1596,6 +1538,7 @@ MonoBehaviour:
     sentences: []
     diaFile: {fileID: 0}
   startsBattle: 0
+  afterSpeak: {fileID: 0}
   objTrigger: {fileID: 0}
 --- !u!61 &546918068
 BoxCollider2D:
@@ -1814,9 +1757,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    sentences: []
+    sentences:
+    - They're too busy chatting with each other.
     diaFile: {fileID: 0}
   startsBattle: 0
+  afterSpeak: {fileID: 0}
   objTrigger: {fileID: 0}
 --- !u!61 &620577465
 BoxCollider2D:
@@ -2107,6 +2052,7 @@ MonoBehaviour:
     sentences: []
     diaFile: {fileID: 4900000, guid: 26c520c60523a8742bd8df928c458b95, type: 3}
   startsBattle: 0
+  afterSpeak: {fileID: 0}
   objTrigger: {fileID: 0}
 --- !u!61 &689662025
 BoxCollider2D:
@@ -2263,7 +2209,7 @@ GameObject:
   - component: {fileID: 821750911}
   - component: {fileID: 821750914}
   m_Layer: 0
-  m_Name: s1 (12)
+  m_Name: Student 11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2442,7 +2388,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 983508571}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -2606,6 +2552,7 @@ MonoBehaviour:
     sentences: []
     diaFile: {fileID: 0}
   startsBattle: 0
+  afterSpeak: {fileID: 0}
   objTrigger: {fileID: 0}
 --- !u!61 &1018011283
 BoxCollider2D:
@@ -2778,6 +2725,7 @@ MonoBehaviour:
     sentences: []
     diaFile: {fileID: 4900000, guid: fc533c4f1ce167c4497b89abd0a85f16, type: 3}
   startsBattle: 0
+  afterSpeak: {fileID: 0}
   objTrigger: {fileID: 0}
 --- !u!61 &1069097000
 BoxCollider2D:
@@ -2950,6 +2898,7 @@ MonoBehaviour:
     sentences: []
     diaFile: {fileID: 0}
   startsBattle: 0
+  afterSpeak: {fileID: 0}
   objTrigger: {fileID: 0}
 --- !u!61 &1165350355
 BoxCollider2D:
@@ -2988,7 +2937,7 @@ GameObject:
   - component: {fileID: 1181482684}
   - component: {fileID: 1181482687}
   m_Layer: 0
-  m_Name: s1 (11)
+  m_Name: Student 10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3079,7 +3028,7 @@ GameObject:
   - component: {fileID: 1206374363}
   - component: {fileID: 1206374366}
   m_Layer: 0
-  m_Name: s1 (10)
+  m_Name: Student 9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3272,6 +3221,7 @@ MonoBehaviour:
     sentences: []
     diaFile: {fileID: 4900000, guid: 3a6ee0f8b19925d4e95ef60da175ba48, type: 3}
   startsBattle: 0
+  afterSpeak: {fileID: 0}
   objTrigger: {fileID: 0}
 --- !u!61 &1284973946
 BoxCollider2D:
@@ -3423,6 +3373,7 @@ MonoBehaviour:
     sentences: []
     diaFile: {fileID: 4900000, guid: ab1e5166c858f6342bb7016630161988, type: 3}
   startsBattle: 0
+  afterSpeak: {fileID: 0}
   objTrigger: {fileID: 0}
 --- !u!61 &1288159413
 BoxCollider2D:
@@ -3616,6 +3567,7 @@ MonoBehaviour:
     sentences: []
     diaFile: {fileID: 4900000, guid: 90e89d32965604641bb12a9685768bb5, type: 3}
   startsBattle: 0
+  afterSpeak: {fileID: 0}
   objTrigger: {fileID: 0}
 --- !u!61 &1301648618
 BoxCollider2D:
@@ -3656,7 +3608,6 @@ GameObject:
   - component: {fileID: 1353466435}
   - component: {fileID: 1353466439}
   - component: {fileID: 1353466438}
-  - component: {fileID: 1353466437}
   m_Layer: 0
   m_Name: student 1
   m_TagString: Untagged
@@ -3751,27 +3702,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1353466437
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1353466430}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2ef23bc9ed8eb448b3ba80c79078c9f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemName: 
-  reqItemName: 
-  searchItemSprite: {fileID: 0}
-  interactType: 4
-  notifType: 0
-  itemType: 0
-  descriptionText: 
-  afterInteract: {fileID: 0}
-  highlight: {fileID: 0}
 --- !u!114 &1353466438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3788,6 +3718,7 @@ MonoBehaviour:
     sentences: []
     diaFile: {fileID: 0}
   startsBattle: 0
+  afterSpeak: {fileID: 0}
   objTrigger: {fileID: 0}
 --- !u!61 &1353466439
 BoxCollider2D:
@@ -3828,7 +3759,6 @@ GameObject:
   - component: {fileID: 1409258451}
   - component: {fileID: 1409258455}
   - component: {fileID: 1409258454}
-  - component: {fileID: 1409258453}
   m_Layer: 0
   m_Name: student 1
   m_TagString: Untagged
@@ -3923,27 +3853,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1409258453
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1409258446}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2ef23bc9ed8eb448b3ba80c79078c9f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemName: 
-  reqItemName: 
-  searchItemSprite: {fileID: 0}
-  interactType: 4
-  notifType: 0
-  itemType: 0
-  descriptionText: 
-  afterInteract: {fileID: 0}
-  highlight: {fileID: 0}
 --- !u!114 &1409258454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3960,6 +3869,7 @@ MonoBehaviour:
     sentences: []
     diaFile: {fileID: 0}
   startsBattle: 0
+  afterSpeak: {fileID: 0}
   objTrigger: {fileID: 0}
 --- !u!61 &1409258455
 BoxCollider2D:
@@ -4012,7 +3922,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1412267335}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.899823, y: -0.8476372, z: 4.160632}
+  m_LocalPosition: {x: -1.899823, y: -1.0799999, z: 4.160632}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4191,6 +4101,7 @@ MonoBehaviour:
     sentences: []
     diaFile: {fileID: 0}
   startsBattle: 0
+  afterSpeak: {fileID: 0}
   objTrigger: {fileID: 0}
 --- !u!61 &1430016986
 BoxCollider2D:
@@ -4460,6 +4371,7 @@ MonoBehaviour:
     sentences: []
     diaFile: {fileID: 0}
   startsBattle: 0
+  afterSpeak: {fileID: 0}
   objTrigger: {fileID: 0}
 --- !u!61 &1463814504
 BoxCollider2D:
@@ -4762,7 +4674,7 @@ GameObject:
   - component: {fileID: 1613684728}
   - component: {fileID: 1613684731}
   m_Layer: 0
-  m_Name: s1 (13)
+  m_Name: Student 12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4908,7 +4820,7 @@ SpriteRenderer:
   m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 2100349244, guid: b29a390a6b9cf604fa9b510eb6b5f139, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.47798735, g: 1, b: 0.9918723, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -4953,8 +4865,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
     sentences: []
-    diaFile: {fileID: 0}
+    diaFile: {fileID: 4900000, guid: 9b659ce46bc00a340b356d8ef638ad2c, type: 3}
   startsBattle: 0
+  afterSpeak: {fileID: 4900000, guid: 1ac080d0a936a0044b728b82c8b865cb, type: 3}
   objTrigger: {fileID: 0}
 --- !u!61 &1686148810
 BoxCollider2D:
@@ -5127,6 +5040,7 @@ MonoBehaviour:
     sentences: []
     diaFile: {fileID: 0}
   startsBattle: 0
+  afterSpeak: {fileID: 0}
   objTrigger: {fileID: 0}
 --- !u!61 &1741772248
 BoxCollider2D:
@@ -5358,6 +5272,7 @@ MonoBehaviour:
     sentences: []
     diaFile: {fileID: 0}
   startsBattle: 0
+  afterSpeak: {fileID: 0}
   objTrigger: {fileID: 0}
 --- !u!61 &1780268891
 BoxCollider2D:
@@ -5535,6 +5450,7 @@ MonoBehaviour:
     sentences: []
     diaFile: {fileID: 4900000, guid: 648a0b186eb71c349bcd4537d3a5ad40, type: 3}
   startsBattle: 0
+  afterSpeak: {fileID: 0}
   objTrigger: {fileID: 0}
 --- !u!61 &1808174626
 BoxCollider2D:
@@ -5632,7 +5548,7 @@ GameObject:
   - component: {fileID: 1827634843}
   - component: {fileID: 1827634846}
   m_Layer: 0
-  m_Name: s1 (9)
+  m_Name: Student 8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5646,7 +5562,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1827634842}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.34, y: 3.1200006, z: 7.0669727}
+  m_LocalPosition: {x: 6.34, y: 1.77, z: 7.0669727}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5825,6 +5741,7 @@ MonoBehaviour:
     sentences: []
     diaFile: {fileID: 0}
   startsBattle: 0
+  afterSpeak: {fileID: 0}
   objTrigger: {fileID: 0}
 --- !u!61 &1901676659
 BoxCollider2D:
@@ -5997,6 +5914,7 @@ MonoBehaviour:
     sentences: []
     diaFile: {fileID: 4900000, guid: e06745538d5e50040af38fa736d3daaa, type: 3}
   startsBattle: 0
+  afterSpeak: {fileID: 0}
   objTrigger: {fileID: 0}
 --- !u!61 &1947066747
 BoxCollider2D:
@@ -6037,7 +5955,6 @@ GameObject:
   - component: {fileID: 1969805487}
   - component: {fileID: 1969805491}
   - component: {fileID: 1969805490}
-  - component: {fileID: 1969805489}
   m_Layer: 0
   m_Name: student 1
   m_TagString: Untagged
@@ -6132,27 +6049,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1969805489
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1969805482}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2ef23bc9ed8eb448b3ba80c79078c9f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemName: 
-  reqItemName: 
-  searchItemSprite: {fileID: 0}
-  interactType: 4
-  notifType: 0
-  itemType: 0
-  descriptionText: 
-  afterInteract: {fileID: 0}
-  highlight: {fileID: 0}
 --- !u!114 &1969805490
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6169,6 +6065,7 @@ MonoBehaviour:
     sentences: []
     diaFile: {fileID: 0}
   startsBattle: 0
+  afterSpeak: {fileID: 0}
   objTrigger: {fileID: 0}
 --- !u!61 &1969805491
 BoxCollider2D:
@@ -6253,7 +6150,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2014217331}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.8698232, y: -1.777637, z: 4.160632}
+  m_LocalPosition: {x: -1.8698232, y: -2.01, z: 4.160632}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6300,7 +6197,6 @@ GameObject:
   - component: {fileID: 2075370742}
   - component: {fileID: 2075370746}
   - component: {fileID: 2075370745}
-  - component: {fileID: 2075370744}
   m_Layer: 0
   m_Name: student 1
   m_TagString: Untagged
@@ -6395,27 +6291,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2075370744
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2075370737}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2ef23bc9ed8eb448b3ba80c79078c9f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemName: 
-  reqItemName: 
-  searchItemSprite: {fileID: 0}
-  interactType: 4
-  notifType: 0
-  itemType: 0
-  descriptionText: 
-  afterInteract: {fileID: 0}
-  highlight: {fileID: 0}
 --- !u!114 &2075370745
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6432,6 +6307,7 @@ MonoBehaviour:
     sentences: []
     diaFile: {fileID: 0}
   startsBattle: 0
+  afterSpeak: {fileID: 0}
   objTrigger: {fileID: 0}
 --- !u!61 &2075370746
 BoxCollider2D:
@@ -6602,8 +6478,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
     sentences: []
-    diaFile: {fileID: 0}
+    diaFile: {fileID: 4900000, guid: a984e76ea42c5ee4ca22c6f501502fa3, type: 3}
   startsBattle: 0
+  afterSpeak: {fileID: 0}
   objTrigger: {fileID: 0}
 --- !u!61 &2108085632
 BoxCollider2D:
