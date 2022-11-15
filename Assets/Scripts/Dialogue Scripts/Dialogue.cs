@@ -54,6 +54,13 @@ public class Dialogue
         }
     }
 
+    public void ResetAndLoadNewDialogue()
+    {
+        charaNames.Clear();
+        charaLines.Clear();
+        LoadDialogueFile();
+    }
+
     private void LoadDialogueFile()
     {
         List<string> lines = new List<string>(diaFile.text.Split('\n')); // get all the lines in the file
@@ -78,7 +85,7 @@ public class Dialogue
             }
             else
             {
-                LoadSprites(string.Format("Sprites/pfps/", n), n);
+                LoadSprites(new string("Sprites/pfps/" + n), n);
             }
         }
 
@@ -92,7 +99,7 @@ public class Dialogue
         // searches the resources folder for the sprites and adds it to the array
         object[] temp = Resources.LoadAll(path, typeof(Sprite));
 
-        if (name != "Yuichi")
+        if (name != "Yuichi" && !expressions.ContainsKey(name))
         {
             expressions.Add(name, new Dictionary<string, Sprite>()); // initializes the dictionary inside the dictionary
         }
@@ -111,6 +118,13 @@ public class Dialogue
     // returns the sprite of the expression
     public Sprite FindExpression(string name, string expression)
     {
-        return expressions[name][expression];
+        Sprite returned = defaultSprite; // returns the default if it can't find the expression
+
+        if (expressions[name].ContainsKey(expression))
+        {
+            returned = expressions[name][expression];
+        }
+
+        return returned;
     }
 }

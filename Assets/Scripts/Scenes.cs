@@ -102,4 +102,12 @@ public class Scenes : MonoBehaviour
 
         return "";
     }
+
+    public void GoToSpecificScene(string sceneName)
+    {
+        if (scenesInBuild.Contains(sceneName))
+        {
+            SceneManager.LoadSceneAsync(sceneName);
+        }
+    }
 }
