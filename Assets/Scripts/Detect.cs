@@ -56,9 +56,6 @@ public class Detect : MonoBehaviour
                     // find the dialogue file pertaining to the strike
                     d.dialogue.diaFile = Resources.Load<TextAsset>($"Files/Dialogue_Files/{sManager.FindCurrentScene()}/strike{interactionCounter}");
                 }
-
-                SoundEffect s = detectedObj.GetComponent<SoundEffect>();
-                s.PlaySound();
                 // call the start to load all the sprites, file, etc
                 d.dialogue.Start();
                 // trigger the dialogue
@@ -67,10 +64,15 @@ public class Detect : MonoBehaviour
                     d.startsBattle = true;
                     battled = true;
                 }
-                Debug.Log(battled);
+                //Debug.Log(battled);
                 d.TriggerDialogue();
 
-                detectedObj.SetActive(false);
+                SoundEffect s = detectedObj.GetComponent<SoundEffect>();
+                s.PlaySound();
+
+                //detectedObj.SetActive(false);
+                detectedObj.GetComponent<SpriteRenderer>().enabled = false;
+                detectedObj.GetComponent<PolygonCollider2D>().enabled = false;
             }
             
             

@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class SoundEffect : MonoBehaviour
 {
-
-    private AudioSource notifFx;
+    public AudioSource notifFx;
     public AudioClip[] soundByte;
     // Start is called before the first frame update
     void Start()
@@ -18,6 +17,7 @@ public class SoundEffect : MonoBehaviour
     public void PlaySound()
     {
         notifFx.Play();
+        Debug.Log(notifFx.isPlaying);
     }
 
 }

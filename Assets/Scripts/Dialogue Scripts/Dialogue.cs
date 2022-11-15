@@ -75,6 +75,7 @@ public class Dialogue
         // goes through each name and finds the folder based on the character's name
         foreach (string n in charaNames)
         {
+            Debug.Log(n);
             if (n == "???")
             {
                 LoadSprites("pfps/Enemy", n); //TODO: fix this for other characters with '???' names
@@ -98,6 +99,7 @@ public class Dialogue
     {
         // searches the resources folder for the sprites and adds it to the array
         object[] temp = Resources.LoadAll(path, typeof(Sprite));
+        Debug.Log("Path: " + path);
 
         if (name != "Yuichi" && !expressions.ContainsKey(name))
         {
@@ -108,6 +110,8 @@ public class Dialogue
         for (int i = 0; i < temp.Length; i++)
         {
             Sprite emotion = (Sprite)temp[i];
+
+            Debug.Log(name + " " + emotion);
             if (!expressions[name].ContainsKey(emotion.name))
             {
                 expressions[name].Add(emotion.name, emotion);

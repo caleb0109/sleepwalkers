@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Playables;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -257,10 +258,19 @@ public class DialogueManager : MonoBehaviour
         diaPrompt.SetActive(true);
         animator.SetBool("IsOpen", false);
 
-        // TODO: change to have the scene be a dynamic variable
-        if (startBattle)
+        if (gObj != null)
         {
-            FindObjectOfType<Scenes>().ToBattle(SceneManager.GetActiveScene().name, GameObject.Find("Yuichi").transform.position, gObj.name);
+            PlayableDirector pDirect = gObj.GetComponent<PlayableDirector>();
+
+            if (pDirect)
+            {
+                pDirect.enabled = false;
+            }
+
+            if (startBattle)
+            {
+                FindObjectOfType<Scenes>().ToBattle(SceneManager.GetActiveScene().name, GameObject.Find("Yuichi").transform.position, gObj.name);
+            }
         }
     }
 }
