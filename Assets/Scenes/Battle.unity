@@ -1370,6 +1370,7 @@ MonoBehaviour:
     sentences: []
     diaFile: {fileID: 0}
   startsBattle: 0
+  afterSpeak: {fileID: 0}
   objTrigger: {fileID: 0}
 --- !u!114 &1734478617
 MonoBehaviour:
