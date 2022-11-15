@@ -1,0 +1,7 @@
+Yuichi,Yasmin
+Yu-Scared|W-where am I? Wasn't I just in class?
+Ya-Neutral|Squid, there you are! Our classes ended a while ago-
+Yu-Scared|What happened to the school? Why's it so dark here?
+Ya-Neutral|That’s not important right now. Hua’s in trouble! They took her again.
+Yu-Scared|Wait what? Who took Hua? What are you talking about?
+Ya-Neutral|I saw them take her towards the bathrooms. Let's go quickly.

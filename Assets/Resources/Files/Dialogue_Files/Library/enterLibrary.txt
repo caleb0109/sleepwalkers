@@ -1,0 +1,5 @@
+Yuichi,Yasmin,Librarian
+Ya-Neutral|I heard the library has a book that’s empty which holds the secret to getting your wish granted.
+Yu-Neutral|Do you think it contains the fragment the Nurikabe was talking about?
+Ya-Neutral|That’s possible, I wouldn’t get my hopes up though.
+L-Annoyed|Shhh, there’ll be no noises in my library.

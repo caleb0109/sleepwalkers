@@ -220,19 +220,19 @@ public class DialogueManager : MonoBehaviour
         // determines how long the dialogue should be displayed based on the string length
         if (arrayLength > 300)
         {
-            duration = 8f;
+            duration = 10f;
         }
         else if (arrayLength > 100)
         {
-            duration = 5f;
+            duration = 6f;
         }
         else if (arrayLength > 50)
         {
-            duration = 4f;
+            duration = 5f;
         }
         else if (arrayLength > 25)
         {
-            duration = 3.5f;
+            duration = 4f;
         }
         else
         {

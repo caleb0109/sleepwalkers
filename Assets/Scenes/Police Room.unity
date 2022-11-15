@@ -352,6 +352,7 @@ MonoBehaviour:
     - The door's not going to hold for long, I need to find a way out of here.
     diaFile: {fileID: 0}
   startsBattle: 0
+  afterSpeak: {fileID: 0}
   objTrigger: {fileID: 0}
 --- !u!61 &189304820
 BoxCollider2D:
@@ -1309,7 +1310,7 @@ MonoBehaviour:
   itemName: 
   reqItemName: Ladder
   searchItemSprite: {fileID: 0}
-  interactType: 5
+  interactType: 6
   notifType: 0
   itemType: 0
   descriptionText: 
@@ -1332,6 +1333,7 @@ MonoBehaviour:
     - I need something to climb to get to that window.
     diaFile: {fileID: 0}
   startsBattle: 0
+  afterSpeak: {fileID: 0}
   objTrigger: {fileID: 0}
 --- !u!1 &488486010
 GameObject:
@@ -2267,6 +2269,7 @@ MonoBehaviour:
     sentences: []
     diaFile: {fileID: 4900000, guid: c345a22f8f3b8d94780fec660d611df3, type: 3}
   startsBattle: 0
+  afterSpeak: {fileID: 0}
   objTrigger: {fileID: 0}
 --- !u!1 &954358081
 GameObject:
@@ -2422,6 +2425,7 @@ MonoBehaviour:
     - Weird, wonder who's hair this is.
     diaFile: {fileID: 0}
   startsBattle: 0
+  afterSpeak: {fileID: 0}
   objTrigger: {fileID: 0}
 --- !u!1 &959678458
 GameObject:
@@ -2711,6 +2715,11 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 27.70615, y: 12.614418}
   m_EdgeRadius: 0
+--- !u!1 &1148351586 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3657289315672065718, guid: d1f16f0c08d74b44795dc04ae1907421, type: 3}
+  m_PrefabInstance: {fileID: 3657289315354813682}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1169215436
 GameObject:
   m_ObjectHideFlags: 0
@@ -3524,6 +3533,7 @@ MonoBehaviour:
     sentences: []
     diaFile: {fileID: 4900000, guid: f6f0b0c0c57967c42ae3228925e54f15, type: 3}
   startsBattle: 0
+  afterSpeak: {fileID: 0}
   objTrigger: {fileID: 0}
 --- !u!1 &1685765064
 GameObject:
@@ -3847,6 +3857,7 @@ MonoBehaviour:
     - This could help me get to that window above the file cabinet.
     diaFile: {fileID: 0}
   startsBattle: 0
+  afterSpeak: {fileID: 0}
   objTrigger: {fileID: 0}
 --- !u!114 &1779293036
 MonoBehaviour:
@@ -4545,6 +4556,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CutScene canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 3657289314272619909, guid: d1f16f0c08d74b44795dc04ae1907421, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3657289314272619912, guid: d1f16f0c08d74b44795dc04ae1907421, type: 3}
       propertyPath: dialogue.currAct
       value: 
@@ -4575,25 +4590,65 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: af97cc91374306e478fa43d384c83121, type: 2}
     - target: {fileID: 3657289314272619913, guid: d1f16f0c08d74b44795dc04ae1907421, type: 3}
-      propertyPath: m_SceneBindings.Array.data[6].value
+      propertyPath: m_SceneBindings.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3657289314272619913, guid: d1f16f0c08d74b44795dc04ae1907421, type: 3}
+      propertyPath: m_SceneBindings.Array.data[4].key
+      value: 
+      objectReference: {fileID: 7792013781648819450, guid: af97cc91374306e478fa43d384c83121, type: 2}
+    - target: {fileID: 3657289314272619913, guid: d1f16f0c08d74b44795dc04ae1907421, type: 3}
+      propertyPath: m_SceneBindings.Array.data[5].key
+      value: 
+      objectReference: {fileID: 1807408400162848675, guid: af97cc91374306e478fa43d384c83121, type: 2}
+    - target: {fileID: 3657289314272619913, guid: d1f16f0c08d74b44795dc04ae1907421, type: 3}
+      propertyPath: m_SceneBindings.Array.data[6].key
+      value: 
+      objectReference: {fileID: -6372876109158579945, guid: af97cc91374306e478fa43d384c83121, type: 2}
+    - target: {fileID: 3657289314272619913, guid: d1f16f0c08d74b44795dc04ae1907421, type: 3}
+      propertyPath: m_SceneBindings.Array.data[7].key
+      value: 
+      objectReference: {fileID: 3454515339791175147, guid: af97cc91374306e478fa43d384c83121, type: 2}
+    - target: {fileID: 3657289314272619913, guid: d1f16f0c08d74b44795dc04ae1907421, type: 3}
+      propertyPath: m_SceneBindings.Array.data[8].key
+      value: 
+      objectReference: {fileID: 4277328073759608867, guid: af97cc91374306e478fa43d384c83121, type: 2}
+    - target: {fileID: 3657289314272619913, guid: d1f16f0c08d74b44795dc04ae1907421, type: 3}
+      propertyPath: m_SceneBindings.Array.data[9].key
+      value: 
+      objectReference: {fileID: -1753523965475813772, guid: af97cc91374306e478fa43d384c83121, type: 2}
+    - target: {fileID: 3657289314272619913, guid: d1f16f0c08d74b44795dc04ae1907421, type: 3}
+      propertyPath: m_SceneBindings.Array.data[10].key
+      value: 
+      objectReference: {fileID: -1753523965475813772, guid: af97cc91374306e478fa43d384c83121, type: 2}
+    - target: {fileID: 3657289314272619913, guid: d1f16f0c08d74b44795dc04ae1907421, type: 3}
+      propertyPath: m_SceneBindings.Array.data[4].value
       value: 
       objectReference: {fileID: 394803626}
     - target: {fileID: 3657289314272619913, guid: d1f16f0c08d74b44795dc04ae1907421, type: 3}
-      propertyPath: m_SceneBindings.Array.data[7].value
+      propertyPath: m_SceneBindings.Array.data[5].value
       value: 
       objectReference: {fileID: 1732253853}
     - target: {fileID: 3657289314272619913, guid: d1f16f0c08d74b44795dc04ae1907421, type: 3}
-      propertyPath: m_SceneBindings.Array.data[8].value
+      propertyPath: m_SceneBindings.Array.data[6].value
       value: 
       objectReference: {fileID: 249056238}
     - target: {fileID: 3657289314272619913, guid: d1f16f0c08d74b44795dc04ae1907421, type: 3}
-      propertyPath: m_SceneBindings.Array.data[9].value
+      propertyPath: m_SceneBindings.Array.data[7].value
       value: 
       objectReference: {fileID: 1430491189}
     - target: {fileID: 3657289314272619913, guid: d1f16f0c08d74b44795dc04ae1907421, type: 3}
-      propertyPath: m_SceneBindings.Array.data[10].value
+      propertyPath: m_SceneBindings.Array.data[8].value
       value: 
       objectReference: {fileID: 546204903}
+    - target: {fileID: 3657289314272619913, guid: d1f16f0c08d74b44795dc04ae1907421, type: 3}
+      propertyPath: m_SceneBindings.Array.data[9].value
+      value: 
+      objectReference: {fileID: 1148351586}
+    - target: {fileID: 3657289314272619913, guid: d1f16f0c08d74b44795dc04ae1907421, type: 3}
+      propertyPath: m_SceneBindings.Array.data[10].value
+      value: 
+      objectReference: {fileID: 1148351586}
     - target: {fileID: 3657289314272619916, guid: d1f16f0c08d74b44795dc04ae1907421, type: 3}
       propertyPath: m_Camera
       value: 

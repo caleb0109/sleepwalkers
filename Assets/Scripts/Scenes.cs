@@ -62,28 +62,28 @@ public class Scenes : MonoBehaviour
             {
                 load.allowSceneActivation = true;
 
-                    /*GameObject gObj = GameObject.Find(battleTrigger);
-                    Debug.Log("Interacted Obj: " + gObj);
-                    Debug.Log("Player Obj: " + GameObject.Find("Yuichi"));
-                    GameObject.Find("Yuichi").transform.position = prevPosition;
+                GameObject gObj = GameObject.Find(battleTrigger);
+                Debug.Log("Interacted Obj: " + gObj);
+                Debug.Log("Player Obj: " + GameObject.Find("Yuichi"));
+                GameObject.Find("Yuichi").transform.position = prevPosition;
 
-                    if (won)
+                if (won)
+                {
+                    Interactable iObj = gObj.GetComponent<Interactable>();
+                    if (iObj.interactType != Interactable.InteractableType.Trigger)
                     {
-                        Interactable iObj = gObj.GetComponent<Interactable>();
-                        if (iObj.interactType != Interactable.InteractableType.Trigger)
-                        {
-                            iObj.interactType = Interactable.InteractableType.Cutscene;
-                        }
+                        iObj.interactType = Interactable.InteractableType.Cutscene;
                     }
+                }
 
-                    if (afterBattle != null)
-                    {
-                        DialogueTrigger d = new DialogueTrigger();
-                        d.dialogue = afterBattle;
-                        d.dialogue.Start();
-                        d.objTrigger = gObj;
-                        d.TriggerDialogue();
-                    }*/
+                if (afterBattle != null)
+                {
+                    DialogueTrigger d = new DialogueTrigger();
+                    d.dialogue = afterBattle;
+                    d.dialogue.Start();
+                    d.objTrigger = gObj;
+                    d.TriggerDialogue();
+                }
             }
 
             yield return null;

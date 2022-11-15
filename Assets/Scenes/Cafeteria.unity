@@ -533,6 +533,7 @@ GameObject:
   m_Component:
   - component: {fileID: 157482120}
   - component: {fileID: 157482123}
+  - component: {fileID: 157482124}
   m_Layer: 0
   m_Name: Student 1
   m_TagString: Untagged
@@ -582,6 +583,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.63117313, y: 0.56854343}
   m_EdgeRadius: 0
+--- !u!114 &157482124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 157482119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals: []
+    m_Events: []
 --- !u!1 &280270211
 GameObject:
   m_ObjectHideFlags: 0
@@ -974,7 +990,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7777778, y: 1}
+    m_SensorSize: {x: 2.0072794, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1678,7 +1694,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 553506834}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.1267586, y: -1.6372035, z: -10}
+  m_LocalPosition: {x: -3.979251, y: -1.6372035, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3342,6 +3358,7 @@ GameObject:
   - component: {fileID: 1288159406}
   - component: {fileID: 1288159412}
   - component: {fileID: 1288159413}
+  - component: {fileID: 1288159415}
   - component: {fileID: 1288159414}
   m_Layer: 0
   m_Name: student 1
@@ -3481,7 +3498,26 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3, y: 5.8}
   m_EdgeRadius: 0
---- !u!114 &1288159414
+--- !u!320 &1288159414
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1288159405}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: cdbd57140b225ef49a96d7e5700bbf0d, type: 2}
+  m_InitialState: 1
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: 1530834825790901657, guid: cdbd57140b225ef49a96d7e5700bbf0d, type: 2}
+    value: {fileID: 1288159415}
+  m_ExposedReferences:
+    m_References: []
+--- !u!114 &1288159415
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3490,18 +3526,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 1288159405}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2ef23bc9ed8eb448b3ba80c79078c9f, type: 3}
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: 
-  reqItemName: 
-  searchItemSprite: {fileID: 0}
-  interactType: 4
-  notifType: 0
-  itemType: 0
-  descriptionText: 
-  afterInteract: {fileID: 0}
-  highlight: {fileID: 0}
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: 4289b65164a322f4aa4d48821e287e11, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1288159412}
+          m_TargetAssemblyTypeName: DialogueTrigger, Assembly-CSharp
+          m_MethodName: TriggerAutoDia
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1301648609
 GameObject:
   m_ObjectHideFlags: 0

@@ -17,8 +17,8 @@ public class PlayerHealth : MonoBehaviour
     private void Start()
     {
         hBar.SetMax(maxHealth);
-        neutral = Resources.Load<Sprite>("Sprites/pfps/Yuichi/Neutral");
-        damageTake = Resources.Load<Sprite>("Sprites/pfps/Yuichi/TakeDamage");
+        neutral = Resources.Load<Sprite>("pfps/Yuichi/Neutral");
+        damageTake = Resources.Load<Sprite>("pfps/Yuichi/TakeDamage");
         pBox.sprite = neutral;
     }
 

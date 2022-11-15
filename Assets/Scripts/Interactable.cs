@@ -161,7 +161,7 @@ public class Interactable : MonoBehaviour
                 break;
 
             case InteractableType.SwitchScene:
-                dia.TriggerDialogue(); // start dialogue 
+                //dia.TriggerDialogue(); // start dialogue 
 
                 // TODO: figure out a non hard cody way for this case
                 if (this.gameObject.transform.parent != null && this.gameObject.transform.parent.name.Contains("library"))
