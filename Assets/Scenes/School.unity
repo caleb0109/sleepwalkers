@@ -531,6 +531,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 693460a2b688d5c41b135dd60763822a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bResult: 0
 --- !u!4 &2015413868
 Transform:
   m_ObjectHideFlags: 0
@@ -786,6 +787,10 @@ PrefabInstance:
       propertyPath: interactType
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 8267265000086178171, guid: d028c3dcd9115344aaea58fb43bddaa2, type: 3}
+      propertyPath: dialogue.sentences.Array.data[0]
+      value: I don't have time to get a drink, I'm gonna be late for class!
+      objectReference: {fileID: 0}
     - target: {fileID: 8267265000267445744, guid: d028c3dcd9115344aaea58fb43bddaa2, type: 3}
       propertyPath: m_Name
       value: School
@@ -833,6 +838,14 @@ PrefabInstance:
     - target: {fileID: 8267265000267445759, guid: d028c3dcd9115344aaea58fb43bddaa2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8267265000828997074, guid: d028c3dcd9115344aaea58fb43bddaa2, type: 3}
+      propertyPath: dialogue.sentences.Array.data[0]
+      value: I don't have time to get a drink, I'm gonna be late for class!
+      objectReference: {fileID: 0}
+    - target: {fileID: 8267265001237466673, guid: d028c3dcd9115344aaea58fb43bddaa2, type: 3}
+      propertyPath: dialogue.sentences.Array.data[1]
+      value: Gotta say, I'm proud to have a sister who's insanely smart.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d028c3dcd9115344aaea58fb43bddaa2, type: 3}
