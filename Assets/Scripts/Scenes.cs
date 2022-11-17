@@ -8,7 +8,6 @@ public class Scenes : MonoBehaviour
 {
     private List<string> scenesInBuild;
     private string prevScene;
-    public bool bResult;
     static Vector3 prevPosition;
     static List<int> playCount;
 
@@ -45,7 +44,6 @@ public class Scenes : MonoBehaviour
     // goes to battle scene and get the players prev position and the prev scene
     public void ToBattle(string currScene, Vector3 position, string interacted)
     {
-        bResult = false;
         prevScene = currScene;
         prevPosition = position;
         battleTrigger = interacted;
@@ -55,7 +53,6 @@ public class Scenes : MonoBehaviour
     // after battle, move playerobj back to prev position and go back to prev scene
     public void ReturnToPrevScene(Dialogue afterBattle, bool won)
     {
-        bResult = won;
         StartCoroutine(LoadPrevScene(afterBattle, won));
     }
 

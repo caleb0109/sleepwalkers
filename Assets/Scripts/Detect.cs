@@ -41,39 +41,34 @@ public class Detect : MonoBehaviour
             detectedObj.GetComponent<Interactable>().interactType == Interactable.InteractableType.Trigger)
         {
             
-            if(FindObjectOfType<Scenes>().bResult)
-            {
-                
-            }
-            else
-            {
-                // get the detectedObj's dialogue trigger
-                DialogueTrigger d = detectedObj.GetComponent<DialogueTrigger>();
+         // get the detectedObj's dialogue trigger
+         DialogueTrigger d = detectedObj.GetComponent<DialogueTrigger>();
+         
+         if (SceneManager.GetActiveScene().name == "Library")
+         {
+             interactionCounter++;
+             // find the dialogue file pertaining to the strike
+             d.dialogue.diaFile = Resources.Load<TextAsset>($"Files/Dialogue_Files/{sManager.FindCurrentScene()}/strike{interactionCounter}");
+         }
 
-                if (SceneManager.GetActiveScene().name == "Library")
-                {
-                    interactionCounter++;
-                    // find the dialogue file pertaining to the strike
-                    d.dialogue.diaFile = Resources.Load<TextAsset>($"Files/Dialogue_Files/{sManager.FindCurrentScene()}/strike{interactionCounter}");
-                }
-                // call the start to load all the sprites, file, etc
-                d.dialogue.Start();
-                // trigger the dialogue
-                if (interactionCounter == 3)
-                {
-                    d.startsBattle = true;
-                    battled = true;
-                }
-                //Debug.Log(battled);
-                d.TriggerDialogue();
+         // call the start to load all the sprites, file, etc
+         d.dialogue.Start();
+         // trigger the dialogue
+         if (interactionCounter == 3)
+         {
+             d.startsBattle = true;
+             battled = true;
+         }
 
-                SoundEffect s = detectedObj.GetComponent<SoundEffect>();
-                s.PlaySound();
-
-                //detectedObj.SetActive(false);
-                detectedObj.GetComponent<SpriteRenderer>().enabled = false;
-                detectedObj.GetComponent<PolygonCollider2D>().enabled = false;
-            }
+         //Debug.Log(battled);
+         d.TriggerDialogue();
+         
+         SoundEffect s = detectedObj.GetComponent<SoundEffect>();
+         s.PlaySound();
+         
+         //detectedObj.SetActive(false);
+         detectedObj.GetComponent<SpriteRenderer>().enabled = false;
+               detectedObj.GetComponent<PolygonCollider2D>().enabled = false;
             
             
         }
