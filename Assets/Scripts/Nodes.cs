@@ -21,6 +21,17 @@ public class Nodes : MonoBehaviour
         }
     }
 
+    public void MoveToRandomNode(GameObject item, string objType)
+    {
+       foreach (Transform t in placements)
+        {
+            if (t.gameObject.name == objType)
+            {
+                break;
+            }
+        }
+    }
+
     // move the item location to that specific node based on closest node to players current position
     public void MoveItemToNode(GameObject item)
     {

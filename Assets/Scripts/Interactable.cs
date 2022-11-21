@@ -156,12 +156,13 @@ public class Interactable : MonoBehaviour
                 if (p.isActiveAndEnabled)
                 {
                     p.Play(); // play the cutscene
-                    GameObject.Find("Yuichi").SetActive(false);
+                    GameObject.Find("Yuichi").GetComponent<SpriteRenderer>().enabled = false;
                 }
                 break;
 
             case InteractableType.SwitchScene:
                 //dia.TriggerDialogue(); // start dialogue 
+                GameObject.Find("GameManager").GetComponent<SaveManager>().SaveGame("autoSave");
 
                 // TODO: figure out a non hard cody way for this case
                 if (this.gameObject.transform.parent != null && this.gameObject.transform.parent.name.Contains("library"))

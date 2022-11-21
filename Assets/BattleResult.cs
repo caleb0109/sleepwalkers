@@ -14,6 +14,6 @@ public class BattleResult : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        battleR = FindObjectOfType<Scenes>().bResult;
+        //battleR = FindObjectOfType<Scenes>().bResult;
     }
 }

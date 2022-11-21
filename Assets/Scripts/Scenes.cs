@@ -12,12 +12,15 @@ public class Scenes : MonoBehaviour
     static List<int> playCount;
 
     private string battleTrigger;
+    private SaveManager sManager;
 
     // Start is called before the first frame update
     void Start()
     {
         scenesInBuild = new List<string>();
         playCount = new List<int>();
+
+        sManager = this.gameObject.GetComponent<SaveManager>();
 
         // loading scenes curtasy of canis https://forum.unity.com/threads/getscenebybuildindex-problem.452560/
         for (int i = 0; i < SceneManager.sceneCountInBuildSettings; i++)

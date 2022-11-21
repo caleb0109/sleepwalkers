@@ -150,6 +150,6 @@ MonoBehaviour:
     sentences:
     - '*CREEEEEEAAAAAAAAAAAK*'
     diaFile: {fileID: 0}
-    currAct: Act 1
   startsBattle: 0
+  afterSpeak: {fileID: 0}
   objTrigger: {fileID: 0}

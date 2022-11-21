@@ -186,6 +186,7 @@ public class DialogueManager : MonoBehaviour
     //Completes the sentence ahead of the typing for impatient players
     public void CompleteSentenceDisplay()
     {
+        StopAllCoroutines();
         dialogueText.text = currSentence;
         isTyping = false;
     }

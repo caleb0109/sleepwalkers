@@ -413,6 +413,8 @@ GameObject:
   - component: {fileID: 201292694}
   - component: {fileID: 201292695}
   - component: {fileID: 201292696}
+  - component: {fileID: 201292698}
+  - component: {fileID: 201292697}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -510,6 +512,30 @@ MonoBehaviour:
   - {fileID: 4900000, guid: 46a75d402cb1f1740bfe91fba1b0efbd, type: 3}
   toDoWidget: {fileID: 522911232}
   toDoApp: {fileID: 100012189}
+--- !u!114 &201292697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 201292691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a88fc84ee6277c458319bf91656f586, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &201292698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 201292691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8983a55dc8a67f1489ff4e5360722bfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &249056238
 GameObject:
   m_ObjectHideFlags: 0

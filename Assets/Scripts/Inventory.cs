@@ -34,7 +34,7 @@ public class Inventory : MonoBehaviour
         Update_UI();
     }
 
-    void Update_UI()
+    public void Update_UI()
     {
         //HideAll();
 
@@ -263,8 +263,6 @@ public class Inventory : MonoBehaviour
     // checks if the player has the required item to procceed
     public bool CheckInventory(GameObject requirement)
     {
-        SaveInventory();
-
         foreach (GameObject g in items)
         {
             if (g == requirement)
@@ -275,15 +273,4 @@ public class Inventory : MonoBehaviour
 
         return false;
     }
-
-    public void SaveInventory()
-    {
-
-    }
-
-    public void LoadInventory()
-    {
-
-    }
-
 }
