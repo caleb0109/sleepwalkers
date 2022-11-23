@@ -21,7 +21,8 @@ public class Interactable : MonoBehaviour
         Trigger,
         Talking, // used for Yuichi to talk to himself
         Cutscene,
-        SwitchScene
+        SwitchScene,
+        Cafeteria
     }
 
     public enum NotificationType
@@ -69,6 +70,8 @@ public class Interactable : MonoBehaviour
     //private int interactCount;
 
     private Scenes sManager;
+    private Inventory inventManager;
+    private NotificationManager notifManager;
 
     //public UnityEvent customEvent;
 
@@ -81,6 +84,8 @@ public class Interactable : MonoBehaviour
         //dManager = FindObjectOfType<DialogueManager>();
         //interactCount = 0;
         sManager = FindObjectOfType<Scenes>();
+        inventManager = FindObjectOfType<Inventory>();
+        notifManager = FindObjectOfType<NotificationManager>();
     }
 
     public void Interact()
@@ -88,8 +93,8 @@ public class Interactable : MonoBehaviour
         switch (interactType)
         {
             case InteractableType.PickUp:
-                FindObjectOfType<Inventory>().PickUp(gameObject);
-                FindObjectOfType<NotificationManager>().NotifyInteractUpdate(this);
+                inventManager.PickUp(gameObject);
+                notifManager.NotifyInteractUpdate(this);
                 gameObject.SetActive(false);
                 if (highlight)
                 {
@@ -101,7 +106,7 @@ public class Interactable : MonoBehaviour
                 break;
 
             case InteractableType.Examine:
-                if (FindObjectOfType<Inventory>().isOpen)
+                if (inventManager.isOpen)
                 {
                     break;
                 }
@@ -124,8 +129,8 @@ public class Interactable : MonoBehaviour
                     // if it contains an item, then add item to inventory
                     if (itemName != "")
                     {
-                        FindObjectOfType<Inventory>().CollectItem(gameObject, searchItemSprite);
-                        FindObjectOfType<NotificationManager>().NotifyInteractUpdate(this);
+                        inventManager.CollectItem(gameObject, searchItemSprite);
+                        notifManager.NotifyInteractUpdate(this);
                     }
 
                     // if there's a sprite for after interaction, then change the current sprite
@@ -181,6 +186,14 @@ public class Interactable : MonoBehaviour
                 {
                     sManager.GoToSpecificScene("Dream School");
                 }
+                break;
+
+            case InteractableType.Cafeteria:
+                // if the player has the order, place it down
+                //if (inventManager.CheckInventory())
+                //{
+                    //inventManager.PlaceItem();
+                //}
                 break;
 
             default:

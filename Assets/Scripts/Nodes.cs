@@ -21,15 +21,23 @@ public class Nodes : MonoBehaviour
         }
     }
 
-    public void MoveToRandomNode(GameObject item, string objType)
+    public Vector3 ReturnRandomNodePos(string objType)
     {
-       foreach (Transform t in placements)
+        List<Transform> locList = new List<Transform>();
+
+        foreach (Transform t in placements)
         {
-            if (t.gameObject.name == objType)
+            if (t.name == objType)
             {
+                for (int i = 0; i < t.childCount; i++)
+                {
+                    locList.Add(t.GetChild(i));
+                }
                 break;
             }
         }
+
+        return locList[Random.Range(0, locList.Count - 1)].position;
     }
 
     // move the item location to that specific node based on closest node to players current position
