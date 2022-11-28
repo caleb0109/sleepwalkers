@@ -190,10 +190,11 @@ public class Interactable : MonoBehaviour
 
             case InteractableType.Cafeteria:
                 // if the player has the order, place it down
-                //if (inventManager.CheckInventory())
-                //{
-                    //inventManager.PlaceItem();
-                //}
+                CafeteriaMinigame cafeMini = FindObjectOfType<CafeteriaMinigame>();
+                if (cafeMini.itemInHand != null)
+                {
+                    cafeMini.PlaceOrder(this.gameObject);
+                }
                 break;
 
             default:

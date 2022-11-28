@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3469862314629654927}
   - component: {fileID: 3469862314629654924}
-  - component: {fileID: 3469862314629654923}
+  - component: {fileID: 4842266195290674869}
   m_Layer: 0
   m_Name: student
   m_TagString: Untagged
@@ -60,7 +60,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.63117313, y: 0.56854343}
   m_EdgeRadius: 0
---- !u!114 &3469862314629654923
+--- !u!114 &4842266195290674869
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -69,12 +69,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 3469862314629654912}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Script: {fileID: 11500000, guid: f2ef23bc9ed8eb448b3ba80c79078c9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Events:
-    m_Signals: []
-    m_Events: []
+  itemName: 
+  reqItemName: 
+  searchItemSprite: {fileID: 0}
+  interactType: 0
+  notifType: 0
+  itemType: 0
+  descriptionText: 
+  afterInteract: {fileID: 0}
+  highlight: {fileID: 0}
 --- !u!1 &3469862315764405674
 GameObject:
   m_ObjectHideFlags: 0
@@ -86,10 +92,7 @@ GameObject:
   - component: {fileID: 3469862315764405687}
   - component: {fileID: 3469862315764405672}
   - component: {fileID: 3469862315764405673}
-  - component: {fileID: 3469862315764405683}
   - component: {fileID: 3469862315764405682}
-  - component: {fileID: 3469862315764405680}
-  - component: {fileID: 3469862315764405681}
   m_Layer: 0
   m_Name: student 1
   m_TagString: Untagged
@@ -184,24 +187,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &3469862315764405683
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3469862315764405674}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02c11395f6ced3e4f9c12040e691e298, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogue:
-    sentences: []
-    diaFile: {fileID: 4900000, guid: ab1e5166c858f6342bb7016630161988, type: 3}
-  startsBattle: 0
-  afterSpeak: {fileID: 0}
-  objTrigger: {fileID: 0}
 --- !u!61 &3469862315764405682
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -228,52 +213,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3, y: 5.8}
   m_EdgeRadius: 0
---- !u!114 &3469862315764405680
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3469862315764405674}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Events:
-    m_Signals:
-    - {fileID: 11400000, guid: 4289b65164a322f4aa4d48821e287e11, type: 2}
-    m_Events:
-    - m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 3469862315764405683}
-          m_TargetAssemblyTypeName: DialogueTrigger, Assembly-CSharp
-          m_MethodName: TriggerAutoDia
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
---- !u!320 &3469862315764405681
-PlayableDirector:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3469862315764405674}
-  m_Enabled: 0
-  serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: cdbd57140b225ef49a96d7e5700bbf0d, type: 2}
-  m_InitialState: 1
-  m_WrapMode: 2
-  m_DirectorUpdateMode: 1
-  m_InitialTime: 0
-  m_SceneBindings:
-  - key: {fileID: 1530834825790901657, guid: cdbd57140b225ef49a96d7e5700bbf0d, type: 2}
-    value: {fileID: 3469862315764405680}
-  m_ExposedReferences:
-    m_References: []

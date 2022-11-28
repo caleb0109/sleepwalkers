@@ -2912,7 +2912,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   npcPrefab: {fileID: 3469862314629654912, guid: 187b2f4bbef5cde40b4f209af23f00d7, type: 3}
-  orderPrefab: {fileID: 6431574600539768541, guid: 8e180dd114eee9e4f91230f5c5286b37, type: 3}
+  orderPrefabs:
+  - {fileID: 1000824152680347357, guid: c22372d868a7b9b46b442433084023ed, type: 3}
+  - {fileID: 6431574600539768541, guid: 8e180dd114eee9e4f91230f5c5286b37, type: 3}
+  orderBubbles:
+  - {fileID: 8199775918490716819, guid: e066619b501abb0408f98cdc54dc53b2, type: 3}
+  - {fileID: 503697957800236486, guid: 5c298aabbca887b46810317b3486bf3c, type: 3}
+  miniGameStarted: 0
 --- !u!4 &1905708675
 Transform:
   m_ObjectHideFlags: 0

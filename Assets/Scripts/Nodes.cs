@@ -21,6 +21,7 @@ public class Nodes : MonoBehaviour
         }
     }
 
+    // returns a random position for the items
     public Vector3 ReturnRandomNodePos(string objType)
     {
         List<Transform> locList = new List<Transform>();
