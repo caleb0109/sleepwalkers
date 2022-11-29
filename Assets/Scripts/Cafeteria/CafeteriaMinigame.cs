@@ -63,7 +63,6 @@ public class CafeteriaMinigame : MonoBehaviour
             else
             {
                 SpawnNpcs();
-                LeaveCafeteria(); // placed here for testing
             }
         }
     }
@@ -82,7 +81,8 @@ public class CafeteriaMinigame : MonoBehaviour
                     customers.Add(Instantiate(npcPrefab, nSystem.ReturnRandomNodePos("students"), Quaternion.identity));
                     customers[i].AddComponent<Customer>();
                     Customer c = customers[i].GetComponent<Customer>();
-                    c.order = orderPrefabs[Random.Range(0,1)].name;
+                    GameObject cOrder = orderPrefabs[Random.Range(0, orderPrefabs.Count)];
+                    c.order = cOrder.name;
                     
                     for (int j = 0; j < orderBubbles.Count; j++)
                     {
@@ -92,27 +92,33 @@ public class CafeteriaMinigame : MonoBehaviour
                         }
                     }
 
+                    orderBacklog.Enqueue(cOrder);
                 }
             }
 
             CheckIfItemsAreOverlapping(customers, "students");
+            StopAllCoroutines();
+            StartCoroutine(FoodGen("cook"));
         }
     }
 
+    // used to put the order down in front of the customer
     public void PlaceOrder(GameObject customer)
     {
         foreach (GameObject g in customers)
         {
             if (g.transform.position == customer.transform.position)
             {
-                if (itemInHand.name == customer.GetComponent<Customer>().order)
+                Debug.Log("itemInHand: " + itemInHand.name + " | customer order: " + customer.GetComponent<Customer>().order);
+                if (itemInHand.name.Contains(customer.GetComponent<Customer>().order))
                 {
-                    Destroy(customer.transform.GetChild(1)); // destroys the bubble
+                    Destroy(customer.transform.GetChild(1).gameObject); // destroys the bubble
 
                     g.GetComponent<Customer>().isSatisfied = true;
 
                     dishes.Add(itemInHand);
-                    nSystem.MoveItemToNode(itemInHand);
+                    nSystem.MoveItemToNode(itemInHand, "dishes");
+                    itemInHand.SetActive(true);
                     itemInHand = null; // after the item has been placed, there is no item being held
 
                     StopAllCoroutines();
@@ -123,23 +129,30 @@ public class CafeteriaMinigame : MonoBehaviour
         }
     }
 
-    // leaves the food for the player to pick up
-    private void SetOrderDown()
+    // used to pick up the order from the order station
+    public void PickUpOrder(GameObject order)
     {
-        // don't go over 5 at a time
-        if (ordersReady.Count < 5)
+        for (int i = 0; i < ordersReady.Count; i++)
         {
-            for (int i = 0; i < ordersReady.Count; i++)
+            if (ordersReady[i] == order)
             {
-                if (ordersReady[i] == null)
-                {
-                    ordersReady[i] = Instantiate(orderPrefabs[Random.Range(0,1)], nSystem.ReturnRandomNodePos("orders"), Quaternion.identity);
-                    break;
-                }
+                ordersReady.RemoveAt(i);
+                break;
             }
-
-            CheckIfItemsAreOverlapping(ordersReady, "orders");
         }
+
+        itemInHand = order;
+        order.SetActive(false);
+    }
+
+    // leaves the food for the player to pick up
+    private void SetOrderDown(GameObject order)
+    {
+        ordersReady.Add(Instantiate(order, nSystem.ReturnRandomNodePos("orders"), Quaternion.identity));
+
+        CheckIfItemsAreOverlapping(ordersReady, "orders");
+        StopAllCoroutines();
+        StartCoroutine(FoodGen("cook"));
     }
 
     // checks if any items are spawned on the same node and move them
@@ -171,26 +184,28 @@ public class CafeteriaMinigame : MonoBehaviour
                 Destroy(customers[i]);
                 customers.RemoveAt(i);
                 ordersCompleted++;
-
-                Destroy(dishes[i]);
-                dishes.RemoveAt(i);
             }
         }
     }
 
     // timer for how long it takes to cook or eat each food
-    public IEnumerator FoodGen(string action)
+  IEnumerator FoodGen(string action)
     {
-        float duration = 3.0f;
+        float duration = 5.0f;
 
         while (duration > 0.0f)
         {
             duration -= Time.deltaTime;
-            if (duration < 0.1f)
+
+            if (duration < 0.01f)
             {
                 if (action == "cook")
                 {
-                    SetOrderDown();
+                    // don't go over 5 at a time
+                    if (orderBacklog.Count > 0 && ordersReady.Count < 5)
+                    {
+                        SetOrderDown(orderBacklog.Dequeue());
+                    }
                 }
                 else if (action == "eat")
                 {

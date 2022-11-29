@@ -71,6 +71,36 @@ public class Nodes : MonoBehaviour
         }
     }
 
+    // second overload for the above method for the cafeteria minigmae
+    public void MoveItemToNode(GameObject item, string objType)
+    {
+        Transform itemLoc = null; // TODO: rename variable
+        int pIndex = 0; // used in FindClosestLocation(...)
+
+        // go through each transform in the placements list
+        foreach (Transform t in placements)
+        {
+            // if the item name contains the location object name, assign the itemLoc to t and break
+            if (objType.Contains(t.gameObject.name))
+            {
+                itemLoc = t;
+                break;
+            }
+
+            pIndex++;
+        }
+
+        // if there's other locations, find the closest location and set the position to it
+        if (CheckForOtherLocs(itemLoc))
+        {
+            item.transform.position = FindClosestLocation(pIndex);
+        }
+        else // otherwise, set it to the current itemLoc position
+        {
+            item.transform.position = itemLoc.position;
+        }
+    }
+
     // checks if the item has other locations to can be placed at then make it be able to be picked up
     private bool CheckForOtherLocs(Transform itemLoc)
     {

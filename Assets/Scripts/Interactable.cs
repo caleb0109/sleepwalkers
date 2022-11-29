@@ -189,11 +189,18 @@ public class Interactable : MonoBehaviour
                 break;
 
             case InteractableType.Cafeteria:
+
+                Debug.Log("Interacting with: " + this.gameObject);
+
                 // if the player has the order, place it down
                 CafeteriaMinigame cafeMini = FindObjectOfType<CafeteriaMinigame>();
                 if (cafeMini.itemInHand != null)
                 {
                     cafeMini.PlaceOrder(this.gameObject);
+                }
+                else if (!this.name.Contains("student"))
+                {
+                    cafeMini.PickUpOrder(this.gameObject);
                 }
                 break;
 
