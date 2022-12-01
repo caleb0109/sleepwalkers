@@ -63,7 +63,7 @@ public class Nodes : MonoBehaviour
         // if there's other locations, find the closest location and set the position to it
         if(CheckForOtherLocs(itemLoc))
         {
-            item.transform.position = FindClosestLocation(pIndex);
+            item.transform.position = FindClosestLocation(pIndex, GameObject.Find("Yuichi"));
         }
         else // otherwise, set it to the current itemLoc position
         {
@@ -72,7 +72,7 @@ public class Nodes : MonoBehaviour
     }
 
     // second overload for the above method for the cafeteria minigmae
-    public void MoveItemToNode(GameObject item, string objType)
+    public void MoveItemToNode(GameObject itemToMove, string objType, GameObject interactedItem)
     {
         Transform itemLoc = null; // TODO: rename variable
         int pIndex = 0; // used in FindClosestLocation(...)
@@ -93,11 +93,11 @@ public class Nodes : MonoBehaviour
         // if there's other locations, find the closest location and set the position to it
         if (CheckForOtherLocs(itemLoc))
         {
-            item.transform.position = FindClosestLocation(pIndex);
+            itemToMove.transform.position = FindClosestLocation(pIndex, interactedItem);
         }
         else // otherwise, set it to the current itemLoc position
         {
-            item.transform.position = itemLoc.position;
+            itemToMove.transform.position = itemLoc.position;
         }
     }
 
@@ -113,11 +113,11 @@ public class Nodes : MonoBehaviour
         return false;
     }
 
-    // finds the closest placement location to the current player position
-    private Vector3 FindClosestLocation(int placementIndex)
+    // finds the closest placement location to the itemToCompare's position
+    private Vector3 FindClosestLocation(int placementIndex, GameObject itemToCompare)
     {
         Transform multiLoc= placements[placementIndex];
-        Vector3 playerLoc = GameObject.Find("Yuichi").transform.position;
+        Vector3 itemLoc = itemToCompare.transform.position;
         Vector3 closestLoc = new Vector3(0, 0, 0);
 
         Vector3 smallestDist = new Vector3(10, 10, 0); // used to see which location is closest
@@ -126,13 +126,13 @@ public class Nodes : MonoBehaviour
         for (int i = 0; i < multiLoc.childCount; i++)
         {
             Vector3 child = multiLoc.GetChild(i).transform.position;
-            Debug.Log(multiLoc.GetChild(i).gameObject.name + " " + multiLoc.GetChild(i).position);            
+            //Debug.Log(multiLoc.GetChild(i).gameObject.name + " " + multiLoc.GetChild(i).position);            
 
             // stores the distance
             Vector3 distance = new Vector3(0,0,0);
 
-            distance.x = CalculateDistance(child.x, playerLoc.x);
-            distance.y = CalculateDistance(child.y, playerLoc.y);
+            distance.x = CalculateDistance(child.x, itemLoc.x);
+            distance.y = CalculateDistance(child.y, itemLoc.y);
 
             // checks if the difference is within a certain radius
             if ( distance.x > -5 && distance.y > -5 

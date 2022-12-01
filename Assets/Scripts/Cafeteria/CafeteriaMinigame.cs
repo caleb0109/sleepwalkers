@@ -97,7 +97,6 @@ public class CafeteriaMinigame : MonoBehaviour
             }
 
             CheckIfItemsAreOverlapping(customers, "students");
-            StopAllCoroutines();
             StartCoroutine(FoodGen("cook"));
         }
     }
@@ -117,11 +116,10 @@ public class CafeteriaMinigame : MonoBehaviour
                     g.GetComponent<Customer>().isSatisfied = true;
 
                     dishes.Add(itemInHand);
-                    nSystem.MoveItemToNode(itemInHand, "dishes");
+                    nSystem.MoveItemToNode(itemInHand, "dishes", g);
                     itemInHand.SetActive(true);
                     itemInHand = null; // after the item has been placed, there is no item being held
 
-                    StopAllCoroutines();
                     StartCoroutine(FoodGen("eat"));
                     break;
                 }
@@ -191,12 +189,21 @@ public class CafeteriaMinigame : MonoBehaviour
     // timer for how long it takes to cook or eat each food
   IEnumerator FoodGen(string action)
     {
-        float duration = 5.0f;
+        Debug.Log(action);
+        float duration;
+
+        if (action == "cook")
+        {
+            duration = 3.0f;
+        }
+        else
+        {
+            duration = 5.0f;
+        }
 
         while (duration > 0.0f)
         {
             duration -= Time.deltaTime;
-
             if (duration < 0.01f)
             {
                 if (action == "cook")
@@ -207,13 +214,13 @@ public class CafeteriaMinigame : MonoBehaviour
                         SetOrderDown(orderBacklog.Dequeue());
                     }
                 }
-                else if (action == "eat")
+                else
                 {
                     LeaveCafeteria();
                 }
             }
-        }
 
-        yield return null;
+            yield return null;
+        }
     }
 }
