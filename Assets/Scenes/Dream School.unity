@@ -671,6 +671,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8267264999204010921, guid: d028c3dcd9115344aaea58fb43bddaa2, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1d27c88c2923c104f941ee6c484fbcfc, type: 3}
     - target: {fileID: 8267264999218413698, guid: d028c3dcd9115344aaea58fb43bddaa2, type: 3}
       propertyPath: dialogue.sentences.Array.data[0]
       value: "Today's topic of study: k\u0336\u031A\u030F\u030C\u0302\u0302\u0300\u0301\u031A\u030D\u0302\u0315\u033D\u0344\u032C\u0355\u0327\u0348i\u0336\u0352\u0315\u035D\u0315\u0358\u033D\u0308\u033F\u030D\u031B\u0310\u030D\u030C\u0326l\u0338\u034A\u0314\u0314\u0304\u0314\u0326l\u0336\u0343\u0303\u035D\u0304\u0341\u0311\u0319\u031F\u0316\u0324\u0329i\u0336\u0301\u0350\u034E\u0326\u0355\u032D\u0324\u0349\u0328\u0356n\u0335\u0350\u0343\u035D\u0331\u031E\u0328\u032E\u031F\u0345\u032F\u0321\u032E\u0348\u0321\u0345g\u0336\u031B\u0300\u0343\u030B\u0343\u0314\u031B\u0319\u0331\u0353\u034D\u0327\u033C\u0355\u032B\u035A\u0325\n-
@@ -689,6 +693,10 @@ PrefabInstance:
       propertyPath: dialogue.sentences.Array.data[0]
       value: Locked.
       objectReference: {fileID: 0}
+    - target: {fileID: 8267264999496227918, guid: d028c3dcd9115344aaea58fb43bddaa2, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f4079477932ecb64aa95bc2f2ed0b068, type: 3}
     - target: {fileID: 8267264999671806221, guid: d028c3dcd9115344aaea58fb43bddaa2, type: 3}
       propertyPath: m_Color.a
       value: 0.5372549
@@ -717,6 +725,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8267264999675218400, guid: d028c3dcd9115344aaea58fb43bddaa2, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: fab58346fb4bff247ab7f95932b9214c, type: 3}
+    - target: {fileID: 8267265000072628460, guid: d028c3dcd9115344aaea58fb43bddaa2, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ef9acb83f15d4a9479c0564ab2734792, type: 3}
     - target: {fileID: 8267265000086178171, guid: d028c3dcd9115344aaea58fb43bddaa2, type: 3}
       propertyPath: dialogue.sentences.Array.data[0]
       value: It's empty
@@ -813,6 +829,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8267265000380155585, guid: d028c3dcd9115344aaea58fb43bddaa2, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8e3446482523574449fa71295ee73f47, type: 3}
     - target: {fileID: 8267265000544695309, guid: d028c3dcd9115344aaea58fb43bddaa2, type: 3}
       propertyPath: dialogue.sentences.Array.data[0]
       value: Screaming means to not go in right?
@@ -829,6 +849,10 @@ PrefabInstance:
       propertyPath: dialogue.sentences.Array.data[0]
       value: Why won't these doors open..
       objectReference: {fileID: 0}
+    - target: {fileID: 8267265000756031055, guid: d028c3dcd9115344aaea58fb43bddaa2, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 168828efeabfc9541bc66b5aa072f729, type: 3}
     - target: {fileID: 8267265000828997074, guid: d028c3dcd9115344aaea58fb43bddaa2, type: 3}
       propertyPath: dialogue.sentences.Array.data[0]
       value: My options are a black liquid or water...
@@ -1096,7 +1120,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 693460a2b688d5c41b135dd60763822a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bResult: 0
 --- !u!4 &2046817380
 Transform:
   m_ObjectHideFlags: 0
