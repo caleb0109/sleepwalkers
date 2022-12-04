@@ -8,16 +8,16 @@ public class CafeteriaMinigame : MonoBehaviour
     public List<GameObject> orderPrefabs; // a list of all the orders
     public List<GameObject> orderBubbles; // a list of all the bubbles that accompany the order
     public GameObject itemInHand = null; // the current dish the player is holding (set in the Interactable script)
-    public bool miniGameStarted;
 
-    const int totalOrders = 20;
+    const int totalOrders = 10;
     const int orderFrequency = 6; // used to increment frequency 
 
+    private bool miniGameStarted;
     private int ordersCompleted;
     private int numNpcs;
     private Nodes nSystem;
+    private GameObject chef;
     private List<GameObject> customers;
-    private List<GameObject> dishes; // keeps track of the dishes that are placed on the map
     private List<GameObject> ordersReady; // keeps track of the number of orders placed down ready for pick up
     private Queue<GameObject> orderBacklog;
 
@@ -28,8 +28,9 @@ public class CafeteriaMinigame : MonoBehaviour
         numNpcs = 3;
         nSystem = FindObjectOfType<Nodes>();
 
+        chef = GameObject.Find("chef");
+
         customers = new List<GameObject>();
-        dishes = new List<GameObject>();
         ordersReady = new List<GameObject>();
         orderBacklog = new Queue<GameObject>();
 
@@ -46,16 +47,22 @@ public class CafeteriaMinigame : MonoBehaviour
                 Debug.Log("Minigame Completed");
                 for (int i = 0; i < customers.Count; i++)
                 {
+                    chef.SetActive(true);
+                    Customer cData = customers[i].GetComponent<Customer>();
+                    if (cData.dishEaten != null)
+                    {
+                        Destroy(cData.dishEaten);
+                    }
+
                     Destroy(customers[i]);
                     customers.RemoveAt(i);
 
-                    /*Destroy(dishes[i]);
-                    dishes.RemoveAt(i);
-
+                    
                     if (i < 5)
                     {
                         Destroy(ordersReady[i]);
-                    }*/
+                        ordersReady.RemoveAt(i);
+                    }
                 }
 
                 Destroy(this.gameObject);
@@ -65,6 +72,12 @@ public class CafeteriaMinigame : MonoBehaviour
                 SpawnNpcs();
             }
         }
+    }
+
+    public void StartMiniGame()
+    {
+        miniGameStarted = true;
+        chef.SetActive(false);
     }
 
     // creates the npcs using the prefab and add the Customer script to it while chosing a random
@@ -108,19 +121,20 @@ public class CafeteriaMinigame : MonoBehaviour
         {
             if (g.transform.position == customer.transform.position)
             {
-                Debug.Log("itemInHand: " + itemInHand.name + " | customer order: " + customer.GetComponent<Customer>().order);
                 if (itemInHand.name.Contains(customer.GetComponent<Customer>().order))
                 {
                     Destroy(customer.transform.GetChild(1).gameObject); // destroys the bubble
 
-                    g.GetComponent<Customer>().isSatisfied = true;
-
-                    dishes.Add(itemInHand);
+                    // gets the customer script and sets the data
+                    Customer customerData = g.GetComponent<Customer>();
+                    customerData.isSatisfied = true;
+                    customerData.dishEaten = itemInHand;
+                    
                     nSystem.MoveItemToNode(itemInHand, "dishes", g);
                     itemInHand.SetActive(true);
                     itemInHand = null; // after the item has been placed, there is no item being held
 
-                    StartCoroutine(FoodGen("eat"));
+                    StartCoroutine(FoodGen("eat")); // starts the timer
                     break;
                 }
             }
@@ -177,8 +191,11 @@ public class CafeteriaMinigame : MonoBehaviour
     {
         for (int i = 0; i < customers.Count; i++)
         {
-            if (customers[i].GetComponent<Customer>().isSatisfied)
+            Customer cData = customers[i].GetComponent<Customer>();
+
+            if (cData.isSatisfied)
             {
+                Destroy(cData.dishEaten);
                 Destroy(customers[i]);
                 customers.RemoveAt(i);
                 ordersCompleted++;
