@@ -117,13 +117,16 @@ public class DialogueManager : MonoBehaviour
 
             string[] currEmotion = split[0].Split('-'); // written to file like = "CharaInitial-Emotion"
 
+            Debug.Log(split[0]);
             // look for the name and set the correct sprite and name for the line
-            for(int i = 0; i < dialogueHolder.CharaNames.Count; i++)
+            for (int i = 0; i < dialogueHolder.CharaNames.Count; i++)
             {
                 if (dialogueHolder.CharaNames[i].Contains(currEmotion[0]))
                 {
+                    Debug.Log("I found the character");
                     nameText.text = dialogueHolder.CharaNames[i];
                     imgSprite.sprite = dialogueHolder.FindExpression(nameText.text, currEmotion[1]);
+                    Debug.Log(imgSprite.sprite);
                 }
             }
         }
