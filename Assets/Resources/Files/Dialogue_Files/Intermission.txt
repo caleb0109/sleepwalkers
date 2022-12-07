@@ -1,6 +1,6 @@
 Hua,Yuichi
 H-Worried|Are you alright?  Why are you making so much noise this early in the morning? Did you fall down the stairs?
-Y-Embarassed|Yeah, I’m just a little banged up. Did I wake you up?
+Y-Embarassed|Yeah... Did I wake you up?
 H-Neutral|No, I have to leave for work in a bit. Don’t forget to do your chores, Mom’ll be checking everything once she gets home.
 H-Neutral|...
 H-Worried|When did you get all these bruises?

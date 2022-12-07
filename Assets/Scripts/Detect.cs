@@ -64,7 +64,10 @@ public class Detect : MonoBehaviour
          d.TriggerDialogue();
          
          SoundEffect s = detectedObj.GetComponent<SoundEffect>();
-         s.PlaySound();
+            if (s != null)
+            {
+                s.PlaySound();
+            }
          
          //detectedObj.SetActive(false);
          detectedObj.GetComponent<SpriteRenderer>().enabled = false;

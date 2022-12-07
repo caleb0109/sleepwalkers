@@ -82,15 +82,6 @@ public class Movement : MonoBehaviour
         playerInput = value.Get<Vector2>();
     }
 
-    /*// space bar pressed to get the next sentence
-    void OnContinueDialogue()
-    {
-        if (diaManager.isSpeaking)
-        {
-            diaManager.DisplayNextSentence();
-        }
-    }*/
-
     public void OnOpenPhone()
     {
         for (int i = 0; i < phoneWindow.transform.childCount; i++)
@@ -105,5 +96,21 @@ public class Movement : MonoBehaviour
         }
 
         phoneWindow.SetActive(!phoneWindow.activeInHierarchy); // toggles phone open screen with TAB button
+    }
+
+    public void OnOpenSettings()
+    {
+        OnOpenPhone();
+
+        for (int i = 0; i < phoneWindow.transform.childCount; i++)
+        {
+            GameObject child = phoneWindow.transform.GetChild(i).gameObject;
+
+            if (child.name == "Settings")
+            {
+                child.SetActive(true);
+                break;
+            }
+        }
     }
 }

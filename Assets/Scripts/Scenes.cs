@@ -33,6 +33,13 @@ public class Scenes : MonoBehaviour
 
     public void NextScene()
     {
+        GameObject cConfiner = GameObject.Find("cameraConfiner");
+        if (cConfiner != null)
+        {
+            Destroy(cConfiner);
+            Destroy(GameObject.Find("dumpster"));
+        }
+
         for (int i = 0; i < scenesInBuild.Count; i++) 
         {
             if (scenesInBuild[i] == SceneManager.GetActiveScene().name && i + 1 < scenesInBuild.Count)

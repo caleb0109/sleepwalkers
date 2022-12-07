@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 /// <summary>
 /// Attach script to the object housing all the node positions 
@@ -19,6 +20,19 @@ public class Nodes : MonoBehaviour
         {
             placements.Add(this.transform.GetChild(i));
         }
+
+        CinemachineConfiner camConfiner = GameObject.Find("CM vcam1").GetComponent<CinemachineConfiner>();
+
+        //camConfiner.bounding2dShape = GameObject.Find("camConfine").GetComponent<PolygonCollider2d>();
+
+        GameObject player = GameObject.Find("Yuichi");
+
+        if (!player.GetComponent<SpriteRenderer>().enabled)
+        {
+            player.GetComponent<SpriteRenderer>().enabled = true;
+        }
+
+        MoveItemToNode(player);
     }
 
     public int GetPlacementCount(string listName)
