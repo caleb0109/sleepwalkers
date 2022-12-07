@@ -21,6 +21,28 @@ public class Nodes : MonoBehaviour
         }
     }
 
+    public int GetPlacementCount(string listName)
+    {
+
+        for (int i = 0; i < placements.Count; i++)
+        {
+            if (placements[i].name == listName)
+            {
+                if (CheckForOtherLocs(placements[i]))
+                {
+                    return placements[i].childCount;
+                }
+                else
+                {
+                    return 1;
+                }
+            }
+        }
+
+
+        return 0; // if it couldn't find any, return 0
+    }
+
     // returns a random position for the items
     public Vector3 ReturnRandomNodePos(string objType)
     {
@@ -38,7 +60,7 @@ public class Nodes : MonoBehaviour
             }
         }
 
-        return locList[Random.Range(0, locList.Count - 1)].position;
+        return locList[Random.Range(0, locList.Count)].position;
     }
 
     // move the item location to that specific node based on closest node to players current position

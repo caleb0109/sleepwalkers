@@ -36,12 +36,12 @@ public class Dialogue
     public void Start()
     {
         name = "Yuichi";
-        defaultSprite = Resources.Load<Sprite>("pfps/Yuichi/Neutral");
+        defaultSprite = Resources.Load<Sprite>("pfps/Yuichi/Yuichi_Neutral");
 
         expressions = new Dictionary<string, Dictionary<string, Sprite>>();
 
         expressions.Add(name, new Dictionary<string, Sprite>());
-        expressions[name].Add("Neutral", defaultSprite);
+        expressions[name].Add("Yuichi_Neutral", defaultSprite);
 
         conditionalSentences = new List<List<string>>();
 
@@ -110,7 +110,7 @@ public class Dialogue
         {
             Sprite emotion = (Sprite)temp[i];
 
-            //Debug.Log(name + " " + emotion);
+            Debug.Log(name + " " + emotion);
             if (!expressions[name].ContainsKey(emotion.name))
             {
                 expressions[name].Add(emotion.name, emotion);
@@ -123,9 +123,16 @@ public class Dialogue
     {
         Sprite returned = defaultSprite; // returns the default if it can't find the expression
 
-        if (expressions[name].ContainsKey(expression))
+        string charaExpress = name + "_" + expression;
+
+        foreach (string s in expressions[name].Keys)
         {
-            returned = expressions[name][expression];
+            Debug.Log(s);
+        }
+
+        if (expressions[name].ContainsKey(charaExpress))
+        {
+            returned = expressions[name][charaExpress];
         }
 
         return returned;

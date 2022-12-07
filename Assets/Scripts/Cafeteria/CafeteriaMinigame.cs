@@ -9,8 +9,8 @@ public class CafeteriaMinigame : MonoBehaviour
     public List<GameObject> orderBubbles; // a list of all the bubbles that accompany the order
     public GameObject itemInHand = null; // the current dish the player is holding (set in the Interactable script)
 
-    const int totalOrders = 10;
-    const int orderFrequency = 6; // used to increment frequency 
+    const int totalOrders = 15;
+    const int orderFrequency = 2; // used to increment frequency 
 
     private bool miniGameStarted;
     private int ordersCompleted;
@@ -42,7 +42,7 @@ public class CafeteriaMinigame : MonoBehaviour
         if (miniGameStarted)
         {
             // once all the orders are complete, destroy itself
-            if (ordersCompleted == totalOrders)
+            if (ordersCompleted >= totalOrders)
             {
                 Debug.Log("Minigame Completed");
                 for (int i = 0; i < customers.Count; i++)
@@ -86,6 +86,10 @@ public class CafeteriaMinigame : MonoBehaviour
     {
         if (customers.Count < numNpcs)
         {
+            if (ordersCompleted > numNpcs && numNpcs < nSystem.GetPlacementCount("students"))
+            {
+                numNpcs += orderFrequency;
+            }
 
             for (int i = 0; i < numNpcs; i++)
             {
@@ -201,12 +205,13 @@ public class CafeteriaMinigame : MonoBehaviour
                 ordersCompleted++;
             }
         }
+
+        Debug.Log("orders completed: " + ordersCompleted);
     }
 
     // timer for how long it takes to cook or eat each food
   IEnumerator FoodGen(string action)
     {
-        Debug.Log(action);
         float duration;
 
         if (action == "cook")
@@ -215,7 +220,7 @@ public class CafeteriaMinigame : MonoBehaviour
         }
         else
         {
-            duration = 5.0f;
+            duration = 4.0f;
         }
 
         while (duration > 0.0f)
