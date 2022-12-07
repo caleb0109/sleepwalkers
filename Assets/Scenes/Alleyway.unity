@@ -491,7 +491,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 262960561}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.4143677, y: -9.03916, z: 10186.107}
+  m_LocalPosition: {x: 6.6561346, y: -0.738287, z: 10186.107}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2184,7 +2184,7 @@ MonoBehaviour:
   itemName: 
   reqItemName: 
   searchItemSprite: {fileID: 0}
-  interactType: 6
+  interactType: 4
   notifType: 0
   itemType: 0
   descriptionText: 
