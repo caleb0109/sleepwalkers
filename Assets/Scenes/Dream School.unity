@@ -474,10 +474,22 @@ PrefabInstance:
       propertyPath: dialogue.sentences.Array.data[0]
       value: Locked.
       objectReference: {fileID: 0}
+    - target: {fileID: 8267264999378739983, guid: d028c3dcd9115344aaea58fb43bddaa2, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c0626071f6b06484ea8b5023038810c8, type: 3}
+    - target: {fileID: 8267264999457610667, guid: d028c3dcd9115344aaea58fb43bddaa2, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: dbb2129f1e3a0b044b9ba9ee62162aec, type: 3}
     - target: {fileID: 8267264999496227918, guid: d028c3dcd9115344aaea58fb43bddaa2, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: f4079477932ecb64aa95bc2f2ed0b068, type: 3}
+    - target: {fileID: 8267264999659419382, guid: d028c3dcd9115344aaea58fb43bddaa2, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 65183900d3da91643a6a112db874e347, type: 3}
     - target: {fileID: 8267264999671806221, guid: d028c3dcd9115344aaea58fb43bddaa2, type: 3}
       propertyPath: m_Color.a
       value: 0.5372549
@@ -536,7 +548,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8267265000245715742, guid: d028c3dcd9115344aaea58fb43bddaa2, type: 3}
       propertyPath: interactType
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8267265000245715743, guid: d028c3dcd9115344aaea58fb43bddaa2, type: 3}
       propertyPath: afterSpeak
