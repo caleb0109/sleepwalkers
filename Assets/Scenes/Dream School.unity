@@ -464,11 +464,11 @@ PrefabInstance:
       objectReference: {fileID: -631370396, guid: 21373048375d5e344823d36d0a44d369, type: 3}
     - target: {fileID: 8267264999304123812, guid: d028c3dcd9115344aaea58fb43bddaa2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.333
+      value: 8.386
       objectReference: {fileID: 0}
     - target: {fileID: 8267264999304123812, guid: d028c3dcd9115344aaea58fb43bddaa2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.274
+      value: 0.308
       objectReference: {fileID: 0}
     - target: {fileID: 8267264999363488170, guid: d028c3dcd9115344aaea58fb43bddaa2, type: 3}
       propertyPath: dialogue.sentences.Array.data[0]
@@ -674,6 +674,10 @@ PrefabInstance:
       propertyPath: dialogue.sentences.Array.data[0]
       value: I can't get out of here.. its locked.
       objectReference: {fileID: 0}
+    - target: {fileID: 8267265001113563268, guid: d028c3dcd9115344aaea58fb43bddaa2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.53
+      objectReference: {fileID: 0}
     - target: {fileID: 8267265001237466673, guid: d028c3dcd9115344aaea58fb43bddaa2, type: 3}
       propertyPath: dialogue.sentences.Array.data[0]
       value: "Students awarded the P\u0334\u035D\u034B\u030A\u033F\u033D\u034A\u0303\u035B\u0344\u0328\u032D\u031E\u031F\u0333\u0355\u033A\u032C\u031E\u032C\u031E\u0339\u0347r\u0335\u030B\u0312\u0322\u035A\u032C\u0349\u0339\u032A\u032E\u0328\u0354e\u0336\u0352\u034D\u0329\u034D\u0355s\u0334\u0340\u0301\u034C\u035B\u0312\u030A\u0307\u035B\u032E\u031D\u0328\u032A\u0319\u0322\u0328\u032A\u0325i\u0335\u0306\u033F\u0357\u0307\u0305\u0310\u035D\u030A\u0333\u032F\u0319\u0318\u031D\u0353\u0348\u032D\u0321\u032D\u0318\u0328d\u0338\u0346\u0310\u0300\u0346\u0301\u0326\u0332\u0325\u0321\u034D\u0339e\u0338\u0308\u033F\u0350\u0315\u0304\u033E\u0357\u0344\u0313\u030F\u033C\u031C\u0359n\u0338\u0304\u0341\u0308\u0302\u0351\u0309\u035B\u0310\u034C\u030A\u031E\u031E\u0330\u0319\u031Dt\u0334\u030B\u0302\u0303\u0358\u0312\u0360\u0344\u0353\u0354\u032E\u034D\u0332\u0319\u032B\u0318\u032A\u0353\u0353\u033Cs\u0336\u0305\u034C\u0304\u0314\u031A\u030F\u035B\u0350\u0347\u031E\u0318\u0333\u0349\u032F\u032E\u035A\u0328
@@ -694,6 +698,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d028c3dcd9115344aaea58fb43bddaa2, type: 3}
+--- !u!4 &998034748 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8267265000267445759, guid: d028c3dcd9115344aaea58fb43bddaa2, type: 3}
+  m_PrefabInstance: {fileID: 998034747}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1288210024
 GameObject:
   m_ObjectHideFlags: 0
@@ -739,6 +748,165 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 793f334f68b549443b42c244a151dfae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1686490788
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1686490789}
+  - component: {fileID: 1686490792}
+  - component: {fileID: 1686490791}
+  - component: {fileID: 1686490790}
+  m_Layer: 0
+  m_Name: empty floor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1686490789
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1686490788}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -19.27, y: 8.28, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1720563136}
+  m_Father: {fileID: 998034748}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1686490790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1686490788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02c11395f6ced3e4f9c12040e691e298, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    sentences:
+    - Don't wanna fall down there...
+    diaFile: {fileID: 0}
+  startsBattle: 0
+  afterSpeak: {fileID: 0}
+  objTrigger: {fileID: 0}
+--- !u!114 &1686490791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1686490788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2ef23bc9ed8eb448b3ba80c79078c9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: 
+  reqItemName: 
+  searchItemSprite: {fileID: 0}
+  interactType: 6
+  notifType: 0
+  itemType: 0
+  descriptionText: 
+  afterInteract: {fileID: 0}
+  highlight: {fileID: 0}
+--- !u!61 &1686490792
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1686490788}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.33876324, y: -0.19478893}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.4579754, y: 2.4058685}
+  m_EdgeRadius: 0
+--- !u!1 &1720563135
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1720563136}
+  - component: {fileID: 1720563137}
+  m_Layer: 0
+  m_Name: fall
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1720563136
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1720563135}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.46, y: -0.02, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1686490789}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1720563137
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1720563135}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.16091263}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2.4736211}
+  m_EdgeRadius: 0
 --- !u!1 &2021216763
 GameObject:
   m_ObjectHideFlags: 0
@@ -749,8 +917,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2021216767}
   - component: {fileID: 2021216766}
-  - component: {fileID: 2021216765}
   - component: {fileID: 2021216764}
+  - component: {fileID: 2021216765}
   m_Layer: 0
   m_Name: BlockPaintArea
   m_TagString: Untagged
@@ -773,7 +941,7 @@ MonoBehaviour:
   itemName: 
   reqItemName: 
   searchItemSprite: {fileID: 0}
-  interactType: 5
+  interactType: 6
   notifType: 0
   itemType: 0
   descriptionText: 
