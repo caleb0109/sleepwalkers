@@ -8,6 +8,8 @@ public class Bars : MonoBehaviour
     public Slider bar;
     public Image fill;
 
+    public SpriteRenderer meter; // used for meters not in canvas 
+
     public void SetMax(float health)
     {
         bar.maxValue = health;
@@ -19,4 +21,9 @@ public class Bars : MonoBehaviour
         Debug.Log(health);
         bar.value = health;
     }
+
+    /*public void ShowMeter(float val)
+    {
+        meter.transform.localScale.x = val;
+    }*/
 }

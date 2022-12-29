@@ -17,7 +17,7 @@ public class CafeteriaMinigame : MonoBehaviour
     private int numNpcs;
     private Nodes nSystem;
     private GameObject chef;
-    private List<GameObject> customers;
+    private List<GameObject> customers; // keeps track of the npcs spawned in the cafeteria
     private List<GameObject> ordersReady; // keeps track of the number of orders placed down ready for pick up
     private Queue<GameObject> orderBacklog;
 
@@ -56,7 +56,6 @@ public class CafeteriaMinigame : MonoBehaviour
 
                     Destroy(customers[i]);
                     customers.RemoveAt(i);
-
                     
                     if (i < 5)
                     {
@@ -69,6 +68,15 @@ public class CafeteriaMinigame : MonoBehaviour
             }
             else
             {
+                for (int i = 0; i < customers.Count; i++)
+                {
+                    if (customers[i].GetComponent<Customer>().patience <= 0.0f)
+                    {
+                        Destroy(customers[i]);
+                        customers.RemoveAt(i);
+                    }
+                }
+
                 SpawnNpcs();
             }
         }
@@ -96,7 +104,6 @@ public class CafeteriaMinigame : MonoBehaviour
                 if (customers.Count - 1 < i)
                 {
                     customers.Add(Instantiate(npcPrefab, nSystem.ReturnRandomNodePos("students"), Quaternion.identity));
-                    customers[i].AddComponent<Customer>();
                     Customer c = customers[i].GetComponent<Customer>();
                     GameObject cOrder = orderPrefabs[Random.Range(0, orderPrefabs.Count)];
                     c.order = cOrder.name;
