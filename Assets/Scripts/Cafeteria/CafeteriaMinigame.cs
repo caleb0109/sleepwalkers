@@ -1,18 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
+/// <summary>
+/// Programmer: Jessica Niem
+/// Date:
+/// Description: The minigame manager for the cafeteria. It keeps track of all the npcs and items spawned.
+/// </summary>
 
 public class CafeteriaMinigame : MonoBehaviour
 {
+    public GameObject trashPrefab;
     public GameObject npcPrefab;
     public List<GameObject> orderPrefabs; // a list of all the orders
     public List<GameObject> orderBubbles; // a list of all the bubbles that accompany the order
     public GameObject itemInHand = null; // the current dish the player is holding (set in the Interactable script)
 
+    // gets the UI that goes with the minigame
+    public GameObject minigameUI; 
+    public Image itemDisplay;
+    public Text orderNumDisplay;
+
     const int totalOrders = 15;
-    const int orderFrequency = 2; // used to increment frequency 
+    const int orderFrequency = 2; // used to increment frequency
 
     private bool miniGameStarted;
+    private bool anxietyFilter;
+    private int anxietyMeter;
     private int ordersCompleted;
     private int numNpcs;
     private Nodes nSystem;
@@ -26,6 +41,7 @@ public class CafeteriaMinigame : MonoBehaviour
     {
         ordersCompleted = 0;
         numNpcs = 3;
+        anxietyMeter = 5;
         nSystem = FindObjectOfType<Nodes>();
 
         chef = GameObject.Find("chef");
@@ -35,6 +51,7 @@ public class CafeteriaMinigame : MonoBehaviour
         orderBacklog = new Queue<GameObject>();
 
         miniGameStarted = false;
+        anxietyFilter = false;
     }
 
     void Update()
@@ -68,15 +85,6 @@ public class CafeteriaMinigame : MonoBehaviour
             }
             else
             {
-                for (int i = 0; i < customers.Count; i++)
-                {
-                    if (customers[i].GetComponent<Customer>().patience <= 0.0f)
-                    {
-                        Destroy(customers[i]);
-                        customers.RemoveAt(i);
-                    }
-                }
-
                 SpawnNpcs();
             }
         }
@@ -86,6 +94,7 @@ public class CafeteriaMinigame : MonoBehaviour
     {
         miniGameStarted = true;
         chef.SetActive(false);
+        minigameUI.SetActive(true);
     }
 
     // creates the npcs using the prefab and add the Customer script to it while chosing a random
@@ -136,15 +145,17 @@ public class CafeteriaMinigame : MonoBehaviour
                 {
                     Destroy(customer.transform.GetChild(1).gameObject); // destroys the bubble
 
+                    itemDisplay.sprite = null;
+
                     // gets the customer script and sets the data
                     Customer customerData = g.GetComponent<Customer>();
-                    customerData.isSatisfied = true;
                     customerData.dishEaten = itemInHand;
                     
                     nSystem.MoveItemToNode(itemInHand, "dishes", g);
                     itemInHand.SetActive(true);
                     itemInHand = null; // after the item has been placed, there is no item being held
 
+                    StopCoroutine(customerData.PatienceMeter());
                     StartCoroutine(FoodGen("eat")); // starts the timer
                     break;
                 }
@@ -165,6 +176,7 @@ public class CafeteriaMinigame : MonoBehaviour
         }
 
         itemInHand = order;
+        itemDisplay.sprite = order.GetComponent<SpriteRenderer>().sprite;
         order.SetActive(false);
     }
 
@@ -198,22 +210,39 @@ public class CafeteriaMinigame : MonoBehaviour
     }
 
     // destroys the Npcs after they eat and removes them from the list
-    private void LeaveCafeteria()
+    public void LeaveCafeteria()
     {
         for (int i = 0; i < customers.Count; i++)
         {
             Customer cData = customers[i].GetComponent<Customer>();
 
-            if (cData.isSatisfied)
+            if (cData.dishEaten != null)
             {
                 Destroy(cData.dishEaten);
                 Destroy(customers[i]);
                 customers.RemoveAt(i);
                 ordersCompleted++;
+
+                // if the anxiety filter is on, change the text
+                if (!anxietyFilter)
+                {
+                    orderNumDisplay.text = ordersCompleted + "/15";
+                }
+                else
+                {
+                    orderNumDisplay.text = "???/15";
+                }
+            }
+            else if (cData.patience <= 0.0f) // if the customer runs out of patience
+            {
+                // destroy the customer
+                Destroy(customers[i]);
+                customers.RemoveAt(i);
+
+                // throws trash on the ground
+                nSystem.PlaceRandomIn("trash", Instantiate(trashPrefab));
             }
         }
-
-        Debug.Log("orders completed: " + ordersCompleted);
     }
 
     // timer for how long it takes to cook or eat each food
@@ -221,6 +250,7 @@ public class CafeteriaMinigame : MonoBehaviour
     {
         float duration;
 
+        // depending on the action, set different durations
         if (action == "cook")
         {
             duration = 3.0f;

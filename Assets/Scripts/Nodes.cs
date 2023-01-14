@@ -4,7 +4,9 @@ using UnityEngine;
 using Cinemachine;
 
 /// <summary>
-/// Attach script to the object housing all the node positions 
+/// Programmer: Jessica Niem
+/// Date: 
+/// Description: Attach script to the object housing all the node positions
 /// </summary>
 public class Nodes : MonoBehaviour
 {
@@ -35,6 +37,7 @@ public class Nodes : MonoBehaviour
         MoveItemToNode(player);
     }
 
+    // get the number of possible placements in the map
     public int GetPlacementCount(string listName)
     {
 
@@ -57,24 +60,46 @@ public class Nodes : MonoBehaviour
         return 0; // if it couldn't find any, return 0
     }
 
+    // find if there's placement nodes
+    private Transform FindPlacement(string name)
+    {
+        foreach (Transform t in placements)
+        {
+            if (t.name == name)
+            {
+                return t;
+            }
+        }
+
+        // return nothing if it doesn't exsist
+        return null;
+    }
+
     // returns a random position for the items
     public Vector3 ReturnRandomNodePos(string objType)
     {
         List<Transform> locList = new List<Transform>();
 
-        foreach (Transform t in placements)
-        {
-            if (t.name == objType)
+        Transform tObj = FindPlacement(objType);
+        if (tObj != null) {
+            for (int i = 0; i < tObj.childCount; i++)
             {
-                for (int i = 0; i < t.childCount; i++)
-                {
-                    locList.Add(t.GetChild(i));
-                }
-                break;
+                locList.Add(tObj.GetChild(i));
             }
         }
 
         return locList[Random.Range(0, locList.Count)].position;
+    }
+
+    public void PlaceRandomIn(string confiner, GameObject itemToPlace)
+    {
+        Transform place = FindPlacement(confiner);
+
+        // TEMP: need to get it to calculate based on the width and height
+        float xMinMax = place.position.x / 2;
+        float yMinMax = place.position.y / 2;
+
+        itemToPlace.transform.position = new Vector3(Random.Range(-xMinMax, xMinMax), Random.Range(-yMinMax, yMinMax), 0);
     }
 
     // move the item location to that specific node based on closest node to players current position
