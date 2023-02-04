@@ -29,11 +29,17 @@ public class Customer : MonoBehaviour
 
     public IEnumerator PatienceMeter()
     {
+        int prevPatience = (int)patience;
         while (patience > 0.0f)
         {
             patience -= Time.deltaTime;
 
-            patienceBar.ShowMeter();
+            // prevents the meter from updating every frame and only updates when a second passes
+            if (prevPatience > (int)patience)
+            {
+                patienceBar.ShowMeter();
+                prevPatience = (int)patience;
+            }
 
             if (patience < 0.01f)
             {

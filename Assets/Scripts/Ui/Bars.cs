@@ -27,12 +27,12 @@ public class Bars : MonoBehaviour
         bar.value = health;
     }
 
+    // used for gameobjects meters
     public void ShowMeter()
     {
+        // gets the localScale, adjusts the x and then sets the localScale to the new adjustment
         Vector3 temp = meter.transform.localScale;
-        Debug.Log("before adjustment: " + temp);
-        temp.x -= 1;
-        Debug.Log("after adjustment: " + temp);
+        temp.x += 0.1f;
         meter.transform.localScale = temp;
     }
 }
