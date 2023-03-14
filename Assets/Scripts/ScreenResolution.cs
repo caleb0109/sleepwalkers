@@ -81,4 +81,5 @@ public class ScreenResolution : MonoBehaviour
         RescaleCamera();
     }
     #endregion
+
 }
