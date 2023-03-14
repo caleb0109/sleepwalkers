@@ -6,65 +6,44 @@ using UnityEngine;
 public class Dialogue
 {
     private string name; // set the default to Yuichi, since we only use this for him
-    private Sprite sprite;
+    private Sprite defaultSprite;
 
     [TextArea(3, 10)]
     public List<string> sentences; // used for interactions with items or one off lines
     public TextAsset diaFile;
 
-    public string currAct = "Intro";
-
-    // find efficient way later
     private List<Sprite> charaSprites;
 
     // used to store the different facial expressions
-    /* Order Stored:
-     * Neutral
-     * Happy
-     * Angry
-     * Sad
-     * Shocked
-     * Fear
-     */
-    // each npc holds their own sprites stored like above
-    // then add to dictionary in start
-    // if facial expression doesn't exsist, place a placeholder in that loc
-    private Dictionary<string, List<Sprite>> expressions; 
+    private Dictionary<string, Dictionary<string, Sprite>> expressions; 
 
     private List<string> charaNames;
     private List<string> charaLines;
+
+    // used to store sentences tied to conditionals
+    private List<List<string>> conditionalSentences;
 
     #region Properties
     public List<string> CharaNames { get { return charaNames; } }
     public List<string> CharaLines { get { return charaLines; } }
     public List<Sprite> CharaSprites { get { return charaSprites; } }
     public string Name { get { return name; } }
-    public Sprite Sprite {
-        get { return sprite; } 
-        set { sprite = value; }
-    }
+    public Sprite DefaultSprite { get { return defaultSprite; } }
+
+    public Dictionary<string, Dictionary<string, Sprite>> Expressions { get { return expressions; } }
     #endregion
 
     public void Start()
     {
         name = "Yuichi";
-        sprite = Resources.Load<Sprite>("Sprites/pfps/Yuichi"); // loads Yuichi's
+        defaultSprite = Resources.Load<Sprite>("pfps/Yuichi/Yuichi_Neutral");
 
-        string path = "Sprites/pfps/" + currAct;
+        expressions = new Dictionary<string, Dictionary<string, Sprite>>();
 
-        // loads all the sprites from the resources folder
-        object[] temp = Resources.LoadAll(path, typeof(Sprite));
+        expressions.Add(name, new Dictionary<string, Sprite>());
+        expressions[name].Add("Yuichi_Neutral", defaultSprite);
 
-        charaSprites = new List<Sprite>();
-
-
-        charaSprites.Add(sprite);
-
-        // convert all objects to Sprites
-         for (int i = 0; i < temp.Length; i++)
-        {
-            charaSprites.Add((Sprite)temp[i]);
-        }
+        conditionalSentences = new List<List<string>>();
 
         if (diaFile) // if there's a file attached, load it
         {
@@ -72,6 +51,13 @@ public class Dialogue
             charaLines = new List<string>();
             LoadDialogueFile();
         }
+    }
+
+    public void ResetAndLoadNewDialogue()
+    {
+        charaNames.Clear();
+        charaLines.Clear();
+        LoadDialogueFile();
     }
 
     private void LoadDialogueFile()
@@ -84,8 +70,71 @@ public class Dialogue
 
             lines.RemoveAt(0); // removes the list of names
         }
+        
+        // goes through each name and finds the folder based on the character's name
+        foreach (string n in charaNames)
+        {
+            //Debug.Log(n);
+            if (n == "???")
+            {
+                LoadSprites("pfps/Enemy", n); //TODO: fix this for other characters with '???' names
+            }
+            else if (n.Contains("Student"))
+            {
+                LoadSprites("pfps/Student", n); // TODO: unhardcode the loading
+            }
+            else
+            {
+                LoadSprites(new string("pfps/" + n), n);
+            }
+        }
 
         charaLines.AddRange(lines);
     }
 
+
+    // loads all the emotion sprites for each character
+    private void LoadSprites(string path, string name)
+    {
+        // searches the resources folder for the sprites and adds it to the array
+        object[] temp = Resources.LoadAll(path, typeof(Sprite));
+        //Debug.Log("Path: " + path);
+
+        if (name != "Yuichi" && !expressions.ContainsKey(name))
+        {
+            expressions.Add(name, new Dictionary<string, Sprite>()); // initializes the dictionary inside the dictionary
+        }
+
+        // add each sprite to the character's inner dictionary
+        for (int i = 0; i < temp.Length; i++)
+        {
+            Sprite emotion = (Sprite)temp[i];
+
+            Debug.Log(name + " " + emotion);
+            if (!expressions[name].ContainsKey(emotion.name))
+            {
+                expressions[name].Add(emotion.name, emotion);
+            }
+        }
+    }
+
+    // returns the sprite of the expression
+    public Sprite FindExpression(string name, string expression)
+    {
+        Sprite returned = defaultSprite; // returns the default if it can't find the expression
+
+        string charaExpress = name + "_" + expression;
+
+        foreach (string s in expressions[name].Keys)
+        {
+            Debug.Log(s);
+        }
+
+        if (expressions[name].ContainsKey(charaExpress))
+        {
+            returned = expressions[name][charaExpress];
+        }
+
+        return returned;
+    }
 }

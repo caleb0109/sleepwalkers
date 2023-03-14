@@ -1,0 +1,14 @@
+Yuichi,Nurikabe
+Y-Neutral|I hear her, she's in here.
+Y-Scared|Eugh, why's the door slimy?
+N-Neutral|None shall enter, lest they provide me something entertaining.
+Y-Neutral|I don't have time for this, I need to get Hua!
+Y-TakeDamage|It shouldn't this hard to open a damn door.
+N-Neutral|Unfortuate. I had hoped you were different from the others.
+Y-Neutral|Wait! What exactly are you looking for?
+N-Neutral|Nothing too difficult to acquire. 
+N-Neutral|You see, my main source of entertainment was recently stolen and scattered around the school. Because of my nature, I am unable to move and search for them myself.
+Y-Neutral|So you want me to find your entertainment. What even is it?
+N-Neutral|Tis but a simple photo, yet so enjoyable to view hahaha
+Y-Neutral|Where do I even look? Everything is so different.
+N-Neutral|I’ve heard whispers, but I know not where they reside. Go and fetch me the things I desire. I eagerly await your return.

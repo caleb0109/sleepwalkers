@@ -18,8 +18,11 @@ public class Interactable : MonoBehaviour
         Examine,
         Search,
         Npc,
+        Trigger,
         Talking, // used for Yuichi to talk to himself
-        Cutscene
+        Cutscene,
+        SwitchScene,
+        Cafeteria
     }
 
     public enum NotificationType
@@ -61,10 +64,14 @@ public class Interactable : MonoBehaviour
     private SpriteRenderer spriteRender; // used to change sprites for InteractableType.Search
     private bool interacted;
     private string alreadyInteracted;
-    
 
     private DialogueTrigger dia;
-    private DialogueManager dManager;
+    //private DialogueManager dManager;
+    //private int interactCount;
+
+    private Scenes sManager;
+    private Inventory inventManager;
+    private NotificationManager notifManager;
 
     //public UnityEvent customEvent;
 
@@ -74,7 +81,11 @@ public class Interactable : MonoBehaviour
         interacted = false;
         alreadyInteracted = "I already searched that.";
         dia = this.gameObject.GetComponent<DialogueTrigger>();
-        dManager = FindObjectOfType<DialogueManager>();
+        //dManager = FindObjectOfType<DialogueManager>();
+        //interactCount = 0;
+        sManager = FindObjectOfType<Scenes>();
+        inventManager = FindObjectOfType<Inventory>();
+        notifManager = FindObjectOfType<NotificationManager>();
     }
 
     public void Interact()
@@ -82,8 +93,8 @@ public class Interactable : MonoBehaviour
         switch (interactType)
         {
             case InteractableType.PickUp:
-                FindObjectOfType<Inventory>().PickUp(gameObject);
-                FindObjectOfType<NotificationManager>().NotifyInteractUpdate(this);
+                inventManager.PickUp(gameObject);
+                notifManager.NotifyInteractUpdate(this);
                 gameObject.SetActive(false);
                 if (highlight)
                 {
@@ -95,7 +106,7 @@ public class Interactable : MonoBehaviour
                 break;
 
             case InteractableType.Examine:
-                if (FindObjectOfType<Inventory>().isOpen)
+                if (inventManager.isOpen)
                 {
                     break;
                 }
@@ -103,6 +114,8 @@ public class Interactable : MonoBehaviour
                 break;
 
             case InteractableType.Talking:
+                dia.TriggerDialogue();
+                break;
             case InteractableType.Npc:
                 if (highlight)
                 {
@@ -118,8 +131,8 @@ public class Interactable : MonoBehaviour
                     // if it contains an item, then add item to inventory
                     if (itemName != "")
                     {
-                        FindObjectOfType<Inventory>().CollectItem(gameObject, searchItemSprite);
-                        FindObjectOfType<NotificationManager>().NotifyInteractUpdate(this);
+                        inventManager.CollectItem(gameObject, searchItemSprite);
+                        notifManager.NotifyInteractUpdate(this);
                     }
 
                     // if there's a sprite for after interaction, then change the current sprite
@@ -150,7 +163,46 @@ public class Interactable : MonoBehaviour
                 if (p.isActiveAndEnabled)
                 {
                     p.Play(); // play the cutscene
-                    GameObject.Find("Yuichi").SetActive(false);
+                    GameObject.Find("Yuichi").GetComponent<SpriteRenderer>().enabled = false;
+                }
+                break;
+
+            case InteractableType.SwitchScene:
+                //dia.TriggerDialogue(); // start dialogue 
+                //GameObject.Find("GameManager").GetComponent<SaveManager>().SaveGame("autoSave");
+
+                // TODO: figure out a non hard cody way for this case
+                if (this.gameObject.transform.parent != null && this.gameObject.transform.parent.name.Contains("library"))
+                {
+                    sManager.GoToSpecificScene("Library");
+                }
+                else if (this.gameObject.transform.parent != null && this.gameObject.transform.parent.name.Contains("cafeteria"))
+                {
+                    sManager.GoToSpecificScene("Cafeteria");
+                }
+                else if (this.gameObject.transform.parent != null && this.gameObject.transform.parent.name.Contains("classroom"))
+                {
+                    sManager.GoToSpecificScene("Classroom");
+                }
+                else
+                {
+                    sManager.GoToSpecificScene("Dream School");
+                }
+                break;
+
+            case InteractableType.Cafeteria:
+
+                Debug.Log("Interacting with: " + this.gameObject);
+
+                // if the player has the order, place it down
+                CafeteriaMinigame cafeMini = FindObjectOfType<CafeteriaMinigame>();
+                if (cafeMini.itemInHand != null)
+                {
+                    cafeMini.PlaceOrder(this.gameObject);
+                }
+                else if (!this.name.Contains("student"))
+                {
+                    cafeMini.PickUpOrder(this.gameObject);
                 }
                 break;
 

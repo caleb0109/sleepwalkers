@@ -4,6 +4,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using UnityEngine.Playables;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -17,7 +19,7 @@ public class DialogueManager : MonoBehaviour
     [HideInInspector]public bool isTyping;
     [HideInInspector]public bool autoDia;
 
-    // variables used to display the sentecns
+    // variables used to display the sentences
     private Queue<string> sentences;
     private Dialogue dialogueHolder;
     private bool startBattle;
@@ -66,16 +68,16 @@ public class DialogueManager : MonoBehaviour
             sentences.Enqueue(sent);
         }
 
-        string sentence = sentences.Dequeue();
+        currSentence = sentences.Dequeue();
 
         if (currSentence.Contains("|"))
         {
-            string[] split = sentence.Split('|');
-            sentence = split[1];
+            string[] split = currSentence.Split('|');
+            currSentence = split[1];
         }
 
         StopAllCoroutines();
-        StartCoroutine(TypeSentence(sentence));
+        StartCoroutine(TypeSentence());
     }
 
     // AutoPlays Dialogue
@@ -94,7 +96,6 @@ public class DialogueManager : MonoBehaviour
     // displays the sentence
     public void DisplayNextSentence()
     {
-        Debug.Log("I'm displaying the next sentence");
         if (sentences.Count == 0)
         {
             EndDialogue();
@@ -106,19 +107,33 @@ public class DialogueManager : MonoBehaviour
         
         if (currSentence.Contains("|"))
         {
+            if (!nameText.gameObject.activeInHierarchy)
+            {
+                nameText.gameObject.SetActive(true);
+                imgSprite.gameObject.SetActive(true);
+            }
             string[] split = currSentence.Split('|');
             currSentence = split[1];
 
+            string[] currEmotion = split[0].Split('-'); // written to file like = "CharaInitial-Emotion"
+
+            Debug.Log(split[0]);
             // look for the name and set the correct sprite and name for the line
-            for(int i = 0; i < dialogueHolder.CharaNames.Count; i++)
+            for (int i = 0; i < dialogueHolder.CharaNames.Count; i++)
             {
-                if (dialogueHolder.CharaNames[i].Contains(split[0]))
+                if (dialogueHolder.CharaNames[i].Contains(currEmotion[0]))
                 {
+                    Debug.Log("I found the character");
                     nameText.text = dialogueHolder.CharaNames[i];
-                    imgSprite.sprite = dialogueHolder.CharaSprites[i];
-                    break;
+                    imgSprite.sprite = dialogueHolder.FindExpression(nameText.text, currEmotion[1]);
+                    Debug.Log(imgSprite.sprite);
                 }
             }
+        }
+        else if (currSentence.Contains("*"))
+        {
+            nameText.gameObject.SetActive(false);
+            imgSprite.gameObject.SetActive(false);
         }
 
         StopAllCoroutines();
@@ -126,7 +141,7 @@ public class DialogueManager : MonoBehaviour
         {
             StartCoroutine(AutoPlayDialogue());
         }
-        StartCoroutine(TypeSentence(currSentence));
+        StartCoroutine(TypeSentence());
         
     }
 
@@ -158,32 +173,30 @@ public class DialogueManager : MonoBehaviour
             sentences.Clear();
         }
 
-        // used to differentiate between multi character and single character dialogue
-        if (dialogueHolder.diaFile)
+        imgSprite.sprite = dialogueHolder.DefaultSprite; // used to set the default sprite to Yuichi's neutral face
+        nameText.text = dialogueHolder.Name;
+
+        if (!startBattle && dialogueHolder.sentences.Count > 0)
         {
-            EnqueueSentences(dialogueHolder.CharaLines);
+            EnqueueSentences(dialogueHolder.sentences);
         }
         else
         {
-            nameText.text = dialogueHolder.Name;
-            imgSprite.sprite = dialogueHolder.Sprite;
-
-            // puts each sentence into the queue
-            EnqueueSentences(dialogueHolder.sentences);
+            EnqueueSentences(dialogueHolder.CharaLines);
         }
     }
 
     //Completes the sentence ahead of the typing for impatient players
     public void CompleteSentenceDisplay()
     {
-        Debug.Log("I forced the sentence to finish");
+        StopAllCoroutines();
         dialogueText.text = currSentence;
         isTyping = false;
     }
     #endregion
 
     // animates sentences onto the UI
-    IEnumerator TypeSentence (string sentence)
+    IEnumerator TypeSentence ()
     {
         dialogueText.text = "";
         isTyping = true;
@@ -212,19 +225,19 @@ public class DialogueManager : MonoBehaviour
         // determines how long the dialogue should be displayed based on the string length
         if (arrayLength > 300)
         {
-            duration = 8f;
+            duration = 10f;
         }
         else if (arrayLength > 100)
         {
-            duration = 5f;
+            duration = 6f;
         }
         else if (arrayLength > 50)
         {
-            duration = 4f;
+            duration = 5f;
         }
         else if (arrayLength > 25)
         {
-            duration = 3.5f;
+            duration = 4f;
         }
         else
         {
@@ -249,10 +262,12 @@ public class DialogueManager : MonoBehaviour
         diaPrompt.SetActive(true);
         animator.SetBool("IsOpen", false);
 
-        // TODO: change to have the scene be a dynamic variable
-        if (startBattle)
+        if (gObj != null)
         {
-            FindObjectOfType<Scenes>().ToBattle("Alleyway", GameObject.Find("Yuichi").transform.position, gObj);
+            if (startBattle)
+            {
+                FindObjectOfType<Scenes>().ToBattle(SceneManager.GetActiveScene().name, GameObject.Find("Yuichi").transform.position, gObj.name);
+            }
         }
     }
 }

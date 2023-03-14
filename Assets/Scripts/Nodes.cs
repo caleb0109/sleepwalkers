@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 /// <summary>
-/// Attach script to the object housing all the node positions 
+/// Programmer: Jessica Niem
+/// Date: 
+/// Description: Attach script to the object housing all the node positions
 /// </summary>
 public class Nodes : MonoBehaviour
 {
@@ -19,6 +22,84 @@ public class Nodes : MonoBehaviour
         {
             placements.Add(this.transform.GetChild(i));
         }
+
+        CinemachineConfiner camConfiner = GameObject.Find("CM vcam1").GetComponent<CinemachineConfiner>();
+
+        //camConfiner.bounding2dShape = GameObject.Find("camConfine").GetComponent<PolygonCollider2d>();
+
+        GameObject player = GameObject.Find("Yuichi");
+
+        if (!player.GetComponent<SpriteRenderer>().enabled)
+        {
+            player.GetComponent<SpriteRenderer>().enabled = true;
+        }
+
+        MoveItemToNode(player);
+    }
+
+    // get the number of possible placements in the map
+    public int GetPlacementCount(string listName)
+    {
+
+        for (int i = 0; i < placements.Count; i++)
+        {
+            if (placements[i].name == listName)
+            {
+                if (CheckForOtherLocs(placements[i]))
+                {
+                    return placements[i].childCount;
+                }
+                else
+                {
+                    return 1;
+                }
+            }
+        }
+
+
+        return 0; // if it couldn't find any, return 0
+    }
+
+    // find if there's placement nodes
+    private Transform FindPlacement(string name)
+    {
+        foreach (Transform t in placements)
+        {
+            if (t.name == name)
+            {
+                return t;
+            }
+        }
+
+        // return nothing if it doesn't exsist
+        return null;
+    }
+
+    // returns a random position for the items
+    public Vector3 ReturnRandomNodePos(string objType)
+    {
+        List<Transform> locList = new List<Transform>();
+
+        Transform tObj = FindPlacement(objType);
+        if (tObj != null) {
+            for (int i = 0; i < tObj.childCount; i++)
+            {
+                locList.Add(tObj.GetChild(i));
+            }
+        }
+
+        return locList[Random.Range(0, locList.Count)].position;
+    }
+
+    public void PlaceRandomIn(string confiner, GameObject itemToPlace)
+    {
+        Transform place = FindPlacement(confiner);
+
+        // TEMP: need to get it to calculate based on the width and height
+        float xMinMax = place.position.x / 2;
+        float yMinMax = place.position.y / 2;
+
+        itemToPlace.transform.position = new Vector3(Random.Range(-xMinMax, xMinMax), Random.Range(-yMinMax, yMinMax), 0);
     }
 
     // move the item location to that specific node based on closest node to players current position
@@ -43,11 +124,41 @@ public class Nodes : MonoBehaviour
         // if there's other locations, find the closest location and set the position to it
         if(CheckForOtherLocs(itemLoc))
         {
-            item.transform.position = FindClosestLocation(pIndex);
+            item.transform.position = FindClosestLocation(pIndex, GameObject.Find("Yuichi"));
         }
         else // otherwise, set it to the current itemLoc position
         {
             item.transform.position = itemLoc.position;
+        }
+    }
+
+    // second overload for the above method for the cafeteria minigmae
+    public void MoveItemToNode(GameObject itemToMove, string objType, GameObject interactedItem)
+    {
+        Transform itemLoc = null; // TODO: rename variable
+        int pIndex = 0; // used in FindClosestLocation(...)
+
+        // go through each transform in the placements list
+        foreach (Transform t in placements)
+        {
+            // if the item name contains the location object name, assign the itemLoc to t and break
+            if (objType.Contains(t.gameObject.name))
+            {
+                itemLoc = t;
+                break;
+            }
+
+            pIndex++;
+        }
+
+        // if there's other locations, find the closest location and set the position to it
+        if (CheckForOtherLocs(itemLoc))
+        {
+            itemToMove.transform.position = FindClosestLocation(pIndex, interactedItem);
+        }
+        else // otherwise, set it to the current itemLoc position
+        {
+            itemToMove.transform.position = itemLoc.position;
         }
     }
 
@@ -63,11 +174,11 @@ public class Nodes : MonoBehaviour
         return false;
     }
 
-    // finds the closest placement location to the current player position
-    private Vector3 FindClosestLocation(int placementIndex)
+    // finds the closest placement location to the itemToCompare's position
+    private Vector3 FindClosestLocation(int placementIndex, GameObject itemToCompare)
     {
         Transform multiLoc= placements[placementIndex];
-        Vector3 playerLoc = GameObject.Find("Yuichi").transform.position;
+        Vector3 itemLoc = itemToCompare.transform.position;
         Vector3 closestLoc = new Vector3(0, 0, 0);
 
         Vector3 smallestDist = new Vector3(10, 10, 0); // used to see which location is closest
@@ -76,13 +187,13 @@ public class Nodes : MonoBehaviour
         for (int i = 0; i < multiLoc.childCount; i++)
         {
             Vector3 child = multiLoc.GetChild(i).transform.position;
-            Debug.Log(multiLoc.GetChild(i).gameObject.name + " " + multiLoc.GetChild(i).position);            
+            //Debug.Log(multiLoc.GetChild(i).gameObject.name + " " + multiLoc.GetChild(i).position);            
 
             // stores the distance
             Vector3 distance = new Vector3(0,0,0);
 
-            distance.x = CalculateDistance(child.x, playerLoc.x);
-            distance.y = CalculateDistance(child.y, playerLoc.y);
+            distance.x = CalculateDistance(child.x, itemLoc.x);
+            distance.y = CalculateDistance(child.y, itemLoc.y);
 
             // checks if the difference is within a certain radius
             if ( distance.x > -5 && distance.y > -5 

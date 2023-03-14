@@ -1,0 +1,7 @@
+Yuichi,Sora
+S-Neutral|Wah!?
+Y-Embarassed|Sorry! I didn't mean to surprise you.
+Y-Neutral|Megumi told me you have the picture everyone's been passing around.
+S-Neutral|I...
+S-Neutral|threw it away. No one should be humiliated like that.
+Y-Neutral|Ah, ok.

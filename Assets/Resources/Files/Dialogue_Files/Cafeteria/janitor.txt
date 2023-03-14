@@ -1,0 +1,6 @@
+Yuichi,Janitor
+J-Neutral|What'd ya want kid?
+Y-Neutral|Someone threw away my ... project. Do you still have the trash from the bin over there?
+J-Neutral|It's not on me, but go check my cart across the cafeteria. It should be there.
+Y-Happy|Thank you so much, you're a lifesaver.
+J-Neutral|*grunts*

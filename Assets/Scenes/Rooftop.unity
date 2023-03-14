@@ -227,7 +227,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1412746011
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: -270103747934955857, guid: 94baf8fdcf03ad14ea1ce761d74b4e8e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -824,13 +824,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    sprite: {fileID: 0}
     sentences: []
     diaFile: {fileID: 4900000, guid: 175ea320dd828ac4a8fcc91e80f1c8b8, type: 3}
-    charaSprites:
-    - {fileID: 21300000, guid: b8636072caaebb14bb5a1eee638807f2, type: 3}
-    - {fileID: 21300000, guid: ff8bb6c03714dd244b71cb400cf1bacf, type: 3}
   startsBattle: 0
+  afterSpeak: {fileID: 0}
+  objTrigger: {fileID: 0}
 --- !u!114 &1182619749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1089,7 +1087,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1297402239
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: -4581734040758536313, guid: af38703de8ee08e449f36c4d720d2ffc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1404,7 +1402,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1412746011
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: -4085907505921040813, guid: af38703de8ee08e449f36c4d720d2ffc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

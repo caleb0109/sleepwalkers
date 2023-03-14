@@ -1,0 +1,8 @@
+Teacher,Yuichi,Yasmin
+T-Disappointed|Look who finally decided to join us. 
+Ya-Neutral|Psst, squid. Over here!
+Ya-Neutral|I saved you a seat and made some tea for you.
+Yu-Happy|You’re a life saver.
+Yu-Neutral|I really like the subtle sweet and earthy taste with the mint flavor, what’s in it? 
+Ya-Neutral|Honey, lemon juice, passionflower and-
+Ya-Neutral|Valerian root.
