@@ -72,7 +72,6 @@ public class Tutorial : MonoBehaviour
         // if the dictionary contains the key, show the tutorial and added to completed list while removing it from the lists themselves
         if (tutorials.ContainsKey(name))
         {
-            FindObjectOfType<NotificationManager>().ShowTutorial(name, tutorials[name]);
             completedTutorials.Add(name, tutorials[name]);
             tutorials.Remove(name);
             tutorialNames.Remove(name);

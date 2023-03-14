@@ -19,7 +19,6 @@ public class Interactable : MonoBehaviour
         Search,
         Npc,
         Trigger,
-        Talking, // used for Yuichi to talk to himself
         Cutscene,
         SwitchScene,
         Cafeteria
@@ -66,14 +65,11 @@ public class Interactable : MonoBehaviour
     private string alreadyInteracted;
 
     private DialogueTrigger dia;
-    //private DialogueManager dManager;
     //private int interactCount;
 
     private Scenes sManager;
     private Inventory inventManager;
     private NotificationManager notifManager;
-
-    //public UnityEvent customEvent;
 
     private void Start()
     {
@@ -81,7 +77,6 @@ public class Interactable : MonoBehaviour
         interacted = false;
         alreadyInteracted = "I already searched that.";
         dia = this.gameObject.GetComponent<DialogueTrigger>();
-        //dManager = FindObjectOfType<DialogueManager>();
         //interactCount = 0;
         sManager = FindObjectOfType<Scenes>();
         inventManager = FindObjectOfType<Inventory>();
@@ -113,9 +108,6 @@ public class Interactable : MonoBehaviour
                 FindObjectOfType<Detect>().ExamineItem(this);
                 break;
 
-            case InteractableType.Talking:
-                dia.TriggerDialogue();
-                break;
             case InteractableType.Npc:
                 if (highlight)
                 {
@@ -168,7 +160,6 @@ public class Interactable : MonoBehaviour
                 break;
 
             case InteractableType.SwitchScene:
-                //dia.TriggerDialogue(); // start dialogue 
                 //GameObject.Find("GameManager").GetComponent<SaveManager>().SaveGame("autoSave");
 
                 // TODO: figure out a non hard cody way for this case
@@ -209,6 +200,5 @@ public class Interactable : MonoBehaviour
             default:
                 break;
         }
-        //customEvent.Invoke();
     }  
 }

@@ -19,8 +19,6 @@ public class NotificationManager : MonoBehaviour
 
     private string nextTask; // used if the animator's open and needs to queue task update
 
-    private Tutorial tutorManager;
-
     private void Start()
     {
         nextTask = "";
@@ -29,8 +27,6 @@ public class NotificationManager : MonoBehaviour
 
         animator = this.gameObject.GetComponent<Animator>();
         notifFx = this.gameObject.GetComponent<AudioSource>();
-
-        tutorManager = FindObjectOfType<Tutorial>();
     }
 
     // sends in the notifcation to the player of picked up item
@@ -123,18 +119,6 @@ public class NotificationManager : MonoBehaviour
         }
     }
 
-    public void ShowTutorial(string tutorialName, string howTo)
-    {
-        notifFx.clip = soundByte[1]; // tutorial notification
-
-        StartNotifAnim();
-        //StopAllCoroutines();
-        //StartCoroutine(tutorManager.TutorialDuration(tutorialName));
-        notification.text = tutorialName;
-        title.text = howTo;
-        iconContainer.sprite = icons[0]; // notes icon
-    }
-
     private void StartNotifAnim()
     {
         animator.SetBool("IsOpen", true);
@@ -177,14 +161,6 @@ public class NotificationManager : MonoBehaviour
         else if (itemQueue.Count > 0)
         {
             NotifyInteractUpdate(itemQueue.Dequeue());
-        }
-        else if (tutorManager && tutorManager.tutorialNames.Count > 0)
-        {
-            tutorManager.CheckTutorialCondition(name);
-        }
-        else if (tutorManager.tutorialNames.Count == 0)
-        {
-            tutorManager.PhoneTutorial();
         }
     }
 }
