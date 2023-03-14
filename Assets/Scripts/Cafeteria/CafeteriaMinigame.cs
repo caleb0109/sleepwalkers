@@ -22,12 +22,14 @@ public class CafeteriaMinigame : MonoBehaviour
     public Image itemDisplay;
     public Text orderNumDisplay;
 
+    public float anxietyMeter;
+
     const int totalOrders = 15;
-    const int orderFrequency = 2; // used to increment frequency
+    private int orderFrequency; // used to increment frequency
 
     private bool miniGameStarted;
     private bool anxietyFilter;
-    private int anxietyMeter;
+    //private int anxietyMeter;
     private int ordersCompleted;
     private int numNpcs;
     private Nodes nSystem;
@@ -52,6 +54,7 @@ public class CafeteriaMinigame : MonoBehaviour
 
         miniGameStarted = false;
         anxietyFilter = false;
+        anxietyMeter = 0.0f;
     }
 
     void Update()
@@ -59,7 +62,7 @@ public class CafeteriaMinigame : MonoBehaviour
         if (miniGameStarted)
         {
             // once all the orders are complete, destroy itself
-            if (ordersCompleted >= totalOrders)
+            if (anxietyMeter > 100.0f)
             {
                 Debug.Log("Minigame Completed");
                 for (int i = 0; i < customers.Count; i++)
