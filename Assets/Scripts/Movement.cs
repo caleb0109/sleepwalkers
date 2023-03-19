@@ -15,7 +15,7 @@ public class Movement : MonoBehaviour
 
     private void Awake()
     {
-        inventory = new Inventory();
+        //inventory = new Inventory();
     }
     private void Start()
     {
@@ -58,10 +58,10 @@ public class Movement : MonoBehaviour
             move = false;
         }
 
-        if (FindObjectOfType<Inventory>().isOpen)
+        /*if (FindObjectOfType<Inventory>().isOpen)
         {
             move = false;
-        }
+        }*/
 
         if (FindObjectOfType<DialogueManager>().isSpeaking)
         {

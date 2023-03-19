@@ -41,6 +41,6 @@ public class SaveManager : MonoBehaviour
         Inventory newPinvent = newPobj.GetComponent<Inventory>();
         newPinvent = pInvent;
 
-        newPinvent.Update_UI();
+        //newPinvent.Update_UI();
     }
 }

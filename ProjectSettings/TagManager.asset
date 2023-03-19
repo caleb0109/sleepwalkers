@@ -68,3 +68,6 @@ TagManager:
   - name: lighting
     uniqueID: 1589671821
     locked: 0
+  - name: interaction indictaor
+    uniqueID: 3145027567
+    locked: 0

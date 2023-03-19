@@ -29,13 +29,13 @@ public class PhoneButtons : MonoBehaviour
     // sets itself inactive
     public void BackToHome()
     {
-        Inventory i = FindObjectOfType<Inventory>();
+        /*Inventory i = FindObjectOfType<Inventory>();
 
         if (i.prompt.activeInHierarchy || i.ui_description.activeInHierarchy)
         {
             i.HidePrompt();
             i.HideDescription();
-        }
+        }*/
 
         this.transform.parent.gameObject.SetActive(false); // set the parent screen to be inactive
     }

@@ -11,11 +11,12 @@ GameObject:
   - component: {fileID: 3721434482242296085}
   - component: {fileID: 3721434482242296084}
   - component: {fileID: 3721434482242296083}
+  - component: {fileID: 3721434482242296086}
+  - component: {fileID: 3721434482242296087}
   - component: {fileID: 3721434482242296072}
   - component: {fileID: 3721434482242296082}
-  - component: {fileID: 821570597394135200}
-  - component: {fileID: 3721434482242296087}
-  - component: {fileID: 3721434482242296086}
+  - component: {fileID: 2687671650993019559}
+  - component: {fileID: 955311261440194004}
   - component: {fileID: 2682204365357982028}
   m_Layer: 0
   m_Name: Yuichi
@@ -174,6 +175,53 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!61 &3721434482242296086
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3721434482242296081}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.0019403696}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.47, y: 2.14}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2.0894678}
+  m_EdgeRadius: 0
+--- !u!50 &3721434482242296087
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3721434482242296081}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!114 &3721434482242296072
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205,7 +253,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   phoneWindow: {fileID: 6791667801650843102}
---- !u!114 &821570597394135200
+--- !u!114 &2687671650993019559
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -215,6 +263,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7c1efc4b00e009147888b7c976d3b279, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isOpen: 0
+  equippedWeapon: {fileID: 0}
+--- !u!114 &955311261440194004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3721434482242296081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36f359881bacf9a49ab75b2d4cfe5710, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   prompt: {fileID: 3325257805406034216}
@@ -228,55 +290,6 @@ MonoBehaviour:
   descriptionImage: {fileID: 7082599193116475455}
   descriptionText: {fileID: 7082599193535478032}
   itemTitle: {fileID: 5388977926000381567}
-  isOpen: 0
-  equippedWeapon: {fileID: 0}
---- !u!50 &3721434482242296087
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3721434482242296081}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
---- !u!61 &3721434482242296086
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3721434482242296081}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.0019403696}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.47, y: 2.14}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 2.0894678}
-  m_EdgeRadius: 0
 --- !u!95 &2682204365357982028
 Animator:
   serializedVersion: 4
@@ -411,7 +424,7 @@ PrefabInstance:
     - target: {fileID: 8363110933605343411, guid: 17aa225f753c47c48aa575af228841a6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 821570597394135200}
+      objectReference: {fileID: 955311261440194004}
     - target: {fileID: 8363110933605343411, guid: 17aa225f753c47c48aa575af228841a6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -422,7 +435,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8363110933605343411, guid: 17aa225f753c47c48aa575af228841a6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Inventory, Assembly-CSharp
+      value: InventoryUI, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 8363110933605343411, guid: 17aa225f753c47c48aa575af228841a6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -506,8 +519,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 821570597394135200}
-        m_TargetAssemblyTypeName: Inventory, Assembly-CSharp
+      - m_Target: {fileID: 955311261440194004}
+        m_TargetAssemblyTypeName: InventoryUI, Assembly-CSharp
         m_MethodName: ShowPrompt
         m_Mode: 3
         m_Arguments:
@@ -594,8 +607,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 821570597394135200}
-        m_TargetAssemblyTypeName: Inventory, Assembly-CSharp
+      - m_Target: {fileID: 955311261440194004}
+        m_TargetAssemblyTypeName: InventoryUI, Assembly-CSharp
         m_MethodName: ShowPrompt
         m_Mode: 3
         m_Arguments:
@@ -741,8 +754,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 821570597394135200}
-        m_TargetAssemblyTypeName: Inventory, Assembly-CSharp
+      - m_Target: {fileID: 955311261440194004}
+        m_TargetAssemblyTypeName: InventoryUI, Assembly-CSharp
         m_MethodName: ShowPrompt
         m_Mode: 3
         m_Arguments:

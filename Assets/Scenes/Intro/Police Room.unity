@@ -4599,6 +4599,10 @@ PrefabInstance:
         going to hold very long."
       objectReference: {fileID: 0}
     - target: {fileID: 3657289314272619913, guid: d1f16f0c08d74b44795dc04ae1907421, type: 3}
+      propertyPath: m_InitialState
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3657289314272619913, guid: d1f16f0c08d74b44795dc04ae1907421, type: 3}
       propertyPath: m_PlayableAsset
       value: 
       objectReference: {fileID: 11400000, guid: af97cc91374306e478fa43d384c83121, type: 2}

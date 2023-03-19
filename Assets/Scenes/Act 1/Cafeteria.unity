@@ -4537,6 +4537,7 @@ MonoBehaviour:
   minigameUI: {fileID: 30314420}
   itemDisplay: {fileID: 1844295904}
   orderNumDisplay: {fileID: 911664950}
+  anxietyMeter: 0
 --- !u!114 &1905708676
 MonoBehaviour:
   m_ObjectHideFlags: 0

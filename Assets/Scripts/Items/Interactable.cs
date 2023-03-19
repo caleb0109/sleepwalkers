@@ -101,10 +101,10 @@ public class Interactable : MonoBehaviour
                 break;
 
             case InteractableType.Examine:
-                if (inventManager.isOpen)
+                /*if (inventManager.isOpen)
                 {
                     break;
-                }
+                }*/
                 FindObjectOfType<Detect>().ExamineItem(this);
                 break;
 
