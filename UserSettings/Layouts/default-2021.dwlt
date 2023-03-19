@@ -125,7 +125,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 67
+  controlID: 15
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -309,9 +309,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: b0ccffff
-      m_LastClickedID: -13136
-      m_ExpandedIDs: 4ed0ffff0cfbffff2858000070580000b2d50000fad50000
+      m_SelectedIDs: 06620000
+      m_LastClickedID: 0
+      m_ExpandedIDs: 68e9ffff14f6ffff00fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -715,9 +715,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 0.93376017, y: 7.031283, z: -0.35072058}
+    m_Target: {x: 7.0217896, y: 4.113786, z: -0.4063621}
     speed: 2
-    m_Value: {x: 0.93376017, y: 7.031283, z: -0.35072058}
+    m_Value: {x: 7.0217896, y: 4.113786, z: -0.4063621}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -768,9 +768,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 12.652439
+    m_Target: 12.982775
     speed: 2
-    m_Value: 12.652439
+    m_Value: 12.982775
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -836,22 +836,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Resources/pfps/Yuichi
+    - Assets/Scenes/Intro
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Resources/pfps/Yuichi
+  - Assets/Scenes/Intro
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\School\Makers\sleepwalkers
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 21}
-    m_SelectedIDs: da620000
-    m_LastClickedID: 25306
-    m_ExpandedIDs: 00000000ee610000f0610000f2610000f4610000f6610000f8610000fa610000fc61000000ca9a3b
+    scrollPos: {x: 0, y: 360}
+    m_SelectedIDs: dc610000
+    m_LastClickedID: 25052
+    m_ExpandedIDs: 00000000e8600000ea600000ec600000ee600000f0600000f2600000f4600000f6600000c461000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -879,7 +879,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000ee610000f0610000f2610000f4610000f6610000f8610000fa610000fc610000
+    m_ExpandedIDs: 00000000e8600000ea600000ec600000ee600000f0600000f2600000f4600000f6600000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -904,8 +904,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 
-    m_LastClickedInstanceID: 0
+    m_SelectedInstanceIDs: 06620000
+    m_LastClickedInstanceID: 25094
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000f864000000650000ae2700000c770100562700002627000000000000945e00005a9d000092600000e25e0000a4680000582300004023000020230000ec230000d4230000e8230000d023000050230000ea590000
     m_RenameOverlay:
@@ -1029,5 +1029,5 @@ MonoBehaviour:
     m_IsLocked: 0
   m_SequenceHierarchy: {fileID: 0}
   m_SequencePath:
-    m_SelectionRoot: -13136
+    m_SelectionRoot: 0
     m_SubElements: []

@@ -12,13 +12,13 @@ public class Dialogue
     public List<string> sentences; // used for interactions with items or one off lines
     public TextAsset diaFile;
 
-    public List<Sprite> charaSprites;
+    private List<Sprite> charaSprites;
 
     // used to store the different facial expressions
     private Dictionary<string, Dictionary<string, Sprite>> expressions; 
 
-    public List<string> charaNames;
-    public List<string> charaLines;
+    private List<string> charaNames;
+    private List<string> charaLines;
 
     // used to store sentences tied to conditionals
     private List<List<string>> conditionalSentences;
@@ -71,21 +71,21 @@ public class Dialogue
             lines.RemoveAt(0); // removes the list of names
         }
         
-        // goes through each name and finds the folder based on the character's name
-        foreach (string n in charaNames)
+        for (int i = 0; i < charaNames.Count; i++)
         {
-            //Debug.Log(n);
-            if (n == "???")
+            charaNames[i] = charaNames[i].Trim();
+
+            if (charaNames[i] == "???")
             {
-                LoadSprites("pfps/Enemy", n); //TODO: fix this for other characters with '???' names
+                LoadSprites("pfps/Enemy", charaNames[i]); //TODO: fix this for other characters with '???' names
             }
-            else if (n.Contains("Student"))
+            else if (charaNames[i].Contains("Student"))
             {
-                LoadSprites("pfps/Student", n); // TODO: unhardcode the loading
+                LoadSprites("pfps/Student", charaNames[i]); // TODO: unhardcode the loading
             }
             else
             {
-                LoadSprites(new string("pfps/" + n), n);
+                LoadSprites(new string("pfps/" + charaNames[i]), charaNames[i]);
             }
         }
 
@@ -104,17 +104,12 @@ public class Dialogue
             expressions.Add(name, new Dictionary<string, Sprite>()); // initializes the dictionary inside the dictionary
         }
 
-        foreach (object t in temp)
-        {
-            charaSprites.Add(t as Sprite);
-        }
-
         // add each sprite to the character's inner dictionary
         for (int i = 0; i < temp.Length; i++)
         {
             Sprite emotion = (Sprite)temp[i];
 
-            charaSprites.Add((Sprite)temp[i]);
+            emotion.name = emotion.name.Trim();
 
             if (!expressions[name].ContainsKey(emotion.name))
             {
