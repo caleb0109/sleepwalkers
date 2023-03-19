@@ -1,4 +1,5 @@
 Yuichi
 Y-Scared|What was that thing?
-Y-TakeDamage|*breathes in*
-Y-Neutral|Doesn't matter, I need another way out of here; that door isn't going to hold very long.
+Y-Scared|It was so... spindly.
+Y-TakeDamage|*shudders*
+Y-Scared|It's so dark in here. I should turn on my flashlight using 'F'.

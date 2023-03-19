@@ -12,13 +12,13 @@ public class Dialogue
     public List<string> sentences; // used for interactions with items or one off lines
     public TextAsset diaFile;
 
-    private List<Sprite> charaSprites;
+    public List<Sprite> charaSprites;
 
     // used to store the different facial expressions
     private Dictionary<string, Dictionary<string, Sprite>> expressions; 
 
-    private List<string> charaNames;
-    private List<string> charaLines;
+    public List<string> charaNames;
+    public List<string> charaLines;
 
     // used to store sentences tied to conditionals
     private List<List<string>> conditionalSentences;
@@ -98,11 +98,15 @@ public class Dialogue
     {
         // searches the resources folder for the sprites and adds it to the array
         object[] temp = Resources.LoadAll(path, typeof(Sprite));
-        //Debug.Log("Path: " + path);
 
         if (name != "Yuichi" && !expressions.ContainsKey(name))
         {
             expressions.Add(name, new Dictionary<string, Sprite>()); // initializes the dictionary inside the dictionary
+        }
+
+        foreach (object t in temp)
+        {
+            charaSprites.Add(t as Sprite);
         }
 
         // add each sprite to the character's inner dictionary
@@ -110,7 +114,8 @@ public class Dialogue
         {
             Sprite emotion = (Sprite)temp[i];
 
-            Debug.Log(name + " " + emotion);
+            charaSprites.Add((Sprite)temp[i]);
+
             if (!expressions[name].ContainsKey(emotion.name))
             {
                 expressions[name].Add(emotion.name, emotion);
@@ -124,11 +129,6 @@ public class Dialogue
         Sprite returned = defaultSprite; // returns the default if it can't find the expression
 
         string charaExpress = name + "_" + expression;
-
-        foreach (string s in expressions[name].Keys)
-        {
-            Debug.Log(s);
-        }
 
         if (expressions[name].ContainsKey(charaExpress))
         {
