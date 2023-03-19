@@ -319,7 +319,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &189304818
 Transform:
   m_ObjectHideFlags: 0
@@ -347,10 +347,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02c11395f6ced3e4f9c12040e691e298, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogue:
-    sentences:
-    - The door's not going to hold for long, I need to find a way out of here.
-    diaFile: {fileID: 0}
+  dialogue: {fileID: 0}
   startsBattle: 0
   afterSpeak: {fileID: 0}
   objTrigger: {fileID: 0}
@@ -1214,7 +1211,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &413102061
 Transform:
   m_ObjectHideFlags: 0
@@ -1341,10 +1338,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02c11395f6ced3e4f9c12040e691e298, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogue:
-    sentences:
-    - I need something to climb to get to that window.
-    diaFile: {fileID: 0}
+  dialogue: {fileID: 0}
   startsBattle: 0
   afterSpeak: {fileID: 0}
   objTrigger: {fileID: 0}
@@ -2150,7 +2144,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &905858073
 Transform:
   m_ObjectHideFlags: 0
@@ -2278,9 +2272,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02c11395f6ced3e4f9c12040e691e298, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogue:
-    sentences: []
-    diaFile: {fileID: 4900000, guid: c345a22f8f3b8d94780fec660d611df3, type: 3}
+  dialogue: {fileID: 0}
   startsBattle: 0
   afterSpeak: {fileID: 0}
   objTrigger: {fileID: 0}
@@ -2303,7 +2295,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &954358082
 Transform:
   m_ObjectHideFlags: 0
@@ -2431,12 +2423,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02c11395f6ced3e4f9c12040e691e298, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogue:
-    sentences:
-    - Huh, long brown hair.
-    - The ends looked burnt and the dye looks familiar.
-    - Weird, wonder who's hair this is.
-    diaFile: {fileID: 0}
+  dialogue: {fileID: 0}
   startsBattle: 0
   afterSpeak: {fileID: 0}
   objTrigger: {fileID: 0}
@@ -3413,7 +3400,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1676504643
 Transform:
   m_ObjectHideFlags: 0
@@ -3542,9 +3529,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02c11395f6ced3e4f9c12040e691e298, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogue:
-    sentences: []
-    diaFile: {fileID: 4900000, guid: f6f0b0c0c57967c42ae3228925e54f15, type: 3}
+  dialogue: {fileID: 0}
   startsBattle: 0
   afterSpeak: {fileID: 0}
   objTrigger: {fileID: 0}
@@ -3836,7 +3821,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1779293034
 Transform:
   m_ObjectHideFlags: 0
@@ -3865,10 +3850,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02c11395f6ced3e4f9c12040e691e298, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogue:
-    sentences:
-    - This could help me get to that window above the file cabinet.
-    diaFile: {fileID: 0}
+  dialogue: {fileID: 0}
   startsBattle: 0
   afterSpeak: {fileID: 0}
   objTrigger: {fileID: 0}
@@ -4574,6 +4556,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3657289314272619912, guid: d1f16f0c08d74b44795dc04ae1907421, type: 3}
+      propertyPath: dialogue
+      value: 
+      objectReference: {fileID: 3657289315354813684}
+    - target: {fileID: 3657289314272619912, guid: d1f16f0c08d74b44795dc04ae1907421, type: 3}
       propertyPath: dialogue.currAct
       value: 
       objectReference: {fileID: 0}
@@ -4756,6 +4742,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1f16f0c08d74b44795dc04ae1907421, type: 3}
+--- !u!1 &3657289315354813683 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3657289314272619908, guid: d1f16f0c08d74b44795dc04ae1907421, type: 3}
+  m_PrefabInstance: {fileID: 3657289315354813682}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3657289315354813684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3657289315354813683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e189053314653394da453f3342fccdc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sentences: []
+  diaFile: {fileID: 4900000, guid: fde8a0941f8e39a459b7f058b29e0e0b, type: 3}
+  charaSprites: []
+  charaNames: []
+  charaLines: []
 --- !u!1001 &4340232125227832526
 PrefabInstance:
   m_ObjectHideFlags: 0

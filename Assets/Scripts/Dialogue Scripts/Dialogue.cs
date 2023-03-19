@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
-public class Dialogue
+public class Dialogue : MonoBehaviour
 {
-    private string name; // set the default to Yuichi, since we only use this for him
+    private string yName; // set the default to Yuichi, since we only use this for him
     private Sprite defaultSprite;
 
     [TextArea(3, 10)]
@@ -27,7 +26,7 @@ public class Dialogue
     public List<string> CharaNames { get { return charaNames; } }
     public List<string> CharaLines { get { return charaLines; } }
     public List<Sprite> CharaSprites { get { return charaSprites; } }
-    public string Name { get { return name; } }
+    public string Name { get { return yName; } }
     public Sprite DefaultSprite { get { return defaultSprite; } }
 
     public Dictionary<string, Dictionary<string, Sprite>> Expressions { get { return expressions; } }
@@ -35,13 +34,13 @@ public class Dialogue
 
     public void Start()
     {
-        name = "Yuichi";
+        yName = "Yuichi";
         defaultSprite = Resources.Load<Sprite>("pfps/Yuichi/Yuichi_Neutral");
 
         expressions = new Dictionary<string, Dictionary<string, Sprite>>();
 
-        expressions.Add(name, new Dictionary<string, Sprite>());
-        expressions[name].Add("Yuichi_Neutral", defaultSprite);
+        expressions.Add(yName, new Dictionary<string, Sprite>());
+        expressions[yName].Add("Yuichi_Neutral", defaultSprite);
 
         conditionalSentences = new List<List<string>>();
 
@@ -70,6 +69,11 @@ public class Dialogue
 
             lines.RemoveAt(0); // removes the list of names
         }
+
+        for (int i = 0; i < charaNames.Count; i++)
+        {
+            charaNames[i] = charaNames[i].Trim();
+        }
         
         // goes through each name and finds the folder based on the character's name
         foreach (string n in charaNames)
@@ -96,8 +100,11 @@ public class Dialogue
     // loads all the emotion sprites for each character
     private void LoadSprites(string path, string name)
     {
+        Debug.Log("I'm loading the sprites for : " + name);
         // searches the resources folder for the sprites and adds it to the array
         object[] temp = Resources.LoadAll(path, typeof(Sprite));
+
+        Debug.Log(temp.Length);
 
         if (name != "Yuichi" && !expressions.ContainsKey(name))
         {
@@ -106,6 +113,7 @@ public class Dialogue
 
         foreach (object t in temp)
         {
+            Debug.Log(t);
             charaSprites.Add(t as Sprite);
         }
 
