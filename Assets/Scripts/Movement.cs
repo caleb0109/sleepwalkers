@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Audio;
 
 public class Movement : MonoBehaviour
 {
@@ -82,6 +83,7 @@ public class Movement : MonoBehaviour
 
     public void OnOpenPhone()
     {
+
         for (int i = 0; i < phoneWindow.transform.childCount; i++)
         {
             GameObject child = phoneWindow.transform.GetChild(i).gameObject;
