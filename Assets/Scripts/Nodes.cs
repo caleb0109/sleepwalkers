@@ -34,7 +34,7 @@ public class Nodes : MonoBehaviour
             player.GetComponent<SpriteRenderer>().enabled = true;
         }
 
-       // MoveItemToNode(player);
+       MoveItemToNode(player);
     }
 
     // get the number of possible placements in the map
