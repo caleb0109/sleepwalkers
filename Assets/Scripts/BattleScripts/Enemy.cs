@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 
 public class Enemy : MonoBehaviour
@@ -13,11 +14,13 @@ public class Enemy : MonoBehaviour
 
     private Bars hpBar;
     private Animator damageAnim;
+    private AudioSource audSrc;
 
     public GameObject[] enemiesAttacks;
 
     private void Start()
     {
+        audSrc = this.GetComponent<AudioSource>();
         // set the animator
         damageAnim = this.transform.parent.gameObject.GetComponent<Animator>();
 
@@ -37,10 +40,9 @@ public class Enemy : MonoBehaviour
     }
     public void TakeDamage(float damage)
     {
+        audSrc.Play();
         health -= damage;
         hpBar.ShowHealth(health);
-        damageAnim.SetBool("enemyDamage", true);
-
-        
+        damageAnim.SetBool("enemyDamage", true);        
     }
 }
