@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 50868581}
   - component: {fileID: 50868580}
   - component: {fileID: 50868579}
+  - component: {fileID: 50868582}
   m_Layer: 0
   m_Name: rooftop_sky
   m_TagString: Untagged
@@ -326,13 +327,13 @@ MonoBehaviour:
     m_Events:
     - m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 50868576}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: 
+        - m_Target: {fileID: 50868582}
+          m_TargetAssemblyTypeName: DialogueTrigger, Assembly-CSharp
+          m_MethodName: TriggerAutoDia
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: 
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -365,6 +366,24 @@ PlayableDirector:
     value: {fileID: 1684776838}
   m_ExposedReferences:
     m_References: []
+--- !u!114 &50868582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 50868576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02c11395f6ced3e4f9c12040e691e298, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    sentences: []
+    diaFile: {fileID: 4900000, guid: 175ea320dd828ac4a8fcc91e80f1c8b8, type: 3}
+  startsBattle: 0
+  afterSpeak: {fileID: 0}
+  objTrigger: {fileID: 0}
 --- !u!1 &433111587
 GameObject:
   m_ObjectHideFlags: 0
