@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 652724912487023635}
+  - component: {fileID: 1045800910179506970}
   m_Layer: 0
   m_Name: YuichiWander
   m_TagString: Untagged
@@ -44,6 +45,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1045800910179506970
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 652724912487023633}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: aa032f79922c06a44ae33294bb1def00, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &652724913124037444
 GameObject:
   m_ObjectHideFlags: 0
@@ -870,8 +891,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 580755223
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 4745083263937431502, guid: c96211ada70a4784e857c6816f3e3605, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -954,8 +975,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 580755223
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 4440846200310177415, guid: c96211ada70a4784e857c6816f3e3605, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1122,8 +1143,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 580755223
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: -4043015064884258109, guid: c96211ada70a4784e857c6816f3e3605, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
