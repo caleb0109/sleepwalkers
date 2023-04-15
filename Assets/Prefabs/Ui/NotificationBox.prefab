@@ -375,9 +375,13 @@ MonoBehaviour:
   - {fileID: 21300000, guid: acf6ee5764d38224c9e86534f4b2d01f, type: 3}
   - {fileID: 21300000, guid: dcaba631951285d439096956b7aa006d, type: 3}
   - {fileID: 21300000, guid: 31587cf85ca021b4580712a47d96ea84, type: 3}
+  animator: {fileID: 0}
   soundByte:
-  - {fileID: 8300000, guid: 3f8a890bf1f886b40be3150463e545d9, type: 3}
-  - {fileID: 8300000, guid: 0503dbee74fa59143a3ec71791c2f857, type: 3}
+  - {fileID: 8300000, guid: 9c3b314df3732584f998cc56636a8d4d, type: 3}
+  - {fileID: 8300000, guid: 31adc1f36db82c149a5b7e73cac49075, type: 3}
+  - {fileID: 8300000, guid: 5d0895e047ba501448e820410e4fa530, type: 3}
+  - {fileID: 8300000, guid: 20707dbc1bb3e2b4d80350598c973d59, type: 3}
+  - {fileID: 8300000, guid: 5de87ee00e3b6d24090ea8363d991761, type: 3}
 --- !u!95 &1643474676767616172
 Animator:
   serializedVersion: 4

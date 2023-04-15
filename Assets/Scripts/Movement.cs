@@ -7,12 +7,16 @@ using UnityEngine.Audio;
 public class Movement : MonoBehaviour
 {
     public float speed = 5f;
-    public GameObject phoneWindow;
+    public List<AudioClip> footsteps;
 
     private Rigidbody2D rb;
     private Vector2 playerInput;
     private Animator anim;
+    private AudioSource audSrc;
     private Inventory inventory;
+    private Phone phoneWindow;
+
+    private bool inCutscene;
 
     private void Awake()
     {
@@ -22,11 +26,18 @@ public class Movement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        audSrc = GetComponent<AudioSource>();
+
+        audSrc.clip = footsteps[0];
+
+        inCutscene = false;
+
+        phoneWindow = FindObjectOfType<Phone>();
     }
 
     void Update()
     {
-        if (CanMove() == false)
+        if (!CanMove())
         {
             return;
         }
@@ -44,10 +55,11 @@ public class Movement : MonoBehaviour
     }
     void FixedUpdate()
     {
-        if (CanMove() == false)
+        if (!CanMove())
         {
             return;
         }
+
         rb.MovePosition(rb.position + playerInput * speed * Time.fixedDeltaTime);
     }
 
@@ -69,48 +81,49 @@ public class Movement : MonoBehaviour
             move = false;
         }
 
-        if (phoneWindow.activeInHierarchy)
+        if (phoneWindow.PhoneOpen())
         {
             move = false;
         }
 
+        if (inCutscene)
+        {
+            move = false;
+        }
+
+        // sets the animator to stop moving.
+        if (!move)
+        {
+            anim.SetFloat("hor", 0);
+            anim.SetFloat("ver", 0);
+        }
+
         return move;
     }
+
+    // toggles inCutscene to prevent player from moving.
+    public void ToggleInCutscene()
+    {
+        //inCutscene = !inCutscene;
+    }
+
     void OnMove(InputValue value)
     {
         playerInput = value.Get<Vector2>();
+
+        if (!audSrc.isPlaying && CanMove())
+        {
+            audSrc.Play();
+        }
     }
 
-    public void OnOpenPhone()
+    void OnOpenPhone()
     {
-
-        for (int i = 0; i < phoneWindow.transform.childCount; i++)
-        {
-            GameObject child = phoneWindow.transform.GetChild(i).gameObject;
-
-            // if any of the children are active, turn them off
-            if (child.activeInHierarchy && child.name != "phone")
-            {
-                child.SetActive(false);
-            }
-        }
-
-        phoneWindow.SetActive(!phoneWindow.activeInHierarchy); // toggles phone open screen with TAB button
+        phoneWindow.TogglePhone();
     }
 
-    public void OnOpenSettings()
+    void OnOpenSettings()
     {
-        OnOpenPhone();
-
-        for (int i = 0; i < phoneWindow.transform.childCount; i++)
-        {
-            GameObject child = phoneWindow.transform.GetChild(i).gameObject;
-
-            if (child.name == "Settings")
-            {
-                child.SetActive(true);
-                break;
-            }
-        }
+        phoneWindow.ToggleSettings();
     }
 }

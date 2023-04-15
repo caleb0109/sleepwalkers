@@ -32,7 +32,6 @@ public class NotificationManager : MonoBehaviour
     // sends in the notifcation to the player of picked up item
     public void NotifyInteractUpdate(Interactable interacted)
     {
-        notifFx.clip = soundByte[0]; // regular notification
         if (CheckAnimatorOpen())
         {
             itemQueue.Enqueue(interacted);
@@ -40,39 +39,46 @@ public class NotificationManager : MonoBehaviour
         else
         {
             string iName = interacted.itemName;
-            StartNotifAnim();
             switch (interacted.notifType)
             {
                 case Interactable.NotificationType.article:
+                    notifFx.clip = soundByte[0]; // article notif
                     notification.text = "New Article Added to Notes";
                     SetNotifTitle("notes", iName);
                     break;
 
                 case Interactable.NotificationType.item:
+                    notifFx.clip = soundByte[1]; // item collect notif
                     notification.text = "New Item Added to Inventory";
                     SetNotifTitle("inventory", iName);
                     break;
 
                 case Interactable.NotificationType.removed:
+                    notifFx.clip = soundByte[2]; // item removed notif
                     notification.text = "Item removed from Inventory";
                     SetNotifTitle("inventory", iName);
                     break;
 
                 case Interactable.NotificationType.photo:
+                    notifFx.clip = soundByte[3]; // photo notif
                     notification.text = "New Photo Added to Gallery";
                     SetNotifTitle("photo", iName);
                     break;
 
                 case Interactable.NotificationType.equipped:
+                    notifFx.clip = soundByte[4]; // equipped notif
                     notification.text = "Item Equipped";
                     SetNotifTitle("inventory", iName);
                     break;
 
                 case Interactable.NotificationType.unequipped:
+                    notifFx.clip = soundByte[4]; // unequipped notif (same as equipped)
                     notification.text = "Item Unequipped";
                     SetNotifTitle("inventory", iName);
                     break;
             }
+
+            StartNotifAnim();
 
         }
     }

@@ -34,7 +34,7 @@ public class Nodes : MonoBehaviour
             player.GetComponent<SpriteRenderer>().enabled = true;
         }
 
-        MoveItemToNode(player);
+       // MoveItemToNode(player);
     }
 
     // get the number of possible placements in the map
@@ -105,30 +105,34 @@ public class Nodes : MonoBehaviour
     // move the item location to that specific node based on closest node to players current position
     public void MoveItemToNode(GameObject item)
     {
-        Transform itemLoc = null; // TODO: rename variable
-        int pIndex = 0; // used in FindClosestLocation(...)
-
-        // go through each transform in the placements list
-        foreach (Transform t in placements)
+        if (item != null)
         {
-            // if the item name contains the location object name, assign the itemLoc to t and break
-            if (item.name.Contains(t.gameObject.name))
+
+            Transform itemLoc = null; // TODO: rename variable
+            int pIndex = 0; // used in FindClosestLocation(...)
+
+            // go through each transform in the placements list
+            foreach (Transform t in placements)
             {
-                itemLoc = t;
-                break;
+                // if the item name contains the location object name, assign the itemLoc to t and break
+                if (item.name.Contains(t.gameObject.name))
+                {
+                    itemLoc = t;
+                    break;
+                }
+
+                pIndex++;
             }
 
-            pIndex++;
-        }
-
-        // if there's other locations, find the closest location and set the position to it
-        if(CheckForOtherLocs(itemLoc))
-        {
-            item.transform.position = FindClosestLocation(pIndex, GameObject.Find("Yuichi"));
-        }
-        else // otherwise, set it to the current itemLoc position
-        {
-            item.transform.position = itemLoc.position;
+            // if there's other locations, find the closest location and set the position to it
+            if (CheckForOtherLocs(itemLoc))
+            {
+                item.transform.position = FindClosestLocation(pIndex, GameObject.Find("Yuichi"));
+            }
+            else // otherwise, set it to the current itemLoc position
+            {
+                item.transform.position = itemLoc.position;
+            }
         }
     }
 

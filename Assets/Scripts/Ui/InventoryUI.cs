@@ -118,7 +118,7 @@ public class InventoryUI : MonoBehaviour
     public void UseItem(GameObject reqItem, int listLoc)
     {
         Interactable item = reqItem.GetComponent<Interactable>();
-        Movement playerMove = FindObjectOfType<Movement>();
+        Phone playerPhone = FindObjectOfType<Phone>();
         Detect detection = FindObjectOfType<Detect>();
 
         Dialogue use = new Dialogue();
@@ -143,7 +143,7 @@ public class InventoryUI : MonoBehaviour
 
                 Update_UI();
 
-                playerMove.OnOpenPhone(); // closes phone window once item is used
+                playerPhone.TogglePhone(); // closes phone window once item is used
 
                 // put the item at the node closet to player
                 if (item.itemType == Interactable.Item.Placeable)
@@ -164,7 +164,7 @@ public class InventoryUI : MonoBehaviour
             else
             {
                 // turn off phone and mention that player can't use it in the certain area
-                playerMove.OnOpenPhone();
+                playerPhone.TogglePhone();
 
                 use.sentences = new List<string>() { "Can't use the " + item.itemName + " here." };
                 FindObjectOfType<DialogueManager>().StartDialogue(use, false, null);

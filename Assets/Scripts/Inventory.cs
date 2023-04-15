@@ -69,7 +69,7 @@ public class Inventory : MonoBehaviour
         equippedWeapon = weapon; // equip the new weapon
 
         // close phone
-        FindObjectOfType<Movement>().OnOpenPhone();
+        FindObjectOfType<Phone>().TogglePhone();
 
         // say something about getting the weapon equipped
         Dialogue equip = new Dialogue();
@@ -88,7 +88,7 @@ public class Inventory : MonoBehaviour
         FindObjectOfType<NotificationManager>().NotifyInteractUpdate(eWeapon);
 
         // close phone
-        FindObjectOfType<Movement>().OnOpenPhone();
+        FindObjectOfType<Phone>().TogglePhone();
 
         equippedWeapon = null;
     }

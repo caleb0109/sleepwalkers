@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 2682204365357982028}
   - component: {fileID: 3973780041444996180}
   - component: {fileID: 9103732214165716178}
+  - component: {fileID: 4890608709765245620}
   m_Layer: 0
   m_Name: Yuichi
   m_TagString: Player
@@ -255,6 +256,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   phoneWindow: {fileID: 6791667801650843102}
+  footsteps:
+  - {fileID: 8300000, guid: 87db55bf7de56574a92aa73444927168, type: 3}
+  - {fileID: 8300000, guid: 2bc2634fdf5fafe48af8da168dacb266, type: 3}
 --- !u!114 &2687671650993019559
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -416,6 +420,36 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &4890608709765245620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3721434482242296081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: 2eb62daea8a34e4419537cc963ebcac2, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 3721434482242296082}
+          m_TargetAssemblyTypeName: Movement, Assembly-CSharp
+          m_MethodName: ToggleInCutscene
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1001 &6309863452697004039
 PrefabInstance:
   m_ObjectHideFlags: 0
