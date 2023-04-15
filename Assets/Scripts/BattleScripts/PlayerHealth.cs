@@ -15,16 +15,20 @@ public class PlayerHealth : MonoBehaviour
 
     private Sprite neutral;
     private Sprite damageTake;
+    private AudioSource damageSfx;
+
     private void Start()
     {
         hBar.SetMax(maxHealth);
         neutral = Resources.Load<Sprite>("pfps/Yuichi/Yuichi_Neutral");
         damageTake = Resources.Load<Sprite>("pfps/Yuichi/Yuichi_TakeDamage");
         pBox.sprite = neutral;
+        damageSfx = this.GetComponent<AudioSource>();
     }
 
     public void TakeDamage(int damage)
     {
+        damageSfx.Play();
         health -= damage;
 
         if (health < 0)
