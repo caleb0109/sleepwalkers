@@ -127,7 +127,7 @@ MonoBehaviour:
   itemName: 
   reqItemName: 
   searchItemSprite: {fileID: 0}
-  interactType: 9
+  interactType: 8
   notifType: 0
   itemType: 0
   descriptionText: 
