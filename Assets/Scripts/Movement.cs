@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 
 public class Movement : MonoBehaviour
 {
@@ -114,7 +115,9 @@ public class Movement : MonoBehaviour
 
     void OnMove(InputValue value)
     {
-        playerInput = value.Get<Vector2>();
+
+            playerInput = value.Get<Vector2>();
+        
     }
 
     void OnOpenPhone()

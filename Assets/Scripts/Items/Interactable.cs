@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.Playables;
+using UnityEngine.SceneManagement;
 /*
  * CODE WRITTEN AND DEVELOPED BY POM POM PUDDING G AND YESSICA !!!! thank you takumi
  * 
@@ -85,6 +86,8 @@ public class Interactable : MonoBehaviour
 
     public void Interact()
     {
+        if(SceneManager.GetActiveScene().buildIndex != 6)
+        {
         switch (interactType)
         {
             case InteractableType.PickUp:
@@ -201,4 +204,5 @@ public class Interactable : MonoBehaviour
                 break;
         }
     }  
+    }
 }
