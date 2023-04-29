@@ -51,6 +51,11 @@ public class Movement : MonoBehaviour
                 anim.SetFloat("old hor", playerInput.x);
                 anim.SetFloat("old ver", playerInput.y);
             }
+
+            if (!audSrc.isPlaying && (playerInput.x != 0 || playerInput.y != 0))
+            {
+                audSrc.Play();
+            }
         }
     }
     void FixedUpdate()
@@ -110,11 +115,6 @@ public class Movement : MonoBehaviour
     void OnMove(InputValue value)
     {
         playerInput = value.Get<Vector2>();
-
-        if (!audSrc.isPlaying && CanMove())
-        {
-            audSrc.Play();
-        }
     }
 
     void OnOpenPhone()

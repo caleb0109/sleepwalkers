@@ -68,11 +68,13 @@ public class Detect : MonoBehaviour
             {
                 s.PlaySound();
             }
-         
-         //detectedObj.SetActive(false);
-         detectedObj.GetComponent<SpriteRenderer>().enabled = false;
-               detectedObj.GetComponent<PolygonCollider2D>().enabled = false;
-            
+
+            //detectedObj.SetActive(false);
+            if (detectedObj.GetComponent<SpriteRenderer>())
+            {
+                detectedObj.GetComponent<SpriteRenderer>().enabled = false;
+                detectedObj.GetComponent<PolygonCollider2D>().enabled = false;
+            }
             
         }
 

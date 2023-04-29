@@ -11,7 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Settings.unity
     guid: 38d1c5d708d875d4a847cd784b28b15c
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Loading.unity
     guid: 2b6dca0404b43ca4ea8cb2d2797d949b
   - enabled: 1
@@ -23,16 +23,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Intro/Rooftop.unity
     guid: 7e57339736a164941836e675f2e1be1d
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Act 1/House.unity
     guid: 77408e036ddbbce4496d2790a3f0be1c
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Act 1/School.unity
     guid: b7790dbd76227e243aa9d47dc52b1f26
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Act 1/Classroom.unity
     guid: 127517f116dbe714ea753296734126a2
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Act 1/Dream School.unity
     guid: 15d3d7ddb0e49d346863bb184f47457a
   - enabled: 1
@@ -41,10 +41,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Battle.unity
     guid: cbe7c4e3a2b77e24bb8c453586b83cb4
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Act 1/Cafeteria.unity
     guid: 6e8bebe72f2b91e46a5ee60fa0edbd8c
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Act 1/Library.unity
     guid: c5d22d57e7e4b6e4a89331aef56b9823
   m_configObjects:
