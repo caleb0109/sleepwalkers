@@ -32,10 +32,13 @@ public class StartButtons : MonoBehaviour
                 Application.Quit();
                 break;
             case "Return":
-                GameObject consistents = FindObjectOfType<DontDestroy>().gameObject;
-                if (consistents != null)
+                if (FindObjectOfType<DontDestroy>())
                 {
-                    Destroy(consistents);
+                    GameObject consistents = FindObjectOfType<DontDestroy>().gameObject;
+                    if (consistents != null)
+                    {
+                        Destroy(consistents);
+                    }
                 }
                 UnityEngine.SceneManagement.SceneManager.LoadSceneAsync("Start");
                 break;

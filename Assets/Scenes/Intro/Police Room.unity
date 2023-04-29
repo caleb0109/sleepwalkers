@@ -911,7 +911,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5958e29201a0b9b4b95ecae90afdf4d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  yuichi: {fileID: 1244224470}
 --- !u!1 &281684482
 GameObject:
   m_ObjectHideFlags: 0
@@ -1958,7 +1957,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4890608709765245620, guid: f0e62313dde2a0949821399ef125942c, type: 3}
   m_PrefabInstance: {fileID: 641958092}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1244224470}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
@@ -3274,11 +3273,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1244224470 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3721434482242296081, guid: f0e62313dde2a0949821399ef125942c, type: 3}
-  m_PrefabInstance: {fileID: 641958092}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1335938901
 GameObject:
   m_ObjectHideFlags: 0
@@ -4298,7 +4292,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &1762527149
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5162,7 +5156,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3657289314272619913, guid: d1f16f0c08d74b44795dc04ae1907421, type: 3}
       propertyPath: m_InitialState
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3657289314272619913, guid: d1f16f0c08d74b44795dc04ae1907421, type: 3}
       propertyPath: m_PlayableAsset
