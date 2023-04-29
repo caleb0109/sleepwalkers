@@ -86,6 +86,7 @@ public class Scenes : MonoBehaviour
                 if (won)
                 {
                     Interactable iObj = gObj.GetComponent<Interactable>();
+                    Debug.Log(gObj);
                     if (iObj.interactType != Interactable.InteractableType.Trigger)
                     {
                         iObj.interactType = Interactable.InteractableType.Cutscene;

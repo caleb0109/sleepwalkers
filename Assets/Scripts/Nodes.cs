@@ -23,7 +23,7 @@ public class Nodes : MonoBehaviour
             placements.Add(this.transform.GetChild(i));
         }
 
-        CinemachineConfiner camConfiner = GameObject.Find("CM vcam1").GetComponent<CinemachineConfiner>();
+        CinemachineConfiner camConfiner = GameObject.Find("main").GetComponent<CinemachineConfiner>();
 
         //camConfiner.bounding2dShape = GameObject.Find("camConfine").GetComponent<PolygonCollider2d>();
 

@@ -4215,7 +4215,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   phoneWindow: {fileID: 707622047137842649}
-  phoneSfx: []
+  phoneSfx:
+  - {fileID: 8300000, guid: a00b77241f66fe84f81ff50b1981275d, type: 3}
+  - {fileID: 8300000, guid: 39ecff9c8ed0c8848ab05bc7801201fa, type: 3}
 --- !u!82 &1305774079366376250
 AudioSource:
   m_ObjectHideFlags: 0
