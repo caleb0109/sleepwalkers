@@ -60,7 +60,7 @@ public class InventoryUI : MonoBehaviour
             promptBttns[0].onClick.RemoveAllListeners();
 
             // if the item is a weapon, display different option. Else display Use otion
-            if (invent.Items[id].GetComponent<Interactable>().itemType == Interactable.Item.Weapon)
+            /*if (invent.Items[id].GetComponent<Interactable>().itemType == Interactable.Item.Weapon)
             {
                 if (invent.equippedWeapon != null)
                 {
@@ -77,8 +77,7 @@ public class InventoryUI : MonoBehaviour
             {
                 promptBttns[0].transform.GetChild(0).GetComponent<Text>().text = "Use Item";
                 promptBttns[0].onClick.AddListener(() => UseItem(invent.Items[id], id));
-            }
-
+            }*/
         }
     }
 
@@ -127,7 +126,7 @@ public class InventoryUI : MonoBehaviour
         HidePrompt();
 
         // if the item is useable or food
-        if (item.itemType == Interactable.Item.Useable || item.itemType == Interactable.Item.Placeable)
+       /*if (item.itemType == Interactable.Item.Useable || item.itemType == Interactable.Item.Placeable)
         {
             Debug.Log("I'm using the item");
             // if in the correct area, remove item and use it
@@ -169,6 +168,6 @@ public class InventoryUI : MonoBehaviour
                 use.sentences = new List<string>() { "Can't use the " + item.itemName + " here." };
                 FindObjectOfType<DialogueManager>().StartDialogue(use, false, null);
             }
-        }
+        }*/
     }
 }

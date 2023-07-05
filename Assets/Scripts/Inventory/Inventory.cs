@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 
 public class Inventory : MonoBehaviour
 {
@@ -11,6 +12,9 @@ public class Inventory : MonoBehaviour
     [HideInInspector]
     public bool isOpen;
     public GameObject equippedWeapon = null;
+
+    // Streamreader/StreamWriter
+    public StreamWriter inventStream;
 
     public List<GameObject> Items { get { return items; } }
 

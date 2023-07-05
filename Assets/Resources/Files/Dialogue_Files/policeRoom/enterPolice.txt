@@ -2,4 +2,4 @@ Yuichi
 Y-Scared|What was that thing?
 Y-Scared|It was so... spindly.
 Y-TakeDamage|*shudders*
-Y-Scared|It's so dark in here. Let me turn on the lights real quick. 
+Y-Scared|It's really dark in here. I should turn on the lights. 

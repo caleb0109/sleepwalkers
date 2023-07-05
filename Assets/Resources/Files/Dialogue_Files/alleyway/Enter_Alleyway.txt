@@ -1,3 +1,3 @@
-Thug,Yuichi
-T|Boss said he came out this way, find him!
-Y|Shit... What do I do now?
+Yuichi
+Y-TakeDamage|Phew, that room was dusty.
+Y-Neutral|Where do I go from here?

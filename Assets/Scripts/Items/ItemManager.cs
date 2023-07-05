@@ -9,6 +9,14 @@ using UnityEngine;
 /// </summary>
 public class ItemManager : MonoBehaviour
 {
+    public enum Item
+    {
+        None,
+        Placeable,
+        Useable,
+        Weapon,
+        Food
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -20,5 +28,15 @@ public class ItemManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void CreateItem()
+    {
+
+    }
+
+    public void LoadInventory()
+    {
+        // check inventory files
     }
 }

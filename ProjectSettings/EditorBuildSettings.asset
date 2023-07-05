@@ -23,16 +23,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Intro/Rooftop.unity
     guid: 7e57339736a164941836e675f2e1be1d
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Act 1/House.unity
     guid: 77408e036ddbbce4496d2790a3f0be1c
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Act 1/School.unity
     guid: b7790dbd76227e243aa9d47dc52b1f26
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Act 1/Classroom.unity
     guid: 127517f116dbe714ea753296734126a2
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Act 1/Dream School.unity
     guid: 15d3d7ddb0e49d346863bb184f47457a
   - enabled: 1

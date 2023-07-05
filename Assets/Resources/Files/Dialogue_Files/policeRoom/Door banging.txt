@@ -1,4 +1,4 @@
 Yuichi
-Y-Neutral|Where am I? This looks like some sort of storage locker
+Y-Neutral|What is this room? This looks like some sort of storage locker.
 Y-Neutral|I can use 'WASD' to move around and explore.
-Y-Scared|Ah! I should find a way out of this room.
+Y-Scared|Ah! I should find another way out of this room.
