@@ -35,7 +35,7 @@ public class Dialogue
 
     public void Start()
     {
-        name = "Yuichi";
+        name = "Yuichi"; // backup if charaNames is empty
         defaultSprite = Resources.Load<Sprite>("pfps/Yuichi/Yuichi_Neutral");
 
         expressions = new Dictionary<string, Dictionary<string, Sprite>>();

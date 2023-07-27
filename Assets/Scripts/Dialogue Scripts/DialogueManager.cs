@@ -1,4 +1,4 @@
-// Base code used from https://www.youtube.com/watch?v=_nRzoTzeyxU 
+// Base code from https://www.youtube.com/watch?v=_nRzoTzeyxU 
 
 using System.Collections;
 using System.Collections.Generic;
@@ -9,6 +9,7 @@ using UnityEngine.Playables;
 
 public class DialogueManager : MonoBehaviour
 {
+    #region Variables
     // variables other scripts will use to change specific data to display
     public Text nameText;
     public Text dialogueText;
@@ -22,19 +23,31 @@ public class DialogueManager : MonoBehaviour
     // variables used to display the sentences
     private Queue<string> sentences;
     private Dialogue dialogueHolder;
-    private bool startBattle;
-    private GameObject gObj;
-    //private float multiplier; // used in the future for if the user wants to change the speed of the autoplay
     private string currSentence;
+
+    // battle variables
+    private bool startBattle;
+    private GameObject gObj; // passes game object data to battle scripts
+
+    //private float multiplier; // used in the future for if the user wants to change the speed of the autoplay
+
+    // variables for playing sfx
+    public List<AudioClip> charaSpeech;
+    private Dictionary<string, List<AudioClip>> charasInDia;
+    private AudioSource audSrc;
+    #endregion
 
     void Start()
     {
+        charasInDia = new Dictionary<string, List<AudioClip>>();
+        audSrc = this.gameObject.GetComponent<AudioSource>();
         sentences = new Queue<string>();
         isSpeaking = false;
         isTyping = false;
         startBattle = false;
         //multiplier = 1f;
     }
+
 
     // used for normal dialogue between characters or with Yuichi
     public void StartDialogue(Dialogue dia, bool battle, GameObject obj)
@@ -117,13 +130,11 @@ public class DialogueManager : MonoBehaviour
 
             string[] currEmotion = split[0].Split('-'); // written to file like = "CharaInitial-Emotion"
 
-            Debug.Log(split[0]);
             // look for the name and set the correct sprite and name for the line
             for (int i = 0; i < dialogueHolder.CharaNames.Count; i++)
             {
                 if (dialogueHolder.CharaNames[i].Contains(currEmotion[0]))
                 {
-                    Debug.Log("I found the character");
                     nameText.text = dialogueHolder.CharaNames[i];
                     imgSprite.sprite = dialogueHolder.FindExpression(nameText.text, currEmotion[1]);
                     Debug.Log(imgSprite.sprite);
@@ -173,9 +184,16 @@ public class DialogueManager : MonoBehaviour
             sentences.Clear();
         }
 
+        // clears the dictionary for the new chara sfx to be loaded
+        if (charasInDia != null)
+        {
+            charasInDia.Clear();
+        }
+
         imgSprite.sprite = dialogueHolder.DefaultSprite; // used to set the default sprite to Yuichi's neutral face
         nameText.text = dialogueHolder.Name;
 
+        // add the sentences to the queue, if it isn't during the battle and if there's dialogue typed into the sentences field
         if (!startBattle && dialogueHolder.sentences.Count > 0)
         {
             EnqueueSentences(dialogueHolder.sentences);
@@ -183,6 +201,36 @@ public class DialogueManager : MonoBehaviour
         else
         {
             EnqueueSentences(dialogueHolder.CharaLines);
+        }
+
+        // checks if there's a dialogue file or just Yuichi's thoughts typed in the public field
+        if (dialogueHolder.diaFile != null)
+        {
+            // get all the sfx for the characters in the dialogue exchange
+            for (int i = 0; i < dialogueHolder.CharaNames.Count; i++)
+            {
+                charasInDia.Add(dialogueHolder.CharaNames[i], new List<AudioClip>()); // initialize the list for the character
+
+                GetSfxForDialogue(dialogueHolder.CharaNames[i]);
+            }
+        }
+        else
+        {
+            charasInDia.Add(dialogueHolder.Name, new List<AudioClip>()); // initialize the list for Yuichi
+            GetSfxForDialogue(dialogueHolder.Name);
+        }
+    }
+
+    // searches the charaSpeech for the sfx of the characters
+    private void GetSfxForDialogue(string characterName)
+    {
+        for (int i = 0; i < charaSpeech.Count; i++)
+        {
+            if (charaSpeech[i].name.Contains(characterName))
+            {
+                Debug.Log("Found it: " + charaSpeech[i].name);
+                charasInDia[characterName].Add(charaSpeech[i]);
+            }
         }
     }
 
@@ -201,8 +249,14 @@ public class DialogueManager : MonoBehaviour
         dialogueText.text = "";
         isTyping = true;
         char[] letters = currSentence.ToCharArray();
+
+        // change to while loop so it can have time to play the sfx
         for (int i = 0; i < letters.Length; i++)
         {
+            // uses the current speaker to randomly play the speaking sfx
+            audSrc.clip = charasInDia[nameText.text][Random.Range(0, charasInDia[nameText.text].Count - 1)];
+            audSrc.Play();
+
             char l = letters[i];
             dialogueText.text += l;
 
