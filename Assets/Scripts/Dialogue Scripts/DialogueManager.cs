@@ -29,7 +29,7 @@ public class DialogueManager : MonoBehaviour
     private bool startBattle;
     private GameObject gObj; // passes game object data to battle scripts
 
-    //private float multiplier; // used in the future for if the user wants to change the speed of the autoplay
+    private float typingSpeed; // used to determine spacing between each letter typed
 
     // variables for playing sfx
     public List<AudioClip> charaSpeech;
@@ -45,7 +45,7 @@ public class DialogueManager : MonoBehaviour
         isSpeaking = false;
         isTyping = false;
         startBattle = false;
-        //multiplier = 1f;
+        typingSpeed = 2f; // default typing speed
     }
 
 
@@ -148,16 +148,12 @@ public class DialogueManager : MonoBehaviour
         }
 
         StopAllCoroutines();
-        if (autoDia)
-        {
-            StartCoroutine(AutoPlayDialogue());
-        }
         StartCoroutine(TypeSentence());
         
     }
 
     #region Helper Methods
-    // Enqueues the sentences
+    // Enqueues the sentences to display
     private void EnqueueSentences(List<string> sent)
     {
         // puts each sentence into the queue
@@ -231,8 +227,6 @@ public class DialogueManager : MonoBehaviour
                 charasInDia[characterName].Add(charaSpeech[i]);
             }
         }
-
-        Debug.Log(charasInDia[characterName].Count);
     }
 
     //Completes the sentence ahead of the typing for impatient players
@@ -255,53 +249,42 @@ public class DialogueManager : MonoBehaviour
         // change to while loop so it can have time to play the sfx
         while (letters.Count > 0)
         {
-            if (timer >= 0.5f)
+            if (timer >= typingSpeed)
             {
-                timer = 0.0f;
-                // uses the current speaker to randomly play the speaking sfx
-                audSrc.clip = charasInDia[nameText.text][Random.Range(0, charasInDia[nameText.text].Count - 1)];
-                audSrc.Play();
+                timer = 0.0f; // resets the timer
+
+                if (letters[0].ToString() != " ")
+                {
+                    // uses the current speaker to randomly play the speaking sfx
+                    audSrc.clip = charasInDia[nameText.text][Random.Range(0, charasInDia[nameText.text].Count - 1)];
+                    audSrc.Play();
+                }
 
                 dialogueText.text += letters[0];
-                letters.RemoveAt(0);
+                letters.RemoveAt(0);                
             }
 
-            timer += 0.01f;
+            timer += 0.1f;
 
             yield return null;            
         }
 
         isTyping = false;
+
+        // if it's autoplaying dialogue, let it display for a few seconds before going away
+        if (autoDia)
+        {
+            StartCoroutine(AutoPlayDialogue());
+        }
     }
 
-    // displays the dialogue for a certain amount of time
+    // displays the dialogue for a certain amount of time after it's done typing
     IEnumerator AutoPlayDialogue()
     {
         // display on the screen for a few seconds before going to next dialogue
-        float duration;
+        float duration = 2f;
         int arrayLength = currSentence.ToCharArray().Length;
-
-        // determines how long the dialogue should be displayed based on the string length
-        if (arrayLength > 300)
-        {
-            duration = 10f;
-        }
-        else if (arrayLength > 100)
-        {
-            duration = 6f;
-        }
-        else if (arrayLength > 50)
-        {
-            duration = 5f;
-        }
-        else if (arrayLength > 25)
-        {
-            duration = 4f;
-        }
-        else
-        {
-            duration = 3f;
-        }
+        
 
         while (duration > 0f)
         {
@@ -311,6 +294,7 @@ public class DialogueManager : MonoBehaviour
             {
                 DisplayNextSentence();
             }
+
             yield return null;
         }
     }

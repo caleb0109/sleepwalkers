@@ -1,9 +1,0 @@
-Hua,Yuichi
-H-Worried|Are you alright?  Why are you making so much noise this early in the morning? Did you fall down the stairs?
-Y-Embarassed|Yeah... Did I wake you up?
-H-Neutral|No, I have to leave for work in a bit. Don’t forget to do your chores, Mom’ll be checking everything once she gets home.
-H-Neutral|...
-H-Worried|When did you get all these bruises?
-Y-TakeDamage|OW! What was that for?
-H-Neutral|I- wait. Yui, the bus will be here soon.
-Y-Scared|Shoot! I'm gonna miss it!
