@@ -228,10 +228,11 @@ public class DialogueManager : MonoBehaviour
         {
             if (charaSpeech[i].name.Contains(characterName))
             {
-                Debug.Log("Found it: " + charaSpeech[i].name);
                 charasInDia[characterName].Add(charaSpeech[i]);
             }
         }
+
+        Debug.Log(charasInDia[characterName].Count);
     }
 
     //Completes the sentence ahead of the typing for impatient players
@@ -248,25 +249,29 @@ public class DialogueManager : MonoBehaviour
     {
         dialogueText.text = "";
         isTyping = true;
-        char[] letters = currSentence.ToCharArray();
+        List<char> letters = new List<char>(currSentence.ToCharArray());
+        float timer = 0.0f; // time between each letter
 
         // change to while loop so it can have time to play the sfx
-        for (int i = 0; i < letters.Length; i++)
+        while (letters.Count > 0)
         {
-            // uses the current speaker to randomly play the speaking sfx
-            audSrc.clip = charasInDia[nameText.text][Random.Range(0, charasInDia[nameText.text].Count - 1)];
-            audSrc.Play();
-
-            char l = letters[i];
-            dialogueText.text += l;
-
-            if (i + 1 == letters.Length)
+            if (timer >= 0.5f)
             {
-                isTyping = false;
+                timer = 0.0f;
+                // uses the current speaker to randomly play the speaking sfx
+                audSrc.clip = charasInDia[nameText.text][Random.Range(0, charasInDia[nameText.text].Count - 1)];
+                audSrc.Play();
+
+                dialogueText.text += letters[0];
+                letters.RemoveAt(0);
             }
+
+            timer += 0.01f;
 
             yield return null;            
         }
+
+        isTyping = false;
     }
 
     // displays the dialogue for a certain amount of time
