@@ -9,6 +9,8 @@ public class Inventory : MonoBehaviour
 
     private InventoryUI invenUI;
 
+    public GameObject inventoryObj; // used to keep the items with the player
+
     [HideInInspector]
     public bool isOpen;
     public GameObject equippedWeapon = null;
@@ -27,6 +29,8 @@ public class Inventory : MonoBehaviour
     {
         items.Add(item);
         invenUI.AddItemSprite(item.GetComponent<SpriteRenderer>().sprite);
+
+        item.transform.SetParent(inventoryObj.transform);
 
         invenUI.Update_UI();
     }
@@ -50,6 +54,7 @@ public class Inventory : MonoBehaviour
     {
         itemHost.GetComponent<SpriteRenderer>().sprite = itemSprite; // changes the sprite in the inventory view
         items.Add(itemHost);
+        itemHost.transform.SetParent(inventoryObj.transform);
         invenUI.AddItemSprite(itemSprite);
         invenUI.Update_UI();
     }
@@ -110,7 +115,7 @@ public class Inventory : MonoBehaviour
         invenUI.HidePrompt();
 
         // if the item is useable or food
-        if (item.itemType == Interactable.Item.Useable || item.itemType == Interactable.Item.Placeable)
+        if (item.itemType == ItemManager.Item.Useable || item.itemType == ItemManager.Item.Placeable)
         {
             Debug.Log("I'm using the item");
             // if in the correct area, remove item and use it
@@ -129,12 +134,12 @@ public class Inventory : MonoBehaviour
                 playerPhone.TogglePhone(); // closes phone window once item is used
 
                 // put the item at the node closet to player
-                if (item.itemType == Interactable.Item.Placeable)
+                if (item.itemType == ItemManager.Item.Placeable)
                 {
                     Debug.Log("I'm placing the item");
                     // set the item to active and change the properties
                     PlaceItem(reqItem, detection);
-                    item.itemType = Interactable.Item.None;
+                    item.itemType = ItemManager.Item.None;
                     item.interactType = Interactable.InteractableType.Cutscene;
 
                     if (item.gameObject.GetComponent<DialogueTrigger>() != null)
@@ -155,14 +160,16 @@ public class Inventory : MonoBehaviour
         }
     }
 
-        // used to move the item, set it active, and turn off the collider for the detectedObj
-        public void PlaceItem(GameObject item, Detect collidedObj)
+    // used to move the item, set it active, and turn off the collider for the detectedObj
+    public void PlaceItem(GameObject item, Detect collidedObj)
     {
         FindObjectOfType<Nodes>().MoveItemToNode(item); // move the item
         collidedObj.DetectedObj.GetComponent<BoxCollider2D>().enabled = false; // turn off the collider for the specifc item loc
         item.SetActive(true);
+        item.transform.parent = null;
     }
 
+    // removes the item from inventory list
     public void RemoveItem(GameObject itemToRemove)
     {
         items.Remove(itemToRemove);

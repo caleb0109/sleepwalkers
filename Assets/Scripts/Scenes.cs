@@ -6,6 +6,8 @@ using UnityEngine.Playables;
 
 public class Scenes : MonoBehaviour
 {
+    public Camera mainCam;
+
     private List<string> scenesInBuild;
     private string prevScene;
     static Vector3 prevPosition;
@@ -32,12 +34,17 @@ public class Scenes : MonoBehaviour
     }
 
     public void NextScene()
-    {
+    {/*
         GameObject cConfiner = GameObject.Find("cameraConfiner");
         if (cConfiner != null)
         {
             Destroy(cConfiner);
             Destroy(GameObject.Find("dumpster"));
+        }*/
+
+        if (battleTrigger != "")
+        {
+            GameObject.Find(battleTrigger);
         }
 
         for (int i = 0; i < scenesInBuild.Count; i++) 
@@ -49,6 +56,8 @@ public class Scenes : MonoBehaviour
                 break;
             }
         }
+
+
     }
 
     // goes to battle scene and get the players prev position and the prev scene

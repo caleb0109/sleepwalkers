@@ -11,16 +11,7 @@ using UnityEngine.SceneManagement;
  * */
 public class Interactable : MonoBehaviour
 {
-    // Start is called before the first frame update
-    public enum Item
-    {
-        None,
-        Placeable,
-        Useable,
-        Weapon,
-        Food
-    }
-
+    // determines the interaction type of the interactable
     public enum InteractableType
     {
         NONE,
@@ -34,6 +25,7 @@ public class Interactable : MonoBehaviour
         Cafeteria
     }
 
+    // determines the notification type of the interactable
     public enum NotificationType
     {
         none,
@@ -53,11 +45,11 @@ public class Interactable : MonoBehaviour
 
     public Sprite searchItemSprite; // item sprite that goes with the search
 
-    public Item itemType; // temporary, will remove later to a different script
+    public ItemManager.Item itemType; // temporary, will remove later to a different script
     public InteractableType interactType;
     public NotificationType notifType;
 
-    public string descriptionText;
+    public string descriptionText; // description of the interatcable
 
     public Sprite afterInteract;
     public GameObject highlight;
@@ -69,6 +61,7 @@ public class Interactable : MonoBehaviour
     private DialogueTrigger dia;
     //private int interactCount;
 
+    // all the different script managers 
     private Scenes sManager;
     private Inventory inventManager;
     private NotificationManager notifManager;

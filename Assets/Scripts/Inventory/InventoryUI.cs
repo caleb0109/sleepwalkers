@@ -60,7 +60,7 @@ public class InventoryUI : MonoBehaviour
             promptBttns[0].onClick.RemoveAllListeners();
 
             // if the item is a weapon, display different option. Else display Use otion
-            if (invent.Items[id].GetComponent<Interactable>().itemType == Interactable.Item.Weapon)
+            if (invent.Items[id].GetComponent<Interactable>().itemType == ItemManager.Item.Weapon)
             {
                 if (invent.equippedWeapon != null)
                 {

@@ -667,7 +667,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1576148202108643422, guid: 8e180dd114eee9e4f91230f5c5286b37, type: 3}
       propertyPath: itemType
-      value: 0
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1576148202108643422, guid: 8e180dd114eee9e4f91230f5c5286b37, type: 3}
       propertyPath: notifType
@@ -891,11 +891,12 @@ MonoBehaviour:
   itemName: 
   reqItemName: Croissant
   searchItemSprite: {fileID: 0}
+  itemType: 0
   interactType: 5
   notifType: 0
-  itemType: 0
   descriptionText: 
   afterInteract: {fileID: 0}
+  highlight: {fileID: 0}
 --- !u!50 &1033172467
 Rigidbody2D:
   serializedVersion: 4
@@ -956,15 +957,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    sprite: {fileID: 201538615760092092, guid: b4bc014b4d284994e97eb64f4c87d63d, type: 3}
     sentences:
     - Hiya! How you doing?
     - Oh you! Hahaha!
     - Seeing you is like looking in a mirror except you're not red. Wait, why do
       we look the same??
     diaFile: {fileID: 0}
-    charaSprites: []
   startsBattle: 0
+  afterSpeak: {fileID: 0}
+  objTrigger: {fileID: 0}
 --- !u!212 &1033172470
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1160,11 +1161,12 @@ MonoBehaviour:
   itemName: 
   reqItemName: 
   searchItemSprite: {fileID: 0}
+  itemType: 0
   interactType: 3
   notifType: 3
-  itemType: 0
   descriptionText: 
   afterInteract: {fileID: 21300000, guid: 48e24643d3c28e44ab84ebad0dbc7667, type: 3}
+  highlight: {fileID: 0}
 --- !u!114 &1081153431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1178,14 +1180,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    sprite: {fileID: 201538615760092092, guid: b4bc014b4d284994e97eb64f4c87d63d, type: 3}
     sentences:
     - 'Ooo a gun, this could come in handy. '
     - '*checks magazine* '
     - IF it were loaded.
     diaFile: {fileID: 0}
-    charaSprites: []
   startsBattle: 0
+  afterSpeak: {fileID: 0}
+  objTrigger: {fileID: 0}
 --- !u!4 &1083657422 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3721434482242296085, guid: f0e62313dde2a0949821399ef125942c, type: 3}
@@ -1383,11 +1385,12 @@ MonoBehaviour:
   itemName: 
   reqItemName: Croissant
   searchItemSprite: {fileID: 0}
+  itemType: 0
   interactType: 5
   notifType: 0
-  itemType: 0
   descriptionText: 
   afterInteract: {fileID: 0}
+  highlight: {fileID: 0}
 --- !u!50 &1372857358
 Rigidbody2D:
   serializedVersion: 4
@@ -1448,15 +1451,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    sprite: {fileID: 201538615760092092, guid: b4bc014b4d284994e97eb64f4c87d63d, type: 3}
     sentences:
     - Hiya! How you doing?
     - Oh you! Hahaha!
     - Seeing you is like looking in a mirror except you're not red. Wait, why do
       we look the same??
     diaFile: {fileID: 0}
-    charaSprites: []
   startsBattle: 0
+  afterSpeak: {fileID: 0}
+  objTrigger: {fileID: 0}
 --- !u!212 &1372857361
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1651,15 +1654,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    sprite: {fileID: 201538615760092092, guid: b4bc014b4d284994e97eb64f4c87d63d, type: 3}
     sentences:
     - Hiya! How you doing?
     - Oh you! Hahaha!
     - Seeing you is like looking in a mirror except you're not red. Wait, why do
       we look the same??
     diaFile: {fileID: 0}
-    charaSprites: []
   startsBattle: 0
+  afterSpeak: {fileID: 0}
+  objTrigger: {fileID: 0}
 --- !u!212 &1428747786
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1742,11 +1745,12 @@ MonoBehaviour:
   itemName: 
   reqItemName: Croissant
   searchItemSprite: {fileID: 0}
+  itemType: 0
   interactType: 5
   notifType: 0
-  itemType: 0
   descriptionText: 
   afterInteract: {fileID: 0}
+  highlight: {fileID: 0}
 --- !u!1 &1473098410
 GameObject:
   m_ObjectHideFlags: 0
@@ -1813,11 +1817,12 @@ MonoBehaviour:
   itemName: 
   reqItemName: Croissant
   searchItemSprite: {fileID: 0}
+  itemType: 0
   interactType: 5
   notifType: 0
-  itemType: 0
   descriptionText: 
   afterInteract: {fileID: 0}
+  highlight: {fileID: 0}
 --- !u!114 &1596635119
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1831,14 +1836,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    sprite: {fileID: 0}
     sentences:
     - Gimme a Croissant
     diaFile: {fileID: 0}
-    charaSprites:
-    - {fileID: -6289130957803872850, guid: d8bc637da790d034eb272673c24d3322, type: 3}
-    - {fileID: 127171830901372406, guid: e9dd02cd5f07e3544904ca2723a1438b, type: 3}
   startsBattle: 0
+  afterSpeak: {fileID: 0}
+  objTrigger: {fileID: 0}
 --- !u!212 &1596635120
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1968,11 +1971,12 @@ MonoBehaviour:
   itemName: 
   reqItemName: Croissant
   searchItemSprite: {fileID: 0}
+  itemType: 0
   interactType: 5
   notifType: 0
-  itemType: 0
   descriptionText: 
   afterInteract: {fileID: 0}
+  highlight: {fileID: 0}
 --- !u!50 &1680828133
 Rigidbody2D:
   serializedVersion: 4
@@ -2033,15 +2037,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    sprite: {fileID: 201538615760092092, guid: b4bc014b4d284994e97eb64f4c87d63d, type: 3}
     sentences:
     - Hiya! How you doing?
     - Oh you! Hahaha!
     - Seeing you is like looking in a mirror except you're not red. Wait, why do
       we look the same??
     diaFile: {fileID: 0}
-    charaSprites: []
   startsBattle: 0
+  afterSpeak: {fileID: 0}
+  objTrigger: {fileID: 0}
 --- !u!212 &1680828136
 SpriteRenderer:
   m_ObjectHideFlags: 0
