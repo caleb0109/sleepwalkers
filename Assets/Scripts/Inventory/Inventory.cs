@@ -97,8 +97,66 @@ public class Inventory : MonoBehaviour
         equippedWeapon = null;
     }
 
-    // used to move the item, set it active, and turn off the collider for the detectedObj
-    public void PlaceItem(GameObject item, Detect collidedObj)
+    // look for a specific item that goes with the requirement
+    public void UseItem(GameObject reqItem, int listLoc)
+    {
+        Interactable item = reqItem.GetComponent<Interactable>();
+        Phone playerPhone = FindObjectOfType<Phone>();
+        Detect detection = FindObjectOfType<Detect>();
+
+        Dialogue use = new Dialogue();
+        use.Start();
+
+        invenUI.HidePrompt();
+
+        // if the item is useable or food
+        if (item.itemType == Interactable.Item.Useable || item.itemType == Interactable.Item.Placeable)
+        {
+            Debug.Log("I'm using the item");
+            // if in the correct area, remove item and use it
+            if (detection.CheckCorrectArea(item))
+            {
+                item.notifType = Interactable.NotificationType.removed;
+
+                FindObjectOfType<NotificationManager>().NotifyInteractUpdate(item);
+
+                // remove from inventory
+                RemoveItem(reqItem);
+                invenUI.RemoveItemSprite(listLoc);
+
+                invenUI.Update_UI();
+
+                playerPhone.TogglePhone(); // closes phone window once item is used
+
+                // put the item at the node closet to player
+                if (item.itemType == Interactable.Item.Placeable)
+                {
+                    Debug.Log("I'm placing the item");
+                    // set the item to active and change the properties
+                    PlaceItem(reqItem, detection);
+                    item.itemType = Interactable.Item.None;
+                    item.interactType = Interactable.InteractableType.Cutscene;
+
+                    if (item.gameObject.GetComponent<DialogueTrigger>() != null)
+                    {
+                        item.gameObject.GetComponent<DialogueTrigger>().enabled = false;
+                    }
+                    //item.gameObject.GetComponent<DialogueTrigger>().enabled = false;
+                }
+            }
+            else
+            {
+                // turn off phone and mention that player can't use it in the certain area
+                playerPhone.TogglePhone();
+
+                use.sentences = new List<string>() { "Can't use the " + item.itemName + " here." };
+                FindObjectOfType<DialogueManager>().StartDialogue(use, false, null);
+            }
+        }
+    }
+
+        // used to move the item, set it active, and turn off the collider for the detectedObj
+        public void PlaceItem(GameObject item, Detect collidedObj)
     {
         FindObjectOfType<Nodes>().MoveItemToNode(item); // move the item
         collidedObj.DetectedObj.GetComponent<BoxCollider2D>().enabled = false; // turn off the collider for the specifc item loc

@@ -77,11 +77,6 @@ public class Movement : MonoBehaviour
             move = false;
         }
 
-        /*if (FindObjectOfType<Inventory>().isOpen)
-        {
-            move = false;
-        }*/
-
         if (FindObjectOfType<DialogueManager>().isSpeaking)
         {
             move = false;
@@ -110,7 +105,7 @@ public class Movement : MonoBehaviour
     // toggles inCutscene to prevent player from moving.
     public void ToggleInCutscene()
     {
-        //inCutscene = !inCutscene;
+        inCutscene = !inCutscene;
     }
 
     void OnMove(InputValue value)

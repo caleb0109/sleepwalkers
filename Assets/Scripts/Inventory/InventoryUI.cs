@@ -60,7 +60,7 @@ public class InventoryUI : MonoBehaviour
             promptBttns[0].onClick.RemoveAllListeners();
 
             // if the item is a weapon, display different option. Else display Use otion
-            /*if (invent.Items[id].GetComponent<Interactable>().itemType == Interactable.Item.Weapon)
+            if (invent.Items[id].GetComponent<Interactable>().itemType == Interactable.Item.Weapon)
             {
                 if (invent.equippedWeapon != null)
                 {
@@ -76,9 +76,14 @@ public class InventoryUI : MonoBehaviour
             else
             {
                 promptBttns[0].transform.GetChild(0).GetComponent<Text>().text = "Use Item";
-                promptBttns[0].onClick.AddListener(() => UseItem(invent.Items[id], id));
-            }*/
+                promptBttns[0].onClick.AddListener(() => invent.UseItem(invent.Items[id], id));
+            }
         }
+    }
+
+    public void RemoveItemSprite(int index)
+    {
+        itemSprites.RemoveAt(index);
     }
 
     public void HidePrompt()
@@ -111,63 +116,5 @@ public class InventoryUI : MonoBehaviour
                 item_images[i].gameObject.SetActive(false);
             }
         }
-    }
-
-    // look for a specific item that goes with the requirement
-    public void UseItem(GameObject reqItem, int listLoc)
-    {
-        Interactable item = reqItem.GetComponent<Interactable>();
-        Phone playerPhone = FindObjectOfType<Phone>();
-        Detect detection = FindObjectOfType<Detect>();
-
-        Dialogue use = new Dialogue();
-        use.Start();
-
-        HidePrompt();
-
-        // if the item is useable or food
-       /*if (item.itemType == Interactable.Item.Useable || item.itemType == Interactable.Item.Placeable)
-        {
-            Debug.Log("I'm using the item");
-            // if in the correct area, remove item and use it
-            if (detection.CheckCorrectArea(item))
-            {
-                item.notifType = Interactable.NotificationType.removed;
-
-                FindObjectOfType<NotificationManager>().NotifyInteractUpdate(item);
-
-                // remove from inventory
-                invent.RemoveItem(reqItem);
-                itemSprites.RemoveAt(listLoc);
-
-                Update_UI();
-
-                playerPhone.TogglePhone(); // closes phone window once item is used
-
-                // put the item at the node closet to player
-                if (item.itemType == Interactable.Item.Placeable)
-                {
-                    Debug.Log("I'm placing the item");
-                    // set the item to active and change the properties
-                    invent.PlaceItem(reqItem, detection);
-                    item.itemType = Interactable.Item.None;
-                    item.interactType = Interactable.InteractableType.Cutscene;
-
-                    if (item.gameObject.GetComponent<DialogueTrigger>() != null)
-                    {
-                        item.gameObject.GetComponent<DialogueTrigger>().enabled = false;
-                    }
-                    //item.gameObject.GetComponent<DialogueTrigger>().enabled = false;
-                }
-            }
-            else
-            {
-                // turn off phone and mention that player can't use it in the certain area
-                playerPhone.TogglePhone();
-
-                use.sentences = new List<string>() { "Can't use the " + item.itemName + " here." };
-                FindObjectOfType<DialogueManager>().StartDialogue(use, false, null);
-            }
-        }*/
     }
 }

@@ -12,6 +12,15 @@ using UnityEngine.SceneManagement;
 public class Interactable : MonoBehaviour
 {
     // Start is called before the first frame update
+    public enum Item
+    {
+        None,
+        Placeable,
+        Useable,
+        Weapon,
+        Food
+    }
+
     public enum InteractableType
     {
         NONE,
@@ -44,6 +53,7 @@ public class Interactable : MonoBehaviour
 
     public Sprite searchItemSprite; // item sprite that goes with the search
 
+    public Item itemType; // temporary, will remove later to a different script
     public InteractableType interactType;
     public NotificationType notifType;
 
@@ -153,10 +163,13 @@ public class Interactable : MonoBehaviour
 
                     PlayableDirector p = this.gameObject.GetComponent<PlayableDirector>();
 
+                    // move's the player to the starting cutscene position
+                    FindObjectOfType<Cutscene>().MoveToStartingPos(GameObject.Find("Yuichi").transform.position, FindObjectOfType<Nodes>().GetStartingCutsceneNode("Cutscene Exit")); // temporarily hard-coded for testing purposes
+
                     if (p.isActiveAndEnabled)
                     {
                         p.Play(); // play the cutscene
-                        GameObject.Find("Yuichi").GetComponent<SpriteRenderer>().enabled = false;
+                        //GameObject.Find("Yuichi").GetComponent<SpriteRenderer>().enabled = false;
                     }
                     break;
 

@@ -60,6 +60,7 @@ public class Nodes : MonoBehaviour
         return 0; // if it couldn't find any, return 0
     }
 
+    
     // find if there's placement nodes
     private Transform FindPlacement(string name)
     {
@@ -75,6 +76,7 @@ public class Nodes : MonoBehaviour
         return null;
     }
 
+    #region Item & Character Node Methods
     // returns a random position for the items
     public Vector3 ReturnRandomNodePos(string objType)
     {
@@ -254,5 +256,14 @@ public class Nodes : MonoBehaviour
         }
 
         return dist;
-    } 
+    }
+    #endregion
+
+    #region Cutscene Node Methods
+    // finds the starting node of the cutscene
+    public Vector2 GetStartingCutsceneNode(string cutsceneName)
+    {
+        return FindPlacement(cutsceneName).GetChild(0).transform.position;
+    }
+    #endregion
 }

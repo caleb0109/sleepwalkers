@@ -2,6 +2,7 @@
 
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -253,10 +254,12 @@ public class DialogueManager : MonoBehaviour
             {
                 timer = 0.0f; // resets the timer
 
-                if (letters[0].ToString() != " ")
+                // checks if what is being typed a letter or not
+                if (Char.IsLetterOrDigit(letters[0]))
                 {
-                    // uses the current speaker to randomly play the speaking sfx
-                    audSrc.clip = charasInDia[nameText.text][Random.Range(0, charasInDia[nameText.text].Count - 1)];
+                    // uses the current speaker to randomly play the speaking sfx 
+                    /*UnityEngine. -> specifies which namespace is used for random*/
+                    audSrc.clip = charasInDia[nameText.text][UnityEngine.Random.Range(0, charasInDia[nameText.text].Count - 1)];
                     audSrc.Play();
                 }
 
